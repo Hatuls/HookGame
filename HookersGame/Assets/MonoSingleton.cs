@@ -32,5 +32,5 @@ public abstract class MonoSingleton<T> : MonoBehaviour ,IInit where T: MonoSingl
 }
 public interface IInit {
 
-    public void Init();
+     void Init();
 }

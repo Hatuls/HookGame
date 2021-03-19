@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
 
         if ((_inputForm.jump && (Grounded() || jumpableSurface!=null)) || (_inputForm.jump && Grounded() && jumpableSurface != null))
         {
-            Debug.Log("jump");
+            _playerController.Jump(Vector3.up*jumpForce);
             
         }
         if (_inputForm.dash)

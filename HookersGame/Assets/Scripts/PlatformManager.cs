@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlatformManager : MonoSingleton<PlatformManager> {
     [SerializeField]
     private Platform[] platformsArr;
-
+    [SerializeField] float distanceRadiusCheck ;
 
 
 
@@ -27,5 +27,20 @@ public class PlatformManager : MonoSingleton<PlatformManager> {
         
 
         SetPlatformTexture?.Invoke();
+    }
+
+
+    public bool CheckEnviroment(Vector3 targetPos) {
+        bool isOverLappingObject = false;
+      
+        for (int i = 0; i < platformsArr.Length; i++)
+        {
+            isOverLappingObject |= Vector3.Distance(targetPos, platformsArr[i].transform.position) < distanceRadiusCheck;
+
+                if (isOverLappingObject)
+                break;
+        }
+        
+        return isOverLappingObject;
     }
 }

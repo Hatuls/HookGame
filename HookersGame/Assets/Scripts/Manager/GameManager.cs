@@ -7,7 +7,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         Singletons = new IInit[2]
         {
-         GameManager.Instance,
+         EnemyManager.Instance,
          PlatformManager.Instance
         };
 

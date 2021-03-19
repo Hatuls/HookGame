@@ -1,61 +1,41 @@
-﻿
-    class StateMachine
-    {
-        State state;
-        public StateMachine(State state)
-        {
-            State = state;
-        }
-        public State State
-        {
-            get => state;
-            set
-            {
-                if (state != value)
-                {
-                    if (state != null)
-                        state.Disable();
-                    state = value;
-                    if (state != null)
-                        state.Enable();
-                }
-            }
-        }
-    }
-abstract class State
+﻿using UnityEngine;
+using System;
+using System.Collections.Generic;
+public class StateMachine : MonoBehaviour 
 {
-    bool enabled;
 
-    public void Enable()
+    private Dictionary<Type, StateAbst> stateDict;
+    public StateAbst currentState { get; private set; }
+
+
+    public void SetState(Dictionary<Type, StateAbst> states)
+        => stateDict = states;
+
+    private void Update()
     {
-        if (!enabled)
+        if (currentState == null)
+            currentState = stateDict[typeof(Wingle)];
+
+
+        var nextState = currentState?.Tick();
+        Debug.Log("Enemy Current State: " + currentState);
+        if (nextState != null && nextState != currentState?.GetType())
+            SwitchToNewState(nextState);
+
+
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            Reset();
-            OnEnable();
-            enabled = true;
+            SwitchToNewState(typeof(Hooked));
         }
     }
-    protected virtual void OnEnable() { }
-    public void Disable()
-    {
-        if (enabled)
-        {
-            OnDisable();
-            enabled = false;
-        }
+
+    private void SwitchToNewState(Type nextState) {
+        stateDict[nextState].OnStateExit();
+        currentState = stateDict[nextState];
+        currentState.OnStateEnter();
     }
-    protected virtual void OnDisable() { }
-    public void Update()
-    {
-        if (enabled)
-            OnUpdate();
-    }
-    protected virtual void OnUpdate() { }
-    public void Reset()
-    {
-        if (enabled)
-            OnReset();
-    }
-    protected virtual void OnReset() { }
+
+
+
+
 }
-

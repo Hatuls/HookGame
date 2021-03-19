@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class Hooked : MonoBehaviour
+public class Hooked : StateAbst
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Hooked(Enemy enmy) : base(enmy) { }
 
-    // Update is called once per frame
-    void Update()
+    public override Type Tick()
     {
-        
+        Debug.Log(gameObject.name + "Got Hooked Cannot Do Anything");
+        return null;
     }
 }

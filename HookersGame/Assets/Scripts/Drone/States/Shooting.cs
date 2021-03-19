@@ -1,18 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class Shooting : StateAbst  
 {
-    // Start is called before the first frame update
-    void Start()
+    float currentTime;
+    float timeTillAnimationFinished = 2f;
+    bool toShoot;
+    public Shooting(Enemy enmy) : base(enmy)
     {
-        
+    
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnStateEnter()
     {
-        
+        currentTime = Time.time;
+        toShoot = false;
     }
+    public override Type Tick()
+    {
+        if (IsAnimationDurationOver())
+        {
+            Debug.Log("ChargingAnimation");
+            toShoot = true;
+        }
+
+        if (toShoot)
+        {
+            _enemy.ShootProjectile();
+                return typeof(RePositioning);
+        }
+
+        return null;
+    }
+    public bool IsAnimationDurationOver()
+        => Time.time > currentTime + timeTillAnimationFinished;
 }

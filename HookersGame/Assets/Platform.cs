@@ -4,7 +4,11 @@ public enum PlatFromType { Grabable, NotGrabable };
 public class Platform : MonoBehaviour
 {
     [SerializeField]
-    PlatFromType platFromType;
+    private PlatFromType platFromType;
+    public PlatFromType GetPlatFromType => platFromType;
+    public void SubscribePlatform() 
+     => PlatformManager.SetPlatformTexture += SetTexture;
+    
 
     public void SetTexture() {
 
@@ -13,19 +17,27 @@ public class Platform : MonoBehaviour
         {
             case PlatFromType.Grabable:
                 mat.color = Color.green;
-
+                // grabbable platform
                 break;
             case PlatFromType.NotGrabable:
                 mat.color = Color.red;
-
+                // not grabbable platform
                 break;
             default:
                 break;
         }
     }
-    public PlatFromType GetPlatFromType => platFromType;
+   
 
     public void HighLightMe() { }
+
+    private void OnDestroy()
+    => PlatformManager.SetPlatformTexture -= SetTexture;
+    
+
+    private void OnDisable()
+    => PlatformManager.SetPlatformTexture -= SetTexture;
+    
 }
 
     

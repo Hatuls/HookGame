@@ -14,7 +14,6 @@ public abstract class MonoSingleton<T> : MonoBehaviour ,IInit where T: MonoSingl
             }
               return m_Instance;
         }
-    
     }
 
     private void Awake()
@@ -31,6 +30,5 @@ public abstract class MonoSingleton<T> : MonoBehaviour ,IInit where T: MonoSingl
     public virtual void Init() { }
 }
 public interface IInit {
-
      void Init();
 }

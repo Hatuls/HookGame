@@ -20,17 +20,17 @@ public class Player : MonoBehaviour
     [SerializeField] float grabRange;
     [SerializeField] float dashForce;
     [SerializeField] float dashTime;
-    [SerializeField] Vector2 GroundDragAirDrag;
+    [SerializeField] Vector3 DragVector;
     float jumpLoadsInSec=10;
     [SerializeField] LayerMask GroundLayer;
     [SerializeField] LayerMask ShildLayer;
     [SerializeField] LayerMask InterractionLayer;
 
     GameObject grabbedObj;
-    GameObject mount;
-    GameObject jumpableSurface;
-    
 
+    GameObject jumpableSurface;
+
+    bool hooked;
 
 
     [SerializeField] GameObject heldTechGun;
@@ -125,9 +125,14 @@ public class Player : MonoBehaviour
     {
         if (Grounded())
         {
-            _playerController.rb.drag = GroundDragAirDrag.x;
+            _playerController.rb.drag = DragVector.x;
         }
-        else { _playerController.rb.drag = GroundDragAirDrag.y; }
+        if (_heldTechGun.grappled)
+        {
+            _playerController.rb.drag = DragVector.z;
+        }
+       
+        else { _playerController.rb.drag = DragVector.y; }
     }
 
     IEnumerator GetDashBoost(float DashBoost, float boostTime)
@@ -163,7 +168,7 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(_cameraController.FpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out RaycastHit hit, _heldTechGun.grappleSetting.GrapplingRange
             , _heldTechGun.grappleSetting.GraplingLayere))
         {
-            _heldTechGun.Grapple(hit.point, hit.transform.gameObject);
+            _heldTechGun.Grapple(hit.point, hit.transform.gameObject,hit.point);
         }
     }
     public void ReleaseGrapple()
@@ -184,13 +189,6 @@ public class Player : MonoBehaviour
 
     
 
-    public bool IsOnShild()
-    {
-        bool result = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1, ShildLayer);
-        if (result)
-            mount = hit.collider.gameObject;
-        return result;
-    }
-    
+
     
 }

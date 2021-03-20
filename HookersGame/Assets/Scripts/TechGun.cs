@@ -28,15 +28,20 @@ public class TechGun : MonoBehaviour
     internal bool grappled;
 
     Vector3 grapplingEndPoint;
+
+    
+
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public void Grapple(Vector3 Target,GameObject ConnectedObject)
+    public void Grapple(Vector3 Target,GameObject ConnectedObject,Vector3 GrapplePos)
     {
+        
+
         grappleObj = ConnectedObject;
-         grapplingEndPoint = grappleObj.transform.position;
+         grapplingEndPoint = GrapplePos;
         grappleJoint = transform.root.gameObject.AddComponent<SpringJoint>();
         grappleJoint.autoConfigureConnectedAnchor = false;
         grappleJoint.connectedAnchor = grappleObj.transform.position;
@@ -62,9 +67,9 @@ public class TechGun : MonoBehaviour
             
 
             grappleJoint.connectedAnchor = grappleObj.transform.position;
-            yield return new WaitForEndOfFrame();
         lineRenderer.SetPosition(0, Source.position);
-        lineRenderer.SetPosition(1, grappleObj.transform.position);
+        lineRenderer.SetPosition(1, grapplingEndPoint);
+            yield return null;
         }
         lineRenderer.enabled = false;
 

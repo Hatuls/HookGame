@@ -29,7 +29,7 @@ public class StateMachine : MonoBehaviour
         }
     }
 
-    private void SwitchToNewState(Type nextState) {
+    public void SwitchToNewState(Type nextState) {
         stateDict[nextState].OnStateExit();
         currentState = stateDict[nextState];
         currentState.OnStateEnter();

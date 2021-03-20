@@ -16,11 +16,11 @@ public class Enemy : MonoBehaviour
         AssignStates();
      
     }
-
+    Dictionary<Type, StateAbst> states;
 
     void AssignStates() {
 
-        Dictionary<Type, StateAbst> states = new Dictionary<Type, StateAbst>()
+        states = new Dictionary<Type, StateAbst>()
         {
             { typeof(Wingle),  new Wingle(this) },
             { typeof(Shooting),  new Shooting(this) },
@@ -47,9 +47,11 @@ public class Enemy : MonoBehaviour
         Body.localRotation = Quaternion.Lerp(Body.localRotation, rotation, Time.deltaTime * EnemyManager.GetRotationSpeed);
     }
      void KeepZAxisDistance() {
+
         if (Mathf.Abs(transform.position.z - Target.position.z) < EnemyManager.GetDistanceFromPlayer|| transform.position.z< Target.position.z)
-            transform.position = Vector3.Slerp(transform.position, transform.position + Vector3.forward * EnemyManager.GetDistanceFromPlayer, Time.deltaTime * EnemyManager.GetDroneSpeed);
-     }
+            transform.position = Vector3.Lerp(transform.position, transform.position + Vector3.forward * EnemyManager.GetDistanceFromPlayer, Time.deltaTime * EnemyManager.GetDroneSpeed);
+     
+    }
     public void EveryTickCheck() {
         RotateTowardThePlayer();
         KeepZAxisDistance();

@@ -18,6 +18,8 @@ public class Shooting : StateAbst
     }
     public override Type Tick()
     {
+        _enemy.EveryTickCheck();
+
         if (IsAnimationDurationOver())
         {
             Debug.Log("ChargingAnimation");

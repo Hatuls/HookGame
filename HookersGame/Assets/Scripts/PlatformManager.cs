@@ -35,7 +35,9 @@ public class PlatformManager : MonoSingleton<PlatformManager> {
       
         for (int i = 0; i < platformsArr.Length; i++)
         {
-            isOverLappingObject |= Vector3.Distance(targetPos, platformsArr[i].transform.position) < distanceRadiusCheck;
+            
+            Vector3 posWithScale = platformsArr[i].transform.position;
+            isOverLappingObject |= Vector3.Distance(targetPos, posWithScale)-.5f < distanceRadiusCheck;
 
                 if (isOverLappingObject)
                 break;

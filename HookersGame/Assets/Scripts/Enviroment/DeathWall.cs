@@ -43,7 +43,7 @@ public class DeathWall : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 10 && startDeathWall)
-            LevelManager.ResetLevelValues();
+            LevelManager.Instance.ResetLevelValues();
 
 
     }

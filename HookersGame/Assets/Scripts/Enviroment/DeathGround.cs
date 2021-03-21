@@ -15,7 +15,7 @@ public class DeathGround : MonoBehaviour
         if (other.gameObject.layer == 10 && !flag)
         {
             flag = true;
-            LevelManager.ResetLevelValues();
+            LevelManager.Instance.ResetLevelValues();
         }
     }
     private void OnDestroy()

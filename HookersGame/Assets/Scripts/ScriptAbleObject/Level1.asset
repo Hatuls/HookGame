@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abe57ac06eafdc47b11399743db77cb, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  Level: 0
-  DeathWallSpeed: 0
+  Level: 1
+  PlayerSpawningPoint: {fileID: 2538326109374470016, guid: afe27583b74f957408d46d6f8fa55f1c,
+    type: 3}
+  DeathWallSpeed: 5
   DroneSpawnPosition: []
   TimeToFinish:
   - 0

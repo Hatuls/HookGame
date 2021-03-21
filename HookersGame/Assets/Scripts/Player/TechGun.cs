@@ -9,7 +9,7 @@ public class TechGun : MonoBehaviour
 
 
 
-    internal Player usePlayer;
+    internal PlayerManager usePlayer;
     public GrappleSetting grappleSetting;
     internal bool grappled; 
    [SerializeField] Transform FrontHandSlot;

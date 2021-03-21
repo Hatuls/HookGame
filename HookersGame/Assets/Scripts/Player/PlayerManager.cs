@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 public enum CharState { Mounted, UnMounted }
-public class Player : MonoBehaviour
+public class PlayerManager : MonoSingleton<PlayerManager>
 {
     CameraController _cameraController;
     PlayerController _playerController;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     Compressor _compressor;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Init()
     {
         
         Cursor.lockState = CursorLockMode.Locked;
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         _inputForm = _inputManager.GetInput();
         UpdateUi();
         CameraCommands();
-        applyInputs();
+        ApplyInputs();
         ChangeDrag();
     }
     public void UpdateUi()
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
     }
     public void SetStartPoint(Transform Destination)
     {
-        transform.rotation = Quaternion.identity;
+        transform.rotation = Destination.rotation;
         transform.position = Destination.position;
     }
     public void UiEvent()
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
     }
   
     
-    public void applyInputs()
+    public void ApplyInputs()
     {
 
         //if ((_inputForm.jump && (Grounded() || jumpableSurface!=null)) || (_inputForm.jump && Grounded() && jumpableSurface != null))

@@ -17,7 +17,7 @@ public class StartDeathWallObject : MonoBehaviour {
         {
             flag = true;
             Debug.Log("Death Wall Starting to Chase The Player");
-            LevelManager.ResetLevelValues();
+            LevelManager.Instance.ResetLevelValues();
         }
     }
 

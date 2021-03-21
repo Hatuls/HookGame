@@ -36,6 +36,7 @@ public class FrontArm : MonoBehaviour
     }
     IEnumerator CheckRangeFromSource()
     {
+        GetComponent<Collider>().enabled=true;
         while (TravelDist+ DestroyDistOffset > Vector3.Distance(transform.position, LaunchBase.transform.position)){
             yield return new WaitForFixedUpdate();
             if (attached)

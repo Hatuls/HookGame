@@ -72,10 +72,10 @@ public class Player : MonoBehaviour
     public void applyInputs()
     {
 
-        if ((_inputForm.jump && (Grounded() || jumpableSurface!=null)) || (_inputForm.jump && Grounded() && jumpableSurface != null))
-        {
-            _playerController.Jump(Vector3.up*jumpForce);   
-        }
+        //if ((_inputForm.jump && (Grounded() || jumpableSurface!=null)) || (_inputForm.jump && Grounded() && jumpableSurface != null))
+        //{
+        //    _playerController.Jump(Vector3.up*jumpForce);   
+        //}
         if (_inputForm.dash)
         {
             _playerController.Dash(_cameraController.transform.forward);

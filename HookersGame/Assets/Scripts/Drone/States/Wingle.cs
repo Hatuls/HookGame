@@ -23,9 +23,9 @@ public class Wingle : StateAbst
     public override Type Tick()
     {
         _enemy.EveryTickCheck();
-
+        return typeof(RePositioning);
         //check his currentPosition or if time passes certain amount
-        if (CheckTimeToChangePosition() || PlatformManager.Instance.CheckEnviroment(transform.position)) {
+        if (CheckTimeToChangePosition() ) {
            return typeof(RePositioning);
         }
 

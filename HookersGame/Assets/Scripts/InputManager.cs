@@ -52,7 +52,7 @@ public class InputManager : MonoBehaviour
             _inputForm.grapple = Input.GetButtonDown("Fire2");
             
             _inputForm.jump = Input.GetButtonDown("Jump");
-            _inputForm.ReleaseGrapple = Input.GetButtonDown("Fire3");
+            _inputForm.ReleaseGrapple = Input.GetButtonDown("Fire3")|| Input.GetKeyDown(KeyCode.Q);
             _inputForm.dash = applyDash(useDash);
             _inputForm.pulse = Input.GetButtonDown("Fire1");
        

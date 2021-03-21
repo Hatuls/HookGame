@@ -1252,7 +1252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136233107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.94, y: -0.09, z: -6.07}
+  m_LocalPosition: {x: -0.94, y: -0.09, z: -5.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1687258585}
@@ -1362,6 +1362,10 @@ PrefabInstance:
       propertyPath: distanceRadiusCheck
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1262688326, guid: b40a5c3827aa9f643a0dd96a84849f0d, type: 3}
+      propertyPath: grabableLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 2257823656938604813, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: m_Name
@@ -1451,6 +1455,11 @@ PrefabInstance:
         type: 3}
       propertyPath: RotationSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206604708096983941, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: obstacles.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 7206604708096983941, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}

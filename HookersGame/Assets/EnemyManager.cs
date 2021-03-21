@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoSingleton<EnemyManager>
 {
+
     [SerializeField] Vector2 MinPoint, MaxPoint;
     [SerializeField] float DistanceFromPlayer, RotationSpeed, DroneSpeed;
     public static float GetDistanceFromPlayer => Instance.DistanceFromPlayer;

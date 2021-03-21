@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2257823656938604815}
   - component: {fileID: 1262688326}
   - component: {fileID: 7206604708096983941}
+  - component: {fileID: 815221465}
   m_Layer: 0
   m_Name: Singleton
   m_TagString: Untagged
@@ -58,6 +59,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformsArr: []
+  grabableLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &7206604708096983941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,5 +72,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf1b10cc027af884ab3ce7df1e5fcd86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinPoint: {x: 0, y: 0}
+  MaxPoint: {x: 0, y: 0}
+  DistanceFromPlayer: 0
+  RotationSpeed: 0
+  DroneSpeed: 0
+--- !u!114 &815221465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257823656938604813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c108963b5ca27d646842f368cb843104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

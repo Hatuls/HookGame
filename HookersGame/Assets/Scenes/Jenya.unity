@@ -28972,6 +28972,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: DragVector.z
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6081794149376521725, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
       propertyPath: TravelSpeed
@@ -35623,7 +35628,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16432
+  m_Name: pb_Mesh16428
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -37,6 +37,12 @@ public class TechGun : MonoBehaviour
         GetParts();
     }
 
+    public void ResetGun()
+    {
+        if(grappled)
+        StopGrapple();
+        
+    }
     public void GetParts()
     {
         
@@ -115,7 +121,6 @@ public class TechGun : MonoBehaviour
             yield return null;
         }
         lineRenderer.enabled = false;
-        InitNewFrontArm();
 
     }
 
@@ -127,6 +132,7 @@ public class TechGun : MonoBehaviour
         grapplingEndPoint = Vector3.zero;
         grappled = false;
         Debug.Log("sd");
+        InitNewFrontArm();
     }
     public void InitNewFrontArm()
     {

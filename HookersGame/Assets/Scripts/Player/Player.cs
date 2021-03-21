@@ -45,9 +45,37 @@ public class Player : MonoBehaviour
     void Update()
     {
         _inputForm = _inputManager.GetInput();
+        UpdateUi();
         CameraCommands();
         applyInputs();
         ChangeDrag();
+    }
+    public void UpdateUi()
+    {
+        SpeedUi();
+    }
+    public void SpeedUi()
+    {
+        float speed = _playerController.rb.velocity.magnitude;
+        _playerUi.TriggerUi(Mathf.RoundToInt(speed));
+
+    }
+    public void ResetValues()
+    {
+        _playerController.rb.velocity = Vector3.zero;
+        _compressor.ResetCompressor();
+        _playerUi.ResetUi();
+        _heldTechGun.ResetGun();
+
+    }
+    public void SetStartPoint(Transform Destination)
+    {
+        transform.rotation = Quaternion.identity;
+        transform.position = Destination.position;
+    }
+    public void UiEvent()
+    {
+        
     }
     public void FixedUpdate()
     {
@@ -63,7 +91,7 @@ public class Player : MonoBehaviour
         _cameraController = GetComponentInChildren<CameraController>();
         _playerController = GetComponent<PlayerController>();
         _inputManager = GetComponent<InputManager>();
-        _playerUi = GetComponent<PlayerUI>();
+        _playerUi = GetComponentInChildren<PlayerUI>();
         _playerController.Dashforce = dashForce;
         _playerController.DashTime = dashTime;
     }
@@ -128,6 +156,7 @@ public class Player : MonoBehaviour
        
        
     }
+    
     public void RecieveCharge(int ammount)
     {
         _compressor.Charge(ammount);

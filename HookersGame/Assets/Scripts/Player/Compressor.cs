@@ -12,6 +12,14 @@ public class Compressor : MonoBehaviour
     public ParticleSystem PulseParticles;
     Coroutine selfCharge;
 
+    public void ResetCompressor()
+    {
+        if (selfCharge != null)
+        StopCoroutine(selfCharge);
+        Charges = maxCharges;
+        selfCharge = null;
+    }
+
    public void Pulse()
    {
         if (Charges > 0)
@@ -40,6 +48,7 @@ public class Compressor : MonoBehaviour
     public void Charge(int chargeAmmount)
     {
         Charges += chargeAmmount;
+        if(selfCharge!=null)
         StopCoroutine(selfCharge);
         if (Charges > maxCharges) Charges = maxCharges;
 

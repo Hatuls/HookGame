@@ -8,6 +8,7 @@ public class FrontArm : MonoBehaviour
     Rigidbody rb;
     [SerializeField] float TravelSpeed;
     [SerializeField] float TravelDist;
+    [SerializeField] float DestroyDistOffset;
     
     
     internal TechGun LaunchBase;
@@ -35,7 +36,7 @@ public class FrontArm : MonoBehaviour
     }
     IEnumerator CheckRangeFromSource()
     {
-        while (TravelDist > Vector3.Distance(transform.position, LaunchBase.transform.position)){
+        while (TravelDist+ DestroyDistOffset > Vector3.Distance(transform.position, LaunchBase.transform.position)){
             yield return new WaitForFixedUpdate();
             if (attached)
             {

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class PlatformManager : MonoSingleton<PlatformManager> {
+public class PlatformManager : MonoSingleton<PlatformManager> 
+{
     [SerializeField]
     private Platform[] platformsArr;
     
@@ -51,4 +52,6 @@ public class PlatformManager : MonoSingleton<PlatformManager> {
         }
         return closestObject;
     }
+
+ 
 }

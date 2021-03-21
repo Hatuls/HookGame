@@ -62,9 +62,8 @@ public class RePositioning : StateAbst
                 ray = new Ray(_enemy.GetDroneBody.position, _enemy.GetNormalizedDirection(closestObstacle.position, _enemy.GetDroneBody.position));
                 if (Physics.Raycast(ray, out hitInfo, 20f, PlatformManager.Instance.GetGrabableLayer))
                 {
-                Debug.DrawRay(_enemy.GetDroneBody.position, _enemy.GetNormalizedDirection(closestObstacle.position, _enemy.GetDroneBody.position), Color.red, 2f);
-                hitPoint = hitInfo.point;
-
+                  Debug.DrawRay(_enemy.GetDroneBody.position, _enemy.GetNormalizedDirection(closestObstacle.position, _enemy.GetDroneBody.position), Color.red, 2f);
+                 hitPoint = hitInfo.point;
                 } 
             }
         }

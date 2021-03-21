@@ -2,18 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+public class EventManager : MonoSingleton<EventManager>
 {
-    public delegate void ClickAction();
-    public static event ClickAction Reset;
-
-    public void ResetValues()
-    {
-        if (Reset != null)
-        {
-            Reset();
-        }
-    }
+  
 
 
 

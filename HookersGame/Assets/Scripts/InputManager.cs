@@ -41,26 +41,21 @@ public class InputManager : MonoBehaviour
         _inputForm.movementVector = new Vector3(horizontal, 0, vertical);
         _inputForm.mouseVector = new Vector2(mouseX, -mouseY);
       
-        _inputForm.shoot = Input.GetButtonDown("Fire2");
 
        
 
-        if (grabMode)
-        {
-            _inputForm.Scrollwheel = Input.GetAxis("Mouse ScrollWheel");
-            _inputForm.release = Input.GetButtonDown("Fire1");
-            
-        }
-        else
-        {
+        
+       
+            _inputForm.grapple = Input.GetButtonDown("Fire2");
+            _inputForm.pullGrapple = Input.GetButton("Fire2");
+            _inputForm.ReleaseGrapple = Input.GetButtonDown("Fire3");
    
      
-            _inputForm.grapple = Input.GetButtonDown("Fire3");
+            _inputForm.pulse = Input.GetButtonDown("Fire1");
+            
             _inputForm.jump = Input.GetButtonDown("Jump");
-            _inputForm.jumpPressed = Input.GetButton("Jump");
             _inputForm.dash = applyDash(useDash);
-            _inputForm.grab = Input.GetButtonDown("Fire1");
-        }
+       
         
 
 
@@ -102,6 +97,6 @@ public class InputForm
     public Vector2 mouseVector;
     public float Scrollwheel;
 
-    public bool jump, jumpPressed, dash, grab, release, shoot, reload, interract, ShootShild, grapple, rideShild, ShildToMiddle;
+    public bool jump, ReleaseGrapple, dash, pulse, release, pullGrapple, grapple;
 }
 

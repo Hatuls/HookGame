@@ -11,33 +11,24 @@ public class Player : MonoBehaviour
     InputForm _inputForm;
     PlayerUI _playerUi;
     
-
-    [SerializeField] float EXP;
-    private float NextLevelExp;
     [SerializeField] float movementSpeed;
     [SerializeField] float jumpForce;
-    [SerializeField] float maxJumpForce;
     [SerializeField] float grabRange;
     [SerializeField] float dashForce;
     [SerializeField] float dashTime;
-    [SerializeField] Vector2 GroundDragAirDrag;
-    float jumpLoadsInSec=10;
+    [SerializeField] Vector3 DragVector; 
     [SerializeField] LayerMask GroundLayer;
     [SerializeField] LayerMask ShildLayer;
     [SerializeField] LayerMask InterractionLayer;
 
     GameObject grabbedObj;
-    GameObject mount;
     GameObject jumpableSurface;
-    
-
-
 
     [SerializeField] GameObject heldTechGun;
-
-   
-
     TechGun _heldTechGun;
+
+    [SerializeField] GameObject compressor;
+    Compressor _compressor;
 
     // Start is called before the first frame update
     void Start()
@@ -47,8 +38,10 @@ public class Player : MonoBehaviour
         Cursor.visible = false;
         GetComponents();
         GetTechGun();
+        GetCompressor();
        
     }
+  
     void Update()
     {
         _inputForm = _inputManager.GetInput();
@@ -61,7 +54,6 @@ public class Player : MonoBehaviour
         if (_inputForm != null)
         {
             _playerController.Move(_inputForm.movementVector.normalized * movementSpeed);
-
         }
     }
 
@@ -71,8 +63,6 @@ public class Player : MonoBehaviour
         _cameraController = GetComponentInChildren<CameraController>();
         _playerController = GetComponent<PlayerController>();
         _inputManager = GetComponent<InputManager>();
-        
-        
         _playerUi = GetComponent<PlayerUI>();
         _playerController.Dashforce = dashForce;
         _playerController.DashTime = dashTime;
@@ -82,41 +72,44 @@ public class Player : MonoBehaviour
     public void applyInputs()
     {
 
-        if ((_inputForm.jump && (Grounded() || jumpableSurface!=null)) || (_inputForm.jump && Grounded() && jumpableSurface != null))
-        {
-            _playerController.Jump(Vector3.up*jumpForce);
-            
-        }
+        //if ((_inputForm.jump && (Grounded() || jumpableSurface!=null)) || (_inputForm.jump && Grounded() && jumpableSurface != null))
+        //{
+        //    _playerController.Jump(Vector3.up*jumpForce);   
+        //}
         if (_inputForm.dash)
         {
             _playerController.Dash(_cameraController.transform.forward);
         }
-        
-        if (!_heldTechGun.grappled&&_inputForm.grapple)
+        if (!_heldTechGun.grappled&&_inputForm.grapple && _heldTechGun.FrontConnected)
         {
-            
-            Grapple();
-
-        }else if(_heldTechGun.grappled && _inputForm.grapple)
-        {
-           
+            ShootArm();
+        }
+        if(_heldTechGun.grappled && _inputForm.ReleaseGrapple)
+        {  
             ReleaseGrapple();
         }
+        if (_inputForm.pulse)
+        {
+            UseCompressor();
+        }
+        if (_inputForm.pullGrapple && _heldTechGun.grappled)
+        {
+            if (!_heldTechGun.pulling)
+            {
+            _heldTechGun.PullGrapple();
+            }
 
-    
-
-
-     
-      
-
-
-     
+        }else if (_heldTechGun.grappled && _heldTechGun.pulling)
+        {
+            _heldTechGun.pulling = false;
+        }
     }
 
     public void CameraCommands()
     {
         _cameraController.MoveCamera(_inputForm.mouseVector);
-        _cameraController.GetLookPos(heldTechGun);
+        _cameraController.GetLookPos(heldTechGun,_heldTechGun.grappleSetting.GrapplingRange);
+        _cameraController.GetLookPos(compressor,_heldTechGun.grappleSetting.GrapplingRange);
     }
 
     #region PlayerCommands
@@ -125,9 +118,19 @@ public class Player : MonoBehaviour
     {
         if (Grounded())
         {
-            _playerController.rb.drag = GroundDragAirDrag.x;
+            _playerController.rb.drag = DragVector.x;
         }
-        else { _playerController.rb.drag = GroundDragAirDrag.y; }
+        else { _playerController.rb.drag = DragVector.y; }
+        if (_heldTechGun.grappled)
+        {
+            _playerController.rb.drag = DragVector.z;
+        }
+       
+       
+    }
+    public void RecieveCharge(int ammount)
+    {
+        _compressor.Charge(ammount);
     }
 
     IEnumerator GetDashBoost(float DashBoost, float boostTime)
@@ -147,50 +150,41 @@ public class Player : MonoBehaviour
     #endregion
 
    
-  
-   
+
     #region GunCommands
     //All Commands Related To Guns
-
-
     public void GetTechGun()
     {
         _heldTechGun = heldTechGun.GetComponent<TechGun>();
+        _heldTechGun.usePlayer = this;
     }
- 
-    public void Grapple()
+
+    public void ShootArm()
     {
-        if (Physics.Raycast(_cameraController.FpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out RaycastHit hit, _heldTechGun.grappleSetting.GrapplingRange
-            , _heldTechGun.grappleSetting.GraplingLayere))
-        {
-            _heldTechGun.Grapple(hit.point, hit.transform.gameObject);
-        }
+       
+            _heldTechGun.LaunchFrontArm();
+        
     }
+
     public void ReleaseGrapple()
     {
         _heldTechGun.StopGrapple();
     }
+    public void GetCompressor()
+    {
+        _compressor = compressor.GetComponent<Compressor>();
+    }
+    public void UseCompressor()
+    {
+        _compressor.Pulse();   
+    }
 
 
-    #endregion
+    
+   #endregion
 
-
-
- 
     public bool Grounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, 2, GroundLayer);
-    }
-
-    
-
-    public bool IsOnShild()
-    {
-        bool result = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1, ShildLayer);
-        if (result)
-            mount = hit.collider.gameObject;
-        return result;
-    }
-    
-    
+    }  
 }

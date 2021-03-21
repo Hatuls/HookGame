@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     
     internal Rigidbody rb;
     
-
     private float dashTime;
     private float dashforce;
     public float Dashforce { get => dashforce; set => dashforce = value; }
@@ -17,11 +16,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }    
+    }
+    
     public void Move(Vector3 movementVector)
     {
-        rb.AddRelativeForce(movementVector);
-       
+        rb.AddRelativeForce(movementVector);       
     }
      
     public void Jump(Vector3 jumpVector)

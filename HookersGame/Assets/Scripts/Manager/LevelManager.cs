@@ -15,10 +15,11 @@ public class LevelManager : MonoSingleton<LevelManager>
     }
     internal float GetLevelDeathWallSpeed()
         => LevelsSO[currentLevel].DeathWallSpeed;
+    public float 
     public static void ResetLevelValues()
     {
         // Player:
-        // Reset Player Position + rotatation
+        // Reset Player Position + rotation
         // Reset player Cooldowns
         // reset physics and forces
 
@@ -31,7 +32,7 @@ public class LevelManager : MonoSingleton<LevelManager>
 
         // UI 
         // Reset Ui Elements
-
+        
         ResetLevelParams?.Invoke();
 
     }

@@ -56,6 +56,7 @@ public class FrontArm : MonoBehaviour
     void AttachToSurface(Vector3 attachedPoint, GameObject attachedObj)
     {
         attached=true;
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         rb.isKinematic=true;
         SetGrapple(attachedPoint,attachedObj);
     }

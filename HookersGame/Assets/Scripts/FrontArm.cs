@@ -30,6 +30,7 @@ public class FrontArm : MonoBehaviour
     void TravelTowards()
     {
         transform.parent = null;
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         //transform.LookAt(LaunchBase.transform.forward);
         rb.AddForce(transform.forward * TravelSpeed);
         StartCoroutine(CheckRangeFromSource());

@@ -5331,6 +5331,9 @@ MonoBehaviour:
   FrontHandSlot: {fileID: 5816641861944816969}
   FrontArm: {fileID: 1163359150384797979}
   BackArm: {fileID: 940899131}
+  startPullSpeed: 0.5
+  MaxPullSpeed: 2
+  PullIncrease: 0.1
 --- !u!120 &5269382748743179356
 LineRenderer:
   m_ObjectHideFlags: 0

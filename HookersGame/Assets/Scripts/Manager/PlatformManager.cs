@@ -3,7 +3,7 @@
 public class PlatformManager : MonoSingleton<PlatformManager> {
     [SerializeField]
     private Platform[] platformsArr;
-    [SerializeField] float distanceRadiusCheck ;
+    
     [SerializeField] LayerMask grabableLayer;
 
 

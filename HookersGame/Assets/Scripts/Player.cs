@@ -113,12 +113,13 @@ public class Player : MonoBehaviour
         {
             _playerController.rb.drag = DragVector.x;
         }
+        else { _playerController.rb.drag = DragVector.y; }
         if (_heldTechGun.grappled)
         {
             _playerController.rb.drag = DragVector.z;
         }
        
-        else { _playerController.rb.drag = DragVector.y; }
+       
     }
     public void RecieveCharge(int ammount)
     {

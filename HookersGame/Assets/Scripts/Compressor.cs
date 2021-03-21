@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class Compressor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    public int Charges;
+    [SerializeField] int maxCharges;
+    [SerializeField] float PulseStrenght;
+    public ParticleSystem PulseParticles;
+   public void Pulse()
+   {
+        if (Charges > 0)
+        {
 
-    // Update is called once per frame
-    void Update()
+        PulseParticles.Play();
+        transform.root.GetComponent<Rigidbody>().AddForce(-transform.forward * PulseStrenght,ForceMode.Impulse);
+            Charges--;
+        }
+        else
+        {
+            Debug.Log("Out of charges");
+        }
+   }
+    public void Charge(int chargeAmmount)
     {
-        
+        Charges += chargeAmmount;
+        if (Charges > maxCharges) Charges = maxCharges;
+
     }
 }

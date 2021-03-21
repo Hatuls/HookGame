@@ -27,9 +27,9 @@ public class CameraController : MonoBehaviour
         transform.root.rotation = Quaternion.Euler(0, currentRotation.x, 0);
         
     }
-    public void GetLookPos(GameObject gameObject)
+    public void GetLookPos(GameObject gameObject,float distance)
     {
-        gameObject.transform.LookAt(FpsCam.transform.forward * 1000);
+        gameObject.transform.LookAt(FpsCam.transform.forward * 10000f);
     }
 
 

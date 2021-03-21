@@ -6,40 +6,58 @@ using UnityEngine;
 public class TechGun : MonoBehaviour
 {
 
-    [SerializeField] Transform Source;
-
-
-    
-
-    public Transform[] bulletSource;
-    internal int currentAmmo;
-    [SerializeField] int bulletsPerShot;
 
 
 
-
-
-
-    private LineRenderer lineRenderer;
-    SpringJoint grappleJoint;
-    GameObject grappleObj;
+    internal Player usePlayer;
     public GrappleSetting grappleSetting;
-
-    internal bool grappled;
-
-    Vector3 grapplingEndPoint;
+    internal bool grappled; 
+   [SerializeField] Transform FrontHandSlot;
+   [SerializeField] GameObject FrontArm;
+    private GameObject currentFrontArm;
+   [SerializeField] GameObject BackArm;
+    private FrontArm _frontArm;
+    private BackArm _backArm;
+    private Vector3 grapplingEndPoint;
+    internal bool FrontConnected=true;
+    private LineRenderer lineRenderer;
+    GameObject grappleObj;
+    SpringJoint grappleJoint;
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        InitNewFrontArm();
+        GetParts();
     }
 
-    public void Grapple(Vector3 Target,GameObject ConnectedObject)
+    public void GetParts()
     {
+        
+        _backArm = BackArm.GetComponent<BackArm>();
+    }
+
+    public void LaunchFrontArm()
+    {
+        FrontConnected = false;
+        _frontArm.Launch(this);
+    }
+
+    public void PullGrapple()
+    {
+        grappleJoint.minDistance--;
+        grappleJoint.maxDistance--;
+    }
+    
+
+    public void Grapple(GameObject ConnectedObject,Vector3 GrapplePos)
+    {
+       
+
         grappleObj = ConnectedObject;
-         grapplingEndPoint = grappleObj.transform.position;
+         grapplingEndPoint = GrapplePos;
         grappleJoint = transform.root.gameObject.AddComponent<SpringJoint>();
         grappleJoint.autoConfigureConnectedAnchor = false;
-        grappleJoint.connectedAnchor = grappleObj.transform.position;
+        grappleJoint.connectedAnchor = GrapplePos;
 
         float DistanceFromTarget = Vector3.Distance(transform.root.position, grappleObj.transform.position);
         //Grappling ranges
@@ -59,22 +77,41 @@ public class TechGun : MonoBehaviour
         lineRenderer.enabled = true;
         while (grappled)
         {
-            
 
-            grappleJoint.connectedAnchor = grappleObj.transform.position;
-            yield return new WaitForEndOfFrame();
-        lineRenderer.SetPosition(0, Source.position);
-        lineRenderer.SetPosition(1, grappleObj.transform.position);
+            if (grappleObj != null)
+            {
+
+            
+            lineRenderer.SetPosition(0, _backArm.GrappleSource.position);
+            lineRenderer.SetPosition(1, grapplingEndPoint);
+            }
+            yield return null;
         }
         lineRenderer.enabled = false;
+        InitNewFrontArm();
 
     }
+
     public void StopGrapple()
     {
-        Debug.Log("yo");
+        
         Destroy(grappleJoint);
+        Destroy(currentFrontArm);
         grapplingEndPoint = Vector3.zero;
         grappled = false;
+        Debug.Log("sd");
+    }
+    public void InitNewFrontArm()
+    {
+        currentFrontArm = Instantiate(FrontArm, FrontHandSlot);
+        _frontArm = currentFrontArm.GetComponent<FrontArm>();
+        FrontConnected = true;
+    }
+
+    public void RecieveCharge(int ammount)
+    {
+        StopGrapple();
+        usePlayer.RecieveCharge(ammount);
     }
 
 

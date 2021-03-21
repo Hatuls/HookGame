@@ -32,6 +32,7 @@ public class TechGun : MonoBehaviour
     internal bool pulling;
     private void Start()
     {
+        
         lineRenderer = GetComponent<LineRenderer>();
         InitNewFrontArm();
         GetParts();
@@ -58,7 +59,7 @@ public class TechGun : MonoBehaviour
     IEnumerator Pull()
     {
         float currentSpeed = startPullSpeed;
-        while (pulling && currentSpeed<MaxPullSpeed)
+        while (pulling && currentSpeed<MaxPullSpeed && grappleJoint != null)
         {
             grappleJoint.maxDistance -= currentSpeed;
             grappleJoint.minDistance -= currentSpeed;

@@ -22,7 +22,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] LayerMask InterractionLayer;
 
     GameObject grabbedObj;
-    GameObject jumpableSurface;
+
+    Transform StartPoint;
+    
+
 
     [SerializeField] GameObject heldTechGun;
     TechGun _heldTechGun;
@@ -30,10 +33,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] GameObject compressor;
     Compressor _compressor;
 
+
+
     // Start is called before the first frame update
     public override void Init()
     {
-        
+        LevelManager.ResetLevelParams += ResetValues;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         GetComponents();
@@ -62,16 +67,23 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
     public void ResetValues()
     {
-        _playerController.rb.velocity = Vector3.zero;
         _compressor.ResetCompressor();
         _playerUi.ResetUi();
         _heldTechGun.ResetGun();
+        _playerController.rb.velocity = Vector3.zero;
+        ResetPlayerBody();
 
     }
+    
     public void SetStartPoint(Transform Destination)
     {
-        transform.rotation = Destination.rotation;
-        transform.position = Destination.position;
+        StartPoint = Destination;
+        ResetPlayerBody();
+    }
+    public void ResetPlayerBody()
+    {
+        transform.rotation = StartPoint.rotation;
+        transform.position = StartPoint.position;
     }
     public void UiEvent()
     {

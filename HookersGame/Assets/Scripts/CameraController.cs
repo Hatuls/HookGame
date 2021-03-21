@@ -29,7 +29,17 @@ public class CameraController : MonoBehaviour
     }
     public void GetLookPos(GameObject gameObject,float distance)
     {
-        gameObject.transform.LookAt(FpsCam.transform.forward * 10000f);
+        var ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+        RaycastHit hitPoint;
+
+        //Vector3 lookAt = ray.direction * 500f + gameObject.transform.position;
+        //gameObject.transform.LookAt(lookAt);
+
+
+        if (Physics.Raycast(ray, out hitPoint, float.MaxValue))
+        {
+           gameObject.transform.LookAt(hitPoint.point);
+        }
     }
 
 

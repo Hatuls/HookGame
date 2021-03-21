@@ -23,6 +23,11 @@ public class TechGun : MonoBehaviour
     private LineRenderer lineRenderer;
     GameObject grappleObj;
     SpringJoint grappleJoint;
+
+    [SerializeField] float startPullSpeed;
+    [SerializeField] float MaxPullSpeed;
+    [SerializeField] float PullIncrease;
+    internal bool pulling;
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -42,10 +47,30 @@ public class TechGun : MonoBehaviour
         _frontArm.Launch(this);
     }
 
+    IEnumerator Pull()
+    {
+        float currentSpeed = startPullSpeed;
+        while (pulling && currentSpeed<MaxPullSpeed)
+        {
+            grappleJoint.maxDistance -= currentSpeed;
+            grappleJoint.minDistance -= currentSpeed;
+            yield return new WaitForFixedUpdate();
+            currentSpeed += PullIncrease;
+        }
+        while (pulling&&grappleJoint!=null)
+        {
+            grappleJoint.maxDistance -= currentSpeed;
+            grappleJoint.minDistance -= currentSpeed;
+            yield return new WaitForFixedUpdate();
+
+        }
+            Debug.Log(currentSpeed);
+        
+    }
     public void PullGrapple()
     {
-        grappleJoint.minDistance--;
-        grappleJoint.maxDistance--;
+        pulling = true;
+        StartCoroutine(Pull());
     }
     
 

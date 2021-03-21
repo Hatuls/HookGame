@@ -46,15 +46,18 @@ public class InputManager : MonoBehaviour
 
         
        
+            _inputForm.grapple = Input.GetButtonDown("Fire2");
+            _inputForm.pullGrapple = Input.GetButton("Fire2");
+            _inputForm.ReleaseGrapple = Input.GetButtonDown("Fire3");
    
      
-            _inputForm.pullGrapple = Input.GetButton("Fire2");
-            _inputForm.grapple = Input.GetButtonDown("Fire2");
+            _inputForm.pulse = Input.GetButtonDown("Fire1");
             
             _inputForm.jump = Input.GetButtonDown("Jump");
-            _inputForm.ReleaseGrapple = Input.GetButtonDown("Fire3")|| Input.GetKeyDown(KeyCode.Q);
+
+            _inputForm.ReleaseGrapple = Input.GetButtonDown("Fire3");
+
             _inputForm.dash = applyDash(useDash);
-            _inputForm.pulse = Input.GetButtonDown("Fire1");
        
         
 
@@ -97,6 +100,6 @@ public class InputForm
     public Vector2 mouseVector;
     public float Scrollwheel;
 
-    public bool jump, ReleaseGrapple, dash, pulse, release, pullGrapple, reload, interract, ShootShild, grapple, rideShild, ShildToMiddle;
+    public bool jump, ReleaseGrapple, dash, pulse, release, pullGrapple, grapple;
 }
 

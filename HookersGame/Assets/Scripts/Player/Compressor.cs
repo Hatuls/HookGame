@@ -7,7 +7,7 @@ public class Compressor : MonoBehaviour
     
     public int Charges;
     [SerializeField] int maxCharges;
-    [SerializeField] int TimeToSelfCharge;
+    [SerializeField] float TimeToSelfCharge;
     [SerializeField] float PulseStrenght;
     public ParticleSystem PulseParticles;
     Coroutine selfCharge;

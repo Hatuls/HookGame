@@ -5137,8 +5137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fc2a7e9853fdf43b17ff7c3315c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TravelSpeed: 3000
+  TravelSpeed: 4000
   TravelDist: 55
+  DestroyDistOffset: 10
 --- !u!1 &5269382748675008332
 GameObject:
   m_ObjectHideFlags: 0
@@ -5639,7 +5640,7 @@ MonoBehaviour:
   grabRange: 10
   dashForce: 10
   dashTime: 0.01
-  DragVector: {x: 1, y: 0.5, z: 0.4}
+  DragVector: {x: 1, y: 0.5, z: 0.6}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 512

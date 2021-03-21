@@ -15,7 +15,7 @@ public class LevelManager : MonoSingleton<LevelManager>
     }
     internal float GetLevelDeathWallSpeed()
         => LevelsSO[currentLevel].DeathWallSpeed;
-    public float 
+   
     public static void ResetLevelValues()
     {
         // Player:

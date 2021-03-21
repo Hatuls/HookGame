@@ -178,10 +178,15 @@ public class Player : MonoBehaviour
     {
         _compressor.Pulse();   
     }
+   
 
 
     
-   #endregion
+    
+
+
+
+    #endregion
 
     public bool Grounded()
     {

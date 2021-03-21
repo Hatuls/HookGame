@@ -67,11 +67,17 @@ public class FrontArm : MonoBehaviour
         if (collision.gameObject.CompareTag("GrappleAble"))
         {
             AttachToSurface(transform.position,collision.gameObject);
-        }
-        if (collision.gameObject.CompareTag("ChargeObject"))
+        }else if (collision.gameObject.CompareTag("ChargeObject"))
         {
             AttachToSurface(transform.position, collision.gameObject);
             LaunchBase.RecieveCharge(collision.gameObject.GetComponent<CellCharger>().TakeCharge());
+        }else
+        {
+            Destroy(gameObject);
+            LaunchBase.InitNewFrontArm();
         }
+
+
+
     }
 }

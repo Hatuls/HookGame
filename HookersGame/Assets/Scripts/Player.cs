@@ -94,7 +94,14 @@ public class Player : MonoBehaviour
         }
         if (_inputForm.pullGrapple && _heldTechGun.grappled)
         {
+            if (!_heldTechGun.pulling)
+            {
             _heldTechGun.PullGrapple();
+            }
+
+        }else if (_heldTechGun.grappled && _heldTechGun.pulling)
+        {
+            _heldTechGun.pulling = false;
         }
     }
 
@@ -154,11 +161,9 @@ public class Player : MonoBehaviour
 
     public void ShootArm()
     {
-        if (Physics.Raycast(_cameraController.FpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out RaycastHit hit, _heldTechGun.grappleSetting.GrapplingRange
-            , _heldTechGun.grappleSetting.GraplingLayere))
-        {
+       
             _heldTechGun.LaunchFrontArm();
-        }
+        
     }
 
     public void ReleaseGrapple()

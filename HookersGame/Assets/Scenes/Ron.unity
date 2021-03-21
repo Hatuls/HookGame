@@ -28912,6 +28912,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 565676908, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
+      propertyPath: Charges
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 565676908, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
+      propertyPath: maxCharges
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 565676908, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
+      propertyPath: TimeToSelfCharge
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 940899133, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -28920,6 +28932,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: TimeForArmGrow
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5269382749921487094, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}

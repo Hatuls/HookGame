@@ -27,6 +27,8 @@ public class TechGun : MonoBehaviour
     [SerializeField] float startPullSpeed;
     [SerializeField] float MaxPullSpeed;
     [SerializeField] float PullIncrease;
+    [SerializeField] float TimeForArmGrow;
+
     internal bool pulling;
     private void Start()
     {
@@ -128,6 +130,11 @@ public class TechGun : MonoBehaviour
     }
     public void InitNewFrontArm()
     {
+        StartCoroutine(NewArm());
+    }
+    IEnumerator NewArm()
+    {
+        yield return new WaitForSeconds(TimeForArmGrow);
         currentFrontArm = Instantiate(FrontArm, FrontHandSlot);
         _frontArm = currentFrontArm.GetComponent<FrontArm>();
         FrontConnected = true;

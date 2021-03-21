@@ -12,7 +12,7 @@ public class DeathGround : MonoBehaviour
         => flag = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 10 && !flag)
+        if (other.gameObject.layer == 10 && !flag && CheatMenu.Instance.GetCanLoseCondition)
         {
             flag = true;
             LevelManager.Instance.ResetLevelValues();

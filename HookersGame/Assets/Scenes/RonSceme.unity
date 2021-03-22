@@ -27296,6 +27296,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 565676908, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
+      propertyPath: PulseStrenght
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 565676908, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
+      propertyPath: TimeToSelfCharge
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1152664021, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

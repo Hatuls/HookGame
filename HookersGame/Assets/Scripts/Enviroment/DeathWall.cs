@@ -30,6 +30,7 @@ public class DeathWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //change it to corutine
         if (startDeathWall && !CheatMenu.Instance.GetCanLoseCondition)
             WallCloseUp();
     }

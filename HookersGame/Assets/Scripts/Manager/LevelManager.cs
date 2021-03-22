@@ -12,7 +12,7 @@ public class LevelManager : MonoSingleton<LevelManager>
     public override void Init()
     {
         ResetLevelValues();
-        currentLevel = 1;
+        currentLevel = 0;
     }
     internal float GetLevelDeathWallSpeed()
         => LevelsSO[currentLevel].DeathWallSpeed;
@@ -35,9 +35,9 @@ public class LevelManager : MonoSingleton<LevelManager>
 
         // UI 
         // Reset Ui Elements
+        PlayerManager.Instance.SetStartPoint(LevelsSO[GetCurrentLevel()].GetPlayerSpawningPoint);
         
         ResetLevelParams?.Invoke();
-        PlayerManager.Instance.SetStartPoint(LevelsSO[GetCurrentLevel()].GetPlayerSpawningPoint);
     }
 
 

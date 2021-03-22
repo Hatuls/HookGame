@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7206604708096983941}
   - component: {fileID: 815221465}
   - component: {fileID: 1027942294}
+  - component: {fileID: 773640655827770038}
   m_Layer: 0
   m_Name: Singleton
   m_TagString: Untagged
@@ -106,3 +107,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelsSO:
   - {fileID: 11400000, guid: bb8f7f9020d42cf4c9243a057c38e5c7, type: 2}
+--- !u!114 &773640655827770038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257823656938604813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19c29d70c206d54e8d8f37448624e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanLose: 0
+  toSpawnDrones: 0

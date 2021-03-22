@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 389319125}
   - component: {fileID: 389319126}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 454465263}
   - component: {fileID: 454465265}
   - component: {fileID: 454465264}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530296231}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 565676910}
   - component: {fileID: 565676909}
   - component: {fileID: 565676908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Compressor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 645786510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 940899134}
   - component: {fileID: 940899133}
   - component: {fileID: 940899136}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 1152664021}
   - component: {fileID: 1152664023}
   - component: {fileID: 1152664022}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 1325203670}
   - component: {fileID: 1325203672}
   - component: {fileID: 1325203671}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpeedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 1621081086}
   - component: {fileID: 1621081088}
   - component: {fileID: 1621081087}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EndImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 1779799461}
   - component: {fileID: 1779799463}
   - component: {fileID: 1779799462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 1790562760}
   - component: {fileID: 1790562762}
   - component: {fileID: 1790562761}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5638,7 +5638,7 @@ GameObject:
   - component: {fileID: 8125718549269210641}
   - component: {fileID: 1931880277731124559}
   - component: {fileID: 6081794149376521725}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FrontArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5747,7 +5747,7 @@ GameObject:
   - component: {fileID: 5269382748675008336}
   - component: {fileID: 5269382748675008335}
   - component: {fileID: 5269382748675008334}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5876,7 +5876,7 @@ GameObject:
   - component: {fileID: 5269382748743179351}
   - component: {fileID: 5269382748743179352}
   - component: {fileID: 5269382748743179356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrapplingHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6040,7 +6040,7 @@ GameObject:
   - component: {fileID: 5269382749584225727}
   - component: {fileID: 5269382749584225726}
   - component: {fileID: 585711837}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerUi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6167,7 +6167,7 @@ GameObject:
   - component: {fileID: 5269382749921487101}
   - component: {fileID: 5269382749921487102}
   - component: {fileID: 5269382749921487095}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6333,7 +6333,7 @@ GameObject:
   - component: {fileID: 5269382750375277216}
   - component: {fileID: 5269382750375277218}
   - component: {fileID: 5269382750375277217}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6405,7 +6405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5816641861944816969}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FrontArmSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -26,6 +26,7 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateHp(int Hp,int MaxHp)
     {
+        
         HpSlider.maxValue = MaxHp;
         HpSlider.minValue = 0;
         HpSlider.value = Hp;

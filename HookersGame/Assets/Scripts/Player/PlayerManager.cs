@@ -24,8 +24,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     GameObject grabbedObj;
 
     Transform StartPoint;
-    
 
+    public PlayerEffectMenu playerEffectMenu;
 
     [SerializeField] GameObject heldTechGun;
     TechGun _heldTechGun;
@@ -33,7 +33,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] GameObject compressor;
     Compressor _compressor;
 
-
+    
+    ParticleSystem _speedPs;
 
     // Start is called before the first frame update
     public override void Init()
@@ -41,6 +42,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         LevelManager.ResetLevelParams += ResetValues;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
         GetComponents();
         GetTechGun();
         GetCompressor();
@@ -62,6 +64,33 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public void SpeedUi()
     {
         float speed = _playerController.rb.velocity.magnitude;
+        if (speed > playerEffectMenu.SpeedPs_startParticlesSpeed)
+        {
+          
+        ParticleSystem.EmissionModule em=_speedPs.emission;
+        ParticleSystem.VelocityOverLifetimeModule ep = _speedPs.velocityOverLifetime;
+            if (!_speedPs.isPlaying)
+            {
+                _speedPs.Play();
+                em.enabled = false;
+                em.enabled = true;
+                ep.enabled = false;
+                ep.enabled = true;
+            }
+            
+     
+    
+            
+
+        ep.speedModifier = (speed - playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleSpeedperKmh;
+        em.rateOverTime = (speed-playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleEmissionPerKmh;
+
+        
+
+
+
+        }
+        else { if(!_speedPs.isStopped)_speedPs.Stop(); }
         _playerUi.TriggerUi(Mathf.RoundToInt(speed));
 
     }
@@ -105,6 +134,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _playerController = GetComponent<PlayerController>();
         _inputManager = GetComponent<InputManager>();
         _playerUi = GetComponentInChildren<PlayerUI>();
+        _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
         _playerController.Dashforce = dashForce;
         _playerController.DashTime = dashTime;
     }
@@ -239,3 +269,15 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         return Physics.Raycast(transform.position, Vector3.down, 2, GroundLayer);
     }  
 }
+[System.Serializable]
+public class PlayerEffectMenu 
+{
+    public GameObject SpeedPS;
+    public float SpeedPs_particleEmissionPerKmh;
+    public float SpeedPs_particleSpeedperKmh;
+    public float SpeedPs_startParticlesSpeed;
+
+
+
+}
+

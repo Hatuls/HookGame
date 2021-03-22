@@ -107,6 +107,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _playerController.Dashforce = dashForce;
         _playerController.DashTime = dashTime;
     }
+    public void Win()
+    {
+        _playerUi.Win();
+    }
   
     
     public void ApplyInputs()

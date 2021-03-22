@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abe57ac06eafdc47b11399743db77cb, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  Level: 1
+  PlayerSpawningPoint: {fileID: 2538326109374470016, guid: afe27583b74f957408d46d6f8fa55f1c,
+    type: 3}
+  DeathWallSpeed: 15
+  DroneSpawnPosition: []
+  TimeToFinish:
+  - 0
+  - 0
+  - 0

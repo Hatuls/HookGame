@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 public enum CharState { Mounted, UnMounted }
-public class Player : MonoBehaviour
+public class PlayerManager : MonoSingleton<PlayerManager>
 {
     CameraController _cameraController;
     PlayerController _playerController;
@@ -22,7 +22,10 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask InterractionLayer;
 
     GameObject grabbedObj;
-    GameObject jumpableSurface;
+
+    Transform StartPoint;
+
+    public PlayerEffectMenu playerEffectMenu;
 
     [SerializeField] GameObject heldTechGun;
     TechGun _heldTechGun;
@@ -30,12 +33,16 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject compressor;
     Compressor _compressor;
 
+    
+    ParticleSystem _speedPs;
+
     // Start is called before the first frame update
-    void Start()
+    public override void Init()
     {
-        
+        LevelManager.ResetLevelParams += ResetValues;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
         GetComponents();
         GetTechGun();
         GetCompressor();
@@ -45,9 +52,72 @@ public class Player : MonoBehaviour
     void Update()
     {
         _inputForm = _inputManager.GetInput();
+        UpdateUi();
         CameraCommands();
-        applyInputs();
+        ApplyInputs();
         ChangeDrag();
+    }
+    public void UpdateUi()
+    {
+        SpeedUi();
+    }
+    public void SpeedUi()
+    {
+        float speed = _playerController.rb.velocity.magnitude;
+        if (speed > playerEffectMenu.SpeedPs_startParticlesSpeed)
+        {
+          
+        ParticleSystem.EmissionModule em=_speedPs.emission;
+        ParticleSystem.VelocityOverLifetimeModule ep = _speedPs.velocityOverLifetime;
+            if (!_speedPs.isPlaying)
+            {
+                _speedPs.Play();
+                em.enabled = false;
+                em.enabled = true;
+                ep.enabled = false;
+                ep.enabled = true;
+            }
+            
+     
+    
+            
+
+        ep.speedModifier = (speed - playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleSpeedperKmh;
+        em.rateOverTime = (speed-playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleEmissionPerKmh;
+
+        
+
+
+
+        }
+        else { if(!_speedPs.isStopped)_speedPs.Stop(); }
+        _playerUi.TriggerUi(Mathf.RoundToInt(speed));
+
+    }
+    public void ResetValues()
+    {
+        _compressor.ResetCompressor();
+        _playerUi.ResetUi();
+        _heldTechGun.ResetGun();
+        _playerController.rb.velocity = Vector3.zero;
+        ResetPlayerBody();
+      
+    }
+    
+    public void SetStartPoint(Transform Destination)
+    {
+        StartPoint = Destination;
+        ResetPlayerBody();
+    }
+    public void ResetPlayerBody()
+    {
+       
+        transform.rotation = StartPoint.rotation;
+        transform.position = StartPoint.position;
+    }
+    public void UiEvent()
+    {
+        
     }
     public void FixedUpdate()
     {
@@ -63,13 +133,18 @@ public class Player : MonoBehaviour
         _cameraController = GetComponentInChildren<CameraController>();
         _playerController = GetComponent<PlayerController>();
         _inputManager = GetComponent<InputManager>();
-        _playerUi = GetComponent<PlayerUI>();
+        _playerUi = GetComponentInChildren<PlayerUI>();
+        _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
         _playerController.Dashforce = dashForce;
         _playerController.DashTime = dashTime;
     }
+    public void Win()
+    {
+        _playerUi.Win();
+    }
   
     
-    public void applyInputs()
+    public void ApplyInputs()
     {
 
         //if ((_inputForm.jump && (Grounded() || jumpableSurface!=null)) || (_inputForm.jump && Grounded() && jumpableSurface != null))
@@ -128,6 +203,7 @@ public class Player : MonoBehaviour
        
        
     }
+    
     public void RecieveCharge(int ammount)
     {
         _compressor.Charge(ammount);
@@ -178,13 +254,30 @@ public class Player : MonoBehaviour
     {
         _compressor.Pulse();   
     }
+   
 
 
     
-   #endregion
+    
+
+
+
+    #endregion
 
     public bool Grounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, 2, GroundLayer);
     }  
 }
+[System.Serializable]
+public class PlayerEffectMenu 
+{
+    public GameObject SpeedPS;
+    public float SpeedPs_particleEmissionPerKmh;
+    public float SpeedPs_particleSpeedperKmh;
+    public float SpeedPs_startParticlesSpeed;
+
+
+
+}
+

@@ -1,14 +1,17 @@
 ﻿
 public class GameManager : MonoSingleton<GameManager>
 {
-    IInit[] Singletons;
+    ISingleton[] Singletons;
     private void Start()
     {
 
-        Singletons = new IInit[2]
+        Singletons = new ISingleton[5]
         {
-         GameManager.Instance,
-         PlatformManager.Instance
+            EventManager.Instance,
+            EnemyManager.Instance,
+            PlatformManager.Instance,
+            PlayerManager.Instance,
+            LevelManager.Instance
         };
 
         for (int i = 0; i < Singletons.Length; i++)

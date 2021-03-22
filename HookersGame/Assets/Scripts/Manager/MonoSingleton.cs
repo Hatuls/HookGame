@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class MonoSingleton<T> : MonoBehaviour ,IInit where T: MonoSingleton<T> 
+public abstract class MonoSingleton<T> : MonoBehaviour ,ISingleton where T: MonoSingleton<T> 
 {
     private static T m_Instance;
     public static T Instance
@@ -29,6 +29,6 @@ public abstract class MonoSingleton<T> : MonoBehaviour ,IInit where T: MonoSingl
     }
     public virtual void Init() { }
 }
-public interface IInit {
+public interface ISingleton {
      void Init();
 }

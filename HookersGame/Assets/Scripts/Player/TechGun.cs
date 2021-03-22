@@ -9,7 +9,7 @@ public class TechGun : MonoBehaviour
 
 
 
-    internal Player usePlayer;
+    internal PlayerManager usePlayer;
     public GrappleSetting grappleSetting;
     internal bool grappled; 
    [SerializeField] Transform FrontHandSlot;
@@ -27,14 +27,23 @@ public class TechGun : MonoBehaviour
     [SerializeField] float startPullSpeed;
     [SerializeField] float MaxPullSpeed;
     [SerializeField] float PullIncrease;
+    [SerializeField] float TimeForArmGrow;
+
     internal bool pulling;
     private void Start()
     {
+        
         lineRenderer = GetComponent<LineRenderer>();
         InitNewFrontArm();
         GetParts();
     }
 
+    public void ResetGun()
+    {
+        if(grappled)
+        StopGrapple();
+        
+    }
     public void GetParts()
     {
         
@@ -50,7 +59,7 @@ public class TechGun : MonoBehaviour
     IEnumerator Pull()
     {
         float currentSpeed = startPullSpeed;
-        while (pulling && currentSpeed<MaxPullSpeed)
+        while (pulling && currentSpeed<MaxPullSpeed && grappleJoint != null)
         {
             grappleJoint.maxDistance -= currentSpeed;
             grappleJoint.minDistance -= currentSpeed;
@@ -113,7 +122,6 @@ public class TechGun : MonoBehaviour
             yield return null;
         }
         lineRenderer.enabled = false;
-        InitNewFrontArm();
 
     }
 
@@ -125,9 +133,15 @@ public class TechGun : MonoBehaviour
         grapplingEndPoint = Vector3.zero;
         grappled = false;
         Debug.Log("sd");
+        InitNewFrontArm();
     }
     public void InitNewFrontArm()
     {
+        StartCoroutine(NewArm());
+    }
+    IEnumerator NewArm()
+    {
+        yield return new WaitForSeconds(TimeForArmGrow);
         currentFrontArm = Instantiate(FrontArm, FrontHandSlot);
         _frontArm = currentFrontArm.GetComponent<FrontArm>();
         FrontConnected = true;

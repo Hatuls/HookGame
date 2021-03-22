@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6481,6 +6481,7 @@ GameObject:
   - component: {fileID: 392034164}
   - component: {fileID: 392034163}
   - component: {fileID: 392034162}
+  - component: {fileID: 392034166}
   m_Layer: 8
   m_Name: Interactive Surface (2)
   m_TagString: GrappleAble
@@ -6899,6 +6900,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392034160}
   m_Mesh: {fileID: 1472731846}
+--- !u!114 &392034166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392034160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9e94c080180434e94bdf6de6304619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platFromType: 0
 --- !u!1 &591762029
 GameObject:
   m_ObjectHideFlags: 0
@@ -35451,7 +35465,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16290
+  m_Name: pb_Mesh16486
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

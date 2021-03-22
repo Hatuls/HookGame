@@ -38,6 +38,6 @@ public class CellCharger : MonoBehaviour
     {
         ps.Play();
         yield return new WaitForSeconds(DistructionTime);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -72,7 +72,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _heldTechGun.ResetGun();
         _playerController.rb.velocity = Vector3.zero;
         ResetPlayerBody();
-
+      
     }
     
     public void SetStartPoint(Transform Destination)

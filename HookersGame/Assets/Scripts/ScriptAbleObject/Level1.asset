@@ -15,7 +15,7 @@ MonoBehaviour:
   Level: 1
   PlayerSpawningPoint: {fileID: 2538326109374470016, guid: afe27583b74f957408d46d6f8fa55f1c,
     type: 3}
-  DeathWallSpeed: 5
+  DeathWallSpeed: 15
   DroneSpawnPosition: []
   TimeToFinish:
   - 0

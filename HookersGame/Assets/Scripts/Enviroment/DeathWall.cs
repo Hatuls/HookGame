@@ -4,7 +4,7 @@ using UnityEngine;
 public class DeathWall : MonoBehaviour
 {
     [SerializeField] float speed;
-    bool startDeathWall;
+   [SerializeField] bool startDeathWall;
     Vector3 startPos;
     public DeathWall Instance { get; private set; }
    
@@ -14,7 +14,7 @@ public class DeathWall : MonoBehaviour
         Instance = this;
         startPos = transform.position;
     }
-
+    public bool SetStartDeathWall { set { startDeathWall = value; } }
 
 
     private void ResetDeathWall()
@@ -30,7 +30,8 @@ public class DeathWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startDeathWall && CheatMenu.Instance.GetCanLoseCondition)
+        //change it to corutine
+        if (startDeathWall && !CheatMenu.Instance.GetCanLoseCondition)
             WallCloseUp();
     }
 

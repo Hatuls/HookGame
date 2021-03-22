@@ -82,6 +82,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
     public void ResetPlayerBody()
     {
+       
         transform.rotation = StartPoint.rotation;
         transform.position = StartPoint.position;
     }

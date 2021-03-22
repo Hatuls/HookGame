@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+using System.Collections;
+
 public class LevelManager : MonoSingleton<LevelManager> 
 {
     [SerializeField] LevelSO[] LevelsSO;
@@ -7,6 +9,7 @@ public class LevelManager : MonoSingleton<LevelManager>
     int currentLevel;
     public delegate void ClickAction();
     public static event ClickAction ResetLevelParams;
+
 
     
     public override void Init()
@@ -17,7 +20,20 @@ public class LevelManager : MonoSingleton<LevelManager>
     internal float GetLevelDeathWallSpeed()
         => LevelsSO[currentLevel].DeathWallSpeed;
 
+    public void LoadTheNextLevel() {
+        PlayerManager.Instance.Win();
+        StartCoroutine(WinningCountDown());
 
+        // maybe show success
+        //currentLevel++;
+       // ResetLevelParams();
+    }
+    IEnumerator WinningCountDown() {
+        Time.timeScale = 0.1f;
+
+        yield return new WaitForSeconds(5f);
+        ResetLevelValues();
+    }
     private int GetCurrentLevel() => currentLevel;
     public void ResetLevelValues()
     {
@@ -35,8 +51,8 @@ public class LevelManager : MonoSingleton<LevelManager>
 
         // UI 
         // Reset Ui Elements
+        Time.timeScale = 1f;
         PlayerManager.Instance.SetStartPoint(LevelsSO[GetCurrentLevel()].GetPlayerSpawningPoint);
-        
         ResetLevelParams?.Invoke();
     }
 

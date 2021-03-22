@@ -31,7 +31,7 @@ public class LevelManager : MonoSingleton<LevelManager>
     IEnumerator WinningCountDown() {
         Time.timeScale = 0.1f;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(0.5f);
         ResetLevelValues();
     }
     private int GetCurrentLevel() => currentLevel;

@@ -35,6 +35,7 @@ public class PlayerUI : MonoBehaviour
     public void ResetUi()
     {
         SpeedText.text = "0";
+        WinImage.SetActive(false);
 
 
 

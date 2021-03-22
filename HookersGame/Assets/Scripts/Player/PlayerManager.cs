@@ -203,6 +203,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
        
        
     }
+   
     
     public void RecieveCharge(int ammount)
     {

@@ -68,7 +68,9 @@ public class TechGun : MonoBehaviour
         }
         while (pulling&&grappleJoint!=null)
         {
+            if(grappleJoint.maxDistance>0.01)
             grappleJoint.maxDistance -= currentSpeed;
+            if(grappleJoint.maxDistance>0.01)
             grappleJoint.minDistance -= currentSpeed;
             yield return new WaitForFixedUpdate();
 

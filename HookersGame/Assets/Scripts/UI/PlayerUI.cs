@@ -8,7 +8,7 @@ public class PlayerUI : MonoBehaviour
 {
     
     [SerializeField] private TextMeshProUGUI SpeedText;
-    [SerializeField] private Image WinImage;
+    [SerializeField] private GameObject WinImage;
     [SerializeField] private Slider HpSlider;
 
 
@@ -41,7 +41,8 @@ public class PlayerUI : MonoBehaviour
     }
     public void Win()
     {
-        WinImage.enabled = true;
+        Debug.Log("yo");
+        WinImage.SetActive(true);
     }
    
 

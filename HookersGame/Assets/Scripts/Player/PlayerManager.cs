@@ -58,7 +58,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         UpdateUi();
         CameraCommands();
         ApplyInputs();
-        playerPhysicsManager.CaulculatePhysics(Grounded(),_heldTechGun.grappled,wallCheck());
+        playerPhysicsManager.CaulculatePhysics(Grounded(),_heldTechGun.grappled,_inputForm.pulse,wallCheck());
         
         
     }

@@ -27984,6 +27984,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: grappleSetting.GrapplingRange
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 5269382749921487094, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
       propertyPath: m_Name
@@ -28046,8 +28051,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
+      propertyPath: playerPhysicsManager.dragValues.fall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
       propertyPath: playerPhysicsManager.speeds.fallSpeed
-      value: 5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.speeds.fallSpeedGrouth
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}

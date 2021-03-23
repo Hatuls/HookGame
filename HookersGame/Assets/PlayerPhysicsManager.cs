@@ -23,7 +23,7 @@ public class PlayerPhysicsManager
     [Serializable]
     public class Speeds
     {
-        public float StartswingSpeed,fallSpeed;
+        public float StartswingSpeed,fallSpeed,fallSpeedGrouth;
     }
     [SerializeField] Speeds speeds;
 
@@ -109,6 +109,7 @@ public class PlayerPhysicsManager
             StateResult = PhysicsStates.AfterPulse;
         }
 
+        if(StateResult!=physicsState)
         PhysicsRequest(StateResult);
 
 
@@ -132,11 +133,11 @@ public class PlayerPhysicsManager
 
         while (startTime + EffectTime > Time.time)
         {
-            Debug.Log(physicsStates);
+           // Debug.Log(physicsStates);
             yield return null;
             physicsState = physicsStates;
         }
-        physicsState = state.nextState;
+        ChangeState(state.nextState);
 
     }
 
@@ -149,7 +150,6 @@ public class PlayerPhysicsManager
             
             
             case PhysicsStates.DefaultAir:
-                physicsState = PhysicsStates.DefaultAir;
                 _playerManager.StartCoroutine(LongEffect(newActiveState));
                 rb.drag = dragValues.DefaultAir;
                 
@@ -161,9 +161,10 @@ public class PlayerPhysicsManager
 
                 
             case PhysicsStates.fall:
+                _playerManager.StartCoroutine(FallLoop(newActiveState));
                 rb.drag = dragValues.fall;
-                float fallSpeed = speeds.fallSpeed;
-                rb.AddForce(Vector3.down*speeds.fallSpeed,ForceMode.Force);
+                
+                
                 break;
 
             case PhysicsStates.hang:
@@ -219,10 +220,21 @@ public class PlayerPhysicsManager
         
         ChangeState(stateRequested);
         yield return new WaitForSeconds(TimeBeforChange);
+        if (stateRequested != nextState) 
         ChangeState(nextState);
     }
 
-    
+    IEnumerator FallLoop(PhysicsStates state)
+    {
+        float fallSpeed = speeds.fallSpeed;
+        while (physicsState == state)
+        {
+            fallSpeed += speeds.fallSpeedGrouth;
+            rb.AddForce(Vector3.down *fallSpeed,ForceMode.Acceleration);
+            yield return new WaitForFixedUpdate();
+            Debug.Log(fallSpeed);
+        }
+    }
 
 
     // Start is called before the first frame update

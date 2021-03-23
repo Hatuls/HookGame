@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -27976,14 +27976,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 565676908, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
-      propertyPath: PulseStrenght
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 565676908, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
-      propertyPath: TimeToSelfCharge
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1152664021, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -27991,21 +27983,6 @@ PrefabInstance:
     - target: {fileID: 1779799461, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: MaxPullSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: PullIncrease
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: grappleSetting.minGrappleDist
-      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 5269382749921487094, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
@@ -28066,191 +28043,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: DragVector.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: DragVector.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.dragValues.fall
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.dragValues.hang
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.dragValues.leap
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.dragValues.Swing
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.speeds.fallSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.dragValues.DefaultAir
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.dragValues.afterPulse
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.speeds.StartswingSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.dragValues.DefaultFloor
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[0].nextState
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[1].nextState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[2].nextState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[4].nextState
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[5].nextState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[6].nextState
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[7].nextState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[8].nextState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[0].stateRequest
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[1].stateRequest
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[2].stateRequest
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[3].stateRequest
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[4].stateRequest
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[5].stateRequest
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[6].stateRequest
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[7].stateRequest
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[8].stateRequest
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[2].TimeBetweenStates
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[4].TimeBetweenStates
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[5].TimeBetweenStates
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[6].TimeBetweenStates
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[7].TimeBetweenStates
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.StatesSettings.Array.data[8].TimeBetweenStates
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487102, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: m_Mass
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}

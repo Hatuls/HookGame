@@ -27380,7 +27380,7 @@ PrefabInstance:
     - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
       propertyPath: DragVector.y
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
@@ -27391,6 +27391,21 @@ PrefabInstance:
         type: 3}
       propertyPath: movementSpeed
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.dragValues.DefaultFloor
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[0].nextState
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[0].stateRequest
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5269382749921487102, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}

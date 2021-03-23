@@ -4,6 +4,8 @@ using UnityEngine;
 public enum CharState { Mounted, UnMounted }
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
+
+    [SerializeField] PlayerPhysicsManager playerPhysicsManager;
     CameraController _cameraController;
     PlayerController _playerController;
 
@@ -46,6 +48,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         GetComponents();
         GetTechGun();
         GetCompressor();
+        playerPhysicsManager.InitPhysics(_playerController.rb, this);
        
     }
   
@@ -55,8 +58,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         UpdateUi();
         CameraCommands();
         ApplyInputs();
-        ChangeDrag();
+        playerPhysicsManager.CaulculatePhysics(Grounded(),_heldTechGun.grappled,wallCheck());
+        
+        
     }
+
+   
+
+
     public void UpdateUi()
     {
         SpeedUi();
@@ -188,21 +197,21 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
 
     #region PlayerCommands
-
-    public void ChangeDrag()
-    {
-        if (Grounded())
-        {
-            _playerController.rb.drag = DragVector.x;
-        }
-        else { _playerController.rb.drag = DragVector.y; }
-        if (_heldTechGun.grappled)
-        {
-            _playerController.rb.drag = DragVector.z;
-        }
+    
+    //public void ChangeDrag()
+    //{
+    //    if (Grounded())
+    //    {
+    //        _playerController.rb.drag = DragVector.x;
+    //    }
+    //    else { _playerController.rb.drag = DragVector.y; }
+    //    if (_heldTechGun.grappled)
+    //    {
+    //        _playerController.rb.drag = DragVector.z;
+    //    }
        
        
-    }
+    //}
    
     
     public void RecieveCharge(int ammount)
@@ -267,8 +276,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public bool Grounded()
     {
-        return Physics.Raycast(transform.position, Vector3.down, 2, GroundLayer);
+        return Physics.Raycast(transform.position, Vector3.down, 1, GroundLayer);
     }  
+    public bool wallCheck()
+    {
+        return true;
+    }
 }
 [System.Serializable]
 public class PlayerEffectMenu 

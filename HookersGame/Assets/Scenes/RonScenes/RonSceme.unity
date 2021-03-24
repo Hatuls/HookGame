@@ -20871,6 +20871,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 773640655827770038, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: CanLose
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2257823656938604813, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: m_Name
@@ -27380,7 +27385,7 @@ PrefabInstance:
     - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
       propertyPath: DragVector.y
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
@@ -27390,7 +27395,172 @@ PrefabInstance:
     - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
       propertyPath: movementSpeed
-      value: 90
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.dragValues.fall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.dragValues.hang
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.dragValues.leap
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.dragValues.Swing
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.speeds.fallSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.dragValues.DefaultAir
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.dragValues.afterPulse
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.speeds.StartswingSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.dragValues.DefaultFloor
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[0].nextState
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[1].nextState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[2].nextState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[4].nextState
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[5].nextState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[6].nextState
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[7].nextState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[8].nextState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[0].stateRequest
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[1].stateRequest
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[2].stateRequest
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[3].stateRequest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[4].stateRequest
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[5].stateRequest
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[6].stateRequest
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[7].stateRequest
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[8].stateRequest
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[2].TimeBetweenStates
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[4].TimeBetweenStates
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[5].TimeBetweenStates
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[6].TimeBetweenStates
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[7].TimeBetweenStates
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
+        type: 3}
+      propertyPath: playerPhysicsManager.StatesSettings.Array.data[8].TimeBetweenStates
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5269382749921487102, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}

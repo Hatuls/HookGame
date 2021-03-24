@@ -75,7 +75,7 @@ public class TechGun : MonoBehaviour
             yield return new WaitForFixedUpdate();
 
         }
-            Debug.Log(currentSpeed);
+            
         
     }
     public void PullGrapple()
@@ -134,7 +134,6 @@ public class TechGun : MonoBehaviour
         Destroy(currentFrontArm);
         grapplingEndPoint = Vector3.zero;
         grappled = false;
-        Debug.Log("sd");
         InitNewFrontArm();
     }
     public void InitNewFrontArm()

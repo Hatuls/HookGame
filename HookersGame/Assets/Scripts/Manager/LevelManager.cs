@@ -52,7 +52,8 @@ public class LevelManager : MonoSingleton<LevelManager>
         // UI 
         // Reset Ui Elements
         Time.timeScale = 1f;
-        PlayerManager.Instance.SetStartPoint(LevelsSO[GetCurrentLevel()].GetPlayerSpawningPoint);
+        
+        PlayerManager.Instance?.SetStartPoint(LevelsSO[GetCurrentLevel()].GetPlayerSpawningPoint);
         ResetLevelParams?.Invoke();
     }
 

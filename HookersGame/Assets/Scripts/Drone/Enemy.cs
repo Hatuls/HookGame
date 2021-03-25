@@ -46,15 +46,7 @@ public class Enemy : MonoBehaviour
 
 
     void RotateTowardThePlayer()
-    {
-        
-        Vector3 direction = GetNormalizedDirection( Target.position,Body.position);
-        Quaternion rotation = Quaternion.LookRotation(direction);
-        Body.localRotation = Quaternion.Lerp(Body.localRotation, rotation, Time.deltaTime * EnemyManager.GetRotationSpeed);
-    }
-
-    internal Vector3 GetNormalizedDirection(in Vector3 targetPosition, in Vector3 MyPosition) 
-    => (targetPosition - MyPosition).normalized;
+    => Body.localRotation = Quaternion.Lerp(Body.localRotation, ToolClass.RotateToLookTowards(Body,Target), Time.deltaTime * EnemyManager.GetRotationSpeed);
     
 
      void KeepZAxisDistance() {

@@ -22,6 +22,7 @@ public class LevelManager : MonoSingleton<LevelManager>
 
     public void LoadTheNextLevel() {
         PlayerManager.Instance.Win();
+        PlatformManager.Instance.ResetPlatforms();
         StartCoroutine(WinningCountDown());
 
         // maybe show success
@@ -52,7 +53,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         // UI 
         // Reset Ui Elements
         Time.timeScale = 1f;
-        
+        PlatformManager.Instance.ResetPlatforms();
         PlayerManager.Instance?.SetStartPoint(LevelsSO[GetCurrentLevel()].GetPlayerSpawningPoint);
         ResetLevelParams?.Invoke();
     }

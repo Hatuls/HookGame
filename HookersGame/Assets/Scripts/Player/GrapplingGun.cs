@@ -6,30 +6,30 @@ using UnityEngine;
 public class GrapplingGun : MonoBehaviour
 {
 
-
+    public GrappleSetting grappleSetting;
 
 
     internal PlayerManager usePlayer;
-    public GrappleSetting grappleSetting;
+    internal bool pulling;
     internal bool grappled; 
-   [SerializeField] Transform FrontHandSlot;
-   [SerializeField] GameObject FrontArm;
+    internal bool frontConnected=true;
+
+   [SerializeField] Transform frontHandSlot;
+   [SerializeField] GameObject frontArm;
+   [SerializeField] GameObject backArm;
     private GameObject currentFrontArm;
-   [SerializeField] GameObject BackArm;
     private FrontArm _frontArm;
     private BackArm _backArm;
     private Vector3 grapplingEndPoint;
-    internal bool FrontConnected=true;
     private LineRenderer lineRenderer;
-    GameObject grappleObj;
-    SpringJoint grappleJoint;
 
     [SerializeField] float startPullSpeed;
     [SerializeField] float MaxPullSpeed;
     [SerializeField] float PullIncrease;
     [SerializeField] float TimeForArmGrow;
 
-    internal bool pulling;
+    SpringJoint grappleJoint;
+    GameObject grappleObj;
     private void Start()
     {
         
@@ -47,16 +47,16 @@ public class GrapplingGun : MonoBehaviour
     public void GetParts()
     {
         
-        _backArm = BackArm.GetComponent<BackArm>();
+        _backArm = backArm.GetComponent<BackArm>();
     }
 
     public void LaunchFrontArm()
     {
-        FrontConnected = false;
+        frontConnected = false;
         _frontArm.Launch(this);
     }
 
-    IEnumerator Pull()
+    IEnumerator PullCoru()
     {
         float currentSpeed = startPullSpeed;
         while (pulling && currentSpeed<MaxPullSpeed && grappleJoint != null)
@@ -81,7 +81,7 @@ public class GrapplingGun : MonoBehaviour
     public void PullGrapple()
     {
         pulling = true;
-        StartCoroutine(Pull());
+        StartCoroutine(PullCoru());
     }
     
 
@@ -138,14 +138,14 @@ public class GrapplingGun : MonoBehaviour
     }
     public void InitNewFrontArm()
     {
-        StartCoroutine(NewArm());
+        StartCoroutine(GrowArm());
     }
-    IEnumerator NewArm()
+    IEnumerator GrowArm()
     {
         yield return new WaitForSeconds(TimeForArmGrow);
-        currentFrontArm = Instantiate(FrontArm, FrontHandSlot);
+        currentFrontArm = Instantiate(frontArm, frontHandSlot);
         _frontArm = currentFrontArm.GetComponent<FrontArm>();
-        FrontConnected = true;
+        frontConnected = true;
     }
 
     public void RecieveCharge(int ammount)

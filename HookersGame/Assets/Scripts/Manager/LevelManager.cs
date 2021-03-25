@@ -18,7 +18,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         currentLevel = 0;
     }
     internal float GetLevelDeathWallSpeed()
-        => LevelsSO[currentLevel].DeathWallSpeed;
+        => LevelsSO[currentLevel].deathWallSpeed;
 
     public void LoadTheNextLevel() {
         PlayerManager.Instance.Win();

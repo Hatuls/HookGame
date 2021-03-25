@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Wingle : StateAbst
@@ -22,7 +20,7 @@ public class Wingle : StateAbst
     }
     public override Type Tick()
     {
-        _enemy.EveryTickCheck();
+        enemy.EveryTickCheck();
         return typeof(RePositioning);
         //check his currentPosition or if time passes certain amount
         if (CheckTimeToChangePosition() ) {

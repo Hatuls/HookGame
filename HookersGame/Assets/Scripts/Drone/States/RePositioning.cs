@@ -3,27 +3,34 @@ using UnityEngine;
 
 public class RePositioning : StateAbst
 {
-    Ray ray, zRay;
-    RaycastHit hitInfo;
+   
     float minimumDistanceRayCheck = 15f;
     float currentTime;
     float timeTillRaycast =0.2f;
-   float PositiveOrNegative;
+    float PositiveOrNegative;
 
     Transform closestObstacle;
    
-
-
     Vector3 hitPoint;
-    Vector2 NewLocation;
+    Vector2 NewLocation; 
+
+    Ray ray, zRay;
+    RaycastHit hitInfo;
+
+
     public RePositioning(Enemy enmy) : base(enmy)
     {
    
     }
-
+    public override void OnStateEnter()
+    {
+        currentTime = Time.time;
+        NewLocation = Vector2.zero;
+        closestObstacle = null;
+    }
     public override Type Tick()
     {
-        _enemy.EveryTickCheck();
+        enemy.EveryTickCheck();
 
 
 
@@ -89,7 +96,7 @@ public class RePositioning : StateAbst
 
 
 
-        _enemy.EveryTickCheck();
+        enemy.EveryTickCheck();
 
         if (NewLocation == Vector2.zero)
         {
@@ -130,12 +137,7 @@ public class RePositioning : StateAbst
         }
     }
 
-    public override void OnStateEnter()
-    {
-        currentTime = Time.time;
-        NewLocation = Vector2.zero;
-        closestObstacle = null;
-    }
+  
     bool CheckIfDroneIsAtXYLocation() {
 
         return Vector2.Distance(transform.position, NewLocation) < 0.1f;

@@ -11286,7 +11286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grappleSetting:
     maxGrappleDist: 0.7
-    minGrappleDist: 0.4
+    minGrappleDist: 0.04
     spring: 8.59
     damper: 6
     massScale: 60

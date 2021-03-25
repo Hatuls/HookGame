@@ -5,6 +5,7 @@ public class Shooting : StateAbst
 {
     float currentTime;
     float timeTillAnimationFinished = 2f;
+
     bool toShoot;
     public Shooting(Enemy enmy) : base(enmy)
     {
@@ -18,7 +19,7 @@ public class Shooting : StateAbst
     }
     public override Type Tick()
     {
-        _enemy.EveryTickCheck();
+        enemy.EveryTickCheck();
 
         if (IsAnimationDurationOver())
         {
@@ -28,7 +29,7 @@ public class Shooting : StateAbst
 
         if (toShoot)
         {
-            _enemy.ShootProjectile();
+            enemy.ShootProjectile();
                 return typeof(RePositioning);
         }
 

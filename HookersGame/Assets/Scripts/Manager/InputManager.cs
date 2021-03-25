@@ -10,12 +10,14 @@ public class InputManager : MonoBehaviour
 
     bool CalculatingDash;
     bool useDash;
+
     [SerializeField] float WaitForDash;
 
     internal bool grabMode=false;
    
 
     IEnumerator WaitLoop;
+
     public InputForm GetInput()
     {
         float horizontal = Input.GetAxis("Horizontal");

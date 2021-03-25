@@ -2,20 +2,20 @@
 using System.Collections;
 public class PlatformManager : MonoSingleton<PlatformManager> 
 {
-    [SerializeField]
-    private Platform[] platformsArr;
+
+    [SerializeField] private Platform[] platformsArr;
+    [SerializeField] private LayerMask grabableLayer;
+
     private DeathWall deathWall;
-    [SerializeField] LayerMask grabableLayer;
+
 
 
 
     public delegate void ResetTransform();
     public static event ResetTransform ResetPlatformEvent;
 
-    public delegate void SetTexture();
-    public static event SetTexture SetPlatformTexture;
 
-
+    public DeathWall GetDeathWall => deathWall;
     public LayerMask GetGrabableLayer => grabableLayer;
     public override void Init()
     {
@@ -23,20 +23,18 @@ public class PlatformManager : MonoSingleton<PlatformManager>
     }
     public void ResetValues()
     {
-        ResetPlatforms();
+        StopAllCoroutines();
+
         platformsArr = null;
         platformsArr = FindObjectsOfType<Platform>();
-        
+
         for (int i = 0; i < platformsArr.Length; i++)
         {
             platformsArr[i].SubscribePlatform();
         }
 
         deathWall = FindObjectOfType<DeathWall>();
-
-
-      
-        SetPlatformTexture?.Invoke();
+        ResetPlatformEvent?.Invoke();
     }
 
 

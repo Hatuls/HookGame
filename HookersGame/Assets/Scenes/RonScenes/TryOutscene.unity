@@ -35553,6 +35553,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8038192987055775365, guid: 7800deb286dc9f54bb1b69b29a1a83dd,
+        type: 3}
+      propertyPath: grappleSetting.minGrappleDist
+      value: 0.04
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7800deb286dc9f54bb1b69b29a1a83dd, type: 3}
 --- !u!1001 &8576174356793181712

@@ -5313,12 +5313,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ca2f44bb78a3047ac834ebe6d536a2, type: 3}
---- !u!1 &322088111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1163359150384797979, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-    type: 3}
-  m_PrefabInstance: {fileID: 1128513482}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &330653241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16299,41 +16293,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ca2f44bb78a3047ac834ebe6d536a2, type: 3}
---- !u!1 &924175436 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5269382748743179350, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-    type: 3}
-  m_PrefabInstance: {fileID: 1128513482}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &924175437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924175436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f6be803613d32644b181f709244ba1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grappleSetting:
-    maxGrappleDist: 0.7
-    minGrappleDist: 0.4
-    spring: 8.59
-    damper: 6
-    massScale: 60
-    GrapplingRange: 70
-    GraplingLayere:
-      serializedVersion: 2
-      m_Bits: 256
-  FrontHandSlot: {fileID: 1584109685}
-  FrontArm: {fileID: 322088111}
-  BackArm: {fileID: 1371603752}
-  startPullSpeed: 0.5
-  MaxPullSpeed: 3
-  PullIncrease: 0.2
-  TimeForArmGrow: 0.5
 --- !u!1 &933138277
 GameObject:
   m_ObjectHideFlags: 0
@@ -28017,10 +27976,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 940899132, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1152664021, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -28028,61 +27983,6 @@ PrefabInstance:
     - target: {fileID: 1779799461, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: MaxPullSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: PullIncrease
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: TimeForArmGrow
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: startPullSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: grappleSetting.damper
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: grappleSetting.spring
-      value: 8.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: grappleSetting.massScale
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: grappleSetting.GrapplingRange
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: grappleSetting.maxGrappleDist
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: grappleSetting.minGrappleDist
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: grappleSetting.GraplingLayere.m_Bits
-      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 5269382749921487094, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
         type: 3}
@@ -28144,23 +28044,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.dragValues.fall
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.speeds.fallSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269382749921487100, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-        type: 3}
-      propertyPath: playerPhysicsManager.speeds.fallSpeedGrouth
-      value: 0.2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5269382748743179352, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a03f7617b0b6c8448ea77afa6a0c843, type: 3}
 --- !u!4 &1145210507 stripped
 Transform:
@@ -34026,12 +33910,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 474006665}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1371603752 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 940899131, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-    type: 3}
-  m_PrefabInstance: {fileID: 1128513482}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1378595115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34281,12 +34159,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
     type: 3}
   m_PrefabInstance: {fileID: 1322990003}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1584109685 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5816641861944816969, guid: 8a03f7617b0b6c8448ea77afa6a0c843,
-    type: 3}
-  m_PrefabInstance: {fileID: 1128513482}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1599841725
 PrefabInstance:

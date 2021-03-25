@@ -30,7 +30,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public PlayerEffectMenu playerEffectMenu;
 
     [SerializeField] GameObject heldTechGun;
-    TechGun _heldTechGun;
+    GrapplingGun _heldTechGun;
 
     [SerializeField] GameObject compressor;
     Compressor _compressor;
@@ -241,7 +241,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     //All Commands Related To Guns
     public void GetTechGun()
     {
-        _heldTechGun = heldTechGun.GetComponent<TechGun>();
+        _heldTechGun = heldTechGun.GetComponent<GrapplingGun>();
         _heldTechGun.usePlayer = this;
     }
 

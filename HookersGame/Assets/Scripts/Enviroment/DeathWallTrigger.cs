@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class StartDeathWallObject : MonoBehaviour {
+public class DeathWallTrigger : MonoBehaviour {
 
     [SerializeField] DeathWall deathWall;
 

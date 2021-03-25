@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class TechGun : MonoBehaviour
+public class GrapplingGun : MonoBehaviour
 {
 
 

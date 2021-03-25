@@ -10702,8 +10702,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5269382748743179351}
-  - component: {fileID: 5269382748743179352}
   - component: {fileID: 5269382748743179356}
+  - component: {fileID: 3765094810462046439}
   m_Layer: 0
   m_Name: GrapplingHand
   m_TagString: Untagged
@@ -10728,35 +10728,6 @@ Transform:
   m_Father: {fileID: 5269382749921487098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5269382748743179352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5269382748743179350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca85ab31d9fe7ab448414cf9d813e9bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grappleSetting:
-    maxGrappleDist: 0.7
-    minGrappleDist: 0.04
-    spring: 8.59
-    damper: 6
-    massScale: 60
-    GrapplingRange: 60
-    GraplingLayere:
-      serializedVersion: 2
-      m_Bits: 256
-  FrontHandSlot: {fileID: 5816641861944816969}
-  FrontArm: {fileID: 1163359150384797979}
-  BackArm: {fileID: 940899131}
-  startPullSpeed: 0.5
-  MaxPullSpeed: 3
-  PullIncrease: 0.2
-  TimeForArmGrow: 0.5
 --- !u!120 &5269382748743179356
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -10854,6 +10825,35 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &3765094810462046439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5269382748743179350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6be803613d32644b181f709244ba1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grappleSetting:
+    maxGrappleDist: 0.7
+    minGrappleDist: 0.4
+    spring: 8.59
+    damper: 6
+    massScale: 60
+    GrapplingRange: 70
+    GraplingLayere:
+      serializedVersion: 2
+      m_Bits: 256
+  FrontHandSlot: {fileID: 5816641861944816969}
+  FrontArm: {fileID: 1163359150384797979}
+  BackArm: {fileID: 940899131}
+  startPullSpeed: 0.5
+  MaxPullSpeed: 3
+  PullIncrease: 0.2
+  TimeForArmGrow: 0.5
 --- !u!1 &5269382749584225724
 GameObject:
   m_ObjectHideFlags: 0
@@ -11094,6 +11094,7 @@ MonoBehaviour:
     speeds:
       StartswingSpeed: 20
       fallSpeed: 5
+      fallSpeedGrouth: 0
     StatesSettings:
     - stateRequest: 5
       nextState: 5

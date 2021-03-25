@@ -11,13 +11,13 @@ public class FrontArm : MonoBehaviour
     [SerializeField] float DestroyDistOffset;
     
     
-    internal TechGun LaunchBase;
+    internal GrapplingGun LaunchBase;
     bool attached=false;
     private bool connected=false;
 
     
 
-    public void Launch(TechGun techGun)
+    public void Launch(GrapplingGun techGun)
     {
         connected = false;
         LaunchBase = techGun;

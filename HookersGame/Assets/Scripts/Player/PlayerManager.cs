@@ -164,7 +164,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         {
             _playerController.Dash(_cameraController.transform.forward);
         }
-        if (!_heldTechGun.grappled&&_inputForm.grapple && _heldTechGun.FrontConnected)
+        if (!_heldTechGun.grappled&&_inputForm.grapple && _heldTechGun.frontConnected)
         {
             ShootArm();
         }

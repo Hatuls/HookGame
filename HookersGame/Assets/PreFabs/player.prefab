@@ -11093,7 +11093,7 @@ MonoBehaviour:
       afterPulse: 0.4
     speeds:
       StartswingSpeed: 20
-      fallSpeed: 15
+      fallSpeed: 5
     StatesSettings:
     - stateRequest: 5
       nextState: 5

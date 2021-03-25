@@ -16,7 +16,10 @@ public class GameManager : MonoSingleton<GameManager>
 
         for (int i = 0; i < Singletons.Length; i++)
         {
-            Singletons[i].Init();
+            if (Singletons[i] != null)
+                Singletons[i].Init();
+
+
         }
     }
 }

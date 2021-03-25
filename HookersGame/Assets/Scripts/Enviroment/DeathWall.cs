@@ -25,7 +25,10 @@ public class DeathWall : MonoBehaviour
     }
 
     public void WallCloseUp()
-        => transform.Translate(0, 0, speed * Time.deltaTime);
+    {
+       transform.Translate(0, 0, speed * Time.deltaTime);
+  
+    }
 
     // Update is called once per frame
     void Update()

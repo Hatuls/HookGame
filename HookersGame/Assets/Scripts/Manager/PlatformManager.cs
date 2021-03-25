@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-public class PlatformManager : MonoSingleton<PlatformManager> 
+public class PlatformManager : MonoSingleton<PlatformManager>
 {
     [SerializeField]
     private Platform[] platformsArr;
@@ -26,7 +26,7 @@ public class PlatformManager : MonoSingleton<PlatformManager>
         ResetPlatforms();
         platformsArr = null;
         platformsArr = FindObjectsOfType<Platform>();
-        
+
         for (int i = 0; i < platformsArr.Length; i++)
         {
             platformsArr[i].SubscribePlatform();
@@ -35,7 +35,7 @@ public class PlatformManager : MonoSingleton<PlatformManager>
         deathWall = FindObjectOfType<DeathWall>();
 
 
-      
+
         SetPlatformTexture?.Invoke();
     }
 
@@ -65,31 +65,42 @@ public class PlatformManager : MonoSingleton<PlatformManager>
 
     public void ResetPlatforms()
     {
+        flag = false;
         StopAllCoroutines();
         ResetPlatformEvent?.Invoke();
     }
-       
-     IEnumerator CheckDistanceFromVoid(Platform[] platforms) {
+    bool flag;
+    IEnumerator CheckDistanceFromVoid(Platform[] platforms)
+    {
+
+        flag = true;
         float timer = 0.3f;
         float distanceFromStarting = 50f;
         Transform deathWallCache = deathWall.transform;
-        Debug.Log("Checking Distances");
-        for (int i = 0; i < platforms.Length; i++)
+        byte counter = 0;
+        while (flag)
         {
-            if (platforms[i] == null)
-                continue;
-            Debug.Log(platforms[i]);
-     
-            if (Mathf.Abs(deathWallCache.position.z -platforms[i].transform.position.z)  < distanceFromStarting)
+            if (counter == platforms.Length - 1)
+                break;
+
+            for (int i = 0; i < platforms.Length; i++)
             {
-                Debug.Log("One Suppose To Move:");
-                platforms[i].MoveToward(deathWall.transform);
-                platforms[i] = null;
+                if (platforms[i] == null)
+                    continue;
+
+
+                if (Mathf.Abs(deathWallCache.position.z - platforms[i].transform.position.z) < distanceFromStarting)
+                {
+                    counter++;
+                    platforms[i].MoveToward(deathWall.transform);
+                    platforms[i] = null;
+                }
             }
+
+
+
+            yield return new WaitForSeconds(timer);
         }
-        yield return new WaitForSeconds(timer);
-
-
-        StartCoroutine(CheckDistanceFromVoid(platforms));
+        flag = false;
     }
 }

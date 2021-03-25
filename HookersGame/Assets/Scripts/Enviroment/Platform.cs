@@ -21,7 +21,7 @@ public class Platform : MonoBehaviour
          position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
-    public void SetTexture() {
+     void SetTexture() {
     
 
         var mat = GetComponent<MeshRenderer>().material;

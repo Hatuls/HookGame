@@ -7,9 +7,7 @@ public class WinAreaTrigger : MonoBehaviour
     {
         if (other.gameObject.layer == 10 && !isFlag)
             Win();
-
     }
     void Win() { isFlag = true;   LevelManager.Instance.LoadTheNextLevel(); }
 
-  
 }

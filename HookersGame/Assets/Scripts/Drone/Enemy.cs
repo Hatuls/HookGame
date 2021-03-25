@@ -1,30 +1,45 @@
 ﻿using System;
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] Transform Target;
-  [SerializeField] GameObject Bullet;
-
     StateMachine SM;
-    Transform Body;
-    public Transform GetDroneBody => Body;
+
+    [SerializeField] GameObject Bullet;
+
+    [SerializeField] Transform _target;
+    Transform _body;
+
+    Dictionary<Type, StateAbst> statesDict;
+
+    public Transform GetDroneBody => _body;
     public void Start()
     {
-       
-        Body = transform.GetChild(0).transform;
-        AssignStates();
-     
+        Init();
     }
-    Dictionary<Type, StateAbst> states;
+    public void Init()
+    {    
+        _body = transform.GetChild(0).transform;
+        AssignStates();
+    }
+
+    internal void ShootProjectile()
+    {
+        Debug.Log("Shooting");
+    }
+    public void EveryTickCheck()
+    {
+        RotateTowardThePlayer();
+        KeepZAxisDistance();
+    }
 
     void AssignStates()
     {
-        if (states == null)
+        if (statesDict == null)
         {
-            states = new Dictionary<Type, StateAbst>()
+            statesDict = new Dictionary<Type, StateAbst>()
               {
                 { typeof(Wingle),  new Wingle(this) },
                 { typeof(Shooting),  new Shooting(this) },
@@ -36,27 +51,18 @@ public class Enemy : MonoBehaviour
         if (SM == null)
             SM = GetComponent<StateMachine>();
 
-        SM.SetState(states);
-    }
-
-    internal void ShootProjectile()
-    {
-        Debug.Log("Shooting");
+        SM.SetState(statesDict);
     }
 
 
     void RotateTowardThePlayer()
-    => Body.localRotation = Quaternion.Lerp(Body.localRotation, ToolClass.RotateToLookTowards(Body,Target), Time.deltaTime * EnemyManager.GetRotationSpeed);
+    => _body.localRotation = Quaternion.Lerp(_body.localRotation, ToolClass.RotateToLookTowards(_body,_target), Time.deltaTime * EnemyManager.GetRotationSpeed);
     
 
      void KeepZAxisDistance() {
 
-        if (Mathf.Abs(transform.position.z - Target.position.z) < EnemyManager.GetDistanceFromPlayer|| transform.position.z< Target.position.z)
+        if (Mathf.Abs(transform.position.z - _target.position.z) < EnemyManager.GetDistanceFromPlayer|| transform.position.z< _target.position.z)
             transform.position = Vector3.Lerp(transform.position, transform.position + Vector3.forward * EnemyManager.GetDistanceFromPlayer, Time.deltaTime);
      
-    }
-    public void EveryTickCheck() {
-        RotateTowardThePlayer();
-        KeepZAxisDistance();
     }
 }

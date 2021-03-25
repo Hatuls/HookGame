@@ -2,40 +2,25 @@
 
 using System.Collections;
 
-public class LevelManager : MonoSingleton<LevelManager> 
+public class LevelManager : MonoSingleton<LevelManager>
 {
     [SerializeField] LevelSO[] LevelsSO;
-    
+
     int currentLevel;
+
+
     public delegate void ClickAction();
     public static event ClickAction ResetLevelParams;
 
 
-    
+
     public override void Init()
     {
         ResetLevelValues();
         currentLevel = 0;
     }
     internal float GetLevelDeathWallSpeed()
-        => LevelsSO[currentLevel].DeathWallSpeed;
-
-    public void LoadTheNextLevel() {
-        PlayerManager.Instance.Win();
-        PlatformManager.Instance.ResetPlatforms();
-        StartCoroutine(WinningCountDown());
-
-        // maybe show success
-        //currentLevel++;
-       // ResetLevelParams();
-    }
-    IEnumerator WinningCountDown() {
-        Time.timeScale = 0.1f;
-
-        yield return new WaitForSeconds(0.5f);
-        ResetLevelValues();
-    }
-    private int GetCurrentLevel() => currentLevel;
+        => LevelsSO[currentLevel].deathWallSpeed;
     public void ResetLevelValues()
     {
         // Player:
@@ -57,7 +42,22 @@ public class LevelManager : MonoSingleton<LevelManager>
         PlayerManager.Instance?.SetStartPoint(LevelsSO[GetCurrentLevel()].GetPlayerSpawningPoint);
         ResetLevelParams?.Invoke();
     }
+    public void LoadTheNextLevel()
+    {
+        PlayerManager.Instance.Win();
+        PlatformManager.Instance.ResetPlatforms();
+        StartCoroutine(WinningCountDown());
 
+        // maybe show success
+        //currentLevel++;
+        // ResetLevelParams();
+    }
+    IEnumerator WinningCountDown()
+    {
+        Time.timeScale = 0.1f;
 
-
+        yield return new WaitForSeconds(0.5f);
+        ResetLevelValues();
+    }
+    private int GetCurrentLevel() => currentLevel;
 }

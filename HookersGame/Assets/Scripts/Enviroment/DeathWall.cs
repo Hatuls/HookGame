@@ -4,17 +4,20 @@ using UnityEngine;
 public class DeathWall : MonoBehaviour
 {
     [SerializeField] float speed;
-   [SerializeField] bool startDeathWall;
+    [SerializeField] bool startDeathWall;
     Vector3 startPos;
-    public DeathWall Instance { get; private set; }
-   
+
+
+    public void WallCloseUp()
+    => transform.Translate(0, 0, speed * Time.deltaTime);
+
+    
+    public bool SetStartDeathWall { set { startDeathWall = value; } }
     private void Start()
     {
         LevelManager.ResetLevelParams += ResetDeathWall;
-        Instance = this;
         startPos = transform.position;
     }
-    public bool SetStartDeathWall { set { startDeathWall = value; } }
 
 
     private void ResetDeathWall()
@@ -24,11 +27,6 @@ public class DeathWall : MonoBehaviour
         speed = LevelManager.Instance.GetLevelDeathWallSpeed();
     }
 
-    public void WallCloseUp()
-    {
-       transform.Translate(0, 0, speed * Time.deltaTime);
-  
-    }
 
     // Update is called once per frame
     void Update()

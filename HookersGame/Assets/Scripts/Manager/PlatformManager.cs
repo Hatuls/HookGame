@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
-public class PlatformManager : MonoSingleton<PlatformManager>
+public class PlatformManager : MonoSingleton<PlatformManager> 
 {
-    [SerializeField]
-    private Platform[] platformsArr;
+
+    [SerializeField] private Platform[] platformsArr;
+    [SerializeField] private LayerMask grabableLayer;
+
     private DeathWall deathWall;
-    [SerializeField] LayerMask grabableLayer;
+
 
 
 
     public delegate void ResetTransform();
     public static event ResetTransform ResetPlatformEvent;
 
-    public delegate void SetTexture();
-    public static event SetTexture SetPlatformTexture;
 
-
+    public DeathWall GetDeathWall => deathWall;
     public LayerMask GetGrabableLayer => grabableLayer;
     public override void Init()
     {
@@ -23,7 +23,8 @@ public class PlatformManager : MonoSingleton<PlatformManager>
     }
     public void ResetValues()
     {
-        ResetPlatforms();
+        StopAllCoroutines();
+
         platformsArr = null;
         platformsArr = FindObjectsOfType<Platform>();
 
@@ -33,10 +34,7 @@ public class PlatformManager : MonoSingleton<PlatformManager>
         }
 
         deathWall = FindObjectOfType<DeathWall>();
-
-
-
-        SetPlatformTexture?.Invoke();
+        ResetPlatformEvent?.Invoke();
     }
 
 
@@ -65,42 +63,31 @@ public class PlatformManager : MonoSingleton<PlatformManager>
 
     public void ResetPlatforms()
     {
-        flag = false;
         StopAllCoroutines();
         ResetPlatformEvent?.Invoke();
     }
-    bool flag;
-    IEnumerator CheckDistanceFromVoid(Platform[] platforms)
-    {
-
-        flag = true;
+       
+     IEnumerator CheckDistanceFromVoid(Platform[] platforms) {
         float timer = 0.3f;
         float distanceFromStarting = 50f;
         Transform deathWallCache = deathWall.transform;
-        byte counter = 0;
-        while (flag)
+        Debug.Log("Checking Distances");
+        for (int i = 0; i < platforms.Length; i++)
         {
-            if (counter == platforms.Length - 1)
-                break;
-
-            for (int i = 0; i < platforms.Length; i++)
+            if (platforms[i] == null)
+                continue;
+            Debug.Log(platforms[i]);
+     
+            if (Mathf.Abs(deathWallCache.position.z -platforms[i].transform.position.z)  < distanceFromStarting)
             {
-                if (platforms[i] == null)
-                    continue;
-
-
-                if (Mathf.Abs(deathWallCache.position.z - platforms[i].transform.position.z) < distanceFromStarting)
-                {
-                    counter++;
-                    platforms[i].MoveToward(deathWall.transform);
-                    platforms[i] = null;
-                }
+                Debug.Log("One Suppose To Move:");
+                platforms[i].MoveToward(deathWall.transform);
+                platforms[i] = null;
             }
-
-
-
-            yield return new WaitForSeconds(timer);
         }
-        flag = false;
+        yield return new WaitForSeconds(timer);
+
+
+        StartCoroutine(CheckDistanceFromVoid(platforms));
     }
 }

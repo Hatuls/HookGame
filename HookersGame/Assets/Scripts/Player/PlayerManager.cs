@@ -42,7 +42,17 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _playerPhysicsManager.InitPhysics(_playerController.rb, this);
        
     }
-  
+    private void OnDestroy()
+    {
+        LevelManager.ResetLevelParams -= ResetValues;
+        
+    }
+    private void OnDisable()
+    {
+        LevelManager.ResetLevelParams -= ResetValues;
+        
+    }
+
     void Update()
     {
         _inputForm = _inputManager.GetInput();

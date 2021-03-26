@@ -57,7 +57,6 @@ public class LevelManager : MonoSingleton<LevelManager>
         
         
         _playerStartPosition = null;
-        PlayerManager.Instance.Win();
         PlatformManager.Instance.ResetPlatforms();
         StartCoroutine(WinningCountDown());
 

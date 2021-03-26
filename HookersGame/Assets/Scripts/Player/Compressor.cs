@@ -7,9 +7,10 @@ public class Compressor : MonoBehaviour
     
     public int Charges;
     [SerializeField] int maxCharges;
-    [SerializeField] float TimeToSelfCharge;
-    [SerializeField] float PulseStrenght;
+    [SerializeField] float timeToSelfCharge;
+    [SerializeField] float pulseStrenght;
     public ParticleSystem PulseParticles;
+
     Coroutine selfCharge;
 
     public void ResetCompressor()
@@ -26,7 +27,7 @@ public class Compressor : MonoBehaviour
         {
 
         PulseParticles.Play();
-        transform.root.GetComponent<Rigidbody>().AddForce(-transform.forward * PulseStrenght,ForceMode.Impulse);
+        transform.root.GetComponent<Rigidbody>().AddForce(-transform.forward * pulseStrenght,ForceMode.Impulse);
             Charges--;
             if (Charges <= 0)
             {
@@ -41,7 +42,7 @@ public class Compressor : MonoBehaviour
    }
     IEnumerator SelfCharge()
     {
-        yield return new WaitForSeconds(TimeToSelfCharge);
+        yield return new WaitForSeconds(timeToSelfCharge);
         Charges = maxCharges;
     }
 

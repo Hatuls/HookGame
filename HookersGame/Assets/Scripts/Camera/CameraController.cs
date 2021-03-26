@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
-{
-    public enum Cam { RideCam,FpsCam}
-   
+{  
     internal Camera FpsCam;
-
     [SerializeField] float mouseSensetivity;
     [SerializeField] Vector2 upDownViewRange;
     Vector2 currentRotation;
-    GameObject player;
+    
     
 
     private void Start()
     {
         FpsCam = GetComponentInChildren<Camera>();
-        player = this.gameObject;
     }
    
     public void MoveCamera(Vector2 Axis)

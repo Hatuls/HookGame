@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum CharState { Mounted, UnMounted }
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
     internal Rigidbody rb;
@@ -15,7 +14,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     CameraController _cameraController;
     InputManager _inputManager;
     InputForm _inputForm;
-    PlayerUI _playerUi;
     Transform StartPoint;
     GrapplingGun _grapplingGun;
     Compressor _compressor;
@@ -94,7 +92,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
             GetStartPos();
         }
         _compressor.ResetCompressor();
-        _playerUi.ResetUi();
         _grapplingGun.ResetGun();
         rb.velocity = Vector3.zero;
         ResetPlayerBody();
@@ -121,15 +118,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         rb = GetComponent<Rigidbody>();
         _cameraController = GetComponentInChildren<CameraController>();
         _inputManager = GetComponent<InputManager>();
-        _playerUi = GetComponentInChildren<PlayerUI>();
         _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
         //_playerController.Dashforce = dashForce;
         //_playerController.DashTime = dashTime;
-    }
-    public void Win()
-    {
-        _playerUi.Win();
-    }  
+    } 
 
     public void ApplyInputs()
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 public enum CharState { Mounted, UnMounted }
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
+    internal Rigidbody rb;
+
     [SerializeField] GameObject GrapplingGunObj;
     [SerializeField] GameObject CompressorObj;
     [SerializeField] float movementSpeed;
@@ -11,7 +13,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
 
     CameraController _cameraController;
-    PlayerController _playerController;
     InputManager _inputManager;
     InputForm _inputForm;
     PlayerUI _playerUi;
@@ -39,19 +40,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         Cursor.visible = false;    
         GetComponents();
         GetEquipment();
-        _playerPhysicsManager.InitPhysics(_playerController.rb, this);
+        _playerPhysicsManager.InitPhysics(rb, this);
        
     }
-    private void OnDestroy()
-    {
-        LevelManager.ResetLevelParams -= ResetValues;
-        
-    }
-    private void OnDisable()
-    {
-        LevelManager.ResetLevelParams -= ResetValues;
-        
-    }
+   
 
     void Update()
     {
@@ -73,7 +65,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     private void SpeedEffect()
     {
-        float speed = _playerController.rb.velocity.magnitude;
+        float speed = rb.velocity.magnitude;
         if (speed > playerEffectMenu.SpeedPs_startParticlesSpeed)
         {
           
@@ -104,7 +96,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _compressor.ResetCompressor();
         _playerUi.ResetUi();
         _grapplingGun.ResetGun();
-        _playerController.rb.velocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
         ResetPlayerBody();
       
     }
@@ -119,15 +111,15 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         if (_inputForm != null)
         {
-            _playerController.Move(_inputForm.movementVector.normalized * movementSpeed);
+            rb.AddRelativeForce(_inputForm.movementVector.normalized * movementSpeed);
         }
     }
 
   
     public void GetComponents()
     {
+        rb = GetComponent<Rigidbody>();
         _cameraController = GetComponentInChildren<CameraController>();
-        _playerController = GetComponent<PlayerController>();
         _inputManager = GetComponent<InputManager>();
         _playerUi = GetComponentInChildren<PlayerUI>();
         _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
@@ -213,6 +205,17 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public bool WallCheck()
     {
         return true;
+    }
+
+    private void OnDestroy()
+    {
+        LevelManager.ResetLevelParams -= ResetValues;
+
+    }
+    private void OnDisable()
+    {
+        LevelManager.ResetLevelParams -= ResetValues;
+
     }
     //Saved Comments We Might Use
     #region CommentedSaves

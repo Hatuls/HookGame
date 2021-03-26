@@ -4,16 +4,9 @@
 public class LevelSO : ScriptableObject {
     public int level;
     [Header("Speed of the death wall: ")]
-    [SerializeField] Transform playerSpawningPoint;
-    public Transform GetPlayerSpawningPoint => playerSpawningPoint;
     public float deathWallSpeed;
     [Header("The Number Of Position is The Number Of Drones In Game")]
     public Vector3[] droneSpawnPosition;
     [Header("Time Score: Bronze, Silver, Gold")]
     public float[] timeToFinish = new float[3];
-
-
-
-
-
 }

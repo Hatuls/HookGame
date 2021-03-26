@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fc2a7e9853fdf43b17ff7c3315c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TravelSpeed: 10000
-  TravelDist: 55
-  DestroyDistOffset: 10
+  travelSpeed: 0
+  travelDist: 0
+  destroyDistOffset: 0
 --- !u!1 &1263753851194345026
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,8 +583,8 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 256
   frontHandSlot: {fileID: 1263753852329512796}
-  frontArmObj: {fileID: 0}
-  backArmObj: {fileID: 0}
+  frontArmObj: {fileID: 1263753851177597830}
+  backArmObj: {fileID: 1263753852202210305}
 --- !u!1 &1263753851697889311
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cadd7afd3fd4c43843238449dd3457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForDash: 0.5
 --- !u!54 &1263753851697889297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5899,7 +5898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5480f0092fb4d48a62db9fad6ccaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrappleSource: {fileID: 1263753852202210304}
+  _grappleSource: {fileID: 0}
 --- !u!1 &1263753852329512797
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class LevelManager : MonoSingleton<LevelManager>
     public static event ClickAction ResetLevelParams;
 
 
-
+    Transform _playerStartPosition;
     public override void Init()
     {
         ResetLevelValues();
@@ -39,17 +39,26 @@ public class LevelManager : MonoSingleton<LevelManager>
         // Reset Ui Elements
         Time.timeScale = 1f;
         PlatformManager.Instance.ResetPlatforms();
-        PlayerManager.Instance?.SetStartPoint(LevelsSO[GetCurrentLevel()].GetPlayerSpawningPoint);
+
+        if (_playerStartPosition == null)
+            _playerStartPosition = GameObject.FindGameObjectWithTag("StartPoint").GetComponent<Transform>();
+
+        PlayerManager.Instance?.SetStartPoint(_playerStartPosition);
         ResetLevelParams?.Invoke();
     }
+   
     public void LoadTheNextLevel()
-    {
+    { 
+        
+        
+        _playerStartPosition = null;
         PlayerManager.Instance.Win();
         PlatformManager.Instance.ResetPlatforms();
         StartCoroutine(WinningCountDown());
 
         // maybe show success
-        //currentLevel++;
+        //currentLevel++; 
+      
         // ResetLevelParams();
     }
     IEnumerator WinningCountDown()
@@ -59,5 +68,5 @@ public class LevelManager : MonoSingleton<LevelManager>
         yield return new WaitForSeconds(0.5f);
         ResetLevelValues();
     }
-    private int GetCurrentLevel() => currentLevel;
+
 }

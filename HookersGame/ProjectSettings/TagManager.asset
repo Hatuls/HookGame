@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GrappleAble
   - ChargeObject
+  - StartPoint
   layers:
   - Default
   - TransparentFX

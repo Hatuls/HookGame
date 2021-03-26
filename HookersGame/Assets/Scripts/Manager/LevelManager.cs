@@ -14,6 +14,16 @@ public class LevelManager : MonoSingleton<LevelManager>
 
 
     Transform _playerStartPosition;
+
+    public Transform GetStartPointTransform
+    {
+        get {
+            if (_playerStartPosition == null)
+                _playerStartPosition = GameObject.FindGameObjectWithTag("StartPoint").GetComponent<Transform>();
+
+            return _playerStartPosition;
+        }
+    }
     public override void Init()
     {
         ResetLevelValues();
@@ -39,11 +49,6 @@ public class LevelManager : MonoSingleton<LevelManager>
         // Reset Ui Elements
         Time.timeScale = 1f;
         PlatformManager.Instance.ResetPlatforms();
-
-        if (_playerStartPosition == null)
-            _playerStartPosition = GameObject.FindGameObjectWithTag("StartPoint").GetComponent<Transform>();
-
-        PlayerManager.Instance?.SetStartPoint(_playerStartPosition);
         ResetLevelParams?.Invoke();
     }
    

@@ -80,8 +80,10 @@ public partial class LevelManager : MonoSingleton<LevelManager>
         deathWall = null;
         platformsArr = null;
         _playerStartPosition = null;
+
         PlayerManager.Instance.Win();
         StopVoidPlatformCoroutine();
+
         StartCoroutine(WinningCountDown());
 
         // maybe show success

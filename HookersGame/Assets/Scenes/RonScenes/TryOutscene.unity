@@ -5313,12 +5313,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ca2f44bb78a3047ac834ebe6d536a2, type: 3}
---- !u!1 &285153338 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1263753851645696869, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-    type: 3}
-  m_PrefabInstance: {fileID: 1263753850889328425}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &330653241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33839,12 +33833,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 474006665}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1371603753 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1263753852202210304, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-    type: 3}
-  m_PrefabInstance: {fileID: 1263753850889328425}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1378595115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34175,12 +34163,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
     type: 3}
   m_PrefabInstance: {fileID: 1599841725}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1681990971 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1263753852698158064, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-    type: 3}
-  m_PrefabInstance: {fileID: 1263753850889328425}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1727205030 stripped
 Transform:
@@ -35280,36 +35262,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1263753851177597848, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: travelDist
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851177597848, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: travelSpeed
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851177597848, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: destroyDistOffset
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696869, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: m_Name
-      value: GrapplingGun
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: CompressorObj
-      value: 
-      objectReference: {fileID: 1681990971}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: GrapplingGunObj
-      value: 
-      objectReference: {fileID: 285153338}
     - target: {fileID: 1263753851697889303, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: m_RootOrder
@@ -35375,11 +35327,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1263753852202210307, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _grappleSource
-      value: 
-      objectReference: {fileID: 1371603753}
     - target: {fileID: 1263753852900719330, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: m_AnchorMax.y

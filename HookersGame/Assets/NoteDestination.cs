@@ -15,8 +15,8 @@ public class NoteDestination : MonoBehaviour
         } 
     }
 
-
-   public bool canBePressed { get; private set; }
+   static bool isSynced;
+   public static bool canBePressed { get => isSynced; set { if (isSynced != value) isSynced = value; } }
     private void Awake()
     {
            if (_rt == null)

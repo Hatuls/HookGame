@@ -41,8 +41,8 @@ public class NoteIcon : MonoBehaviour
     IEnumerator MovingRythemGUI()
     {
         Color  ProceedColor;
-        yield break;
-        float beatTempo, minSuccessDelay =.8f,maxSuccessDelay = 1.1f, resetTimer = 1.2f;
+        
+        float beatTempo, minSuccessDelay =.95f,maxSuccessDelay = 1.05f, resetTimer = 1.2f;
         RectTransform childRect = transform.GetChild(0).GetComponent<RectTransform>();
        
         toStop = false;
@@ -52,12 +52,15 @@ public class NoteIcon : MonoBehaviour
             if (toStop)
                 break;
 
-          
-            // check if it supressed the 
-            if (rt.localScale.magnitude > resetTimer)
+            NoteDestination.canBePressed = false;
+            if (rt.localScale.x <= maxSuccessDelay && rt.localScale.x >= minSuccessDelay)
             {
-         //       Debug.Log("rt.localScale.magnitude " + rt.localScale.magnitude
-         //+ "\n Time It Took  " + Time.time);
+                //Debug.Log("Time It Took To Complete 1 Beat " + Time.time);
+                NoteDestination.canBePressed = true;
+            }
+            else if (rt.localScale.x >= resetTimer)
+            {
+                
                 ResetScale();
             }
 
@@ -68,9 +71,9 @@ public class NoteIcon : MonoBehaviour
 
 
             img.color += ProceedColor;
-            rt.localScale += new Vector3(beatTempo, beatTempo)/100f;
-            //col.size = Vector2.MoveTowards(rt.localScale,new Vector2(100f,100f),beatTempo * Time.deltaTime);
-            yield return  Time.deltaTime;
+            rt.localScale += new Vector3(beatTempo, beatTempo,1)*Time.deltaTime ;
+            col.size = rt.localScale * 100f;
+            yield return  null;
 
             
             

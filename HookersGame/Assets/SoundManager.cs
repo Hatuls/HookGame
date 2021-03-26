@@ -9,7 +9,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     [SerializeField] bool gameStarted;
 
    public bool isCorrectTiming
-        => noteDestination.canBePressed
+        => NoteDestination.canBePressed
         || CheatMenu.Instance.GetUnLimitedCompressor;
 
     

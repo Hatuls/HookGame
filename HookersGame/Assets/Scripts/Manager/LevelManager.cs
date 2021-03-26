@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
-
 using System.Collections;
 
-public class LevelManager : MonoSingleton<LevelManager>
+public partial class LevelManager : MonoSingleton<LevelManager>
 {
     [SerializeField] LevelSO[] LevelsSO;
 
     int currentLevel;
 
-
-    public delegate void ClickAction();
-    public static event ClickAction ResetLevelParams;
-
-
     Transform _playerStartPosition;
+
+    Coroutine CheckPlatformVoidDistance;
+
+    public delegate void LevelEvents();
+    public static event LevelEvents ResetLevelParams;
+    public static event LevelEvents ResetPlatformEvent;
+
 
     public Transform GetStartPointTransform
     {
@@ -38,7 +39,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         // Reset player Cooldowns
         // reset physics and forces
 
-
+        
         // Level:
         // Reset DeathWall - V
         // Reset Timer For Level - X
@@ -48,17 +49,39 @@ public class LevelManager : MonoSingleton<LevelManager>
         // UI 
         // Reset Ui Elements
         Time.timeScale = 1f;
-        PlatformManager.Instance.ResetPlatforms();
+        AssignLevelObject();
+        StopVoidPlatformCoroutine();
         ResetLevelParams?.Invoke();
+        ResetPlatformEvent?.Invoke();
     }
-   
+
+    private void AssignLevelObject()
+    {
+        if (platformsArr == null || platformsArr.Length == 0)
+        {
+            platformsArr = FindObjectsOfType<Platform>();
+
+            for (int i = 0; i < platformsArr.Length; i++)
+                platformsArr[i].SubscribePlatform();
+        }
+
+        if (deathWall == null)
+            deathWall = FindObjectOfType<DeathWall>();
+    }
+    private void StopVoidPlatformCoroutine()
+    {
+        flag = false;
+        if (CheckPlatformVoidDistance != null)
+            StopCoroutine(CheckPlatformVoidDistance);
+
+    }
     public void LoadTheNextLevel()
-    { 
-        
-        
+    {
+        deathWall = null;
+        platformsArr = null;
         _playerStartPosition = null;
         PlayerManager.Instance.Win();
-        PlatformManager.Instance.ResetPlatforms();
+        StopVoidPlatformCoroutine();
         StartCoroutine(WinningCountDown());
 
         // maybe show success

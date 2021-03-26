@@ -52,7 +52,8 @@ public class GrapplingGun : MonoBehaviour
     public void LaunchFrontArm()
     {
         frontConnected = false;
-        _frontArm.Launch(this);
+        if (_frontArm != null )
+          _frontArm.Launch(this);
     }
 
     public void PullGrapple()

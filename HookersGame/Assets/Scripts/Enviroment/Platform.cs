@@ -15,8 +15,8 @@ public class Platform : MonoBehaviour
 
     public void SubscribePlatform()
     {
-        PlatformManager.ResetPlatformEvent += SetTexture;
-        PlatformManager.ResetPlatformEvent += PlatfromReset;
+        LevelManager.ResetPlatformEvent += SetTexture;
+        LevelManager.ResetPlatformEvent += PlatfromReset;
     }
     public void MoveToward(in Transform targetPos)
     {
@@ -60,8 +60,8 @@ public class Platform : MonoBehaviour
 
     private void UnSubscribeEvents()
     {
-        PlatformManager.ResetPlatformEvent -= SetTexture;
-        PlatformManager.ResetPlatformEvent -= PlatfromReset;
+        LevelManager.ResetPlatformEvent -= SetTexture;
+        LevelManager.ResetPlatformEvent -= PlatfromReset;
     }
     private void OnDestroy()
     {

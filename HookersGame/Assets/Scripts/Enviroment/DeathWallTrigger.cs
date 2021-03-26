@@ -17,8 +17,8 @@ public class DeathWallTrigger : MonoBehaviour {
         {
             flag = true;
             Debug.Log("Death Wall Starting to Chase The Player");
-            PlatformManager.Instance.GetDeathWall.SetStartDeathWall = true;
-            PlatformManager.Instance.StartChecking();
+            LevelManager.Instance.GetDeathWall.SetStartDeathWall = true;
+            LevelManager.Instance.StartChecking();
         }
     }
 

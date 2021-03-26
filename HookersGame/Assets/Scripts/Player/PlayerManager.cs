@@ -58,7 +58,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         UpdateUi();
         CameraCommands();
         ApplyInputs();
-        playerPhysicsManager.CaulculatePhysics(Grounded(),_heldTechGun.grappled,_inputForm.pulse,wallCheck());
+        playerPhysicsManager.CaulculatePhysics(Grounded(),_heldTechGun.grappled,_inputForm.pulse,WallCheck());
         
         
     }
@@ -168,7 +168,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         {
             ShootArm();
         }
-        if(_heldTechGun.grappled && _inputForm.ReleaseGrapple)
+        if(_heldTechGun.grappled && _inputForm.releaseGrapple)
         {  
             ReleaseGrapple();
         }
@@ -278,7 +278,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         return Physics.Raycast(transform.position, Vector3.down, 1, GroundLayer);
     }  
-    public bool wallCheck()
+    public bool WallCheck()
     {
         return true;
     }

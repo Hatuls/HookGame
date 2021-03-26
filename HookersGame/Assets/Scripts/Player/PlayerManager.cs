@@ -33,7 +33,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     // Start is called before the first frame update
     public override void Init()
     {
-        GetStartPos();
+       
         LevelManager.ResetLevelParams += ResetValues;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;    
@@ -97,6 +97,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
     public void ResetValues()
     {
+        if(StartPoint!= LevelManager.Instance.GetStartPointTransform)
+        {
+            GetStartPos();
+        }
         _compressor.ResetCompressor();
         _playerUi.ResetUi();
         _grapplingGun.ResetGun();

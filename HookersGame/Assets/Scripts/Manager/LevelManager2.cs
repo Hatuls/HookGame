@@ -46,6 +46,9 @@ public  partial class LevelManager
    
     IEnumerator CheckDistanceFromVoid( Platform[] platforms)
     {
+        if (platforms == null || platforms.Length == 0)
+            yield break;
+
         float timer = 0.3f;
         float distanceFromStarting = 50f;
         Transform deathWallCache = deathWall.transform;

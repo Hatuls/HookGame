@@ -242,7 +242,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public void GetTechGun()
     {
         _heldTechGun = heldTechGun.GetComponent<GrapplingGun>();
-        _heldTechGun.usePlayer = this;
     }
 
     public void ShootArm()

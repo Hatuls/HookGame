@@ -9,7 +9,6 @@ public class GrapplingGun : MonoBehaviour
     public GrappleSetting grappleSetting;
 
 
-    internal PlayerManager usePlayer;
     internal bool pulling;
     internal bool grappled; 
     internal bool frontConnected=true;

@@ -10,8 +10,8 @@ public class GameManager : MonoSingleton<GameManager>
             EventManager.Instance,
             EnemyManager.Instance,
             PlatformManager.Instance,
-            PlayerManager.Instance,
-            LevelManager.Instance
+            LevelManager.Instance,
+            PlayerManager.Instance
         };
 
         for (int i = 0; i < ISingletonsArr.Length; i++)

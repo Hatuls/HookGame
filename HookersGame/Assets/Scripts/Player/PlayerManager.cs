@@ -33,6 +33,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     // Start is called before the first frame update
     public override void Init()
     {
+        GetStartPos();
         LevelManager.ResetLevelParams += ResetValues;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;    
@@ -57,7 +58,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
     public void GetStartPos()
     {
-        
+        StartPoint = LevelManager.Instance.GetStartPointTransform;
     }
 
     private void SpeedEffect()
@@ -92,12 +93,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _playerController.rb.velocity = Vector3.zero;
         ResetPlayerBody();
       
-    }
-    
-    public void SetStartPoint(Transform Destination)
-    {
-        StartPoint = Destination;
-        ResetPlayerBody();
     }
     private void ResetPlayerBody()
     {

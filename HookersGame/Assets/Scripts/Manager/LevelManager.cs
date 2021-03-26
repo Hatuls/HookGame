@@ -19,11 +19,11 @@ public partial class LevelManager : MonoSingleton<LevelManager>
     public Transform GetStartPointTransform
     {
         get {
-            Debug.Log(_playerStartPosition);
+          
             if (_playerStartPosition == null)
                 _playerStartPosition = GameObject.FindGameObjectWithTag("StartPoint").GetComponent<Transform>();
 
-            Debug.Log(_playerStartPosition);
+          
             return _playerStartPosition;
         }
     }

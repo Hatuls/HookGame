@@ -9,16 +9,14 @@ public class GameManager : MonoSingleton<GameManager>
         {
             SoundManager.Instance,
             EnemyManager.Instance,
-            LevelManager.Instance,
-            PlayerManager.Instance
+            PlayerManager.Instance,
+            LevelManager.Instance
         };
 
         for (int i = 0; i < ISingletonsArr.Length; i++)
         {
             if (ISingletonsArr[i] != null)
                 ISingletonsArr[i].Init();
-
-
         }
     }
 }

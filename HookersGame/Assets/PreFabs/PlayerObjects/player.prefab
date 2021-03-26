@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fc2a7e9853fdf43b17ff7c3315c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TravelSpeed: 10000
-  TravelDist: 55
-  DestroyDistOffset: 10
+  travelSpeed: 0
+  travelDist: 0
+  destroyDistOffset: 0
 --- !u!1 &1263753851194345026
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,8 +583,8 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 256
   frontHandSlot: {fileID: 1263753852329512796}
-  frontArmObj: {fileID: 0}
-  backArmObj: {fileID: 0}
+  frontArmObj: {fileID: 1263753851177597830}
+  backArmObj: {fileID: 1263753852202210305}
 --- !u!1 &1263753851697889311
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +685,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb884d6fc32bc946b88869818b3701f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPhysicsManager:
+  GrapplingGunObj: {fileID: 0}
+  CompressorObj: {fileID: 0}
+  movementSpeed: 80
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  _playerPhysicsManager:
     dragValues:
       DefaultFloor: 4
       DefaultAir: 0.8
@@ -724,28 +730,11 @@ MonoBehaviour:
     - stateRequest: 4
       nextState: 0
       TimeBetweenStates: 0.5
-  movementSpeed: 80
-  jumpForce: 700
-  grabRange: 10
-  dashForce: 10
-  dashTime: 0.01
-  DragVector: {x: 4, y: 0.6, z: 0.3}
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  ShildLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  InterractionLayer:
-    serializedVersion: 2
-    m_Bits: 0
   playerEffectMenu:
     SpeedPS: {fileID: 1263753851796680712}
     SpeedPs_particleEmissionPerKmh: 1.5
     SpeedPs_particleSpeedperKmh: 5
     SpeedPs_startParticlesSpeed: 35
-  heldTechGun: {fileID: 1263753851645696869}
-  compressor: {fileID: 1263753852698158064}
 --- !u!114 &1263753851697889299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,7 +759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cadd7afd3fd4c43843238449dd3457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForDash: 0.5
 --- !u!54 &1263753851697889297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5899,7 +5887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5480f0092fb4d48a62db9fad6ccaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrappleSource: {fileID: 1263753852202210304}
+  _grappleSource: {fileID: 0}
 --- !u!1 &1263753852329512797
 GameObject:
   m_ObjectHideFlags: 0

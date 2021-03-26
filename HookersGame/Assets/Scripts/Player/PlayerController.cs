@@ -23,25 +23,26 @@ public class PlayerController : MonoBehaviour
         rb.AddRelativeForce(movementVector);       
     }
      
-    public void Jump(Vector3 jumpVector)
-    {
-        rb.AddForce(jumpVector);
-    }
-    public void Dash(Vector3 Dir)
-    {
-        StartCoroutine(DashLoop(Dir));
-    }
-    public IEnumerator DashLoop(Vector3 Dir)
-    {
-        float time = Time.time;
-        while (Time.time < (time + dashTime)) 
-        {
-            rb.AddForce(Dir * dashforce,ForceMode.Impulse);
-            //rb.velocity = transform.forward * dashforce;
-            yield return null;
-        }
+    //public void Jump(Vector3 jumpVector)
+    //{
+    //    rb.AddForce(jumpVector);
+    //}
+
+    //public void Dash(Vector3 Dir)
+    //{
+    //    StartCoroutine(DashLoop(Dir));
+    //}
+    //public IEnumerator DashLoop(Vector3 Dir)
+    //{
+    //    float time = Time.time;
+    //    while (Time.time < (time + dashTime)) 
+    //    {
+    //        rb.AddForce(Dir * dashforce,ForceMode.Impulse);
+    //        //rb.velocity = transform.forward * dashforce;
+    //        yield return null;
+    //    }
     
-    }
+    //}
   
  
 }

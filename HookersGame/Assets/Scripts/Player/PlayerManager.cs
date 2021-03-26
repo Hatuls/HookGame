@@ -4,51 +4,41 @@ using UnityEngine;
 public enum CharState { Mounted, UnMounted }
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
+    [SerializeField] GameObject GrapplingGunObj;
+    [SerializeField] GameObject CompressorObj;
+    [SerializeField] float movementSpeed;
+    [SerializeField] LayerMask GroundLayer;
 
-    [SerializeField] PlayerPhysicsManager playerPhysicsManager;
+
     CameraController _cameraController;
     PlayerController _playerController;
-
     InputManager _inputManager;
     InputForm _inputForm;
     PlayerUI _playerUi;
-    
-    [SerializeField] float movementSpeed;
-    [SerializeField] float jumpForce;
-    [SerializeField] float grabRange;
-    [SerializeField] float dashForce;
-    [SerializeField] float dashTime;
-    [SerializeField] Vector3 DragVector; 
-    [SerializeField] LayerMask GroundLayer;
-    [SerializeField] LayerMask ShildLayer;
-    [SerializeField] LayerMask InterractionLayer;
-
-    GameObject grabbedObj;
-
     Transform StartPoint;
-
-    public PlayerEffectMenu playerEffectMenu;
-
-    [SerializeField] GameObject heldTechGun;
-    GrapplingGun _heldTechGun;
-
-    [SerializeField] GameObject compressor;
+    GrapplingGun _grapplingGun;
     Compressor _compressor;
-
-    
     ParticleSystem _speedPs;
+    
 
+    //[SerializeField] float jumpForce;
+    //[SerializeField] float dashForce;
+    //[SerializeField] float dashTime;
+    
+
+    [Header("Menus")]
+
+    [SerializeField] PlayerPhysicsManager _playerPhysicsManager;
+    public PlayerEffectMenu playerEffectMenu;
     // Start is called before the first frame update
     public override void Init()
     {
         LevelManager.ResetLevelParams += ResetValues;
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        
+        Cursor.visible = false;    
         GetComponents();
-        GetTechGun();
-        GetCompressor();
-        playerPhysicsManager.InitPhysics(_playerController.rb, this);
+        GetEquipment();
+        _playerPhysicsManager.InitPhysics(_playerController.rb, this);
        
     }
   
@@ -58,19 +48,19 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         UpdateUi();
         CameraCommands();
         ApplyInputs();
-        playerPhysicsManager.CaulculatePhysics(Grounded(),_heldTechGun.grappled,_inputForm.pulse,WallCheck());
-        
-        
+        _playerPhysicsManager.CaulculatePhysics(GroundCheck(),_grapplingGun.grappled,_inputForm.pulse,WallCheck());
     }
 
-   
-
-
-    public void UpdateUi()
+    private void UpdateUi()
     {
-        SpeedUi();
+        SpeedEffect();
     }
-    public void SpeedUi()
+    public void GetStartPos()
+    {
+        
+    }
+
+    private void SpeedEffect()
     {
         float speed = _playerController.rb.velocity.magnitude;
         if (speed > playerEffectMenu.SpeedPs_startParticlesSpeed)
@@ -88,26 +78,17 @@ public class PlayerManager : MonoSingleton<PlayerManager>
             }
             
      
-    
-            
-
         ep.speedModifier = (speed - playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleSpeedperKmh;
         em.rateOverTime = (speed-playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleEmissionPerKmh;
 
-        
-
-
-
         }
         else { if(!_speedPs.isStopped)_speedPs.Stop(); }
-        _playerUi.TriggerUi(Mathf.RoundToInt(speed));
-
     }
     public void ResetValues()
     {
         _compressor.ResetCompressor();
         _playerUi.ResetUi();
-        _heldTechGun.ResetGun();
+        _grapplingGun.ResetGun();
         _playerController.rb.velocity = Vector3.zero;
         ResetPlayerBody();
       
@@ -118,17 +99,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         StartPoint = Destination;
         ResetPlayerBody();
     }
-    public void ResetPlayerBody()
+    private void ResetPlayerBody()
     {
        
         transform.rotation = StartPoint.rotation;
         transform.position = StartPoint.position;
     }
-    public void UiEvent()
-    {
-        
-    }
-    public void FixedUpdate()
+  
+    private void FixedUpdate()
     {
         if (_inputForm != null)
         {
@@ -144,15 +122,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _inputManager = GetComponent<InputManager>();
         _playerUi = GetComponentInChildren<PlayerUI>();
         _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
-        _playerController.Dashforce = dashForce;
-        _playerController.DashTime = dashTime;
+        //_playerController.Dashforce = dashForce;
+        //_playerController.DashTime = dashTime;
     }
     public void Win()
     {
         _playerUi.Win();
-    }
-  
-    
+    }  
+
     public void ApplyInputs()
     {
 
@@ -160,15 +137,15 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         //{
         //    _playerController.Jump(Vector3.up*jumpForce);   
         //}
-        if (_inputForm.dash)
-        {
-            _playerController.Dash(_cameraController.transform.forward);
-        }
-        if (!_heldTechGun.grappled&&_inputForm.grapple && _heldTechGun.frontConnected)
+        //if (_inputForm.dash)
+        //{
+        //    _playerController.Dash(_cameraController.transform.forward);
+        //}
+        if (!_grapplingGun.grappled&&_inputForm.grapple && _grapplingGun.frontConnected)
         {
             ShootArm();
         }
-        if(_heldTechGun.grappled && _inputForm.releaseGrapple)
+        if(_grapplingGun.grappled && _inputForm.releaseGrapple)
         {  
             ReleaseGrapple();
         }
@@ -176,28 +153,62 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         {
             UseCompressor();
         }
-        if (_inputForm.pullGrapple && _heldTechGun.grappled)
+        if (_inputForm.pullGrapple && _grapplingGun.grappled)
         {
-            if (!_heldTechGun.pulling)
+            if (!_grapplingGun.pulling)
             {
-            _heldTechGun.PullGrapple();
+            _grapplingGun.PullGrapple();
             }
 
-        }else if (_heldTechGun.grappled && _heldTechGun.pulling)
+        }else if (_grapplingGun.grappled && _grapplingGun.pulling)
         {
-            _heldTechGun.pulling = false;
+            _grapplingGun.pulling = false;
         }
     }
 
     public void CameraCommands()
     {
         _cameraController.MoveCamera(_inputForm.mouseVector);
-        _cameraController.GetLookPos(heldTechGun,_heldTechGun.grappleSetting.GrapplingRange);
-        _cameraController.GetLookPos(compressor,_heldTechGun.grappleSetting.GrapplingRange);
+        _cameraController.GetLookPos(GrapplingGunObj,_grapplingGun.grappleSetting.GrapplingRange);
+        _cameraController.GetLookPos(CompressorObj,_grapplingGun.grappleSetting.GrapplingRange);
+    }
+   
+
+    
+    public void GetEquipment()
+    {
+        _grapplingGun = GrapplingGunObj.GetComponent<GrapplingGun>();
+        _compressor = CompressorObj.GetComponent<Compressor>();
     }
 
-    #region PlayerCommands
-    
+    public void ShootArm()
+    {
+            _grapplingGun.LaunchFrontArm();
+    }
+
+    public void ReleaseGrapple()
+    {
+        _grapplingGun.StopGrapple();
+    }
+
+    public void UseCompressor()
+    {
+        _compressor.Pulse();   
+    }
+   
+
+    public bool GroundCheck()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, 1, GroundLayer);
+    }  
+    public bool WallCheck()
+    {
+        return true;
+    }
+    //Saved Comments We Might Use
+    #region CommentedSaves
+
+
     //public void ChangeDrag()
     //{
     //    if (Grounded())
@@ -209,78 +220,31 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     //    {
     //        _playerController.rb.drag = DragVector.z;
     //    }
-       
-       
+
+
     //}
-   
-    
-    public void RecieveCharge(int ammount)
-    {
-        _compressor.Charge(ammount);
-    }
 
-    IEnumerator GetDashBoost(float DashBoost, float boostTime)
-    {
 
-        _playerController.Dashforce += DashBoost;
-        yield return new WaitForSeconds(boostTime);
-        _playerController.Dashforce -= DashBoost;
+    //public void RecieveCharge(int ammount)
+    //{
+    //    _compressor.Charge(ammount);
+    //}
 
-    }
+    //IEnumerator GetDashBoost(float DashBoost, float boostTime)
+    //{
 
- 
-    public void ApplyDashBoost(float DashBoost, float boostTime)
-    {
-        StartCoroutine(GetDashBoost(DashBoost, boostTime));
-    }
+    //    _playerController.Dashforce += DashBoost;
+    //    yield return new WaitForSeconds(boostTime);
+    //    _playerController.Dashforce -= DashBoost;
+
+    //}
+
+
+    //public void ApplyDashBoost(float DashBoost, float boostTime)
+    //{
+    //    StartCoroutine(GetDashBoost(DashBoost, boostTime));
+    //}
     #endregion
-
-   
-
-    #region GunCommands
-    //All Commands Related To Guns
-    public void GetTechGun()
-    {
-        _heldTechGun = heldTechGun.GetComponent<GrapplingGun>();
-    }
-
-    public void ShootArm()
-    {
-       
-            _heldTechGun.LaunchFrontArm();
-        
-    }
-
-    public void ReleaseGrapple()
-    {
-        _heldTechGun.StopGrapple();
-    }
-    public void GetCompressor()
-    {
-        _compressor = compressor.GetComponent<Compressor>();
-    }
-    public void UseCompressor()
-    {
-        _compressor.Pulse();   
-    }
-   
-
-
-    
-    
-
-
-
-    #endregion
-
-    public bool Grounded()
-    {
-        return Physics.Raycast(transform.position, Vector3.down, 1, GroundLayer);
-    }  
-    public bool WallCheck()
-    {
-        return true;
-    }
 }
 [System.Serializable]
 public class PlayerEffectMenu 
@@ -289,8 +253,6 @@ public class PlayerEffectMenu
     public float SpeedPs_particleEmissionPerKmh;
     public float SpeedPs_particleSpeedperKmh;
     public float SpeedPs_startParticlesSpeed;
-
-
 
 }
 

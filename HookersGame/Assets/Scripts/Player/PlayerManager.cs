@@ -54,11 +54,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _playerPhysicsManager.CaulculatePhysics(GroundCheck(),_grapplingGun.grappled,_inputForm.pulse,WallCheck());
     }
 
-    private void UpdateUi()
+    public void UpdateUi()
     {
         SpeedEffect();
     }
-    public void GetStartPos()
+    private void GetStartPos()
     {
         StartPoint = LevelManager.Instance.GetStartPointTransform;
     }
@@ -116,7 +116,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
 
   
-    public void GetComponents()
+    private void GetComponents()
     {
         rb = GetComponent<Rigidbody>();
         _cameraController = GetComponentInChildren<CameraController>();
@@ -167,7 +167,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         }
     }
 
-    public void CameraCommands()
+    private void CameraCommands()
     {
         _cameraController.MoveCamera(_inputForm.mouseVector);
         _cameraController.GetLookPos(GrapplingGunObj,_grapplingGun.grappleSetting.GrapplingRange);
@@ -176,7 +176,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
    
 
     
-    public void GetEquipment()
+    private void GetEquipment()
     {
         _grapplingGun = GrapplingGunObj.GetComponent<GrapplingGun>();
         _compressor = CompressorObj.GetComponent<Compressor>();

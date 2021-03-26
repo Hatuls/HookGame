@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fc2a7e9853fdf43b17ff7c3315c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  travelSpeed: 0
-  travelDist: 0
-  destroyDistOffset: 0
+  travelSpeed: 10000
+  travelDist: 55
+  destroyDistOffset: 10
 --- !u!1 &1263753851194345026
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 1263753851645696871}
   - component: {fileID: 1263753851645696889}
   m_Layer: 0
-  m_Name: GrapplingHand
+  m_Name: GrapplingGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,7 +597,6 @@ GameObject:
   - component: {fileID: 1263753851697889300}
   - component: {fileID: 1263753851697889301}
   - component: {fileID: 1263753851697889298}
-  - component: {fileID: 1263753851697889299}
   - component: {fileID: 1263753851697889296}
   - component: {fileID: 1263753851697889297}
   - component: {fileID: 1263753851697889310}
@@ -685,8 +684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb884d6fc32bc946b88869818b3701f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrapplingGunObj: {fileID: 0}
-  CompressorObj: {fileID: 0}
+  GrapplingGunObj: {fileID: 1263753851645696869}
+  CompressorObj: {fileID: 1263753852698158064}
   movementSpeed: 80
   GroundLayer:
     serializedVersion: 2
@@ -735,18 +734,6 @@ MonoBehaviour:
     SpeedPs_particleEmissionPerKmh: 1.5
     SpeedPs_particleSpeedperKmh: 5
     SpeedPs_startParticlesSpeed: 35
---- !u!114 &1263753851697889299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263753851697889311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1818f95dc3f8ad4daa4d66de749e6bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1263753851697889296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5887,7 +5874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5480f0092fb4d48a62db9fad6ccaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grappleSource: {fileID: 0}
+  _grappleSource: {fileID: 1263753852202210304}
 --- !u!1 &1263753852329512797
 GameObject:
   m_ObjectHideFlags: 0

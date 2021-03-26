@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : MonoSingleton<SoundManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] SongSO[] songs;
+    SongSO currentSong;
+
+    public override void Init()
     {
-        
+       // currentSong = songs[0];
     }
+    // Start is called before the first frame update
+    public static float GetBeatPerSecond()
+        => SoundManager.Instance.currentSong.GetBPM / 60f;
+
+
 }

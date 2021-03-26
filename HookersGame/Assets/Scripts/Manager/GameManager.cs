@@ -7,7 +7,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         ISingletonsArr = new ISingleton[5]
         {
-            EventManager.Instance,
+            SoundManager.Instance,
             EnemyManager.Instance,
             PlatformManager.Instance,
             LevelManager.Instance,

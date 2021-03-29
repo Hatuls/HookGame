@@ -1,12 +1,12 @@
 ﻿
 using UnityEngine;
  using System.Collections;
-public enum PlatFromType { Grabable, NotGrabable ,DeathPlatform,TriggerPlatform,ForceInfluence};
+public enum PlatFromType { Grabable, NotGrabable ,DeathPlatform,TriggerPlatform,ForceInfluence,Distructable};
 public class Platform : MonoBehaviour
 {
    
 
-    [SerializeField] private bool isTrigger,isHookable,DeathPlatform,movingPlatform,ForceInfluence;
+    [SerializeField] private bool isTrigger,isHookable,DeathPlatform,movingPlatform,ForceInfluence,Distructable;
     [Tooltip("Activate movingPlatforms for use")]
     [SerializeField] PlatformMovementSetting MovementSetting;
     [SerializeField] InfluenceSettings influenceSettings;
@@ -105,9 +105,14 @@ public class Platform : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Player"))
         {
+            
             if (ForceInfluence)
             {
                 other.gameObject.GetComponent<PlayerManager>().ApplyForceToPlayer(influenceSettings);
+            }
+            if (Distructable)
+            {
+               // gameObject.SetActive(false);
             }
 
             if (DeathPlatform)
@@ -124,8 +129,15 @@ public class Platform : MonoBehaviour
 
             if (ForceInfluence)
             {
+
                 collision.gameObject.GetComponent<PlayerManager>().ApplyForceToPlayer(influenceSettings);
             }
+            if (Distructable)
+            {
+                //gameObject.SetActive(false);
+            }
+
+
             if (DeathPlatform)
             {
                 LevelManager.Instance.ResetLevelValues();

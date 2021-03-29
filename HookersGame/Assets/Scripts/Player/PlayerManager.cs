@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
     internal Rigidbody rb;
+    bool Influenced;
 
     [SerializeField] GameObject GrapplingGunObj;
     [SerializeField] GameObject CompressorObj;
@@ -103,7 +104,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         transform.rotation = StartPoint.rotation;
         transform.position = StartPoint.position;
     }
-  
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
     private void FixedUpdate()
     {
         if (_inputForm != null)

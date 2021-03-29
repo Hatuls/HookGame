@@ -67,7 +67,7 @@ public  partial class LevelManager
 
                 if (Mathf.Abs(deathWallCache.position.z - platforms[i-1].transform.position.z) < distanceFromStarting)
                 {
-                    platforms[i-1].MoveToward(deathWall.transform);
+                    platforms[i-1].SuckTowards(deathWall.transform);
                     platformIndex[i-1] = i;
                 }
             }

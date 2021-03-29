@@ -59,10 +59,12 @@ public class FrontArm : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         rb.isKinematic=true;
         SetGrapple(attachedPoint,attachedObj);
+
     }
      void SetGrapple(Vector3 attachedPoint, GameObject attachedObj)
     {
         LaunchBase.Grapple(attachedObj, attachedPoint);
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -82,5 +84,14 @@ public class FrontArm : MonoBehaviour
 
 
 
+    }
+   
+    public void AttatchRequest(Vector3 attachedPoint, GameObject attachedObj)
+    {
+        if (attached == false && connected == false)
+        {
+            AttachToSurface(attachedPoint, attachedObj);
+        }
+        else { Debug.Log("AttachRequestFailed"); }
     }
 }

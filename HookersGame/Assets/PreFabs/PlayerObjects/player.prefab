@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1263753851177597848}
   m_Layer: 0
   m_Name: FrontArm
-  m_TagString: Untagged
+  m_TagString: FrontArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelSpeed: 10000
-  travelDist: 55
-  destroyDistOffset: 10
+  travelDist: 90
+  destroyDistOffset: 0
 --- !u!1 &1263753851194345026
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grappleSetting:
     maxGrappleDist: 0.7
-    minGrappleDist: 0.4
+    minGrappleDist: 0
     spring: 8.59
     damper: 6
     massScale: 60
@@ -10404,6 +10404,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Charges: 1
   maxCharges: 1
-  timeToSelfCharge: 0
-  pulseStrenght: 0
+  timeToSelfCharge: 1
+  pulseStrenght: 50
   PulseParticles: {fileID: 1263753852334378694}

@@ -1,8 +1,20 @@
 ﻿
 using UnityEngine;
+ using System.Collections;
 public enum PlatFromType { Grabable, NotGrabable };
 public class Platform : MonoBehaviour
 {
+   
+
+    [SerializeField] private bool isTrigger,isHookable,DeathPlatform,movingPlatform;
+    [Tooltip("Activate movingPlatforms for use")]
+    [SerializeField] PlatformMovementSetting MovementSetting;
+    private Coroutine movementCoru;
+    private int posCounter=0;
+    
+    
+   
+
 
     Vector3 position;
     Vector3 scale;
@@ -10,20 +22,129 @@ public class Platform : MonoBehaviour
     MeshRenderer _MR;
 
     [SerializeField] private PlatFromType platFromType;
+    private Collider col;
     public PlatFromType GetPlatFromType => platFromType;
 
+
+    private void Update()
+    {
+        if (movingPlatform&MovementSetting.Move)
+        {
+        ApplyMovement();  
+        }
+    }
+    public void ApplyMovement()
+    {
+        if (MovementSetting.Rotate)
+        {
+            transform.Rotate(MovementSetting.rotation * MovementSetting.rotSpeed);
+        }
+        if (movementCoru == null)
+        {
+
+           
+            if (posCounter >= MovementSetting.Stops.Length)
+            {
+                if (MovementSetting.Loop)
+                {
+                    movementCoru = StartCoroutine(PlatformMovement(position, MovementSetting.TimeBetweenStations));
+                    posCounter = 0;
+                    return;
+                }
+                else { MovementSetting.Move = false; return; }
+                
+            }
+            movementCoru = StartCoroutine(PlatformMovement(MovementSetting.Stops[posCounter].position, MovementSetting.TimeBetweenStations));
+            posCounter++;
+        }
+    }
+    void BuildPlatform()
+    {
+        foreach(Transform found in MovementSetting.Stops)
+        {
+            found.transform.parent = null;
+        }
+        col = GetComponent<Collider>();
+        if (isHookable)
+        {
+            gameObject.tag = "GrappleAble";
+
+        }
+        if (isTrigger)
+        {
+            col.isTrigger = true; 
+        }
+        else { col.isTrigger = false; }
+        if (movingPlatform)
+        {
+            
+        }
+            
+        
+    }
+    
+    private void Start()
+    {
+        BuildPlatform();
+    }
+    
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("FrontArm"))
+        {
+            other.GetComponent<FrontArm>().AttatchRequest(other.transform.position, this.gameObject);
+            
+            
+        }
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+            if (DeathPlatform)
+            {
+                LevelManager.Instance.ResetLevelValues();
+            }
+        }
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+      
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            
+            if (DeathPlatform)
+            {
+                LevelManager.Instance.ResetLevelValues();
+            }
+        }
+
+
+    }
+   
+    IEnumerator PlatformMovement(Vector3 Target,float TimeToRTarget)
+    {
+        MoveTowards(Target, TimeToRTarget);
+        yield return new WaitForSeconds(TimeToRTarget);
+        movementCoru = null;
+      
+    }
 
     public void SubscribePlatform()
     {
         LevelManager.ResetPlatformEvent += SetTexture;
         LevelManager.ResetPlatformEvent += PlatfromReset;
     }
-    public void MoveToward(in Transform targetPos)
+    public void SuckTowards(in Transform targetPos)
     {
         LeanTween.move(gameObject, targetPos, 2f).setEase(LeanTweenType.easeInOutSine);
         LeanTween.rotateAround(gameObject, ToolClass.GetDirection(), 360f, 2f);
         LeanTween.scale(gameObject, Vector3.zero, 2f);
     }
+    public void MoveTowards(in Vector3 targetPos,float TimeBetweenStations)
+    {
+        LeanTween.move(gameObject, targetPos, TimeBetweenStations).setEase(LeanTweenType.easeInOutSine);
+    }
+
 
 
     private void Awake()
@@ -54,6 +175,11 @@ public class Platform : MonoBehaviour
 
     private void PlatfromReset()
     {
+        if (movingPlatform)
+        {
+            posCounter = 0;
+            MovementSetting.Move = true;
+        }
         transform.position = position;
         transform.localScale = scale;
     }
@@ -71,4 +197,17 @@ public class Platform : MonoBehaviour
     {
         UnSubscribeEvents();
     }
+}
+[System.Serializable]
+public class PlatformMovementSetting
+{
+
+    public bool Loop;
+    public bool Move;
+    public bool Rotate;
+    public Transform[] Stops;
+    public float TimeBetweenStations;
+    public Vector3 rotation;
+    public float rotSpeed;
+    
 }

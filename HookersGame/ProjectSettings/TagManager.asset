@@ -8,6 +8,7 @@ TagManager:
   - ChargeObject
   - StartPoint
   - Note
+  - FrontArm
   layers:
   - Default
   - TransparentFX

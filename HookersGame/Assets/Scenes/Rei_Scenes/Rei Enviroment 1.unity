@@ -20891,6 +20891,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 45abc0cb137a84543a962686a65e5558,
         type: 2}
+    - target: {fileID: 1127031767880727580, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: startPosition.y
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 2257823656938604813, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: m_Name

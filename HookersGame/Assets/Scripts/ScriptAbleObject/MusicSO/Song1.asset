@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Song1
   m_EditorClassIdentifier: 
   _song: {fileID: 0}
-  beatPerMinute: 30
+  beatPerMinute: 140

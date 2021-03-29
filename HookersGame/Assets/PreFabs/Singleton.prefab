@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1027942294}
   - component: {fileID: 773640655827770038}
   - component: {fileID: 289246767245590742}
+  - component: {fileID: 1127031767880727580}
   m_Layer: 0
   m_Name: Singleton
   m_TagString: Untagged
@@ -109,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanLose: 0
   toSpawnDrones: 0
+  UnLimitedCompressor: 0
 --- !u!114 &289246767245590742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,3 +124,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songs: []
+  gameStarted: 0
+--- !u!114 &1127031767880727580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257823656938604813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaefc2f1a1f91941b28baab6162a12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Note: {fileID: 0}
+  startPosition: {x: 0, y: 0}
+  beat: 0

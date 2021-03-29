@@ -34,11 +34,23 @@ public class SoundManager : MonoSingleton<SoundManager>
     private void Start()
     {
         currentSong = songs[0];
-        StartMusic?.Invoke();
+       // StartMusic?.Invoke();
     }
-    public void StartPlayingSong() {
+  public  static float GetBeat => currentSong.GetBPM;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            StartPlayingSong();
+        }
+    }
+    public void StartPlayingSong() { 
+        
+       StartMusic?.Invoke();
+        return;
         if (!_audioSource.isPlaying)
         {
+      
             _audioSource.Play();
             StartMusic?.Invoke();
         }
@@ -48,4 +60,5 @@ public class SoundManager : MonoSingleton<SoundManager>
             StopMusic?.Invoke();
         }
     }
+
 }

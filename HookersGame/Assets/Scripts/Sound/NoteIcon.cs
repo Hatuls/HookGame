@@ -5,7 +5,7 @@ using UnityEngine;
 public class NoteIcon : MonoBehaviour
 {
     [SerializeField] bool toStop;
-
+  [SerializeField] float beatTempo, minSuccessDelay = .95f, maxSuccessDelay = 1.05f, resetTimer = 1.2f;
     RectTransform rt;
     Image img;
     private void Start()
@@ -42,7 +42,7 @@ public class NoteIcon : MonoBehaviour
     {
         Color  ProceedColor;
         
-        float beatTempo, minSuccessDelay =.95f,maxSuccessDelay = 1.05f, resetTimer = 1.2f;
+      
         RectTransform childRect = transform.GetChild(0).GetComponent<RectTransform>();
        
         toStop = false;

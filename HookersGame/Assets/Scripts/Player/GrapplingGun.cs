@@ -68,10 +68,10 @@ public class GrapplingGun : MonoBehaviour
        
 
         grappleObj = ConnectedObject;
-         grapplingEndPoint = GrapplePos;
+         grapplingEndPoint = GrapplePos-ConnectedObject.transform.position;
         grappleJoint = transform.root.gameObject.AddComponent<SpringJoint>();
         grappleJoint.autoConfigureConnectedAnchor = false;
-        grappleJoint.connectedAnchor = GrapplePos;
+        
 
         float DistanceFromTarget = Vector3.Distance(transform.root.position, grappleObj.transform.position);
         //Grappling ranges
@@ -141,10 +141,10 @@ public class GrapplingGun : MonoBehaviour
 
             if (grappleObj != null)
             {
-
-
+                
+                grappleJoint.connectedAnchor =grappleObj.transform.position+grapplingEndPoint;
                 _lineRenderer.SetPosition(0, _backArm._grappleSource.position);
-                _lineRenderer.SetPosition(1, grapplingEndPoint);
+                _lineRenderer.SetPosition(1, grappleObj.transform.position + grapplingEndPoint);
             }
             yield return null;
         }

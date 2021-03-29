@@ -1,14 +1,15 @@
 ﻿
 using UnityEngine;
  using System.Collections;
-public enum PlatFromType { Grabable, NotGrabable ,DeathPlatform,TriggerPlatform};
+public enum PlatFromType { Grabable, NotGrabable ,DeathPlatform,TriggerPlatform,ForceInfluence};
 public class Platform : MonoBehaviour
 {
    
 
-    [SerializeField] private bool isTrigger,isHookable,DeathPlatform,movingPlatform;
+    [SerializeField] private bool isTrigger,isHookable,DeathPlatform,movingPlatform,ForceInfluence;
     [Tooltip("Activate movingPlatforms for use")]
     [SerializeField] PlatformMovementSetting MovementSetting;
+    [SerializeField] InfluenceSettings influenceSettings;
     private Coroutine movementCoru;
     private int posCounter=0;
     
@@ -104,6 +105,10 @@ public class Platform : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Player"))
         {
+            if (ForceInfluence)
+            {
+                other.gameObject.GetComponent<PlayerManager>().ApplyForceToPlayer(influenceSettings);
+            }
 
             if (DeathPlatform)
             {
@@ -116,11 +121,16 @@ public class Platform : MonoBehaviour
       
         if (collision.gameObject.CompareTag("Player"))
         {
-            
+
+            if (ForceInfluence)
+            {
+                collision.gameObject.GetComponent<PlayerManager>().ApplyForceToPlayer(influenceSettings);
+            }
             if (DeathPlatform)
             {
                 LevelManager.Instance.ResetLevelValues();
             }
+
         }
 
 
@@ -180,6 +190,10 @@ public class Platform : MonoBehaviour
                 _MR.material.color = Color.cyan;
                 // not grabbable platform
                 break;
+            case PlatFromType.ForceInfluence:
+                _MR.material.color = Color.yellow;
+                // not grabbable platform
+                break;
             default:
                 break;
         }
@@ -211,6 +225,17 @@ public class Platform : MonoBehaviour
         UnSubscribeEvents();
     }
 }
+
+[System.Serializable]
+internal class InfluenceSettings
+{
+    public PlayerManager.PlayerInfluenceType playerInfluence;
+    public Vector3 Dir;
+    public float Force;
+    public float InfluenceTime;
+
+}
+
 [System.Serializable]
 public class PlatformMovementSetting
 {

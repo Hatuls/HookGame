@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
+
+    internal enum PlayerInfluenceType {linear,Impulse,explosion}
+
     internal Rigidbody rb;
-    bool Influenced;
+    bool Influenced=false;
 
     [SerializeField] GameObject GrapplingGunObj;
     [SerializeField] GameObject CompressorObj;
@@ -111,10 +115,51 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
     private void FixedUpdate()
     {
-        if (_inputForm != null)
+        if (_inputForm != null&&!Influenced)
         {
             rb.AddRelativeForce(_inputForm.movementVector.normalized * movementSpeed);
         }
+    }
+    internal void ApplyForceToPlayer(InfluenceSettings influenceSettings)
+    {
+        Influenced = true;
+        StartCoroutine(PlayerForceInfluence(influenceSettings.playerInfluence, influenceSettings.InfluenceTime, influenceSettings.Force, influenceSettings.Dir));
+    }
+    IEnumerator PlayerForceInfluence(PlayerInfluenceType influenceType,float influenceTime,float force,Vector3 Dir)
+    {
+        float Timeloop = Time.time;
+
+        rb.velocity = Vector3.zero;
+        switch (influenceType) 
+        {
+            case PlayerInfluenceType.Impulse:
+                while (Timeloop + influenceTime > Time.time)
+                {
+                rb.AddForce(Dir * force,ForceMode.Impulse);
+                    yield return new WaitForFixedUpdate();
+                }
+                break;
+
+            case PlayerInfluenceType.linear:
+                while (Timeloop + influenceTime > Time.time)
+                {
+                rb.AddForce(Dir * force, ForceMode.Acceleration);
+                    yield return new WaitForFixedUpdate();
+                }
+                break;
+
+            case PlayerInfluenceType.explosion:
+                while (Timeloop + influenceTime > Time.time)
+                {
+                rb.AddExplosionForce(force, Dir, 5);
+                    yield return new WaitForFixedUpdate();
+                } 
+                break;
+        }
+
+
+        yield return null;
+        Influenced = false;
     }
 
   

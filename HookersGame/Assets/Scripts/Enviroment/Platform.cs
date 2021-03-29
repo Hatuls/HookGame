@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
  using System.Collections;
-public enum PlatFromType { Grabable, NotGrabable };
+public enum PlatFromType { Grabable, NotGrabable ,DeathPlatform,TriggerPlatform};
 public class Platform : MonoBehaviour
 {
    
@@ -93,7 +93,12 @@ public class Platform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("FrontArm"))
         {
-            other.GetComponent<FrontArm>().AttatchRequest(other.transform.position, this.gameObject);
+            FrontArm frontArm = other.GetComponent<FrontArm>();
+
+
+            if (frontArm!=null)
+           frontArm.AttatchRequest(other.transform.position, this.gameObject);
+            
             
             
         }
@@ -164,7 +169,15 @@ public class Platform : MonoBehaviour
                 // grabbable platform
                 break;
             case PlatFromType.NotGrabable:
+                _MR.material.color = Color.white;
+                // not grabbable platform
+                break;
+            case PlatFromType.DeathPlatform:
                 _MR.material.color = Color.red;
+                // not grabbable platform
+                break;
+            case PlatFromType.TriggerPlatform:
+                _MR.material.color = Color.cyan;
                 // not grabbable platform
                 break;
             default:

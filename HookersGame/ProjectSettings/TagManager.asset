@@ -6,6 +6,9 @@ TagManager:
   tags:
   - GrappleAble
   - ChargeObject
+  - StartPoint
+  - Note
+  - FrontArm
   layers:
   - Default
   - TransparentFX
@@ -42,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: NoteLayer
+    uniqueID: 207202727
     locked: 0

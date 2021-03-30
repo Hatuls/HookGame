@@ -6,82 +6,60 @@ using UnityEngine;
 public class GrapplingGun : MonoBehaviour
 {
 
-
-
-
-    internal PlayerManager usePlayer;
     public GrappleSetting grappleSetting;
+
+
+    internal bool pulling;
     internal bool grappled; 
-   [SerializeField] Transform FrontHandSlot;
-   [SerializeField] GameObject FrontArm;
+    internal bool frontConnected=true;
+
+   [SerializeField] Transform frontHandSlot;
+   [SerializeField] GameObject frontArmObj;
+   [SerializeField] GameObject backArmObj;
+
     private GameObject currentFrontArm;
-   [SerializeField] GameObject BackArm;
     private FrontArm _frontArm;
     private BackArm _backArm;
     private Vector3 grapplingEndPoint;
-    internal bool FrontConnected=true;
-    private LineRenderer lineRenderer;
-    GameObject grappleObj;
+    private LineRenderer _lineRenderer;
+
+    
+
     SpringJoint grappleJoint;
+    GameObject grappleObj;
 
-    [SerializeField] float startPullSpeed;
-    [SerializeField] float MaxPullSpeed;
-    [SerializeField] float PullIncrease;
-    [SerializeField] float TimeForArmGrow;
 
-    internal bool pulling;
+
     private void Start()
-    {
-        
-        lineRenderer = GetComponent<LineRenderer>();
+    {   
         InitNewFrontArm();
-        GetParts();
+        GetComponents();
     }
 
+    
+    private void GetComponents()
+    {
+        _lineRenderer = GetComponent<LineRenderer>();
+        _backArm = backArmObj.GetComponent<BackArm>();
+    }
     public void ResetGun()
     {
-        if(grappled)
-        StopGrapple();
-        
-    }
-    public void GetParts()
-    {
-        
-        _backArm = BackArm.GetComponent<BackArm>();
+        if (grappled)
+            StopGrapple();
+
     }
 
     public void LaunchFrontArm()
     {
-        FrontConnected = false;
-        _frontArm.Launch(this);
+        frontConnected = false;
+        if (_frontArm != null )
+          _frontArm.Launch(this);
     }
 
-    IEnumerator Pull()
-    {
-        float currentSpeed = startPullSpeed;
-        while (pulling && currentSpeed<MaxPullSpeed && grappleJoint != null)
-        {
-            grappleJoint.maxDistance -= currentSpeed;
-            grappleJoint.minDistance -= currentSpeed;
-            yield return new WaitForFixedUpdate();
-            currentSpeed += PullIncrease;
-        }
-        while (pulling&&grappleJoint!=null)
-        {
-            if(grappleJoint.maxDistance>0.01)
-            grappleJoint.maxDistance -= currentSpeed;
-            if(grappleJoint.maxDistance>0.01)
-            grappleJoint.minDistance -= currentSpeed;
-            yield return new WaitForFixedUpdate();
-
-        }
-            
-        
-    }
     public void PullGrapple()
     {
         pulling = true;
-        StartCoroutine(Pull());
+        StartCoroutine(PullCoru());
     }
     
 
@@ -90,10 +68,10 @@ public class GrapplingGun : MonoBehaviour
        
 
         grappleObj = ConnectedObject;
-         grapplingEndPoint = GrapplePos;
+         grapplingEndPoint = GrapplePos-ConnectedObject.transform.position;
         grappleJoint = transform.root.gameObject.AddComponent<SpringJoint>();
         grappleJoint.autoConfigureConnectedAnchor = false;
-        grappleJoint.connectedAnchor = GrapplePos;
+        
 
         float DistanceFromTarget = Vector3.Distance(transform.root.position, grappleObj.transform.position);
         //Grappling ranges
@@ -106,26 +84,14 @@ public class GrapplingGun : MonoBehaviour
         grappleJoint.massScale = grappleSetting.massScale;
 
         grappled = true;
-       StartCoroutine(DrawRope());
+       StartCoroutine(DrawRopeCoru());
     }
-     IEnumerator DrawRope()
-    {
-        lineRenderer.enabled = true;
-        while (grappled)
-        {
 
-            if (grappleObj != null)
-            {
 
-            
-            lineRenderer.SetPosition(0, _backArm.GrappleSource.position);
-            lineRenderer.SetPosition(1, grapplingEndPoint);
-            }
-            yield return null;
-        }
-        lineRenderer.enabled = false;
 
-    }
+
+
+    
 
     public void StopGrapple()
     {
@@ -138,24 +104,62 @@ public class GrapplingGun : MonoBehaviour
     }
     public void InitNewFrontArm()
     {
-        StartCoroutine(NewArm());
+        StartCoroutine(GrowArmCoru());
     }
-    IEnumerator NewArm()
+
+
+    IEnumerator PullCoru()
     {
-        yield return new WaitForSeconds(TimeForArmGrow);
-        currentFrontArm = Instantiate(FrontArm, FrontHandSlot);
+        float currentSpeed = grappleSetting.startPullSpeed;
+        while (pulling && currentSpeed < grappleSetting.maxPullSpeed && grappleJoint != null)
+        {
+            grappleJoint.maxDistance -= currentSpeed;
+            grappleJoint.minDistance -= currentSpeed;
+            yield return new WaitForFixedUpdate();
+            currentSpeed += grappleSetting.pullIncrease;
+        }
+        while (pulling && grappleJoint != null)
+        {
+            if (grappleJoint.maxDistance > 0.01)
+                grappleJoint.maxDistance -= currentSpeed;
+            if (grappleJoint.maxDistance > 0.01)
+                grappleJoint.minDistance -= currentSpeed;
+            yield return new WaitForFixedUpdate();
+
+        }
+
+
+    }
+
+
+
+    IEnumerator DrawRopeCoru()
+    {
+        _lineRenderer.enabled = true;
+        while (grappled)
+        {
+
+            if (grappleObj != null)
+            {
+                
+                grappleJoint.connectedAnchor =grappleObj.transform.position+grapplingEndPoint;
+                _lineRenderer.SetPosition(0, _backArm._grappleSource.position);
+                _lineRenderer.SetPosition(1, grappleObj.transform.position + grapplingEndPoint);
+            }
+            yield return null;
+        }
+        _lineRenderer.enabled = false;
+
+    }
+
+
+    IEnumerator GrowArmCoru()
+    {
+        yield return new WaitForSeconds(grappleSetting.timeForArmGrow);
+        currentFrontArm = Instantiate(frontArmObj, frontHandSlot);
         _frontArm = currentFrontArm.GetComponent<FrontArm>();
-        FrontConnected = true;
+        frontConnected = true;
     }
-
-    public void RecieveCharge(int ammount)
-    {
-        StopGrapple();
-        usePlayer.RecieveCharge(ammount);
-    }
-
-
-
 
 }
 [System.Serializable]
@@ -167,5 +171,9 @@ public class GrappleSetting
     public float damper;
     public float massScale;
     public float GrapplingRange;
+    public float startPullSpeed;
+    public float maxPullSpeed;
+    public float pullIncrease;
+    public float timeForArmGrow;
     public LayerMask GraplingLayere;
 }

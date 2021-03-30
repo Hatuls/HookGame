@@ -2,14 +2,14 @@
 
 public class DeathWallTrigger : MonoBehaviour {
 
-    [SerializeField] DeathWall deathWall;
+ 
 
     bool flag;
     private void Start()
     {
-        LevelManager.ResetLevelParams += ReseTrigger;
+        LevelManager.ResetLevelParams += ResetTrigger;
     }
-    void ReseTrigger()
+   private void ResetTrigger()
           => flag = false;
     private void OnTriggerEnter(Collider other)
     {
@@ -17,14 +17,14 @@ public class DeathWallTrigger : MonoBehaviour {
         {
             flag = true;
             Debug.Log("Death Wall Starting to Chase The Player");
-            deathWall.Instance.SetStartDeathWall = true;
-            PlatformManager.Instance.StartChecking();
+            LevelManager.Instance.GetDeathWall.SetStartDeathWall = true;
+            LevelManager.Instance.StartChecking();
         }
     }
 
 
     private void OnDestroy()
     {
-        LevelManager.ResetLevelParams -= ReseTrigger;
+        LevelManager.ResetLevelParams -= ResetTrigger;
     }
 }

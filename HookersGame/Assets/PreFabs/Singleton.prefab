@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2257823656938604814}
   - component: {fileID: 2257823656938604815}
-  - component: {fileID: 1262688326}
   - component: {fileID: 7206604708096983941}
   - component: {fileID: 815221465}
   - component: {fileID: 1027942294}
   - component: {fileID: 773640655827770038}
+  - component: {fileID: 289246767245590742}
+  - component: {fileID: 1127031767880727580}
   m_Layer: 0
   m_Name: Singleton
   m_TagString: Untagged
@@ -48,22 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379e68ec20892604db4722c8ef911573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1262688326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2257823656938604813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6756cd56f558bf14bb630770dc25a5d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformsArr: []
-  grabableLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &7206604708096983941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +92,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelsSO:
   - {fileID: 11400000, guid: bb8f7f9020d42cf4c9243a057c38e5c7, type: 2}
+  platformsArr: []
+  grabableLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &773640655827770038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,3 +110,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanLose: 0
   toSpawnDrones: 0
+  UnLimitedCompressor: 0
+--- !u!114 &289246767245590742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257823656938604813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e058030800c298c4ca62f8996ae0ed3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songs: []
+  gameStarted: 0
+--- !u!114 &1127031767880727580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257823656938604813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaefc2f1a1f91941b28baab6162a12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Note: {fileID: 0}
+  startPosition: {x: 0, y: 0}
+  beat: 0

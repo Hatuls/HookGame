@@ -232,11 +232,11 @@ public class PlayerPhysicsManager
             fallSpeed += speeds.fallSpeedGrouth;
             rb.AddForce(Vector3.down *fallSpeed,ForceMode.Acceleration);
             yield return new WaitForFixedUpdate();
-            Debug.Log(fallSpeed);
+
         }
     }
 
-
+    
     // Start is called before the first frame update
    
 }

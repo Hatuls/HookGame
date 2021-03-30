@@ -1,41 +1,39 @@
 ﻿using UnityEngine;
-
 using System.Collections;
 
-public class LevelManager : MonoSingleton<LevelManager> 
+public partial class LevelManager : MonoSingleton<LevelManager>
 {
     [SerializeField] LevelSO[] LevelsSO;
-    
+
     int currentLevel;
-    public delegate void ClickAction();
-    public static event ClickAction ResetLevelParams;
+
+    Transform _playerStartPosition;
+
+    Coroutine CheckPlatformVoidDistance;
+
+    public delegate void LevelEvents();
+    public static event LevelEvents ResetLevelParams;
+    public static event LevelEvents ResetPlatformEvent;
 
 
-    
+    public Transform GetStartPointTransform
+    {
+        get {
+          
+            if (_playerStartPosition == null)
+                _playerStartPosition = GameObject.FindGameObjectWithTag("StartPoint").GetComponent<Transform>();
+
+          
+            return _playerStartPosition;
+        }
+    }
     public override void Init()
     {
         ResetLevelValues();
         currentLevel = 0;
     }
     internal float GetLevelDeathWallSpeed()
-        => LevelsSO[currentLevel].DeathWallSpeed;
-
-    public void LoadTheNextLevel() {
-        PlayerManager.Instance.Win();
-        PlatformManager.Instance.ResetPlatforms();
-        StartCoroutine(WinningCountDown());
-
-        // maybe show success
-        //currentLevel++;
-       // ResetLevelParams();
-    }
-    IEnumerator WinningCountDown() {
-        Time.timeScale = 0.1f;
-
-        yield return new WaitForSeconds(0.5f);
-        ResetLevelValues();
-    }
-    private int GetCurrentLevel() => currentLevel;
+        => LevelsSO[currentLevel].deathWallSpeed;
     public void ResetLevelValues()
     {
         // Player:
@@ -43,7 +41,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         // Reset player Cooldowns
         // reset physics and forces
 
-
+        
         // Level:
         // Reset DeathWall - V
         // Reset Timer For Level - X
@@ -53,11 +51,54 @@ public class LevelManager : MonoSingleton<LevelManager>
         // UI 
         // Reset Ui Elements
         Time.timeScale = 1f;
-        PlatformManager.Instance.ResetPlatforms();
-        PlayerManager.Instance?.SetStartPoint(LevelsSO[GetCurrentLevel()].GetPlayerSpawningPoint);
+        AssignLevelObject();
+        StopVoidPlatformCoroutine();
         ResetLevelParams?.Invoke();
+        ResetPlatformEvent?.Invoke();
     }
 
+    private void AssignLevelObject()
+    {
+        if (platformsArr == null || platformsArr.Length == 0)
+        {
+            platformsArr = FindObjectsOfType<Platform>();
 
+            for (int i = 0; i < platformsArr.Length; i++)
+                platformsArr[i].SubscribePlatform();
+        }
+
+        if (deathWall == null)
+            deathWall = FindObjectOfType<DeathWall>();
+    }
+    private void StopVoidPlatformCoroutine()
+    {
+        flag = false;
+        if (CheckPlatformVoidDistance != null)
+            StopCoroutine(CheckPlatformVoidDistance);
+
+    }
+    public void LoadTheNextLevel()
+    {
+        deathWall = null;
+        platformsArr = null;
+        _playerStartPosition = null;
+
+     
+        StopVoidPlatformCoroutine();
+
+        StartCoroutine(WinningCountDown());
+
+        // maybe show success
+        //currentLevel++; 
+      
+        // ResetLevelParams();
+    }
+    IEnumerator WinningCountDown()
+    {
+        Time.timeScale = 0.1f;
+
+        yield return new WaitForSeconds(0.5f);
+        ResetLevelValues();
+    }
 
 }

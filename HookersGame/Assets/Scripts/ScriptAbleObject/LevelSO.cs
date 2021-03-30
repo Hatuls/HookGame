@@ -12,4 +12,8 @@ public class LevelSO : ScriptableObject {
     [Header("Time Score: Bronze, Silver, Gold")]
     public float[] TimeToFinish = new float[3];
 
+
+
+
+
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class StartDeathWallObject : MonoBehaviour {
+public class DeathWallTrigger : MonoBehaviour {
 
     [SerializeField] DeathWall deathWall;
 
@@ -18,6 +18,7 @@ public class StartDeathWallObject : MonoBehaviour {
             flag = true;
             Debug.Log("Death Wall Starting to Chase The Player");
             deathWall.Instance.SetStartDeathWall = true;
+            PlatformManager.Instance.StartChecking();
         }
     }
 

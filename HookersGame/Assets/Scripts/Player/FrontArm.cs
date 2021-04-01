@@ -19,17 +19,17 @@ public class FrontArm : MonoBehaviour
 
     public void Launch(GrapplingGun techGun)
     {
-        connected = false;
-        LaunchBase = techGun;
         rb = gameObject.AddComponent<Rigidbody>();
+        transform.parent = null;
         rb.useGravity = false;
+        LaunchBase = techGun;
+        connected = false;
         TravelTowards();
     }
 
 
     void TravelTowards()
     {
-        transform.parent = null;
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         //transform.LookAt(LaunchBase.transform.forward);
         rb.AddForce(transform.forward * travelSpeed);
@@ -55,9 +55,9 @@ public class FrontArm : MonoBehaviour
     }
     void AttachToSurface(Vector3 attachedPoint, GameObject attachedObj)
     {
-        attached=true;
-        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         rb.isKinematic=true;
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        attached=true;
         SetGrapple(attachedPoint,attachedObj);
 
     }
@@ -69,6 +69,9 @@ public class FrontArm : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!connected)
+        {
+
         if (collision.gameObject.CompareTag("GrappleAble"))
         {
             AttachToSurface(transform.position,collision.gameObject);
@@ -80,6 +83,7 @@ public class FrontArm : MonoBehaviour
         {
             Destroy(gameObject);
             LaunchBase.InitNewFrontArm();
+        }
         }
 
 

@@ -140,9 +140,12 @@ public class GrapplingGun : MonoBehaviour
     IEnumerator DrawRopeCoru()
     {
         _lineRenderer.enabled = true;
-        while (grappled)
+        while (grappled&&_frontArm!=null)
         {
-
+            
+            transform.LookAt(_frontArm.transform.position);
+            //_backArm.transform.Rotate(90, 0, 0);
+            
             if (grappleObj != null)
             {
                 
@@ -153,6 +156,7 @@ public class GrapplingGun : MonoBehaviour
             yield return null;
         }
         _lineRenderer.enabled = false;
+    //    _backArm.transform.rotation= _backArm.startRot;
 
     }
 

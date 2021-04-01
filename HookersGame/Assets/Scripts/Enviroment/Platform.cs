@@ -92,7 +92,7 @@ public class Platform : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("FrontArm"))
+        if (other.gameObject.CompareTag("FrontArm")&&isHookable)
         {
             FrontArm frontArm = other.GetComponent<FrontArm>();
 

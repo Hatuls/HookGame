@@ -7,6 +7,7 @@ public class FrontArm : MonoBehaviour
     internal GrapplingGun LaunchBase; 
 
     Rigidbody rb;
+    Animator anim;
     [SerializeField] float travelSpeed;
     [SerializeField] float travelDist;
     [SerializeField] float destroyDistOffset;
@@ -19,6 +20,7 @@ public class FrontArm : MonoBehaviour
 
     public void Launch(GrapplingGun techGun)
     {
+        anim = GetComponentInChildren<Animator>();
         rb = gameObject.AddComponent<Rigidbody>();
         transform.parent = null;
         rb.useGravity = false;
@@ -57,6 +59,7 @@ public class FrontArm : MonoBehaviour
     {
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         rb.isKinematic=true;
+        anim.SetTrigger("Grapple");
         attached=true;
         SetGrapple(attachedPoint,attachedObj);
 

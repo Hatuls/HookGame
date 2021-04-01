@@ -61,10 +61,10 @@ public class Platform : MonoBehaviour
     }
     void BuildPlatform()
     {
-        foreach(Transform found in MovementSetting.Stops)
-        {
-            found.transform.parent = null;
-        }
+        //foreach(Transform found in MovementSetting.Stops)
+        //{
+        //    found.transform.parent = null;
+        //}
         col = GetComponent<Collider>();
         if (isHookable)
         {

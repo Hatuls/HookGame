@@ -57,7 +57,7 @@ public class GrapplingGun : MonoBehaviour
         frontConnected = false;
         if (_frontArm != null )
           _frontArm.Launch(this);
-       StartCoroutine(DrawProceduralRope());
+       StartCoroutine(DrawProceduralRope(_frontArm.gameObject));
     }
 
     public void PullGrapple()
@@ -156,19 +156,24 @@ public class GrapplingGun : MonoBehaviour
 
     }
 
-    IEnumerator DrawProceduralRope()
+    IEnumerator DrawProceduralRope(GameObject Referencedhand)
     {
         _lineRenderer.enabled = true;
-        while (!grappled)
+        while (!grappled&&Referencedhand!=null)
         {
 
 
                 _lineRenderer.SetPosition(0, _backArm._grappleSource.position);
-                _lineRenderer.SetPosition(1, frontArmObj.transform.position + grapplingEndPoint);
+                _lineRenderer.SetPosition(1, Referencedhand.transform.position + grapplingEndPoint);
+            Debug.Log(Referencedhand.transform.position);
 
             yield return null;
         }
+        if (!grappled)
+        {
+
         _lineRenderer.enabled = false;
+        }
 
     }
 
@@ -181,7 +186,10 @@ public class GrapplingGun : MonoBehaviour
         _frontArm = currentFrontArm.GetComponent<FrontArm>();
         frontConnected = true;
     }
-
+    private void OnDestroy()
+    {
+        _lineRenderer.enabled = false;
+    }
 }
 [System.Serializable]
 public class GrappleSetting

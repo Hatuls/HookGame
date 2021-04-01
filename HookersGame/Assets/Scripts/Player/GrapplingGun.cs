@@ -29,6 +29,9 @@ public class GrapplingGun : MonoBehaviour
     GameObject grappleObj;
 
 
+    Coroutine DrawCoru;
+
+
 
     private void Start()
     {   
@@ -54,6 +57,7 @@ public class GrapplingGun : MonoBehaviour
         frontConnected = false;
         if (_frontArm != null )
           _frontArm.Launch(this);
+       StartCoroutine(DrawProceduralRope());
     }
 
     public void PullGrapple()
@@ -84,7 +88,7 @@ public class GrapplingGun : MonoBehaviour
         grappleJoint.massScale = grappleSetting.massScale;
 
         grappled = true;
-       StartCoroutine(DrawRopeCoru());
+      StartCoroutine(DrawRopeCoru());
     }
 
 
@@ -151,6 +155,23 @@ public class GrapplingGun : MonoBehaviour
         _lineRenderer.enabled = false;
 
     }
+
+    IEnumerator DrawProceduralRope()
+    {
+        _lineRenderer.enabled = true;
+        while (!grappled)
+        {
+
+
+                _lineRenderer.SetPosition(0, _backArm._grappleSource.position);
+                _lineRenderer.SetPosition(1, frontArmObj.transform.position + grapplingEndPoint);
+
+            yield return null;
+        }
+        _lineRenderer.enabled = false;
+
+    }
+
 
 
     IEnumerator GrowArmCoru()

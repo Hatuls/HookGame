@@ -49,7 +49,7 @@ public class FrontArm : MonoBehaviour
         if (!attached)
         {
             LaunchBase.InitNewFrontArm();
-            Destroy(this);
+            Destroy(gameObject);
         }
 
     }

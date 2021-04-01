@@ -29,6 +29,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Rope_Ring_Speed: 0.99
+    - Rope_Ring_Speed: 3
     m_Colors:
     - Rope_Ring_Color: {r: 0.46472445, g: 1.1213424, b: 1.5157166, a: 1}

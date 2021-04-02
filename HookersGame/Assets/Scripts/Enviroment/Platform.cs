@@ -211,7 +211,6 @@ public class Platform : MonoBehaviour
         }
     }
 
-
     private void PlatfromReset()
     {
         if (movingPlatform)

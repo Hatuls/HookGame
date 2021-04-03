@@ -16,11 +16,26 @@ public class VolumeBoxesSpawner : MonoBehaviour{
     public void Init() { SpawnBuilding(); }
 
    public void SpawnBuilding() {
+        bool invert = false;
+        int inverter = 0;
         distanceBetweenBoxes += prefab.transform.GetChild(0).localScale.x;
         for (int i = 0; i < AmountOfBoxes; i++)
         {
             var leftBuilding = Instantiate(prefab, leftStartPos + Vector3.forward * i * distanceBetweenBoxes, Quaternion.identity, buildingHolder);
             var rightBuilding = Instantiate(prefab, rightStartPos + Vector3.forward * i * distanceBetweenBoxes, Quaternion.identity, buildingHolder);
+
+
+            rightBuilding.GetComponent<VolumeBox>().GetSetBand = i%8;
+            leftBuilding.GetComponent<VolumeBox>().GetSetBand = i % 8;
+            if (invert == false)
+            {
+               
+            }
+            else
+            {
+
+            }
+
 
             rightBuilding.GetComponent<VolumeBox>().GetSetBand = Random.Range(0, 7);
             leftBuilding.GetComponent<VolumeBox>().GetSetBand = Random.Range(0, 7);

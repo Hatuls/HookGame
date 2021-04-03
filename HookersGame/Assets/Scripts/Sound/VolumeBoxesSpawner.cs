@@ -15,12 +15,12 @@ public class VolumeBoxesSpawner : MonoBehaviour{
     }
     public void Init() { SpawnBuilding(); }
 
-    void SpawnBuilding() {
-        distanceBetweenBoxes = prefab.transform.localScale.x;
+   public void SpawnBuilding() {
+        distanceBetweenBoxes += prefab.transform.GetChild(0).localScale.x;
         for (int i = 0; i < AmountOfBoxes; i++)
         {
             var leftBuilding = Instantiate(prefab, leftStartPos + Vector3.forward * i * distanceBetweenBoxes, Quaternion.identity, buildingHolder);
-            var rightBuilding = Instantiate(prefab, leftStartPos + Vector3.forward * i * distanceBetweenBoxes, Quaternion.identity, buildingHolder);
+            var rightBuilding = Instantiate(prefab, rightStartPos + Vector3.forward * i * distanceBetweenBoxes, Quaternion.identity, buildingHolder);
         }
     
     }

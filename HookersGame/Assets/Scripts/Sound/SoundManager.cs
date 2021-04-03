@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-public class SoundManager : MonoSingleton<SoundManager>
+public partial class SoundManager : MonoSingleton<SoundManager>
 {
 
     [SerializeField] SongSO[] songs;
@@ -20,13 +20,14 @@ public class SoundManager : MonoSingleton<SoundManager>
     public delegate void SoundEvent();
     public static event SoundEvent StartMusic;
     public static event SoundEvent StopMusic;
-
+   public  static float GetBeat => currentSong.GetBPM;
     public bool GetGameStartingCondition => gameStarted;
     public override void Init()
     {
         _audioSource = GetComponent<AudioSource>();
         noteDestination = FindObjectOfType<NoteDestination>();
         currentSong = songs[0];
+        AdjustAudioProfile(audioProfile);
     }
     // Start is called before the first frame update
     public static float GetBeatPerSecond()
@@ -36,15 +37,8 @@ public class SoundManager : MonoSingleton<SoundManager>
         currentSong = songs[0];
        // StartMusic?.Invoke();
     }
-  public  static float GetBeat => currentSong.GetBPM;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            StartPlayingSong();
-        }
-    }
-    public void StartPlayingSong() { 
+ 
+       public void StartPlayingSong() { 
         
        StartMusic?.Invoke();
         return;

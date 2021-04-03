@@ -21,6 +21,9 @@ public class VolumeBoxesSpawner : MonoBehaviour{
         {
             var leftBuilding = Instantiate(prefab, leftStartPos + Vector3.forward * i * distanceBetweenBoxes, Quaternion.identity, buildingHolder);
             var rightBuilding = Instantiate(prefab, rightStartPos + Vector3.forward * i * distanceBetweenBoxes, Quaternion.identity, buildingHolder);
+
+            rightBuilding.GetComponent<VolumeBox>().GetSetBand = Random.Range(0, 7);
+            leftBuilding.GetComponent<VolumeBox>().GetSetBand = Random.Range(0, 7);
         }
     
     }

@@ -7,6 +7,19 @@ public class VolumeBox : MonoBehaviour
     [SerializeField] bool useBuffer;
     [SerializeField] int band;
     [SerializeField] float startScale, scaleMultiplier , maxScale;
+public int GetSetBand { get => band;
+    set
+        {
+            if (value <= 0)
+                band = 0;
+            else if (value >= 7)
+                band = 7;
+            else
+                band = value;
+           
+        }
+    
+    }
     // Update is called once per frame
     void Update()
     {

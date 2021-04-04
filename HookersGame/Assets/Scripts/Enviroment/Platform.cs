@@ -11,7 +11,7 @@ public class Platform : MonoBehaviour
     [SerializeField] PlatformMovementSetting MovementSetting;
     [SerializeField] InfluenceSettings influenceSettings;
     private Coroutine movementCoru;
-    private int posCounter=0;
+    private int posCounter=0, movementIdTween;
     
     
    
@@ -163,13 +163,17 @@ public class Platform : MonoBehaviour
     }
     public void SuckTowards(in Transform targetPos)
     {
+        MovementSetting.Move = false;
+        LeanTween.cancel(movementIdTween);
         LeanTween.move(gameObject, targetPos, 2f).setEase(LeanTweenType.easeInOutSine);
         LeanTween.rotateAround(gameObject, ToolClass.GetDirection(), 360f, 2f);
         LeanTween.scale(gameObject, Vector3.zero, 2f);
     }
     public void MoveTowards(in Vector3 targetPos,float TimeBetweenStations)
     {
-        LeanTween.move(gameObject, targetPos, TimeBetweenStations).setEase(LeanTweenType.easeInOutSine);
+
+        movementIdTween = LeanTween.move(gameObject, targetPos, TimeBetweenStations).setEase(LeanTweenType.easeInOutSine).uniqueId;
+ 
     }
 
 

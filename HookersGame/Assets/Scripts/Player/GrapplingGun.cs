@@ -171,7 +171,7 @@ public class GrapplingGun : MonoBehaviour
 
                 _lineRenderer.SetPosition(0, _backArm._grappleSource.position);
                 _lineRenderer.SetPosition(1, Referencedhand.transform.position + grapplingEndPoint);
-            Debug.Log(Referencedhand.transform.position);
+
 
             yield return null;
         }

@@ -14,7 +14,7 @@ public class FrontArm : MonoBehaviour
     
     
     bool attached=false;
-    private bool connected=false;
+    private bool connected=true;
 
     
 
@@ -96,13 +96,14 @@ public class FrontArm : MonoBehaviour
     }
 
 
-    }
+    
    
     public void AttatchRequest(Vector3 attachedPoint, GameObject attachedObj)
     {
         if (attached == false && connected == false)
         {
             AttachToSurface(attachedPoint, attachedObj);
+            Debug.Log("AttachRequest");
         }
         else { Debug.Log("AttachRequestFailed"); }
     }

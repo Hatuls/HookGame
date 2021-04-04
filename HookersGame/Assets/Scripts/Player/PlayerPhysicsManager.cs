@@ -144,7 +144,7 @@ public class PlayerPhysicsManager
      void ChangeState(PhysicsStates newActiveState)
     {
         physicsState = newActiveState;
-        Debug.Log("Current Physics State -"+newActiveState);
+        //Debug.Log("Current Physics State -"+newActiveState);
         switch (newActiveState) 
         {
             

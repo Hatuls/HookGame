@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.002791564, g: 0.0027772817, b: 0.002028908, a: 1}
+  m_IndirectSpecularColor: {r: 0.00264627, g: 0.002524529, b: 0.0021037136, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 358f50ccc3b491240a0a179f8cdfe01e,
+  m_LightingDataAsset: {fileID: 112000000, guid: 8d1738d3999c4a545943885cc14de220,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -6714,37 +6714,117 @@ PrefabInstance:
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: Density
-      value: 0.45
+      value: 0.112
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: ParicleScale
-      value: 40
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.ctime0
+      value: 578
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.ctime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.ctime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.key0.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: FogGradiant.key0.b
-      value: 0.8490566
+      value: 0.3773585
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: FogGradiant.key0.g
-      value: 0.8490566
+      value: 0.3773585
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: FogGradiant.key0.r
-      value: 0.8490566
+      value: 0.3773585
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: FogGradiant.key1.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.key1.b
+      value: 0.09433961
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.key1.g
+      value: 0.09433961
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.key1.r
+      value: 0.09433961
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.key2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.key2.b
+      value: 0.09433961
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.key2.g
+      value: 0.09433961
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.key2.r
+      value: 0.09433961
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.key3.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: FogGradiant.m_NumColorKeys
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 975124917768144869, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_Name
       value: FogVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144871, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144871, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c532880e607f8c84d8b9bf0c46a522ad, type: 2}
+    - target: {fileID: 975124918007988401, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 975124918007988401, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}

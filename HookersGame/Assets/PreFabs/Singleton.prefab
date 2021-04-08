@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 773640655827770038}
   - component: {fileID: 289246767245590742}
   - component: {fileID: 1127031767880727580}
+  - component: {fileID: 965130431492201927}
   - component: {fileID: 1063070491}
   m_Layer: 0
   m_Name: Singleton
@@ -145,6 +146,20 @@ MonoBehaviour:
   Note: {fileID: 0}
   startPosition: {x: 0, y: 250}
   beat: 0
+--- !u!114 &965130431492201927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257823656938604813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfc28271ff531246a8a069468cee3c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TunnelGridPoint: {fileID: 0}
+  distanceBetweenPoints: 0
 --- !u!82 &1063070491
 AudioSource:
   m_ObjectHideFlags: 0

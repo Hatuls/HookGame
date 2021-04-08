@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e058030800c298c4ca62f8996ae0ed3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bufferDecreaserValue: 0.005
+  bufferDecreaserValue: 0.001
   BufferAdderValuer: 1.2
   audioProfile: 5
   songs:
@@ -158,8 +158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfc28271ff531246a8a069468cee3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TunnelGridPoint: {fileID: 0}
-  distanceBetweenPoints: 0
+  tunnelGridPoint:
+  - {fileID: 0}
+  hideGridGizmoInScene: 0
+  distanceBetweenPoints: 3
+  distancebetweenDroneAndPlayer: 10
 --- !u!82 &1063070491
 AudioSource:
   m_ObjectHideFlags: 0
@@ -170,7 +173,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0a967ffef5f9de24ab30940b06fcd9b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9dffe5a9b90f377479aba5274944a28e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

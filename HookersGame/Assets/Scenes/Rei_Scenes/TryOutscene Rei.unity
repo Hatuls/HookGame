@@ -3615,76 +3615,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1063070491, guid: b40a5c3827aa9f643a0dd96a84849f0d, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9dffe5a9b90f377479aba5274944a28e, type: 3}
-    - target: {fileID: 289246767245590742, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 289246767245590742, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: gameStarted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 289246767245590742, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: songs.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 289246767245590742, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: songs.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 45abc0cb137a84543a962686a65e5558,
-        type: 2}
-    - target: {fileID: 289246767245590742, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: bufferDecreaserValue
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 773640655827770038, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: CanLose
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 965130431492201927, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
-      propertyPath: TunnelGridPoint
-      value: 
-      objectReference: {fileID: 1144430138}
-    - target: {fileID: 965130431492201927, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: HideGridGizmoInScene
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 965130431492201927, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: distanceBetweenPoints
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 965130431492201927, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: TunnelGridPoint.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 965130431492201927, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: TunnelGridPoint.Array.data[0]
+      propertyPath: tunnelGridPoint.Array.data[0]
       value: 
       objectReference: {fileID: 1144430137}
-    - target: {fileID: 965130431492201927, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: TunnelGridPoint.Array.data[1]
-      value: 
-      objectReference: {fileID: 1144430137}
-    - target: {fileID: 965130431492201927, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: distancebetweenDroneAndPlayer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2257823656938604813, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: m_Name
@@ -3910,12 +3845,6 @@ BoxCollider:
 --- !u!1 &1144430137 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8847237574304657222, guid: 3f50199bbd9ece748afbd450c0606755,
-    type: 3}
-  m_PrefabInstance: {fileID: 8847237573297074559}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1144430138 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8847237574304657221, guid: 3f50199bbd9ece748afbd450c0606755,
     type: 3}
   m_PrefabInstance: {fileID: 8847237573297074559}
   m_PrefabAsset: {fileID: 0}

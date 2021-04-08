@@ -49,6 +49,10 @@ public class TunnelManager : MonoSingleton<TunnelManager>
         playerPos[0] = 1;
         playerPos[1] = 1;
     }
+
+
+
+
     // ask ron if he prefer bool or vector
     public Vector3 MovePlayerOnGrid(Movement direction)
     {

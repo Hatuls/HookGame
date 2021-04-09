@@ -7105,6 +7105,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8714466176059253042, guid: 5ca49d9f0551b054299a16edfa7a0f72,
         type: 3}
+    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: grappleSetting.minGrappleDist
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1263753851697889300, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: m_Mesh

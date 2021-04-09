@@ -30,7 +30,7 @@ public partial class SoundManager : MonoSingleton<SoundManager>
         noteDestination = FindObjectOfType<NoteDestination>();
         currentSong = songs[0];
         AdjustAudioProfile(audioProfile);
-        VolumeBoxesSpawner.Instance.SpawnBuilding();
+    
     }
     // Start is called before the first frame update
     public static float GetBeatPerSecond()

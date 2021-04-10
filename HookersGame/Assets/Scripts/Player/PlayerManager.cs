@@ -6,9 +6,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 {
 
     internal enum PlayerInfluenceType {linear,Impulse,explosion}
+    public enum playerState {City,Tunnel }
 
     internal Rigidbody rb;
     bool Influenced=false;
+    bool recieveInputs;
 
     [SerializeField] GameObject GrapplingGunObj;
     [SerializeField] GameObject CompressorObj;
@@ -50,13 +52,16 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     void Update()
     {
+        if (recieveInputs)
+        {
         _inputForm = _inputManager.GetInput();
+        }
         UpdateUi();
         CameraCommands();
         ApplyInputs();
         _playerPhysicsManager.CaulculatePhysics(GroundCheck(),_grapplingGun.grappled,_inputForm.pulse,WallCheck());
     }
-
+    
     public void UpdateUi()
     {
         SpeedEffect();
@@ -65,7 +70,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         StartPoint = LevelManager.Instance.GetStartPointTransform;
     }
-
+    public void RecieveInput(bool _recieveInput)
+    {
+        recieveInputs = _recieveInput;
+    }
     private void SpeedEffect()
     {
         float speed = rb.velocity.magnitude;

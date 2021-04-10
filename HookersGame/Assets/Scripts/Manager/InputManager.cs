@@ -5,23 +5,15 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    public enum InputMode { City,Tunnel}
+    public InputMode inputMode=InputMode.City;
+  
     Vector3 movementVector;
     Vector2 mouseVector;
 
-    //bool CalculatingDash;
-    //bool useDash;
-    //[SerializeField] float WaitForDash;
-    //IEnumerator WaitLoop;
     public InputForm GetInput()
     {
-        //if (Input.GetKeyDown(KeyCode.W)&&!CalculatingDash)
-        //{
-        //    CalculatingDash = true;
-        //    WaitLoop = WaitForKeyDown(KeyCode.W);
-        //    StartCoroutine(WaitLoop);
-
-        //}
-
+ 
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -34,27 +26,38 @@ public class InputManager : MonoBehaviour
 
         InputForm _inputForm = new InputForm();
 
+        switch (inputMode) 
+        {
+            case InputMode.City:
+
+                _inputForm.movementVector = new Vector3(horizontal, 0, vertical);
+                _inputForm.mouseVector = new Vector2(mouseX, -mouseY);
+                _inputForm.grapple = Input.GetButtonDown("Fire1");
+                _inputForm.pullGrapple = Input.GetButton("Fire2");
+                _inputForm.releaseGrapple = Input.GetButtonDown("Fire1");
+                _inputForm.pulse = Input.GetButtonDown("Fire3");
+
+                break;
+
+
+            case InputMode.Tunnel:
 
 
 
-        _inputForm.movementVector = new Vector3(horizontal, 0, vertical);
-        _inputForm.mouseVector = new Vector2(mouseX, -mouseY);
+
+                break;
+
+                
+        }
 
 
 
 
 
 
-            _inputForm.grapple = Input.GetButtonDown("Fire1");
-            _inputForm.pullGrapple = Input.GetButton("Fire2");
-            _inputForm.releaseGrapple = Input.GetButtonDown("Fire1");
-            _inputForm.pulse = Input.GetButtonDown("Fire3");
 
 
-
-
-
-            //_inputForm.dash = applyDash(useDash);
+          
 
 
 
@@ -64,29 +67,7 @@ public class InputManager : MonoBehaviour
         return _inputForm;
     }
 
-    //public bool applyDash(bool apply)
-    //{
-    //    if (apply) useDash = false;
 
-    //    return apply;
-    //}
-
-    //IEnumerator WaitForKeyDown(KeyCode keyCode)
-    //{
-    //    yield return new WaitForEndOfFrame();
-    //    Invoke("ResetLoop", WaitForDash);
-    //    while (!Input.GetKeyDown(keyCode))
-    //    {
-    //        yield return null;
-    //    }
-    //    useDash = true;
-    //}
-    //public void ResetLoop()
-    //{
-
-    //    StopCoroutine(WaitLoop);
-    //    CalculatingDash = false;
-    //}
 
 
 

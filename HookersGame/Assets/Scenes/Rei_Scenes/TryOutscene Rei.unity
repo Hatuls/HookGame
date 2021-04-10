@@ -504,7 +504,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh25102
+=======
+  m_Name: pb_Mesh17928
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6780,7 +6784,7 @@ PrefabInstance:
     - target: {fileID: 8019724743587724051, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: ForceInfluence
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724051, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
@@ -6790,12 +6794,12 @@ PrefabInstance:
     - target: {fileID: 8019724743587724051, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: MovementSetting.Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724051, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: MovementSetting.Move
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724051, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
@@ -6805,7 +6809,12 @@ PrefabInstance:
     - target: {fileID: 8019724743587724051, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: influenceSettings.Dir.y
-      value: 10
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019724743587724051, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
+        type: 3}
+      propertyPath: influenceSettings.Dir.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724051, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
@@ -6855,52 +6864,52 @@ PrefabInstance:
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 41.96
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 20
+      value: 8.34
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.2
+      value: 40.12
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.6
+      value: 17.47
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -48.4
+      value: -57.31
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9125132
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.40904725
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 48.29
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724063, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
@@ -7016,7 +7025,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh25148
+=======
+  m_Name: pb_Mesh17974
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -33,7 +33,7 @@ public class FogVFX : MonoBehaviour
         FogGraph.SetFloat("ScaleBySize", ConfiguerVolumeSize());
         FogGraph.SetFloat("ParticleScale", ParicleScale);
         FogGraph.SetFloat("FogDensity", Density);
-        Debug.Log(ConfiguerVolumeSize());
+       // Debug.Log(ConfiguerVolumeSize());
 
         
     }

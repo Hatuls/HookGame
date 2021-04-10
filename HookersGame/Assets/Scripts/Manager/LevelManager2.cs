@@ -5,20 +5,21 @@ using System.Collections;
 public  partial class LevelManager 
 {
 
-    [SerializeField] private Platform[] platformsArr;
-    [SerializeField] private LayerMask grabableLayer;
+    public Platform[] platformsArr;
+   public LayerMask grabableLayer;
     bool flag;
     private DeathWall deathWall;
 
-
-
     
+
+
 
 
     public DeathWall GetDeathWall => deathWall;
     public LayerMask GetGrabableLayer => grabableLayer;
 
- 
+
+
 
     public Transform GetClosestObjectTransform(Vector3 targetPos)
     {

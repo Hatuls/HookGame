@@ -6,25 +6,48 @@ public class DeathWall : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] bool startDeathWall;
     Vector3 startPos;
-
-
+   [SerializeField] ParticleSystem[] _particleSystems;
+    bool isFirstCall = true;
     public void WallCloseUp()
-    => transform.Translate(0, 0, speed * Time.deltaTime);
-
+    {
+        if (isFirstCall)
+        {
+            if (_particleSystems != null)
+            {
+                for (int i = 0; i < _particleSystems.Length; i++)
+                    _particleSystems[i].Play();
+            }
+            LeanTween.scale(this.gameObject, new Vector3(100, 100, 1), 3f).setEaseInBack();
+            isFirstCall = false;
+        }
+        transform.Translate(0, 0, speed * Time.deltaTime);
+    }
     
     public bool SetStartDeathWall { set { startDeathWall = value; } }
     private void Start()
     {
         LevelManager.ResetLevelParams += ResetDeathWall;
         startPos = transform.position;
+        transform.localScale = Vector3.zero;
+
+
+       
     }
 
 
     private void ResetDeathWall()
     {
+        isFirstCall = true;
         startDeathWall = false;
+        if (_particleSystems != null)
+        {
+            for (int i = 0; i < _particleSystems.Length; i++)
+                _particleSystems[i].Stop();
+        }
         transform.position = startPos;
+        transform.localScale = Vector3.zero;
         speed = LevelManager.Instance.GetLevelDeathWallSpeed();
+
     }
 
 

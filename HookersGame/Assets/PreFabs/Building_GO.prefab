@@ -47,7 +47,7 @@ MonoBehaviour:
   useBuffer: 1
   band: 0
   startScale: 1
-  scaleMultiplier: 2
+  scaleMultiplier: 10
   maxScale: 4.1
 --- !u!1 &8789667520836490442
 GameObject:
@@ -60,7 +60,6 @@ GameObject:
   - component: {fileID: 9023506820501258925}
   - component: {fileID: 2914150919110372370}
   - component: {fileID: 73510179341392953}
-  - component: {fileID: 9111402994570564703}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -129,17 +128,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &9111402994570564703
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8789667520836490442}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

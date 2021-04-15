@@ -188,6 +188,10 @@ public class GrapplingGun : MonoBehaviour
     IEnumerator GrowArmCoru()
     {
         yield return new WaitForSeconds(grappleSetting.timeForArmGrow);
+        if (currentFrontArm != null)
+        {
+            Destroy(currentFrontArm);
+        }
         currentFrontArm = Instantiate(frontArmObj, frontHandSlot);
         _frontArm = currentFrontArm.GetComponent<FrontArm>();
         frontConnected = true;

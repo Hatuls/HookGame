@@ -20,14 +20,12 @@ public partial class SoundManager
     public static float Amplitude,AmplitudeBuffer;
     float AmplitudeHighest;
 
-    // Start is called before the first frame update
 
-
-    [Header("Timer For Beat")]
+    [Header("Timer For Audio Check")]
     [SerializeField] float _timer;
-    // Update is called once per frame
+
    
-    void FixedUpdate()
+    void Update()
     {
         // audio freq
         //GetSpectrumAudioSource();
@@ -163,8 +161,8 @@ public partial class SoundManager
     }
 }
 
-
-public partial class  SoundManager {
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                   BEAT MANAGER              @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+public partial class SoundManager {
 
     public static bool _beatFull, _beatD8;  // become true when a beat aqccured
     public static int _beatCountFull, _beatCountD8; // an option to count how many beats happend
@@ -176,12 +174,16 @@ public partial class  SoundManager {
 
     private float _beatIntervalD8, _beatTimerD8; // example of the same system but divided by 8
 
+    private float _currentTime;
+
     public delegate void OnFullBeatEvent();
     public static event OnFullBeatEvent FullBeatEvent;
     public static event OnFullBeatEvent D8BeatEvent;
 
     bool isValid;
-
+    [Header("Beat Options")]
+    [Tooltip("Example of use: 1 second will mean 0.5 second before the beat happens and 0.5f after the beat happends")]
+    [SerializeField] float timerToSucessPress;
     void BeatDetection()
     {
 
@@ -218,12 +220,32 @@ public partial class  SoundManager {
             // Debug.Log("D8");
         }
 
-        if (_beatCountD8 % 8 == 7)
-            isValid = true;
-        else if (_beatCountD8 % 8 == 1)
-            isValid = false;
+
+
+        BeatActionCalculator();
+
+
+
+
     }
-  
+
+
+    private void BeatActionCalculator() {
+        _currentTime += Time.deltaTime;
+        if (_currentTime <= _beatInterval + (timerToSucessPress / 2f))
+        {
+            if (!isValid &&  _currentTime >= _beatInterval - (timerToSucessPress / 2f))
+                isValid = true;
+        }
+        else
+        {
+            _currentTime -= _beatInterval + (timerToSucessPress / 2f);
+            isValid = false;
+        }
+    
+    }
+
+
     public bool CheckBeat() {
         return isValid;
     }

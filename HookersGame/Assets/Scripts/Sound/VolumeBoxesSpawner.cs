@@ -59,7 +59,7 @@ public class VolumeBoxesSpawner
 
             if (Mathf.Abs(furthestFromPlayer.position.z - playerTransform.position.z) < distanceToCheck)
             {
-                Debug.Log(furthestFromPlayer.position.z - playerTransform.position.z);
+               
                 SetNewPosition();
                 furthestFromPlayer = GetFurthestVolumeBoxTranform();
             }

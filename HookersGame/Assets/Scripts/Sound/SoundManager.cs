@@ -34,7 +34,7 @@ public partial class SoundManager : MonoSingleton<SoundManager>
     }
     // Start is called before the first frame update
     public static float GetBeatPerSecond()
-        => currentSong.GetBPM / 60f;
+        => Instance._beatInterval;
     private void Start()
     {
         StartCoroutine(BPMCheck());
@@ -49,7 +49,7 @@ public partial class SoundManager : MonoSingleton<SoundManager>
         {
             GetSpectrumAudioSource();
             MakeFrequencyBands();
-            BandBuffer();
+          //  BandBuffer();
             CreateAudioBands();
             GetAmplitude();
             yield return new WaitForSeconds(_timer);

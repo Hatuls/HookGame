@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] Vector2 upDownViewRange;
     [SerializeField] float FappDistance;
     Vector2 currentRotation;
-    bool Lock;
+    bool FappLock;
     
     
 
@@ -37,18 +37,18 @@ public class CameraController : MonoBehaviour
         if (Physics.Raycast(ray, out hitPoint, float.MaxValue))
         {
             
-            if (hitPoint.distance > FappDistance&&!Lock)
+            if (hitPoint.distance > FappDistance&&!FappLock)
             {
                 gameObject.transform.LookAt(hitPoint.point);
             }
             else
             {
-                Lock = true;
+                FappLock = true;
             }
 
             if(hitPoint.distance > FappDistance)
             {
-                Lock= false;
+                FappLock= false;
             }
 
           

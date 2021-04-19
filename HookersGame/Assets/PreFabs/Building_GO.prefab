@@ -47,7 +47,7 @@ MonoBehaviour:
   useBuffer: 1
   band: 0
   startScale: 1
-  scaleMultiplier: 2
+  scaleMultiplier: 10
   maxScale: 4.1
 --- !u!1 &8789667520836490442
 GameObject:

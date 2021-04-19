@@ -5,24 +5,24 @@ public partial class SoundManager : MonoSingleton<SoundManager>
 {
 
     [SerializeField] SongSO[] songs;
-  static  SongSO currentSong;
+    static SongSO currentSong;
     [SerializeField] bool gameStarted;
 
-   public bool isCorrectTiming
-        => NoteDestination.canBePressed
-        || CheatMenu.Instance.GetUnLimitedCompressor;
+    public bool isCorrectTiming
+         => NoteDestination.canBePressed
+         || CheatMenu.Instance.GetUnLimitedCompressor;
 
-    
-    AudioSource _audioSource;
+
+   [SerializeField] AudioSource _audioSource;
     NoteDestination noteDestination;
 
 
     public delegate void SoundEvent();
     public static event SoundEvent StartMusic;
     public static event SoundEvent StopMusic;
-   public  static float GetBeat => currentSong.GetBPM;
+    public static float GetBeat => currentSong.GetBPM;
     public bool GetGameStartingCondition => gameStarted;
-    
+
 
     public override void Init()
     {
@@ -30,24 +30,40 @@ public partial class SoundManager : MonoSingleton<SoundManager>
         noteDestination = FindObjectOfType<NoteDestination>();
         currentSong = songs[0];
         AdjustAudioProfile(audioProfile);
-        VolumeBoxesSpawner.Instance.SpawnBuilding();
+    
     }
     // Start is called before the first frame update
     public static float GetBeatPerSecond()
-        => currentSong.GetBPM / 60f;
+        => Instance._beatInterval;
     private void Start()
     {
+        StartCoroutine(BPMCheck());
         currentSong = songs[0];
-       // StartMusic?.Invoke();
+        // StartMusic?.Invoke();
+     
     }
- 
-       public void StartPlayingSong() { 
-        
-       StartMusic?.Invoke();
+    System.Collections.IEnumerator BPMCheck()
+    {
+        Debug.Log("Start Timer");
+        while (true)
+        {
+            GetSpectrumAudioSource();
+            MakeFrequencyBands();
+          //  BandBuffer();
+            CreateAudioBands();
+            GetAmplitude();
+            yield return new WaitForSeconds(_timer);
+        }
+
+    }
+
+    public void StartPlayingSong()
+    {
+        StartMusic?.Invoke();
         return;
         if (!_audioSource.isPlaying)
         {
-      
+
             _audioSource.Play();
             StartMusic?.Invoke();
         }
@@ -57,5 +73,4 @@ public partial class SoundManager : MonoSingleton<SoundManager>
             StopMusic?.Invoke();
         }
     }
-
 }

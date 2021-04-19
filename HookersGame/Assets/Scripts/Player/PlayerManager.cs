@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+    public enum Stage {City,Tunnel }
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
 
     internal enum PlayerInfluenceType {linear,Impulse,explosion}
+    [SerializeField] Stage currentStage;
 
     internal Rigidbody rb;
     bool Influenced=false;
@@ -23,11 +25,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     GrapplingGun _grapplingGun;
     Compressor _compressor;
     ParticleSystem _speedPs;
+
     
 
-    //[SerializeField] float jumpForce;
-    //[SerializeField] float dashForce;
-    //[SerializeField] float dashTime;
+    //waiting for rei's events
+    bool onBit=true;
     
 
     [Header("Menus")]
@@ -44,17 +46,80 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         GetComponents();
         GetEquipment();
         _playerPhysicsManager.InitPhysics(rb, this);
+        _inputManager.SetStage(currentStage);
        
+        
     }
    
-
+   
     void Update()
     {
         _inputForm = _inputManager.GetInput();
         UpdateUi();
         CameraCommands();
-        ApplyInputs();
-        _playerPhysicsManager.CaulculatePhysics(GroundCheck(),_grapplingGun.grappled,_inputForm.pulse,WallCheck());
+
+        switch (currentStage)
+        {
+            case Stage.City:
+            ApplyInputs();
+        _playerPhysicsManager.CaulculatePhysics(GroundCheck(),_grapplingGun.grappled,_inputForm.cityInputs.pulse,WallCheck());
+
+                break;
+
+            case Stage.Tunnel:
+                if (onBit)
+                {
+                  ApplyInputs();
+                    
+                }
+                break;
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SetPlayerStage(Stage.Tunnel);
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            SetPlayerStage(Stage.City);
+        }
+
+    }
+
+    public void SetPlayerStage(Stage stage)
+    {
+        if (stage != currentStage)
+        {
+            currentStage = stage;
+            _inputManager.SetStage(stage);
+
+            switch (stage) 
+            {
+                case Stage.City:
+
+                    rb.isKinematic = false;
+                    rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+                    GetComponent<Collider>().isTrigger = false;
+                    break;
+
+
+                case Stage.Tunnel:
+                    TunnelMovement(Movement.Stay);
+                    GetComponent<Collider>().isTrigger = true;
+                    rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+                    rb.isKinematic = true;
+                    break;
+
+            }
+
+
+
+        }
+       
+        
+
+
+    
     }
 
     public void UpdateUi()
@@ -109,10 +174,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         transform.position = StartPoint.position;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        
-    }
+
     private void FixedUpdate()
     {
         if (_inputForm != null&&!Influenced)
@@ -169,46 +231,122 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _cameraController = GetComponentInChildren<CameraController>();
         _inputManager = GetComponent<InputManager>();
         _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
-        //_playerController.Dashforce = dashForce;
-        //_playerController.DashTime = dashTime;
+     
     } 
-
+    
     public void ApplyInputs()
     {
+        switch (currentStage) 
+        {
 
-        //if ((_inputForm.jump && (Grounded() || jumpableSurface!=null)) || (_inputForm.jump && Grounded() && jumpableSurface != null))
-        //{
-        //    _playerController.Jump(Vector3.up*jumpForce);   
-        //}
-        //if (_inputForm.dash)
-        //{
-        //    _playerController.Dash(_cameraController.transform.forward);
-        //}
-        if (!_grapplingGun.grappled&&_inputForm.grapple && _grapplingGun.frontConnected)
-        {
-            ShootArm();
-        }
-        if(_grapplingGun.grappled && _inputForm.releaseGrapple)
-        {  
-            ReleaseGrapple();
-        }
-        if (_inputForm.pulse)
-        {
-            UseCompressor();
-        }
-        if (_inputForm.pullGrapple && _grapplingGun.grappled)
-        {
-            if (!_grapplingGun.pulling)
-            {
-            _grapplingGun.PullGrapple();
-            }
+            case Stage.City:
 
-        }else if (_grapplingGun.grappled && _grapplingGun.pulling)
-        {
-            _grapplingGun.pulling = false;
+                if (!_grapplingGun.grappled && _inputForm.cityInputs.grapple && _grapplingGun.frontConnected)
+                {
+                    ShootArm();
+                }
+                if (!_grapplingGun.frontConnected && !_inputForm.cityInputs.grapple&& _grapplingGun._frontArm)
+                {
+                    ReleaseGrapple();
+                }
+                if (_inputForm.cityInputs.pulse)
+                {
+                    UseCompressor();
+                }
+                if (_inputForm.cityInputs.pullGrapple && _grapplingGun.grappled)
+                {
+                    if (!_grapplingGun.pulling)
+                    {
+                        _grapplingGun.PullGrapple();
+                    }
+
+                }
+                else if (_grapplingGun.grappled && _grapplingGun.pulling)
+                {
+                    _grapplingGun.pulling = false;
+                }
+
+                break;
+
+
+            case Stage.Tunnel:
+               
+                if (_inputForm.tunnelInputs.Shoot)
+                {
+                    ShootArm();
+                    return;
+                }
+
+                if (_inputForm.tunnelInputs.up)
+                {
+                    if (_inputForm.tunnelInputs.left)
+                    {
+                        TunnelMovement(Movement.UpLeft);
+                    return;
+                    }
+
+                    if (_inputForm.tunnelInputs.right)
+                    {
+                        TunnelMovement(Movement.UpRight);
+                        
+                    return;
+                    }
+
+
+                        TunnelMovement(Movement.Up);
+                    return;
+
+                }
+
+                if (_inputForm.tunnelInputs.down)
+                {
+                    if (_inputForm.tunnelInputs.left)
+                    {
+                        TunnelMovement(Movement.DownLeft);
+                        return;
+                    }
+
+                    if (_inputForm.tunnelInputs.right)
+                    {
+                        TunnelMovement(Movement.DownRight);
+
+                        return;
+                    }
+
+
+                    TunnelMovement(Movement.Down);
+                    return;
+
+                }
+
+                if (_inputForm.tunnelInputs.left)
+                {
+
+                    TunnelMovement(Movement.Left);
+                    return;
+                }
+
+                if (_inputForm.tunnelInputs.right)
+                {
+
+                    TunnelMovement(Movement.Right);
+                    return;
+                }
+
+
+
+                break;
+
+
         }
+
     }
-
+    public void TunnelMovement(Movement movement)
+    {
+        Debug.Log("yo");
+        Vector3 Dir= TunnelManager.Instance.MovePlayerOnGrid(movement);
+        LeanTween.move(gameObject, Dir, 1);
+    }
     private void CameraCommands()
     {
         _cameraController.MoveCamera(_inputForm.mouseVector);

@@ -18,7 +18,7 @@ public class GrapplingGun : MonoBehaviour
    [SerializeField] GameObject backArmObj;
 
     private GameObject currentFrontArm;
-    private FrontArm _frontArm;
+    internal FrontArm _frontArm;
     private BackArm _backArm;
     private Vector3 grapplingEndPoint;
     private LineRenderer _lineRenderer;
@@ -188,6 +188,10 @@ public class GrapplingGun : MonoBehaviour
     IEnumerator GrowArmCoru()
     {
         yield return new WaitForSeconds(grappleSetting.timeForArmGrow);
+        if (currentFrontArm != null)
+        {
+            Destroy(currentFrontArm);
+        }
         currentFrontArm = Instantiate(frontArmObj, frontHandSlot);
         _frontArm = currentFrontArm.GetComponent<FrontArm>();
         frontConnected = true;

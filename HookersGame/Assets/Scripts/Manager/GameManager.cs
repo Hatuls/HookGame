@@ -5,13 +5,14 @@ public class GameManager : MonoSingleton<GameManager>
     private void Start()
     {
 
-        ISingletonsArr = new ISingleton[5]
+        ISingletonsArr = new ISingleton[6]
         {
             SoundManager.Instance,
             NoteSpawner.Instance,
             EnemyManager.Instance,
             PlayerManager.Instance,
-            LevelManager.Instance
+            LevelManager.Instance,
+            TunnelManager.Instance
         };
 
         for (int i = 0; i < ISingletonsArr.Length; i++)

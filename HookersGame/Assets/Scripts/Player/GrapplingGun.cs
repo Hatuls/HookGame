@@ -18,7 +18,7 @@ public class GrapplingGun : MonoBehaviour
    [SerializeField] GameObject backArmObj;
 
     private GameObject currentFrontArm;
-    private FrontArm _frontArm;
+    internal FrontArm _frontArm;
     private BackArm _backArm;
     private Vector3 grapplingEndPoint;
     private LineRenderer _lineRenderer;

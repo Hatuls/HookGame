@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hologram_Platform_Plane_MTL
+  m_Shader: {fileID: -6465566751694194690, guid: dff8e46239ab41043a2c44351f4afb70,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_7249674E:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_A4728360_Out_0:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - DistortionScale: -5.5
+    - Vector1_97575466: 0.331
+    - Vector1_A63F4EBF: 20.59
+    - Vector1_B4380324: 6.41
+    - Vector1_C172055C: 0.4
+    - Vector1_CD4F6A4C: 10
+    - Vector1_D0703814: 1
+    - Vector1_D22F440A: 0.2
+    m_Colors:
+    - Color_91FDC3F2: {r: 1.647589, g: 4.068536, b: 6.15324, a: 1}
+    - Color_FE92B0CB: {r: 0.026794335, g: 0.09614438, b: 0.13134478, a: 0.4313726}

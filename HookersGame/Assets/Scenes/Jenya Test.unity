@@ -3640,7 +3640,7 @@ PrefabInstance:
       objectReference: {fileID: 643702610}
     - target: {fileID: 1027942294, guid: b40a5c3827aa9f643a0dd96a84849f0d, type: 3}
       propertyPath: leftStartPos.x
-      value: -16
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 1027942294, guid: b40a5c3827aa9f643a0dd96a84849f0d, type: 3}
       propertyPath: leftStartPos.y
@@ -3652,11 +3652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027942294, guid: b40a5c3827aa9f643a0dd96a84849f0d, type: 3}
       propertyPath: distanceBetweenBoxes
-      value: 6.6
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1027942294, guid: b40a5c3827aa9f643a0dd96a84849f0d, type: 3}
       propertyPath: distanceBetweenLeftAndRight
-      value: 126
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1027942294, guid: b40a5c3827aa9f643a0dd96a84849f0d, type: 3}
       propertyPath: distanceBetweenPlayerAndBoxes
@@ -6700,7 +6700,7 @@ PrefabInstance:
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -6760,12 +6760,12 @@ PrefabInstance:
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: Density
-      value: 0.112
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: ParicleScale
-      value: 50
+      value: 67.48
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -6910,7 +6910,7 @@ PrefabInstance:
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.x
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -7136,6 +7136,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263753851194345028, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851194345028, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851194345028, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851194345028, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1263753851194345028, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: m_AllowDynamicResolution

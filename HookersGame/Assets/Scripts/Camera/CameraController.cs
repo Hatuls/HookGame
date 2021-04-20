@@ -7,7 +7,9 @@ public class CameraController : MonoBehaviour
     internal Camera FpsCam;
     [SerializeField] float mouseSensetivity;
     [SerializeField] Vector2 upDownViewRange;
+    [SerializeField] float FappDistance;
     Vector2 currentRotation;
+    bool FappLock;
     
     
 
@@ -34,7 +36,22 @@ public class CameraController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitPoint, float.MaxValue))
         {
-           gameObject.transform.LookAt(hitPoint.point);
+            
+            if (hitPoint.distance > FappDistance&&!FappLock)
+            {
+                gameObject.transform.LookAt(hitPoint.point);
+            }
+            else
+            {
+                FappLock = true;
+            }
+
+            if(hitPoint.distance > FappDistance)
+            {
+                FappLock= false;
+            }
+
+          
         }
     }
 

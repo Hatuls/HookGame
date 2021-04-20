@@ -74,7 +74,7 @@ public class FrontArm : MonoBehaviour
     {
         if (!connected&&rb!=null)
         {
-
+           
             if (collision.gameObject.CompareTag("GrappleAble"))
             {
                 AttachToSurface(transform.position, collision.gameObject);

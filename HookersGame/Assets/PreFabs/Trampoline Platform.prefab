@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5633460526470951144}
   m_Layer: 0
-  m_Name: Trampoline_color_emissionNET (1)
+  m_Name: Trampoline Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ Transform:
   m_GameObject: {fileID: 5000616459706837586}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 118.201004, y: 113.97439, z: -276.75623}
-  m_LocalScale: {x: 7.3580127, y: 7.3580127, z: 7.3580127}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children:
   - {fileID: 2533486871011533012}
   - {fileID: 1951718963932913623}

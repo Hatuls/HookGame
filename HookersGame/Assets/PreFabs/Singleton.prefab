@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9dffe5a9b90f377479aba5274944a28e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.143
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -140,10 +140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e058030800c298c4ca62f8996ae0ed3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bufferDecreaserValue: 0.005
-  BufferAdderValuer: 1.2
+  bufferDecreaserValue: 0.05
+  BufferAdderValuer: 1.15
   audioProfile: 5
-  _timer: 0.5
+  _timer: 0.005
+  timerToSucessBeforePress: 0.2
+  timerToSucessAfterPress: 0.2
   songs:
   - {fileID: 11400000, guid: 45abc0cb137a84543a962686a65e5558, type: 2}
   gameStarted: 1
@@ -240,6 +242,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelsSO:
   - {fileID: 11400000, guid: bb8f7f9020d42cf4c9243a057c38e5c7, type: 2}
+  AmountOfBoxes: 10
+  distanceBetweenBoxes: 6.6
+  distanceBetweenLeftAndRight: 126
+  distanceBetweenPlayerAndBoxes: 400
+  prefab: {fileID: 2716587804905048916, guid: ddc9e53b522a31b4283df2596d51f955, type: 3}
+  leftStartPos: {x: -16, y: -40, z: -52}
+  buildingHolder: {fileID: 0}
+  toInvert: 1
   platformsArr: []
   grabableLayer:
     serializedVersion: 2

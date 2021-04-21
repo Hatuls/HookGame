@@ -245,7 +245,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 {
                     ShootArm();
                 }
-                if (_grapplingGun.grappled && _inputForm.cityInputs.releaseGrapple)
+                if (!_grapplingGun.frontConnected && !_inputForm.cityInputs.grapple&& _grapplingGun._frontArm)
                 {
                     ReleaseGrapple();
                 }

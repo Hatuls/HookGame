@@ -8,9 +8,9 @@ public partial class SoundManager : MonoSingleton<SoundManager>
     static SongSO currentSong;
     [SerializeField] bool gameStarted;
 
-    public bool isCorrectTiming
-         => NoteDestination.canBePressed
-         || CheatMenu.Instance.GetUnLimitedCompressor;
+    //public bool isCorrectTiming
+    //     => NoteDestination.canBePressed
+    //     || CheatMenu.Instance.GetUnLimitedCompressor;
 
 
    [SerializeField] AudioSource _audioSource;
@@ -30,32 +30,19 @@ public partial class SoundManager : MonoSingleton<SoundManager>
         noteDestination = FindObjectOfType<NoteDestination>();
         currentSong = songs[0];
         AdjustAudioProfile(audioProfile);
-    
+        notes = FindObjectsOfType<NoteIcon>();
     }
     // Start is called before the first frame update
     public static float GetBeatPerSecond()
         => Instance._beatInterval;
     private void Start()
     {
-        StartCoroutine(BPMCheck());
+     
         currentSong = songs[0];
         // StartMusic?.Invoke();
      
     }
-    System.Collections.IEnumerator BPMCheck()
-    {
-        Debug.Log("Start Timer");
-        while (true)
-        {
-            GetSpectrumAudioSource();
-            MakeFrequencyBands();
-          //  BandBuffer();
-            CreateAudioBands();
-            GetAmplitude();
-            yield return new WaitForSeconds(_timer);
-        }
-
-    }
+  
 
     public void StartPlayingSong()
     {
@@ -74,3 +61,6 @@ public partial class SoundManager : MonoSingleton<SoundManager>
         }
     }
 }
+
+
+

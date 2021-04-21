@@ -27,16 +27,21 @@ public partial class SoundManager
    
     void Update()
     {
-        // audio freq
-        //GetSpectrumAudioSource();
-        //MakeFrequencyBands();
-        //BandBuffer();
-        //CreateAudioBands();
-        //GetAmplitude();
+        //audio freq
+        GetSpectrumAudioSource();
+        MakeFrequencyBands();
+        BandBuffer();
+        CreateAudioBands();
+        GetAmplitude();
         BandBuffer();
 
         // audio beat
         BeatDetection();
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log(CheckBeat());
+        }
     }
     private void GetAmplitude()
     {
@@ -174,16 +179,21 @@ public partial class SoundManager {
 
     private float _beatIntervalD8, _beatTimerD8; // example of the same system but divided by 8
 
-    private float _currentTime;
+    public static float _currentTime;
 
+    public delegate void OnInputToBeat(bool onPress);
+    public static event OnInputToBeat OnBeatPressed;
     public delegate void OnFullBeatEvent();
     public static event OnFullBeatEvent FullBeatEvent;
     public static event OnFullBeatEvent D8BeatEvent;
 
     bool isValid;
-    [Header("Beat Options")]
-    [Tooltip("Example of use: 1 second will mean 0.5 second before the beat happens and 0.5f after the beat happends")]
-    [SerializeField] float timerToSucessPress;
+    [Header("Click Beat Options")]
+    [Tooltip("Example of use: 1 second will mean  second before the beat happens")]
+    [SerializeField] float timerToSucessBeforePress;
+    [Tooltip("Example of use: 1 second will mean 1 second after the beat happends")]
+    [SerializeField] float timerToSucessAfterPress;
+    public float GetTimerMaxNote => _beatInterval + timerToSucessAfterPress;
     void BeatDetection()
     {
 
@@ -219,34 +229,35 @@ public partial class SoundManager {
             D8BeatEvent?.Invoke();
             // Debug.Log("D8");
         }
-
-
-
         BeatActionCalculator();
-
-
-
-
     }
-
-
+    NoteIcon[] notes;
     private void BeatActionCalculator() {
         _currentTime += Time.deltaTime;
-        if (_currentTime <= _beatInterval + (timerToSucessPress / 2f))
+
+        if (_currentTime <= _beatInterval + (timerToSucessAfterPress))
         {
-            if (!isValid &&  _currentTime >= _beatInterval - (timerToSucessPress / 2f))
+            if (_currentTime >= _beatInterval - (timerToSucessBeforePress ))
                 isValid = true;
         }
         else
         {
-            _currentTime -= _beatInterval + (timerToSucessPress / 2f);
+            _currentTime -= _beatInterval + (timerToSucessAfterPress);
+            if (notes != null && notes.Length > 0)
+            {
+                for (int i = 0; i < notes.Length; i++)
+                {
+                    notes[i].ResetColor();
+                }
+            }
             isValid = false;
         }
-    
+        
     }
 
 
     public bool CheckBeat() {
+        OnBeatPressed?.Invoke(isValid);
         return isValid;
     }
 }

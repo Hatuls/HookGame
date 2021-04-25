@@ -169,6 +169,8 @@ public partial class SoundManager
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                   BEAT MANAGER              @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 public partial class SoundManager {
 
+    [SerializeField] bool toGoByBeat;
+    public static bool IsByBeat => Instance.toGoByBeat;
     public static bool _beatFull, _beatD8;  // become true when a beat aqccured
     public static int _beatCountFull, _beatCountD8; // an option to count how many beats happend
 

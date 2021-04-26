@@ -450,8 +450,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1587082691601242098, guid: e277951ea3d68224195ec92b66f12294,
         type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587082691601242098, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587082691601242098, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1587082692008010008, guid: e277951ea3d68224195ec92b66f12294,
         type: 3}
@@ -460,8 +470,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1587082692008010009, guid: e277951ea3d68224195ec92b66f12294,
         type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587082692008010009, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587082692008010009, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1587082692187003980, guid: e277951ea3d68224195ec92b66f12294,
         type: 3}
@@ -747,6 +767,8 @@ GameObject:
   - component: {fileID: 1115895844}
   - component: {fileID: 1115895843}
   - component: {fileID: 1115895838}
+  - component: {fileID: 1115895839}
+  - component: {fileID: 1115895840}
   m_Layer: 0
   m_Name: StreetColliders
   m_TagString: Untagged
@@ -767,6 +789,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.3799999, y: 13.47, z: 0.11624481}
   m_Center: {x: 0.7299999, y: 3.1300004, z: -1.3331366}
+--- !u!65 &1115895839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115895837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.840042, y: 1.0000002, z: 13.532817}
+  m_Center: {x: 0.92002165, y: 10, z: 5.275591}
+--- !u!65 &1115895840
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115895837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.840042, y: 1.0000002, z: 13.532817}
+  m_Center: {x: 0.92002165, y: -5, z: 5.275591}
 --- !u!4 &1115895842
 Transform:
   m_ObjectHideFlags: 0
@@ -793,8 +841,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0, y: 12.742301, z: 13.181381}
-  m_Center: {x: 1.81, y: 3.6664906, z: 4.75}
+  m_Size: {x: 0, y: 12.742301, z: 13.617934}
+  m_Center: {x: 1.81, y: 3.6664906, z: 4.9682765}
 --- !u!65 &1115895844
 BoxCollider:
   m_ObjectHideFlags: 0

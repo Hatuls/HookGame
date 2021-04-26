@@ -45,17 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toAffectEmission: 1
-  toScaleYObject: 0
+  toScaleYObject: 1
   useBuffer: 1
   band: 0
   startScale: 1
-  emissiomMaxValue: 0.6
-  emissionStarter: 0
+  emissiomMaxValue: 1
+  emissionStarter: 0.5
   maxScale: 10
   mr: {fileID: 73510179341392953}
   _growSize: 5
   _shrinkSize: 1
-  _shrinkFactor: 0.96
+  _shrinkFactor: 0.99
   _beatSteps: 0
   _onFullBeat: 0
   _onBeatD8: 00000000

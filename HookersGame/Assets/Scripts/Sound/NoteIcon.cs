@@ -43,7 +43,7 @@ public class NoteIcon : MonoBehaviour
     #endregion
     public void ResetScale()
     {
-        beatTempo = 0;
+       // beatTempo = 0;
         rt.localScale = Vector3.zero;
         ResetColor();
    
@@ -69,7 +69,7 @@ public class NoteIcon : MonoBehaviour
             if (rt.localScale.magnitude>= maxScale.magnitude)
             SetAlpha();
 
-        beatTempo += Time.deltaTime;
+     //   beatTempo += Time.deltaTime;
     }
 
     void SetAlpha() {

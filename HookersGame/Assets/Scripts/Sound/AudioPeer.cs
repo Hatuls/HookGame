@@ -195,7 +195,7 @@ public partial class SoundManager {
     [SerializeField] float timerToSucessBeforePress;
     [Tooltip("Example of use: 1 second will mean 1 second after the beat happends")]
     [SerializeField] float timerToSucessAfterPress;
-    public float GetTimerMaxNote => _beatInterval + timerToSucessAfterPress;
+    public float BeatSpeed => _beatInterval + timerToSucessAfterPress;
     void BeatDetection()
     {
 

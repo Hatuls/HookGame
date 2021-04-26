@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
@@ -11,15 +12,21 @@ public class FogVFX : MonoBehaviour
     [SerializeField] float ParicleScale;
     [Range(0.01f, 1f)]
     [SerializeField] float Density;
-
-
+    [SerializeField] float distance;
+    private Vector3 startPos;
     VisualEffect FogGraph;
     
     // Start is called before the first frame update
     void Start()
     {
+        startPos = transform.position;
         DetachFromVolume();
         SetCosmetics();
+        LevelManager.ResetLevelParams += ResetFog;
+    }
+
+    private void ResetFog() {
+       transform.position= startPos;
     }
     public void DetachFromVolume()
     {
@@ -33,7 +40,7 @@ public class FogVFX : MonoBehaviour
         FogGraph.SetFloat("ScaleBySize", ConfiguerVolumeSize());
         FogGraph.SetFloat("ParticleScale", ParicleScale);
         FogGraph.SetFloat("FogDensity", Density);
-       // Debug.Log(ConfiguerVolumeSize());
+  //      Debug.Log(ConfiguerVolumeSize());
 
         
     }
@@ -56,9 +63,24 @@ public class FogVFX : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         VolumeFitting();
         SetCosmetics();
+        CheckDistance();
     }
+
+    private void CheckDistance()
+    {
+     
+        if (Mathf.Abs(transform.position.z-PlayerManager.Instance.transform.position.z) < distance)
+            transform.position += Vector3.forward  ;
+    }
+    
+
+    private void OnDisable()
+    {
+        LevelManager.ResetLevelParams -= ResetFog;
+    }
+    
 }

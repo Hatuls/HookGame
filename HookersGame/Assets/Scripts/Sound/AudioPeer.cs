@@ -20,25 +20,28 @@ public partial class SoundManager
     public static float Amplitude,AmplitudeBuffer;
     float AmplitudeHighest;
 
-    // Start is called before the first frame update
 
-
-    [Header("Timer For Beat")]
+    [Header("Timer For Audio Check")]
     [SerializeField] float _timer;
-    // Update is called once per frame
+
    
-    void FixedUpdate()
+    void Update()
     {
-        // audio freq
-        //GetSpectrumAudioSource();
-        //MakeFrequencyBands();
-        //BandBuffer();
-        //CreateAudioBands();
-        //GetAmplitude();
+        //audio freq
+        GetSpectrumAudioSource();
+        MakeFrequencyBands();
+        BandBuffer();
+        CreateAudioBands();
+        GetAmplitude();
         BandBuffer();
 
         // audio beat
         BeatDetection();
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log(CheckBeat());
+        }
     }
     private void GetAmplitude()
     {
@@ -163,9 +166,11 @@ public partial class SoundManager
     }
 }
 
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                   BEAT MANAGER              @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+public partial class SoundManager {
 
-public partial class  SoundManager {
-
+    [SerializeField] bool toGoByBeat;
+    public static bool IsByBeat => Instance.toGoByBeat;
     public static bool _beatFull, _beatD8;  // become true when a beat aqccured
     public static int _beatCountFull, _beatCountD8; // an option to count how many beats happend
 
@@ -176,12 +181,21 @@ public partial class  SoundManager {
 
     private float _beatIntervalD8, _beatTimerD8; // example of the same system but divided by 8
 
+    public static float _currentTime;
+
+    public delegate void OnInputToBeat(bool onPress);
+    public static event OnInputToBeat OnBeatPressed;
     public delegate void OnFullBeatEvent();
     public static event OnFullBeatEvent FullBeatEvent;
     public static event OnFullBeatEvent D8BeatEvent;
 
     bool isValid;
-
+    [Header("Click Beat Options")]
+    [Tooltip("Example of use: 1 second will mean  second before the beat happens")]
+    [SerializeField] float timerToSucessBeforePress;
+    [Tooltip("Example of use: 1 second will mean 1 second after the beat happends")]
+    [SerializeField] float timerToSucessAfterPress;
+    public float BeatSpeed => _beatInterval + timerToSucessAfterPress;
     void BeatDetection()
     {
 
@@ -217,14 +231,35 @@ public partial class  SoundManager {
             D8BeatEvent?.Invoke();
             // Debug.Log("D8");
         }
-
-        if (_beatCountD8 % 8 == 7)
-            isValid = true;
-        else if (_beatCountD8 % 8 == 1)
-            isValid = false;
+        BeatActionCalculator();
     }
-  
+    NoteIcon[] notes;
+    private void BeatActionCalculator() {
+        _currentTime += Time.deltaTime;
+
+        if (_currentTime <= _beatInterval + (timerToSucessAfterPress))
+        {
+            if (_currentTime >= _beatInterval - (timerToSucessBeforePress ))
+                isValid = true;
+        }
+        else
+        {
+            _currentTime -= _beatInterval + (timerToSucessAfterPress);
+            if (notes != null && notes.Length > 0)
+            {
+                for (int i = 0; i < notes.Length; i++)
+                {
+                    notes[i].ResetColor();
+                }
+            }
+            isValid = false;
+        }
+        
+    }
+
+
     public bool CheckBeat() {
+        OnBeatPressed?.Invoke(isValid);
         return isValid;
     }
 }

@@ -139,6 +139,9 @@ public class TunnelManager : MonoSingleton<TunnelManager>
                     for (int j = 0; j < tunnelPoint.GetLength(2); j++) // on the Y Axis
                         for (int k = 0; k < tunnelPoint.GetLength(0); k++) // on the Z Axis
                         {
+                            if (tunnelGridPoint[x] == null)
+                                continue;
+
                             Gizmos.DrawWireSphere(tunnelGridPoint[x].transform.position + new Vector3(i * distanceBetweenPoints, j * distanceBetweenPoints, k * distancebetweenDroneAndPlayer), 1f);
                         }
             }

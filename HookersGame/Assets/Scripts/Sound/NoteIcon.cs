@@ -43,8 +43,12 @@ public class NoteIcon : MonoBehaviour
     #endregion
     public void ResetScale()
     {
-       // beatTempo = 0;
-        rt.localScale = Vector3.zero;
+        // beatTempo = 0;
+        if (rt != null)
+            rt.localScale = Vector3.zero;
+        else
+            rt = GetComponent<RectTransform>();
+
         ResetColor();
    
     }

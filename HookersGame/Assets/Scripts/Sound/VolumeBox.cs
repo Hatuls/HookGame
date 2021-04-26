@@ -155,10 +155,10 @@ public partial class VolumeBox {
     void Grow()
     {
         _currentSize = _growSize;
-        if (_onBeatD8[0] == 6)
-            Debug.Log(true);
-        else if (_onBeatD8[0] == 2)
-            Debug.Log(false);
+        //if (_onBeatD8[0] == 6)
+        //    Debug.Log(true);
+        //else if (_onBeatD8[0] == 2)
+        //    Debug.Log(false);
 
     }
     void Shrink()

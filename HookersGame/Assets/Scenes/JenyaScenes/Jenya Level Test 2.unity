@@ -152,6 +152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8019724743587724050, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019724743587724050, guid: 75ca2f44bb78a3047ac834ebe6d536a2,
+        type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -329,7 +334,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17476
+  m_Name: pb_Mesh17470
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2134,8 +2139,23 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
+      propertyPath: grappleSetting.maxPullSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: grappleSetting.GrapplingRange
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
       propertyPath: grappleSetting.minGrappleDist
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: grappleSetting.startPullSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
@@ -2145,12 +2165,12 @@ PrefabInstance:
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: _playerPhysicsManager.dragValues.fall
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: _playerPhysicsManager.dragValues.hang
-      value: 2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
@@ -2159,8 +2179,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
+      propertyPath: _playerPhysicsManager.dragValues.wall
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
       propertyPath: _playerPhysicsManager.dragValues.Swing
-      value: 0.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}

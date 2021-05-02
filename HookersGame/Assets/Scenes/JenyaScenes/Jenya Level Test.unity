@@ -18347,7 +18347,7 @@ PrefabInstance:
     - target: {fileID: 8613860287670899290, guid: c59adaca4e06bca4b9bcb6cb026a9366,
         type: 3}
       propertyPath: startDeathWall
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8613860287670899290, guid: c59adaca4e06bca4b9bcb6cb026a9366,
         type: 3}

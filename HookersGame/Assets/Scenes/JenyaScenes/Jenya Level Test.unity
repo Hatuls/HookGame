@@ -18342,7 +18342,12 @@ PrefabInstance:
     - target: {fileID: 8613860287670899290, guid: c59adaca4e06bca4b9bcb6cb026a9366,
         type: 3}
       propertyPath: speed
-      value: 10
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613860287670899290, guid: c59adaca4e06bca4b9bcb6cb026a9366,
+        type: 3}
+      propertyPath: startDeathWall
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8613860287670899290, guid: c59adaca4e06bca4b9bcb6cb026a9366,
         type: 3}
@@ -18403,7 +18408,7 @@ PrefabInstance:
     - target: {fileID: 6827618393659314227, guid: 6a4eaa6d0e353e749bf02d2c13016a4e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 603
+      value: 58.9
       objectReference: {fileID: 0}
     - target: {fileID: 6827618393659314227, guid: 6a4eaa6d0e353e749bf02d2c13016a4e,
         type: 3}

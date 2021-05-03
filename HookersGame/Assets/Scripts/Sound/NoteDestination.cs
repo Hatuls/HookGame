@@ -1,50 +1,27 @@
-﻿
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 
 public class NoteDestination : MonoBehaviour
 {
-  
-   //static RectTransform _rt;
-   //    Color startColor;
-   // public static RectTransform GetRT
-   // {
-   //     get {
-         
-   //         return _rt;
-   //     } 
-   // }
+    public static NoteDestination Instance;
+    static RectTransform _rt;
+    [SerializeField] Image img;
+    
+    public void Awake()
+    {
+        _rt = GetComponent<RectTransform>();
+      
+        Instance = this;
+    }
 
-   //static bool isSynced;
-   //public static bool canBePressed { get => isSynced; set { if (isSynced != value) isSynced = value; } }
-   // private void Awake()
-   // {
-   //        if (_rt == null)
-   //             _rt = GetComponent<RectTransform>();
+    private void ChangeColor(Color color)
+    { img.color = color; }
+    public void ResetColor()
+  => ChangeColor(Color.white);
 
-   // }
-   // private void Update()
-   // {
-   //     if (Input.GetKeyDown(KeyCode.Z))
-   //     {
-   //         if (canBePressed)
-   //             Debug.Log("Activate Compressor");
-   //         else
-   //             Debug.Log("Bad Timing");
-   //     }
-   // }
-
-   //  private void OnTriggerEnter2D(Collider2D collision)
-   // {
-   //     if (collision.tag == "Note")
-   //     canBePressed = true;
-   //     Debug.Log(collision.gameObject.name);
-   // }
-   // private void OnTriggerExit2D(Collider2D collision) 
-   // {
-   //     if (collision.tag == "Note")
-   //         canBePressed = false;
-   //     Debug.Log("Exit");
-
-   // }
+    public  void OnCorrectBeatSynced()
+ => ChangeColor(Color.green);
+    public  void OnWrongBeatSynced()
+     => ChangeColor(Color.red);
 }

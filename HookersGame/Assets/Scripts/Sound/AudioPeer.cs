@@ -195,7 +195,17 @@ public partial class SoundManager {
     [SerializeField] float timerToSucessBeforePress;
     [Tooltip("Example of use: 1 second will mean 1 second after the beat happends")]
     [SerializeField] float timerToSucessAfterPress;
-    public float BeatSpeed => _beatInterval + timerToSucessAfterPress;
+    public float BeatSpeed => _beatInterval + timerToSucessAfterPress; 
+
+    float timerForTotalBeat;
+
+    public static bool IsOnBeat
+   =>  Instance.timerForTotalBeat>= GetTimeBetweenBeat() - Instance.timerToSucessBeforePress;
+          
+        
+    
+    
+    
     void BeatDetection()
     {
 
@@ -204,7 +214,7 @@ public partial class SoundManager {
         _beatInterval = 60 / currentSong.GetBPM;
 
         _beatTimer += Time.deltaTime;
-
+        timerForTotalBeat += Time.deltaTime;
 
         if (_beatTimer >= _beatInterval) // check the time of the up coming beat
         {
@@ -217,6 +227,11 @@ public partial class SoundManager {
             FullBeatEvent?.Invoke();
         }
 
+
+        // timer for overall beat time
+        if (timerForTotalBeat > timerToSucessAfterPress + GetTimeBetweenBeat())
+            timerForTotalBeat = 0;
+        
 
         // divided beat count
         // this example D8 mean bpm / 8

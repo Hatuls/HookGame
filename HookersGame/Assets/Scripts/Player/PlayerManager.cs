@@ -5,7 +5,7 @@ using UnityEngine;
     public enum Stage {City,Tunnel }
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
-
+    public enum InputInfluenceState { QTE , Beat}
     internal enum PlayerInfluenceType {linear,Impulse,explosion}
     [SerializeField] Stage currentStage;
 
@@ -29,7 +29,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     
 
     //waiting for rei's events
-    bool onBit=true;
+    bool inputEnabled=true;
     
 
     [Header("Menus")]
@@ -50,10 +50,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
        
         
     }
-   
-   
+
+  
+
+
     void Update()
     {
+        Debug.Log(SoundManager.IsByBeat);
+
         _inputForm = _inputManager.GetInput();
         UpdateUi();
         CameraCommands();
@@ -67,7 +71,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 break;
 
             case Stage.Tunnel:
-                if (onBit)
+                if (inputEnabled)
                 {
                   ApplyInputs();
                     
@@ -173,7 +177,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         transform.rotation = StartPoint.rotation;
         transform.position = StartPoint.position;
     }
-
+    public void DisableInput(InputInfluenceState state,float Duration)
+    {
+        StartCoroutine(DisableInputCoru(state, Duration));
+    }
 
     private void FixedUpdate()
     {
@@ -270,10 +277,17 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
 
             case Stage.Tunnel:
-               
+
+                if (Input.GetKeyDown(KeyCode.I))
+                {
+
+                    StartCoroutine(DisableInputCoru(InputInfluenceState.QTE,8)); 
+                }
+
                 if (_inputForm.tunnelInputs.Shoot)
                 {
                     ShootArm();
+                    StartCoroutine(DisableInputCoru(InputInfluenceState.Beat,0)); 
                     return;
                 }
 
@@ -281,19 +295,22 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 {
                     if (_inputForm.tunnelInputs.left)
                     {
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                         TunnelMovement(Movement.UpLeft);
-                    return;
+                        return;
                     }
 
                     if (_inputForm.tunnelInputs.right)
                     {
                         TunnelMovement(Movement.UpRight);
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                         
                     return;
                     }
 
 
                         TunnelMovement(Movement.Up);
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                     return;
 
                 }
@@ -303,18 +320,21 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                     if (_inputForm.tunnelInputs.left)
                     {
                         TunnelMovement(Movement.DownLeft);
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                         return;
                     }
 
                     if (_inputForm.tunnelInputs.right)
                     {
                         TunnelMovement(Movement.DownRight);
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
 
                         return;
                     }
 
 
                     TunnelMovement(Movement.Down);
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                     return;
 
                 }
@@ -323,6 +343,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 {
 
                     TunnelMovement(Movement.Left);
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                     return;
                 }
 
@@ -330,6 +351,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 {
 
                     TunnelMovement(Movement.Right);
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                     return;
                 }
 
@@ -338,9 +360,28 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 break;
 
 
+                     
         }
 
     }
+    private IEnumerator DisableInputCoru(InputInfluenceState state, float stateDuration)
+    {
+        inputEnabled = false;
+        switch (state)
+        {
+            case InputInfluenceState.QTE:
+                yield return new WaitForSeconds(stateDuration);
+                break;
+            case InputInfluenceState.Beat:
+                yield return new WaitUntil(() => !SoundManager.IsByBeat);
+
+                break;
+            default:
+                break;
+        }
+        inputEnabled = true;
+    }
+
     public void TunnelMovement(Movement movement)
     {
         Debug.Log("yo");

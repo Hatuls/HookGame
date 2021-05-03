@@ -29,7 +29,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3540537006253420704}
   - component: {fileID: 4424291980998317425}
-  - component: {fileID: 3044709113286563921}
+  - component: {fileID: 4733105856263742521}
   m_Layer: 0
   m_Name: GraplingHand
   m_TagString: FrontArm
@@ -67,19 +67,20 @@ MonoBehaviour:
   travelSpeed: 11000
   travelDist: 90
   destroyDistOffset: 0
---- !u!65 &3044709113286563921
-BoxCollider:
+--- !u!64 &4733105856263742521
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8714466176059253042}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.0149156}
-  m_Center: {x: 0, y: 0, z: 1.1981235}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &6522889716243244559
 PrefabInstance:
   m_ObjectHideFlags: 0

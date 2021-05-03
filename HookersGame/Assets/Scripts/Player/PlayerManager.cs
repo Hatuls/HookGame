@@ -56,7 +56,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     void Update()
     {
-        Debug.Log(SoundManager.IsByBeat);
+       // Debug.Log(SoundManager.IsByBeat);
 
         _inputForm = _inputManager.GetInput();
         UpdateUi();

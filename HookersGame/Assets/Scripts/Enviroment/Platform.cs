@@ -127,7 +127,7 @@ public class Platform : MonoBehaviour
       
         if (collision.gameObject.CompareTag("Player"))
         {
-
+            Debug.Log("yo");
             if (ForceInfluence)
             {
 
@@ -188,27 +188,27 @@ public class Platform : MonoBehaviour
     {
 
         if (_MR == null)
-            _MR = GetComponent<MeshRenderer>();
+            _MR = GetComponentInParent<MeshRenderer>();
         switch (platFromType)
         {
             case PlatFromType.Grabable:
-                _MR.material.color = Color.green;
+                //_MR.material.color = Color.green;
                 // grabbable platform
                 break;
             case PlatFromType.NotGrabable:
-                _MR.material.color = Color.white;
+               // _MR.material.color = Color.white;
                 // not grabbable platform
                 break;
             case PlatFromType.DeathPlatform:
-                _MR.material.color = Color.red;
+              //  _MR.material.color = Color.red;
                 // not grabbable platform
                 break;
             case PlatFromType.TriggerPlatform:
-                _MR.material.color = Color.cyan;
+               // _MR.material.color = Color.cyan;
                 // not grabbable platform
                 break;
             case PlatFromType.ForceInfluence:
-                _MR.material.color = Color.yellow;
+              //  _MR.material.color = Color.yellow;
                 // not grabbable platform
                 break;
             default:

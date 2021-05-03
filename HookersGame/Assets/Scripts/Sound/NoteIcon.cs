@@ -1,129 +1,106 @@
-﻿using UnityEngine.UI;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class NoteIcon : MonoBehaviour
 {
-    [SerializeField] bool toStop;
-  [SerializeField] float beatTempo, minSuccessDelay = .95f, maxSuccessDelay = 1.05f, resetTimer = 1.2f;
+    [SerializeField] bool toStart;
+
+    [Tooltip("Go through beats per seconds or beats in seconds")]
+    [SerializeField] bool BPSorBIS;
+    [SerializeField] Vector3 maxScale;
     RectTransform rt;
-    Image img;
+
+    [SerializeField]float alphaSpeed;
+    [SerializeField] int id;
+
+  [SerializeField]  Image img;
+
+    public int GetNoteIconID => id;
+
+  
+
+    public bool ToStart { get; set; }
+    #region MonoBehaiviour CallBacks
     private void Start()
     {
-        
         rt = GetComponent<RectTransform>();
-         
-        img = transform.GetChild(0).GetComponent<Image>();
-
-        SubscribeHandler(true);
-    }
-
-    public void ResetScale()
-    {
-        rt.localScale = Vector3.zero;
-      //  img.color -= Color.black;
-    }
- 
-    
-    public  void StopMoving()
-    {
-        toStop = true;
-        StopCoroutine(MovingRythemGUI());
-        ResetScale();
-    }
-    public  void StartMoving()
-    {
-        StopMoving();
-       StartCoroutine(MovingRythemGUI());
-    }
-
-
-    IEnumerator MovingRythemGUI()
-    {
-        Color  ProceedColor;
         
-      
-        RectTransform childRect = transform.GetChild(0).GetComponent<RectTransform>();
-       
-        toStop = false;
-        BoxCollider2D col = GetComponent<BoxCollider2D>();
-        while (SoundManager.Instance.GetGameStartingCondition)
-        {
-            if (toStop)
-                break;
-
-            NoteDestination.canBePressed = false;
-            if (rt.localScale.x <= maxSuccessDelay && rt.localScale.x >= minSuccessDelay)
-            {
-                //Debug.Log("Time It Took To Complete 1 Beat " + Time.time);
-                NoteDestination.canBePressed = true;
-            }
-            else if (rt.localScale.x >= resetTimer)
-            {
-                
-                ResetScale();
-            }
-
-
-
-            beatTempo = SoundManager.GetBeatPerSecond();
-            ProceedColor = new Color(0, 0, 0, (beatTempo * Time.deltaTime) / beatTempo);
-
-
-            img.color += ProceedColor;
-            rt.localScale += new Vector3(beatTempo, beatTempo,1)*Time.deltaTime ;
-            col.size = rt.localScale * 100f;
-            yield return  null;
-
-            
-            
-            { 
-            /*
-             //   tweens[0] = LeanTween.scale(rt,Vector3.one, beatTempo).setEase(OptionOfTween);
-                //tweens[1] = LeanTween.alpha(childRect, 1, beatTempo / adjustingCache).setEase(LeanTweenType.easeInExpo);
-                //for (int i = 0; i < sections; i++)
-                //{
-                //    if (toStop)
-                //    {
-                //        for (int z = 0;z < tweens.Length;z++)
-                //        {
-                //            LeanTween.pause(tweens[z].id);
-                //            LeanTween.cancel(tweens[z].uniqueId);
-                //        }
-
-                //        ResetScale();
-                //        yield break;
-                //    }
-                //    yield return new WaitForSeconds(beatTempo / sections);
-                //}
-
-                //img.color = clr;
-                //ResetScale();
-            */
-        }
-        }
-        StopMoving();
 
     }
-    void SubscribeHandler(bool toSubscribeOrToUn) {
-        if (toSubscribeOrToUn)
-        {
-            SoundManager.StartMusic += StartMoving;
-            SoundManager.StopMusic += StopMoving;
-        }
-        else
-        {
-            SoundManager.StartMusic -= StartMoving;
-            SoundManager.StopMusic -= StopMoving;
-        }
-    
-    }
-    private void OnDestroy()
+    private void OnEnable()
     {
-        SubscribeHandler(false);
+        SubscribeHandler(true);
     }
     private void OnDisable()
     {
         SubscribeHandler(false);
     }
+    private void Update()
+    {
+        if (!toStart)
+            ScaleUp();
+    }
+    #endregion
+    public void ResetScale()
+    {
+        // beatTempo = 0;
+        if (rt != null)
+            rt.localScale = Vector3.zero;
+        else
+            rt = GetComponent<RectTransform>();
+
+        ResetColor();
+   
+    }
+    private void PlayerAction(bool Successed)
+    {
+        if (rt.localScale.magnitude > Vector3.one.magnitude)
+        {
+
+        }
+      ChangeColor(Successed ? Color.green : Color.red);
+    }
+    private void ChangeColor(Color color)
+    { img.color = color; }
+    public void ResetColor()
+  => ChangeColor(Color.white);
+    private void ScaleUp()
+    {
+
+     //   rt.localScale = Vector3.Lerp(Vector3.zero, maxScale, beatTempo / SoundManager.GetBeatPerSecond());
+      //  rt.localScale += Vector3.one * ((SoundManager._currentTime / SoundManager.Instance.GetTimerMaxNote)*NoteSpawner.GetTimerForNote) * Time.deltaTime;
+        rt.localScale +=Vector3.one *(BPSorBIS?SoundManager.GetBeatAmountInSeconds(): SoundManager.GetBeatAmountInSeconds() )*Time.deltaTime;
+            if (rt.localScale.magnitude>= maxScale.magnitude)
+            SetAlpha();
+
+     //   beatTempo += Time.deltaTime;
+    }
+
+    void SetAlpha() {
+
+        Color clr = img.color;
+        img.color = new Color(clr.r, clr.g, clr.b, clr.a - alphaSpeed * Time.deltaTime);
+        if (rt.localScale.magnitude > (maxScale* SoundManager.Instance.BeatSpeed).magnitude)
+        {
+
+             ToStart = false;
+            gameObject.SetActive(false) ;
+        }
+
+
+    }
+    private void SubscribeHandler(bool toSubscribeOrToUn) {
+        if (toSubscribeOrToUn)
+        {
+            SoundManager.OnBeatPressed += PlayerAction;
+
+        }
+        else
+        {
+            SoundManager.OnBeatPressed -= PlayerAction;
+        }
+    
+    }
+
+  
 }

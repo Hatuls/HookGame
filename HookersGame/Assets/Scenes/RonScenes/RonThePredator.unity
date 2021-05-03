@@ -510,7 +510,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19836
+  m_Name: pb_Mesh17602
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3845,6 +3845,7 @@ GameObject:
   - component: {fileID: 1115895844}
   - component: {fileID: 1115895843}
   - component: {fileID: 1115895838}
+  - component: {fileID: 1115895839}
   m_Layer: 0
   m_Name: Street
   m_TagString: Untagged
@@ -3865,6 +3866,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 13.47, z: 0.08252151}
   m_Center: {x: 0.45, y: 3.38, z: -1.01}
+--- !u!65 &1115895839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115895837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6484654, y: 2.3192232, z: 14.1895075}
+  m_Center: {x: 0.32423323, y: 8.340375, z: 6.0320206}
 --- !u!4 &1115895842
 Transform:
   m_ObjectHideFlags: 0
@@ -6506,7 +6520,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19882
+  m_Name: pb_Mesh17648
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -23,7 +23,8 @@ public class Platform : MonoBehaviour
     MeshRenderer _MR;
 
     [SerializeField] private PlatFromType platFromType;
-    private Collider col;
+    //private Collider col;
+    private MeshCollider col;
     public PlatFromType GetPlatFromType => platFromType;
 
 
@@ -65,7 +66,7 @@ public class Platform : MonoBehaviour
         //{
         //    found.transform.parent = null;
         //}
-        col = GetComponent<Collider>();
+        col = GetComponent<MeshCollider>();
         if (isHookable)
         {
             gameObject.tag = "GrappleAble";

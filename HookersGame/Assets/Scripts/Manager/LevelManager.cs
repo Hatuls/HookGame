@@ -20,11 +20,11 @@ public partial class LevelManager : MonoSingleton<LevelManager>
     public Transform GetStartPointTransform
     {
         get {
-          
+
             if (_playerStartPosition == null)
                 _playerStartPosition = GameObject.FindGameObjectWithTag("StartPoint").GetComponent<Transform>();
 
-          
+
             return _playerStartPosition;
         }
     }
@@ -44,7 +44,7 @@ public partial class LevelManager : MonoSingleton<LevelManager>
         // Reset player Cooldowns
         // reset physics and forces
 
-        
+
         // Level:
         // Reset DeathWall - V
         // Reset Timer For Level - X
@@ -86,14 +86,14 @@ public partial class LevelManager : MonoSingleton<LevelManager>
         platformsArr = null;
         _playerStartPosition = null;
 
-     
+
         StopVoidPlatformCoroutine();
 
         StartCoroutine(WinningCountDown());
 
         // maybe show success
         //currentLevel++; 
-      
+
         // ResetLevelParams();
     }
     IEnumerator WinningCountDown()
@@ -120,46 +120,70 @@ public partial class LevelManager : MonoSingleton<LevelManager>
     [SerializeField] bool toInvert;
     VolumeBoxesSpawner _volumeBoxesHandler;
     int lastXIndex;
+    byte indexCounter; int beatSteps;
     System.Collections.Generic.Queue<Transform[]> boomBox;
     public void InitVolumeBoxes()
     {
+        beatSteps = 0;
+        beatSteps = AmountOfBoxes / 8;
+        if (AmountOfBoxes % 8 >= 1)
+            beatSteps ++;
+             indexCounter = 0;
         boomBox = new System.Collections.Generic.Queue<Transform[]>();
         SpawnBox(ref boomBox);
         SetBoxesPosition(ref boomBox);
 
-        _volumeBoxesHandler = new VolumeBoxesSpawner(PlayerManager.Instance.transform,ref boomBox,ref distanceBetweenBoxes,ref  distanceBetweenPlayerAndBoxes, ref lastXIndex);
+        _volumeBoxesHandler = new VolumeBoxesSpawner(PlayerManager.Instance.transform, ref boomBox, ref distanceBetweenBoxes, ref distanceBetweenPlayerAndBoxes, ref lastXIndex);
+    }
+    void SetByBeat(ref VolumeBox Cache, ref int _i, ref int isLeft) {
+        int i = _i - 1;
+        Cache._beatSteps = beatSteps;
+
+
+        if (i!=0 && isLeft  ==0 &&i% 8 == 0)        
+            indexCounter++;
+        Cache._onFullBeat = indexCounter;
+
+            Cache._onBeatD8[0] = i % 8;
     }
     private void SpawnBox(ref  System.Collections.Generic.Queue<Transform[]> boomBox)
     {
         bool invert = true;
         distanceBetweenBoxes += prefab.transform.GetChild(0).localScale.x;
-        for (int i = 0; i < AmountOfBoxes; i++)
+        
+        for (int i = 1; i <= AmountOfBoxes; i++)
         {
             Transform[] transformChache = new Transform[2];
 
             for (int x = 0; x < 2; x++)
             {
                 var leftBuilding = Instantiate(prefab, buildingHolder);
-
+                
                 transformChache[x] = leftBuilding.transform;
+                VolumeBox Cache = leftBuilding.GetComponent<VolumeBox>();
+
+                SetByBeat(ref Cache, ref i, ref x);
 
                 if (toInvert == false)
-                    leftBuilding.GetComponent<VolumeBox>().GetSetBand = i % 8;
+                {
+                   Cache.GetSetBand = i % 8;
+                }
 
                 else
                 {
                     if (invert)
                     {
-                        leftBuilding.GetComponent<VolumeBox>().GetSetBand = i % 8;
+                        Cache.GetSetBand = i % 8;
                         if (i % 8 == 0)
                             invert = false;
                     }
                     else
                     {
-                        leftBuilding.GetComponent<VolumeBox>().GetSetBand = 8 - (i % 8);
+                        Cache.GetSetBand = 8 - (i % 8);
                         if (8 - (i % 8) == 1)
                             invert = true;
                     }
+
                 }
             }
             if (i == AmountOfBoxes - 1)

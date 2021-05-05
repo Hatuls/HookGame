@@ -32,8 +32,8 @@ public partial class SoundManager : MonoSingleton<SoundManager>
         AdjustAudioProfile(audioProfile);
         notes = FindObjectsOfType<NoteIcon>();
     }
-    // Start is called before the first frame update
-    public static float GetBeatPerSecond()
+    public static float GetBeatAmountInSeconds() => currentSong.GetBPM / 60;
+    public static float GetTimeBetweenBeat()
         => Instance._beatInterval;
     private void Start()
     {

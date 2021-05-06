@@ -6,28 +6,22 @@ public class VolumeBoxesSpawner
 {
     static Coroutine distanceCheckerCorou;
     float distanceToCheck, xDistance;
-
-    Vector3 direction;
-
+    
     Transform playerTransform;
-    Queue<Transform> leftRow;
-    Queue<Transform> rightRow;
+    Queue<Transform[]> BoomBox;
     int lastZIndex;
-    public VolumeBoxesSpawner(in Transform PlayerTransform, ref Queue<Transform> rightRow, ref Queue<Transform> leftRow, ref float xDistance, ref float distanceChecker, ref int lastZIndex ,ref Vector3 direction)
+    public VolumeBoxesSpawner(in Transform PlayerTransform, ref Queue<Transform[]> _BoomBox, ref float xDistance, ref float distanceChecker, ref int lastZIndex)
     {
-
-        InitParams(PlayerTransform, ref rightRow, ref leftRow, ref xDistance, ref distanceChecker, ref lastZIndex,ref direction);
+        InitParams(PlayerTransform, ref _BoomBox, ref xDistance, ref distanceChecker, ref lastZIndex);
     }
 
-    public void InitParams(in Transform PlayerTransform, ref Queue<Transform> rightRow, ref Queue<Transform> leftRow, ref float xDistance, ref float distanceChecker, ref int lastZIndex , ref Vector3 direction)
+    public void InitParams(in Transform PlayerTransform, ref Queue<Transform[]> _BoomBox, ref float xDistance, ref float distanceChecker, ref int lastZIndex)
     {
         playerTransform = PlayerTransform;
         this.xDistance = xDistance;
-        this.leftRow = leftRow;
-        this.rightRow = rightRow;
+        BoomBox = _BoomBox;
         this.distanceToCheck = distanceChecker;
         this.lastZIndex = lastZIndex + 1;
-        this.direction = direction;
         StartCoroutineCheck();
     }
 
@@ -40,40 +34,34 @@ public class VolumeBoxesSpawner
         
     }
 
-    private Transform GetFurthestVolumeBoxTranform(ref Queue<Transform> row)
+    private Transform GetFurthestVolumeBoxTranform()
     {
         Transform cache = null;
 
-        foreach (var item in row)
+        foreach (var item in BoomBox)
         {
             if (cache == null)
-                cache = item;
+                cache = item[0];
 
-            else if (Mathf.Abs(item.position.z - playerTransform.position.z) > distanceToCheck)
-                cache = item;
+            else if (Mathf.Abs(item[0].position.z - playerTransform.position.z) > distanceToCheck)
+                cache = item[0];
         }
 
         return cache;
     }
     private IEnumerator Checker()
     {
-        Transform leftFurthestFromPlayer, rightFurthestFromPlayer ;
-
-        leftFurthestFromPlayer = GetFurthestVolumeBoxTranform(ref leftRow);
-        rightFurthestFromPlayer = GetFurthestVolumeBoxTranform(ref rightRow);
+        Transform furthestFromPlayer;
+        furthestFromPlayer = GetFurthestVolumeBoxTranform();
 
         while (true)
         {
 
-            if (Mathf.Abs(leftFurthestFromPlayer.position.z - playerTransform.position.z) < distanceToCheck
-                || Mathf.Abs(rightFurthestFromPlayer.position.z - playerTransform.position.z) < distanceToCheck)
+            if (Mathf.Abs(furthestFromPlayer.position.z - playerTransform.position.z) < distanceToCheck)
             {
-
-                SetNewPosition(ref leftRow);
-                SetNewPosition(ref rightRow);
-
-                leftFurthestFromPlayer = GetFurthestVolumeBoxTranform(ref leftRow);
-                rightFurthestFromPlayer = GetFurthestVolumeBoxTranform(ref rightRow);
+               
+                SetNewPosition();
+                furthestFromPlayer = GetFurthestVolumeBoxTranform();
             }
 
             yield return new WaitForSeconds(1f);
@@ -81,13 +69,15 @@ public class VolumeBoxesSpawner
         }
     }
 
-    private void SetNewPosition(ref Queue<Transform> row )
+    private void SetNewPosition()
     {
-        Transform cache = row.Dequeue();
+        Transform[] cache;
+        cache = BoomBox.Dequeue();
 
-        cache.position += direction * lastZIndex * xDistance;
+        for (int i = 0; i < 2; i++)
+            cache[i].position += Vector3.forward * lastZIndex * xDistance;
 
-        row.Enqueue(cache);
+        BoomBox.Enqueue(cache);
     }
 
 }

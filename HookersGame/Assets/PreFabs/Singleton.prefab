@@ -94,14 +94,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelsSO:
   - {fileID: 11400000, guid: bb8f7f9020d42cf4c9243a057c38e5c7, type: 2}
-  AmountOfBoxes: 12
-  distanceBetweenBoxes: 6.6
+  AmountOfBoxes: 16
+  distanceBetweenBoxes: 0
   distanceBetweenLeftAndRight: 126
-  distanceBetweenPlayerAndBoxes: 400
+  distanceBetweenPlayerAndBoxes: 300
   prefab: {fileID: 2716587804905048916, guid: ddc9e53b522a31b4283df2596d51f955, type: 3}
-  leftStartPos: {x: -16, y: -40, z: -52}
+  startingPos: {x: 0, y: 0, z: -50}
   buildingHolder: {fileID: 4325510853889102016}
-  toInvert: 1
+  toInvert: 0
+  towerLineDirection: {x: 0, y: 0, z: 1}
   platformsArr: []
   grabableLayer:
     serializedVersion: 2
@@ -135,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tunnelGridPoint:
   - {fileID: 3850705261302391313}
-  hideGridGizmoInScene: 1
+  hideGridGizmoInScene: 0
   distanceBetweenPoints: 3
   distancebetweenDroneAndPlayer: 10
 --- !u!1001 &2802905603993399333
@@ -229,16 +230,6 @@ PrefabInstance:
         type: 3}
       propertyPath: toGoByBeat
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
-        type: 3}
-      propertyPath: timerToSucessAfterPress
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
-        type: 3}
-      propertyPath: timerToSucessBeforePress
-      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8576585623732089811, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
         type: 3}

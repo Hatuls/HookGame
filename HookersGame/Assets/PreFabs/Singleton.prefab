@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tunnelGridPoint:
   - {fileID: 3850705261302391313}
-  hideGridGizmoInScene: 0
+  hideGridGizmoInScene: 1
   distanceBetweenPoints: 3
   distancebetweenDroneAndPlayer: 10
 --- !u!1001 &2802905603993399333
@@ -224,6 +224,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
+        type: 3}
+      propertyPath: toGoByBeat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
+        type: 3}
+      propertyPath: timerToSucessAfterPress
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
+        type: 3}
+      propertyPath: timerToSucessBeforePress
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8576585623732089811, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
         type: 3}

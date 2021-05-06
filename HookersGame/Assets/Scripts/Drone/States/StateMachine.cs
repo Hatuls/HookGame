@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 public class StateMachine : MonoBehaviour 
 {
+    
     private Dictionary<Type, StateAbst> stateDict;
 
     public StateAbst currentState { get; private set; }

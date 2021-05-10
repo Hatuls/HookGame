@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 8d1738d3999c4a545943885cc14de220,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2059,7 +2059,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17762
+  m_Name: pb_Mesh131544
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8921,8 +8921,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.840042, y: 1.0000002, z: 13.532817}
-  m_Center: {x: 0.92002165, y: 11, z: 5.275591}
+  m_Size: {x: 2.840042, y: 2.0059118, z: 53.186417}
+  m_Center: {x: 0.92002165, y: 19.18035, z: 25.102386}
 --- !u!65 &1115895840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8934,8 +8934,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.840042, y: 1.0000002, z: 13.532817}
-  m_Center: {x: 0.92002165, y: -5, z: 5.275591}
+  m_Size: {x: 2.840042, y: 1.0000002, z: 53.79526}
+  m_Center: {x: 0.92002165, y: -5, z: 25.406801}
 --- !u!4 &1115895842
 Transform:
   m_ObjectHideFlags: 0
@@ -8962,8 +8962,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3861386, y: 12.742301, z: 13.617934}
-  m_Center: {x: 2.4031012, y: 3.6664906, z: 4.968276}
+  m_Size: {x: 0.3861383, y: 12.742301, z: 53.47493}
+  m_Center: {x: 2.4031012, y: 3.6664906, z: 24.896797}
 --- !u!65 &1115895844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8975,8 +8975,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2188208, y: 12.735587, z: 13.181381}
-  m_Center: {x: -0.43699676, y: 3.5861614, z: 5.16}
+  m_Size: {x: 0.2188208, y: 12.735587, z: 53.18849}
+  m_Center: {x: -0.43699676, y: 3.5861614, z: 25.163567}
 --- !u!1 &1125956153
 GameObject:
   m_ObjectHideFlags: 0

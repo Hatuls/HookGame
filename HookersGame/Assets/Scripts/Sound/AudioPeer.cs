@@ -217,7 +217,7 @@ public partial class SoundManager {
     }
     void BeatDetection()
     {
-        Debug.Log("Beat " + IsOnBeat + " On Time : " + timerForTotalBeat);
+       // Debug.Log("Beat " + IsOnBeat + " On Time : " + timerForTotalBeat);
         _beatFull = false;
 
         _beatInterval = 60 / currentSong.GetBPM;

@@ -50,6 +50,8 @@ MonoBehaviour:
   band: 0
   startScale: 1
   emissiomMaxValue: 1
+  emissionBuffer: 0.5
+  scaleBuffer: 25
   emissionStarter: 0.5
   maxScale: 10
   mr: {fileID: 73510179341392953}

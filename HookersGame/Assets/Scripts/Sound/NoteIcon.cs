@@ -59,7 +59,6 @@ public class NoteIcon : MonoBehaviour
     #endregion
     public void ResetScale()
     {
-<<<<<<< HEAD
         if (rt != null)
             rt.localScale = Vector3.zero;
         else
@@ -67,12 +66,6 @@ public class NoteIcon : MonoBehaviour
 
 
         img.color = Color.white;
-=======
-       // beatTempo = 0;
-        rt.localScale = Vector3.zero;
-        ResetColor();
-   
->>>>>>> parent of 5446647 (spawning tower better)
     }
     private void PlayerAction(bool Successed)
     {
@@ -81,29 +74,12 @@ public class NoteIcon : MonoBehaviour
         //else
         //    NoteDestination.OnWrongBeatSynced();
     }
-<<<<<<< HEAD
 
     public void ScaleUp()
     {
        
        LeanTween.cancel(this.rt); 
        LeanTween.scale(this.rt, Vector3.one*2, SoundManager.Instance.BeatSpeed*2);
-=======
-    private void ChangeColor(Color color)
-    { img.color = color; }
-    public void ResetColor()
-  => ChangeColor(Color.white);
-    private void ScaleUp()
-    {
-
-     //   rt.localScale = Vector3.Lerp(Vector3.zero, maxScale, beatTempo / SoundManager.GetBeatPerSecond());
-      //  rt.localScale += Vector3.one * ((SoundManager._currentTime / SoundManager.Instance.GetTimerMaxNote)*NoteSpawner.GetTimerForNote) * Time.deltaTime;
-        rt.localScale +=Vector3.one *(BPSorBIS?SoundManager.GetBeatAmountInSeconds(): SoundManager.GetBeatAmountInSeconds() )*Time.deltaTime;
-            if (rt.localScale.magnitude>= maxScale.magnitude)
-            SetAlpha();
-
-     //   beatTempo += Time.deltaTime;
->>>>>>> parent of 5446647 (spawning tower better)
     }
 
 

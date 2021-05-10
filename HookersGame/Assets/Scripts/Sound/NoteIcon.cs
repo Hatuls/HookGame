@@ -14,7 +14,7 @@ public class NoteIcon : MonoBehaviour
     [SerializeField] int id;
 
   [SerializeField]  Image img;
-    Color clr;
+
     public int GetNoteIconID => id;
 
   
@@ -24,7 +24,7 @@ public class NoteIcon : MonoBehaviour
     private void Start()
     {
         rt = GetComponent<RectTransform>();
-         clr = img.color;
+        
 
     }
     private void OnEnable()
@@ -37,62 +37,51 @@ public class NoteIcon : MonoBehaviour
     }
     private void Update()
     {
-        if (ToStart)
-        {
-            if (rt.localScale.x > 1)
-                SetAlpha();
-        }
-        else
-        {
-            if (isActiveAndEnabled)
-            {
-                if (rt.localScale.x >= maxScale.x)
-                {
-                    LeanTween.cancel(rt);
-                    gameObject.SetActive(false);
-                }
-            }
-        }
-            
-        
+        if (!toStart)
+            ScaleUp();
     }
     #endregion
     public void ResetScale()
     {
+        // beatTempo = 0;
         if (rt != null)
-            rt.localScale = Vector3.zero;
-        else
-            rt = GetComponent<RectTransform>();
+          rt.localScale = Vector3.zero;
 
-
-        img.color = Color.white;
+        ResetColor();
+   
     }
     private void PlayerAction(bool Successed)
     {
-        //if (Successed)
-        //    NoteDestination.OnCorrectBeatSynced();
-        //else
-        //    NoteDestination.OnWrongBeatSynced();
-    }
+        if (rt.localScale.magnitude > Vector3.one.magnitude)
+        {
 
-    public void ScaleUp()
+        }
+      ChangeColor(Successed ? Color.green : Color.red);
+    }
+    private void ChangeColor(Color color)
+    { img.color = color; }
+    public void ResetColor()
+  => ChangeColor(Color.white);
+    private void ScaleUp()
     {
-       
-       LeanTween.cancel(this.rt); 
-       LeanTween.scale(this.rt, Vector3.one*2, SoundManager.Instance.BeatSpeed*2);
-    }
+        rt.localScale += Vector3.one * (BPSorBIS ? SoundManager.GetBeatAmountInSeconds() : SoundManager.GetBeatAmountInSeconds()) * Time.deltaTime;
 
+            if (rt.localScale.magnitude>= maxScale.magnitude)
+            SetAlpha();
+
+  
+    }
 
     void SetAlpha() {
-        if(ToStart)
+
+        Color clr = img.color;
+        img.color = new Color(clr.r, clr.g, clr.b, clr.a - alphaSpeed * Time.deltaTime);
+        if (rt.localScale.magnitude > (maxScale* SoundManager.Instance.BeatSpeed).magnitude)
         {
-        LeanTween.alpha(rt, 0, SoundManager.Instance.BeatSpeed / 2);
-            ToStart = false;
+
+             ToStart = false;
+            gameObject.SetActive(false) ;
         }
-
-
-       
-        
 
 
     }
@@ -100,6 +89,7 @@ public class NoteIcon : MonoBehaviour
         if (toSubscribeOrToUn)
         {
             SoundManager.OnBeatPressed += PlayerAction;
+
         }
         else
         {

@@ -43,10 +43,8 @@ public class NoteIcon : MonoBehaviour
     #endregion
     public void ResetScale()
     {
-        // beatTempo = 0;
-        if (rt != null)
-          rt.localScale = Vector3.zero;
-
+       // beatTempo = 0;
+        rt.localScale = Vector3.zero;
         ResetColor();
    
     }
@@ -64,12 +62,14 @@ public class NoteIcon : MonoBehaviour
   => ChangeColor(Color.white);
     private void ScaleUp()
     {
-        rt.localScale += Vector3.one * (BPSorBIS ? SoundManager.GetBeatAmountInSeconds() : SoundManager.GetBeatAmountInSeconds()) * Time.deltaTime;
 
+     //   rt.localScale = Vector3.Lerp(Vector3.zero, maxScale, beatTempo / SoundManager.GetBeatPerSecond());
+      //  rt.localScale += Vector3.one * ((SoundManager._currentTime / SoundManager.Instance.GetTimerMaxNote)*NoteSpawner.GetTimerForNote) * Time.deltaTime;
+        rt.localScale +=Vector3.one *(BPSorBIS?SoundManager.GetBeatAmountInSeconds(): SoundManager.GetBeatAmountInSeconds() )*Time.deltaTime;
             if (rt.localScale.magnitude>= maxScale.magnitude)
             SetAlpha();
 
-  
+     //   beatTempo += Time.deltaTime;
     }
 
     void SetAlpha() {

@@ -1693,6 +1693,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1587082691572798160, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1587082691572798165, guid: e277951ea3d68224195ec92b66f12294,
         type: 3}
       propertyPath: m_Camera
@@ -1803,6 +1808,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1587082691601242097, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1587082692008010010, guid: e277951ea3d68224195ec92b66f12294,
         type: 3}
       propertyPath: alphaSpeed
@@ -1822,6 +1832,21 @@ PrefabInstance:
         type: 3}
       propertyPath: maxScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969531799700372418, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969531799905273504, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969531801051130936, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1587082692008010011, guid: e277951ea3d68224195ec92b66f12294, type: 3}

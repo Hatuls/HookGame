@@ -99,7 +99,7 @@ public partial class VolumeBox : MonoBehaviour
     void Emission(float value)
     {
         float bandValue =0;
-        if (SoundManager.IsByBeat)
+        if (!SoundManager.IsByBeat)
         {
          bandValue = emissiomMaxValue * (emissionBuffer*value) + emissionStarter;
         }

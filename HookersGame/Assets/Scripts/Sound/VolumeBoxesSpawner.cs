@@ -5,23 +5,25 @@ using System.Collections;
 public class VolumeBoxesSpawner
 {
     static Coroutine distanceCheckerCorou;
-    float distanceToCheck, xDistance;
-    
+    float distanceFromPlayer, xDistance;
+    Vector3 direction;
     Transform playerTransform;
-    Queue<Transform[]> BoomBox;
+    Queue<Transform> leftLine,rightLine;
     int lastZIndex;
-    public VolumeBoxesSpawner(in Transform PlayerTransform, ref Queue<Transform[]> _BoomBox, ref float xDistance, ref float distanceChecker, ref int lastZIndex)
+    public VolumeBoxesSpawner(in Transform PlayerTransform, ref Queue<Transform> leftLine, ref Queue<Transform> rightLine, ref float xDistance, ref float distanceChecker, ref int lastZIndex , ref Vector3 direction)
     {
-        InitParams(PlayerTransform, ref _BoomBox, ref xDistance, ref distanceChecker, ref lastZIndex);
+        InitParams(PlayerTransform, ref leftLine,ref rightLine, ref xDistance, ref distanceChecker, ref lastZIndex , ref  direction);
     }
 
-    public void InitParams(in Transform PlayerTransform, ref Queue<Transform[]> _BoomBox, ref float xDistance, ref float distanceChecker, ref int lastZIndex)
-    {
+    public void InitParams(in Transform PlayerTransform, ref Queue<Transform> leftLine, ref Queue<Transform> rightLine, ref float xDistance, ref float distanceChecker, ref int lastZIndex, ref Vector3 direction)
+    { 
         playerTransform = PlayerTransform;
         this.xDistance = xDistance;
-        BoomBox = _BoomBox;
-        this.distanceToCheck = distanceChecker;
+        this.leftLine = leftLine;
+        this.rightLine = rightLine;
+        this.distanceFromPlayer = distanceChecker;
         this.lastZIndex = lastZIndex + 1;
+        this.direction = direction;
         StartCoroutineCheck();
     }
 
@@ -34,34 +36,38 @@ public class VolumeBoxesSpawner
         
     }
 
-    private Transform GetFurthestVolumeBoxTranform()
+    private Transform GetFurthestVolumeBoxTranform(ref Queue<Transform> line)
     {
         Transform cache = null;
 
-        foreach (var item in BoomBox)
+        foreach (var item in line)
         {
             if (cache == null)
-                cache = item[0];
+                cache = item;
 
-            else if (Mathf.Abs(item[0].position.z - playerTransform.position.z) > distanceToCheck)
-                cache = item[0];
+            else if (Mathf.Abs(item.position.z - playerTransform.position.z) > distanceFromPlayer)
+                cache = item;
         }
 
         return cache;
     }
     private IEnumerator Checker()
     {
-        Transform furthestFromPlayer;
-        furthestFromPlayer = GetFurthestVolumeBoxTranform();
+        Transform leftFurthest, rightFurthest;
+        leftFurthest = GetFurthestVolumeBoxTranform(ref leftLine);
+        rightFurthest = GetFurthestVolumeBoxTranform(ref rightLine);
 
         while (true)
         {
-
-            if (Mathf.Abs(furthestFromPlayer.position.z - playerTransform.position.z) < distanceToCheck)
+         
+            if (Vector3.Distance((leftFurthest.position + rightFurthest.position) / 2, playerTransform.position) < distanceFromPlayer)
             {
                
-                SetNewPosition();
-                furthestFromPlayer = GetFurthestVolumeBoxTranform();
+                SetNewPosition(ref leftLine);
+                SetNewPosition(ref rightLine);
+
+                leftFurthest = GetFurthestVolumeBoxTranform(ref leftLine);
+                rightFurthest = GetFurthestVolumeBoxTranform(ref rightLine);
             }
 
             yield return new WaitForSeconds(1f);
@@ -69,15 +75,17 @@ public class VolumeBoxesSpawner
         }
     }
 
-    private void SetNewPosition()
+    private void SetNewPosition(ref Queue<Transform> line)
     {
-        Transform[] cache;
-        cache = BoomBox.Dequeue();
+        if (line == null || line.Count == 0)
+            return;
 
-        for (int i = 0; i < 2; i++)
-            cache[i].position += Vector3.forward * lastZIndex * xDistance;
+        Transform cache;
+        cache = line.Dequeue();
 
-        BoomBox.Enqueue(cache);
+            cache.position += direction * lastZIndex * xDistance;
+
+        line.Enqueue(cache);
     }
 
 }

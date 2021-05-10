@@ -8201,6 +8201,7 @@ PrefabInstance:
       propertyPath: toGoByBeat
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 6628590212359745283, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: gameStarted
@@ -8216,6 +8217,8 @@ PrefabInstance:
       propertyPath: timerToSucessBeforePress
       value: 0.15
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 5446647 (spawning tower better)
     - target: {fileID: 7004462041271282377, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: m_Name

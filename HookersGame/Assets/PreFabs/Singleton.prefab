@@ -225,6 +225,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
         type: 3}
       propertyPath: toGoByBeat
@@ -240,6 +241,8 @@ PrefabInstance:
       propertyPath: timerToSucessBeforePress
       value: 0.15
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 5446647 (spawning tower better)
     - target: {fileID: 8576585623732089811, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
         type: 3}
       propertyPath: m_RootOrder

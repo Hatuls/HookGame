@@ -61,12 +61,10 @@ public class VolumeBoxesSpawner
 
         while (true)
         {
-            Debug.Log(Vector3.Distance((leftFurthest.position + rightFurthest.position) / 2, playerTransform.position));
-
+           
             if (Vector3.Distance((leftFurthest.position + rightFurthest.position)/2, playerTransform.position) < distanceToCheck)
             {
 
-                Debug.LogError(Vector3.Distance((leftFurthest.position + rightFurthest.position) / 2, playerTransform.position));
                 SetNewPosition(ref leftLine);
                 SetNewPosition(ref rightLine);
                 leftFurthest = GetFurthestVolumeBoxTranform(ref leftLine);

@@ -144,7 +144,6 @@ MonoBehaviour:
   BufferAdderValuer: 1.15
   audioProfile: 5
   _timer: 0.005
-  toGoByBeat: 0
   timerToSucessBeforePress: 0.2
   timerToSucessAfterPress: 0.2
   songs:

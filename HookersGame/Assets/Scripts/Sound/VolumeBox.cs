@@ -16,7 +16,7 @@ public partial class VolumeBox : MonoBehaviour
     [Range(0, 8)]
     [SerializeField] int band;
 
-    [SerializeField] float startScale,emissiomMaxValue,emissionStarter, maxScale;
+    [SerializeField] float startScale,emissiomMaxValue,emissionStarter,scaleBuffer, maxScale;
 
     [HideInInspector]
     [SerializeField] MeshRenderer mr;
@@ -91,7 +91,7 @@ public partial class VolumeBox : MonoBehaviour
     float ScaleY()
     {
 
-        float y = (GetBandValue(useBuffer) * maxScale) + startScale;
+        float y = (GetBandValue(useBuffer) * scaleBuffer) + startScale;
         if (y > maxScale && y != 0)
             y = maxScale;
         return y;

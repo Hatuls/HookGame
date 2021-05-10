@@ -16,7 +16,7 @@ public partial class VolumeBox : MonoBehaviour
     [Range(0, 8)]
     [SerializeField] int band;
 
-    [SerializeField] float startScale,emissiomMaxValue,emissionStarter,scaleBuffer, maxScale;
+    [SerializeField] float startScale,emissiomMaxValue, emissionBuffer, emissionStarter,scaleBuffer, maxScale;
 
     [HideInInspector]
     [SerializeField] MeshRenderer mr;
@@ -98,7 +98,16 @@ public partial class VolumeBox : MonoBehaviour
     }
     void Emission(float value)
     {
-        float bandValue = emissiomMaxValue * value + emissionStarter;
+        float bandValue =0;
+        if (SoundManager.IsByBeat)
+        {
+         bandValue = emissiomMaxValue * (emissionBuffer*value) + emissionStarter;
+        }
+        else
+        {
+            bandValue = transform.localScale.y / maxScale;
+        }
+
         mat.SetColor("Color_53031B36",
             new Color(bandValue, bandValue, bandValue));
     }

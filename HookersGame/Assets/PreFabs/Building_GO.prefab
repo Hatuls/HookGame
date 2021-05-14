@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2716587804905048916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 109.8, y: -39.9, z: -52}
-  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 4, z: 1}
   m_Children:
   - {fileID: 9023506820501258925}
   m_Father: {fileID: 0}
@@ -51,7 +51,8 @@ MonoBehaviour:
   startScale: 1
   emissiomMaxValue: 1
   emissionStarter: 0.5
-  maxScale: 10
+  scaleBuffer: 25
+  maxScale: 4
   mr: {fileID: 73510179341392953}
   _growSize: 5
   _shrinkSize: 1

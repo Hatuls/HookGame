@@ -72,11 +72,13 @@ public class FrontArm : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (!connected&&rb!=null)
         {
            
             if (collision.gameObject.CompareTag("GrappleAble"))
             {
+                
                 AttachToSurface(transform.position, collision.gameObject);
                 Debug.Log("Platform Connection Try");
             }

@@ -209,8 +209,8 @@ public partial class LevelManager : MonoSingleton<LevelManager>
         foreach (var item in cache)
         {
             for (int i = 0; i < item.Length; i++)
-                item[i].position = leftStartPos
-                + new Vector3(i * distanceBetweenLeftAndRight, 0, 1 * counter * distanceBetweenBoxes);
+                item[i].position = leftStartPos + (-Vector3.left * counter * distanceBetweenBoxes);
+            //    + new Vector3(i * distanceBetweenLeftAndRight, 0, 1 * counter * distanceBetweenBoxes);
 
             counter++;
         }

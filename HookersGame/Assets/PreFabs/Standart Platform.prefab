@@ -576,7 +576,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6862242787440363992}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children:
@@ -762,6 +762,8 @@ GameObject:
   - component: {fileID: 5426581680425228095}
   - component: {fileID: 1116430718785515559}
   - component: {fileID: 5146221032685316011}
+  - component: {fileID: 282554718}
+  - component: {fileID: 282554717}
   m_Layer: 0
   m_Name: Corners___Orange
   m_TagString: Untagged
@@ -830,3 +832,49 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &282554718
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704249980598499586}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1860422441508194766, guid: b98bb4f33bec3194d9de6c5e2bfac91f, type: 3}
+--- !u!114 &282554717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704249980598499586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9e94c080180434e94bdf6de6304619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 0
+  isHookable: 1
+  DeathPlatform: 0
+  movingPlatform: 0
+  ForceInfluence: 0
+  Distructable: 0
+  MovementSetting:
+    Loop: 0
+    Move: 0
+    Rotate: 0
+    Stops: []
+    TimeBetweenStations: 0
+    rotation: {x: 0, y: 0, z: 0}
+    rotSpeed: 0
+  influenceSettings:
+    playerInfluence: 0
+    Dir: {x: 0, y: 0, z: 0}
+    Force: 0
+    InfluenceTime: 0
+  platFromType: 0

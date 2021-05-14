@@ -28,8 +28,8 @@ Material:
     - Boolean_43E44429: 0
     - Hue_Shift_Speed: 0.33
     - Is_RGB: 0
-    - OffSet_Tilling: 1.85
-    - Tilling_Scale: 5.8
+    - OffSet_Tilling: 1.26
+    - Tilling_Scale: 6.1
     m_Colors:
     - Color_49C218FA: {r: 2.6390157, g: 0.055419244, b: 0.055419244, a: 0}
     - Vector2_F1D0D5E7: {r: 3.27, g: 2.56, b: 5, a: 0}

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class NoteSpawner : MonoSingleton<NoteSpawner>
@@ -8,7 +7,7 @@ public class NoteSpawner : MonoSingleton<NoteSpawner>
     [SerializeField] Vector2 startPosition;
     [SerializeField] float beat;
 
-    [Range(1,3)]
+    [Range(1,4)]
     [SerializeField] int HowManySquares=1;
     NoteIcon[] NotePooling;
     float timer;
@@ -36,16 +35,27 @@ public class NoteSpawner : MonoSingleton<NoteSpawner>
         else 
         for (int i = 0; i < NotePooling.Length; i++)
                 NotePooling[i].gameObject.SetActive(false);
-    
+        previousSquares = HowManySquares;
     }
 
-
+    int previousSquares;
     void ShowNote()
     {
+        if (previousSquares != HowManySquares)
+        {
+            for (int i = 0; i < NotePooling.Length; i++)
+                if (NotePooling[i].gameObject.activeInHierarchy)
+                NotePooling[i].gameObject.SetActive(false);
+
+            previousSquares = HowManySquares;
+        }
+
+        index++;
         NotePooling[index % HowManySquares].gameObject.SetActive(true);
         NotePooling[index % HowManySquares].ResetScale();
         NotePooling[index % HowManySquares].ToStart = true;
-        index++;
+        NotePooling[index % HowManySquares].ScaleUp();
+        NoteDestination.Instance.ResetColor();
     }
 
     private void OnDisable()

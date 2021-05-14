@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Hue_Shift_Speed: 0.08
+    - Hue_Shift_Speed: 0.4
     - Is_RGB: 1
     - OffSet_Tilling: 1
     - Tilling_Scale: 1

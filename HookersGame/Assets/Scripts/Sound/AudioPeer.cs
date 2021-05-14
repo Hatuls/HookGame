@@ -195,26 +195,35 @@ public partial class SoundManager {
     [SerializeField] float timerToSucessBeforePress;
     [Tooltip("Example of use: 1 second will mean 1 second after the beat happends")]
     [SerializeField] float timerToSucessAfterPress;
-    public float BeatSpeed => _beatInterval + timerToSucessAfterPress; 
+    public float BeatSpeed => _beatInterval;
 
-    float timerForTotalBeat;
+    static float timerForTotalBeat;
 
     public static bool IsOnBeat
-   =>  Instance.timerForTotalBeat>= GetTimeBetweenBeat() - Instance.timerToSucessBeforePress;
-          
-        
-    
-    
-    
+    {
+        get
+        {
+
+            bool answer;
+            answer = timerForTotalBeat >= (_beatCountFull * Instance._beatInterval) - Instance.timerToSucessBeforePress;
+            answer &= timerForTotalBeat <= ((_beatCountFull * Instance._beatInterval) + Instance.timerToSucessAfterPress);
+            if (answer)
+              NoteDestination.Instance.OnCorrectBeatSynced();
+            else
+                NoteDestination.Instance.OnWrongBeatSynced();
+
+            return answer;
+        }
+    }
     void BeatDetection()
     {
-
+        Debug.Log("Beat " + IsOnBeat + " On Time : " + timerForTotalBeat);
         _beatFull = false;
 
         _beatInterval = 60 / currentSong.GetBPM;
 
         _beatTimer += Time.deltaTime;
-        timerForTotalBeat += Time.deltaTime;
+        
 
         if (_beatTimer >= _beatInterval) // check the time of the up coming beat
         {
@@ -223,15 +232,11 @@ public partial class SoundManager {
             _beatFull = true;
             _beatCountFull++;
             //Debug.Log("Full ");
-
+         
             FullBeatEvent?.Invoke();
         }
 
-
-        // timer for overall beat time
-        if (timerForTotalBeat > timerToSucessAfterPress + GetTimeBetweenBeat())
-            timerForTotalBeat = 0;
-        
+    timerForTotalBeat += Time.deltaTime;
 
         // divided beat count
         // this example D8 mean bpm / 8
@@ -262,10 +267,7 @@ public partial class SoundManager {
             _currentTime -= _beatInterval + (timerToSucessAfterPress);
             if (notes != null && notes.Length > 0)
             {
-                for (int i = 0; i < notes.Length; i++)
-                {
-                    notes[i].ResetColor();
-                }
+                NoteDestination.Instance.ResetColor();
             }
             isValid = false;
         }

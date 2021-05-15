@@ -46,6 +46,7 @@ Material:
     - BackGround_Lines_Scale_X_: 1
     - BackGround_lines_Scale_X_: 0.7
     - BackGround_lines_Speed: 0.216
+    - Background_Dots_Speed: 0.3
     - ForeGround_Dots_Speed: 0.262
     - ForeGround_Speed: 0.114
     - Foreground_Speed: 0.37

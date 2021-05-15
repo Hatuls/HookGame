@@ -10,19 +10,24 @@ public class ENV_Building_Scropt : MonoBehaviour
     void Start()
     {
         ENV_Building = GetComponent<MeshRenderer>().material;
-        setmaterialfloat("ForeGround_Lines_Speed", 0.1f, 1f);
-        setmaterialfloat("ForeGround_lines_Scale_X", 1f, 2f);
-        setmaterialfloat("ForeGround_Dots_Speed", 0.1f, 1f);
-        setmaterialfloat("ForeGround_Dots_Scale_X", 1f, 2f);
-        setmaterialfloat("BackGround_lines_Speed", 0.1f, 1f);
-        setmaterialfloat("BackGround_Lines_Scale_X", 1f, 2f);
-        setmaterialfloat("Background_Dots_Speed", 0.1f, 1f);
-        setmaterialfloat("BackGround_Dots_Scale_X", 1f, 2f);
-        
+        SetFloats();
     }
-    public void setmaterialfloat(string name, float min, float max) 
+    public void SetFloats()
+    {
+        SetMatFloat("ForeGround_Speed", -1f, 1f);
+        SetMatFloat("ForeGround_lines_Scale_X_", -2f, 2f);
+        SetMatFloat("ForeGround_Dots_Speed", -1f, 1f);
+        SetMatFloat("BackGround_Dots_Scale_X_", -2f, 2f);
+        SetMatFloat("BackGround_lines_Speed", -1f, 1f);
+        SetMatFloat("BackGround_Lines_Scale_X_", -1f, 2f);
+        SetMatFloat("Background_Dots_Speed", -1f, 1f);
+        SetMatFloat("BackGround_Dots_Scale_X__1", -2f, 2f);
+
+    }
+    public void SetMatFloat(string name, float min, float max) 
     {
         ENV_Building.SetFloat(name, Random.Range(min, max));
     }
-   
+    
+
 }

@@ -4,7 +4,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"68eb22ed-928c-4384-80b3-aa7124f377c1\"\n    },\n    \"m_Name\": \"ForeGround_Lines_Speed\",\n    \"m_DefaultReferenceName\": \"Vector1_A2EBEAD3\",\n    \"m_OverrideReferenceName\": \"ForeGround_Speed\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 0.5,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    }\n}"
+            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"68eb22ed-928c-4384-80b3-aa7124f377c1\"\n    },\n    \"m_Name\": \"ForeGround_Lines_Speed\",\n    \"m_DefaultReferenceName\": \"Vector1_A2EBEAD3\",\n    \"m_OverrideReferenceName\": \"ForeGround_Speed\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 0.5,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": -1.0,\n        \"y\": 1.0\n    }\n}"
         },
         {
             "typeInfo": {
@@ -40,7 +40,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"28fd6ef4-a939-4d69-ba04-af43c19731f5\"\n    },\n    \"m_Name\": \"BackGround_Dots_Speed\",\n    \"m_DefaultReferenceName\": \"Vector1_6AB60B36\",\n    \"m_OverrideReferenceName\": \"Foreground_Speed\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 0.30000001192092898,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    }\n}"
+            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"28fd6ef4-a939-4d69-ba04-af43c19731f5\"\n    },\n    \"m_Name\": \"BackGround_Dots_Speed\",\n    \"m_DefaultReferenceName\": \"Vector1_6AB60B36\",\n    \"m_OverrideReferenceName\": \"Background_Dots_Speed\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 0.30000001192092898,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    }\n}"
         },
         {
             "typeInfo": {

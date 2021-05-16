@@ -16,15 +16,15 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 1.29
+    m_Value: 1.59
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 1.25
     min: 0
   scatter:
     m_OverrideState: 1
-    m_Value: 0.34
+    m_Value: 0.363
     min: 0
     max: 1
   clamp:

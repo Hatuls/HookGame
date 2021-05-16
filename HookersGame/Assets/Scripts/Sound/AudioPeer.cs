@@ -170,6 +170,8 @@ public partial class SoundManager
 public partial class SoundManager {
 
     [SerializeField] bool toGoByBeat;
+
+
     public static bool IsByBeat => Instance.toGoByBeat;
     public static bool _beatFull, _beatD8;  // become true when a beat aqccured
     public static int _beatCountFull, _beatCountD8; // an option to count how many beats happend
@@ -196,7 +198,22 @@ public partial class SoundManager {
     [Tooltip("Example of use: 1 second will mean 1 second after the beat happends")]
     [SerializeField] float timerToSucessAfterPress;
     public float BeatSpeed => _beatInterval;
+    static bool InputBlocked = false;
+    public static bool IsValidInputByBeat {
 
+        get {
+            if (InputBlocked == true)
+                return false;
+            else
+            {
+
+                if (Instance.isValid)
+                    InputBlocked = true;
+
+                return Instance.isValid;
+            }
+        }
+    }
     static float timerForTotalBeat;
 
     public static bool IsOnBeat
@@ -207,6 +224,7 @@ public partial class SoundManager {
             bool answer;
             answer = timerForTotalBeat >= (_beatCountFull * Instance._beatInterval) - Instance.timerToSucessBeforePress;
             answer &= timerForTotalBeat <= ((_beatCountFull * Instance._beatInterval) + Instance.timerToSucessAfterPress);
+
             if (answer)
               NoteDestination.Instance.OnCorrectBeatSynced();
             else
@@ -257,19 +275,30 @@ public partial class SoundManager {
     private void BeatActionCalculator() {
         _currentTime += Time.deltaTime;
 
-        if (_currentTime <= _beatInterval + (timerToSucessAfterPress))
+        Debug.Log("********* Flag " + isValid);
+
+
+
+        if (_currentTime <= _beatInterval + (timerToSucessAfterPress)
+            &&_currentTime >= _beatInterval - (timerToSucessBeforePress))
         {
-            if (_currentTime >= _beatInterval - (timerToSucessBeforePress ))
+            if (InputBlocked == true)
+                InputBlocked = false;
+
+            if (isValid == false)
                 isValid = true;
         }
         else
         {
-            _currentTime -= _beatInterval + (timerToSucessAfterPress);
+            if (isValid == true)
+                isValid = false;
+
+            if (_currentTime >= _beatInterval + (timerToSucessAfterPress))
+                _currentTime -= _beatInterval + (timerToSucessAfterPress);
+
             if (notes != null && notes.Length > 0)
-            {
                 NoteDestination.Instance.ResetColor();
-            }
-            isValid = false;
+            
         }
         
     }

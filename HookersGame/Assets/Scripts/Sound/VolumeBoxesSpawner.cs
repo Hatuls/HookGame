@@ -8,20 +8,24 @@ public class VolumeBoxesSpawner
     float distanceToCheck, xDistance;
     
     Transform playerTransform;
-    Queue<Transform[]> BoomBox;
+    Queue<Transform> leftLine, rightLine;
+
+    Vector3 direction;
     int lastZIndex;
-    public VolumeBoxesSpawner(in Transform PlayerTransform, ref Queue<Transform[]> _BoomBox, ref float xDistance, ref float distanceChecker, ref int lastZIndex)
+    public VolumeBoxesSpawner(in Transform PlayerTransform, ref Queue<Transform> leftLine, ref Queue<Transform> rightLine,ref Vector3 direction, ref float xDistance, ref float distanceChecker, ref int lastZIndex)
     {
-        InitParams(PlayerTransform, ref _BoomBox, ref xDistance, ref distanceChecker, ref lastZIndex);
+        InitParams(PlayerTransform, ref leftLine,ref rightLine,ref direction ,  ref xDistance, ref distanceChecker, ref lastZIndex);
     }
 
-    public void InitParams(in Transform PlayerTransform, ref Queue<Transform[]> _BoomBox, ref float xDistance, ref float distanceChecker, ref int lastZIndex)
+    public void InitParams(in Transform PlayerTransform, ref Queue<Transform> leftLine, ref Queue<Transform> rightLine, ref Vector3 direction,ref float xDistance, ref float distanceChecker, ref int lastZIndex)
     {
         playerTransform = PlayerTransform;
         this.xDistance = xDistance;
-        BoomBox = _BoomBox;
+        this.rightLine = rightLine;
+        this.leftLine = leftLine;
         this.distanceToCheck = distanceChecker;
         this.lastZIndex = lastZIndex + 1;
+        this.direction = direction;
         StartCoroutineCheck();
     }
 
@@ -34,34 +38,38 @@ public class VolumeBoxesSpawner
         
     }
 
-    private Transform GetFurthestVolumeBoxTranform()
+    private Transform GetFurthestVolumeBoxTranform(ref Queue<Transform> line)
     {
         Transform cache = null;
 
-        foreach (var item in BoomBox)
+        foreach (var item in line)
         {
             if (cache == null)
-                cache = item[0];
-
-            else if (Mathf.Abs(item[0].position.z - playerTransform.position.z) > distanceToCheck)
-                cache = item[0];
+                cache = item;
+          
+            if (Vector3.Distance(playerTransform.position, item.position) > distanceToCheck)
+                cache = item;
         }
 
         return cache;
     }
     private IEnumerator Checker()
     {
-        Transform furthestFromPlayer;
-        furthestFromPlayer = GetFurthestVolumeBoxTranform();
+        Transform leftFurthest,rightFurthest;
+        leftFurthest = GetFurthestVolumeBoxTranform(ref leftLine);
+        rightFurthest = GetFurthestVolumeBoxTranform(ref rightLine);
 
         while (true)
         {
-
-            if (Mathf.Abs(furthestFromPlayer.position.z - playerTransform.position.z) < distanceToCheck)
+           
+            if (Vector3.Distance((leftFurthest.position + rightFurthest.position)/2, playerTransform.position) < distanceToCheck)
             {
-               
-                SetNewPosition();
-                furthestFromPlayer = GetFurthestVolumeBoxTranform();
+
+                SetNewPosition(ref leftLine);
+                SetNewPosition(ref rightLine);
+                leftFurthest = GetFurthestVolumeBoxTranform(ref leftLine);
+                rightFurthest = GetFurthestVolumeBoxTranform(ref rightLine);
+     
             }
 
             yield return new WaitForSeconds(1f);
@@ -69,15 +77,12 @@ public class VolumeBoxesSpawner
         }
     }
 
-    private void SetNewPosition()
+    private void SetNewPosition(ref Queue<Transform> line)
     {
-        Transform[] cache;
-        cache = BoomBox.Dequeue();
-
-        for (int i = 0; i < 2; i++)
-            cache[i].position += Vector3.forward * lastZIndex * xDistance;
-
-        BoomBox.Enqueue(cache);
+        Transform cache;
+        cache = line.Dequeue();
+        cache.position += direction * lastZIndex * xDistance;
+        line.Enqueue(cache);
     }
 
 }

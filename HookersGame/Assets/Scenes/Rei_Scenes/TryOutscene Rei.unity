@@ -1853,6 +1853,21 @@ PrefabInstance:
       propertyPath: maxScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4969531799700372418, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969531799905273504, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969531801051130936, guid: e277951ea3d68224195ec92b66f12294,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1587082692008010011, guid: e277951ea3d68224195ec92b66f12294, type: 3}
     - {fileID: 1587082692008010012, guid: e277951ea3d68224195ec92b66f12294, type: 3}
@@ -7958,12 +7973,22 @@ PrefabInstance:
     - target: {fileID: 6628590212359745283, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: toGoByBeat
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7004462041271282377, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: m_Name
       value: Singleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617036908260154934, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: directionOfTowersSpawner.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617036908260154934, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: distanceBetweenPlayerAndBoxes
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40a5c3827aa9f643a0dd96a84849f0d, type: 3}

@@ -41,8 +41,13 @@ public class NoteSpawner : MonoSingleton<NoteSpawner>
     int previousSquares;
     void ShowNote()
     {
+
+        if (NotePooling == null || NotePooling.Length == 0)
+            return;
+
         if (previousSquares != HowManySquares)
         {
+  
             for (int i = 0; i < NotePooling.Length; i++)
                 if (NotePooling[i].gameObject.activeInHierarchy)
                 NotePooling[i].gameObject.SetActive(false);

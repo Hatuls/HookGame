@@ -71,6 +71,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 break;
 
             case Stage.Tunnel:
+              
                 if (inputEnabled)
                 {
                   ApplyInputs();
@@ -370,7 +371,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 break;
             case InputInfluenceState.Beat:
                yield return new WaitUntil(() => SoundManager.IsValidInputByBeat == true);
-
                 break;
             default:
                 break;

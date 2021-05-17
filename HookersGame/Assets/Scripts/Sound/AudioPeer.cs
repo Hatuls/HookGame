@@ -42,6 +42,7 @@ public partial class SoundManager
         {
             Debug.Log(CheckBeat());
         }
+        CheckBeat();
     }
     private void GetAmplitude()
     {
@@ -275,35 +276,50 @@ public partial class SoundManager {
         }
         BeatActionCalculator();
     }
-    NoteIcon[] notes;
+
+    //[Header("Delete Me")]
+    //[SerializeField]  float minTime;
+    //[SerializeField] float maxTime;
+    //[SerializeField] float currentTime;
+    //[SerializeField]  bool ISVALID ;
     private void BeatActionCalculator() {
+
+        //minTime = Instance._beatInterval - (Instance.timerToSucessBeforePress);
+        //maxTime = Instance._beatInterval + (Instance.timerToSucessAfterPress);
+        //currentTime = _currentTime;
+        //ISVALID = isValid;
         _currentTime += Time.deltaTime;
 
- //       Debug.Log("********* Flag " + isValid);
+        Debug.Log("********* Flag " + isValid);
+
+        //isValid = (_currentTime <= _beatInterval + (timerToSucessAfterPress) && _currentTime >= _beatInterval - (timerToSucessBeforePress));
+
+        //if (_currentTime >= _beatInterval + (timerToSucessAfterPress))
+        //    _currentTime -= (_beatInterval );
 
 
 
-        if (isValid == false && _currentTime <= _beatInterval + (timerToSucessAfterPress)
-            &&_currentTime >= _beatInterval - (timerToSucessBeforePress))
+        if ( _currentTime <= _beatInterval + (timerToSucessAfterPress)
+            && _currentTime >= _beatInterval - (timerToSucessBeforePress))
         {
-                isValid = true;
+            isValid = true;
 
-                if (InputBlocked == true)
-                    InputBlocked = false;
+            if (InputBlocked == true)
+                InputBlocked = false;
         }
         else
         {
-            if (isValid == true)
+
                 isValid = false;
 
             if (_currentTime >= _beatInterval + (timerToSucessAfterPress))
-                _currentTime -= (_beatInterval + (timerToSucessAfterPress));
+            {
+                _currentTime -= (_beatInterval);
 
-            if (notes != null && notes.Length > 0)
-                NoteDestination.Instance.ResetColor();
-            
+            }
+
         }
-        
+
     }
 
 

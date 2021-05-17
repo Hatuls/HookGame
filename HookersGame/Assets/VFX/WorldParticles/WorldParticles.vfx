@@ -4377,7 +4377,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614691}
   m_ExposedName: Density
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 4
   m_Category: VolumeSettings
   m_Min:
     m_Type:
@@ -5055,7 +5055,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614805}
   m_ExposedName: MeshGradiant
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 7
   m_Category: MeshSettings
   m_Min:
     m_Type:
@@ -5132,7 +5132,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614807}
   m_ExposedName: Mesh
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 5
   m_Category: MeshSettings
   m_Min:
     m_Type:
@@ -5209,7 +5209,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614813}
   m_ExposedName: MeshTexture
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: MeshSettings
   m_Min:
     m_Type:
@@ -5286,7 +5286,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614815}
   m_ExposedName: LifeTime
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 8
   m_Category: VolumeSettings
   m_Min:
     m_Type:
@@ -5777,7 +5777,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614845}
   m_ExposedName: AreaFillAmount
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 2
   m_Category: VolumeSettings
   m_Min:
     m_Type:
@@ -6159,7 +6159,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614861}
   m_ExposedName: MaxAngularVelocity
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 10
   m_Category: ParticleMovement
   m_Min:
     m_Type:
@@ -6338,7 +6338,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614866}
   m_ExposedName: MinAngularVelocity
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 9
   m_Category: ParticleMovement
   m_Min:
     m_Type:
@@ -6517,7 +6517,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614871}
   m_ExposedName: SizeCurve
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 11
   m_Category: MeshSettings
   m_Min:
     m_Type:
@@ -6594,7 +6594,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614873}
   m_ExposedName: MinVelocity
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 3
   m_Category: ParticleMovement
   m_Min:
     m_Type:
@@ -6773,7 +6773,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614878}
   m_ExposedName: MaxVelocity
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 6
   m_Category: ParticleMovement
   m_Min:
     m_Type:

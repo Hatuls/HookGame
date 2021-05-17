@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1937294407607935205}
+  - component: {fileID: 7297909246581500105}
   m_Layer: 0
   m_Name: BuildingSpawner
   m_TagString: Untagged
@@ -30,3 +31,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7297909246581500105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302381155723059005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b61f63500e44d4429ca2f28f06c6375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingHolder: {fileID: 1937294407607935205}
+  toDrawGizomos: 1
+  _volumeBoxesHandler:
+  - distanceBetweenPlayerAndBoxes: 400
+    distanceBetweenBoxes: 0
+    AmountOfBoxes: 20
+    direction: {x: 0, y: 0, z: 1}
+    prefab: {fileID: 2716587804905048916, guid: ddc9e53b522a31b4283df2596d51f955,
+      type: 3}
+    startingPos: {x: 0, y: 0, z: 0}
+    toInvert: 0
+    toBeAffectedByBeat: 0
+  - distanceBetweenPlayerAndBoxes: 20
+    distanceBetweenBoxes: 0
+    AmountOfBoxes: 0
+    direction: {x: 0, y: 0, z: 0}
+    prefab: {fileID: 2716587804905048916, guid: ddc9e53b522a31b4283df2596d51f955,
+      type: 3}
+    startingPos: {x: 5, y: 0, z: 0}
+    toInvert: 0
+    toBeAffectedByBeat: 0

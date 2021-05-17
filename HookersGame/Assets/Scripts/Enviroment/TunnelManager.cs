@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public enum Movement { Stay,Up,Down,Left,Right,UpLeft, UpRight, DownLeft,DownRight};
 public class TunnelManager : MonoSingleton<TunnelManager>
@@ -6,8 +7,13 @@ public class TunnelManager : MonoSingleton<TunnelManager>
     [Header("Grid Settings")]
     [SerializeField] GameObject[] tunnelGridPoint;
     [SerializeField] bool hideGridGizmoInScene;
+
+  
+
     [SerializeField] float distanceBetweenPoints;
     [SerializeField] float distancebetweenDroneAndPlayer;
+    [SerializeField] TunnelEntranceTrigger TunnelCollider;
+
   
     int currentTunnel = 0;
     int[] directionGridIndex;
@@ -20,6 +26,17 @@ public class TunnelManager : MonoSingleton<TunnelManager>
         LevelManager.ResetLevelParams += ResetTunnel;
         InitGridPosition();
     }
+
+    internal void EnterTunnelStage()
+    {
+        PlayerManager.Instance.SetPlayerStage(Stage.Tunnel);
+    }
+    internal void ExitTunnelStage()
+    {
+        PlayerManager.Instance.SetPlayerStage(Stage.City);
+    }
+
+
     void InitGridPosition()
     {
         tunnelGridPoint = null;

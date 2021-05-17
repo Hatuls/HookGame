@@ -30,7 +30,7 @@ public partial class SoundManager : MonoSingleton<SoundManager>
         noteDestination = FindObjectOfType<NoteDestination>();
         currentSong = songs[0];
         AdjustAudioProfile(audioProfile);
-        notes = FindObjectsOfType<NoteIcon>();
+
     }
     public static float GetBeatAmountInSeconds() => currentSong.GetBPM / 60;
     public static float GetTimeBetweenBeat()

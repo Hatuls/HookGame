@@ -144,8 +144,13 @@ MonoBehaviour:
   BufferAdderValuer: 1.15
   audioProfile: 5
   _timer: 0.005
+  toGoByBeat: 0
   timerToSucessBeforePress: 0.2
   timerToSucessAfterPress: 0.2
+  minTime: 0
+  maxTime: 0
+  currentTime: 0
+  ISVALID: 0
   songs:
   - {fileID: 11400000, guid: 45abc0cb137a84543a962686a65e5558, type: 2}
   gameStarted: 1

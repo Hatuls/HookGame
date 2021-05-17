@@ -29,11 +29,11 @@ public class TunnelManager : MonoSingleton<TunnelManager>
 
     internal void EnterTunnelStage()
     {
-        PlayerManager.Instance.SetPlayerStage(Stage.Tunnel);
+        PlayerManager.Instance.SetCurrentStage(Stage.Tunnel);
     }
     internal void ExitTunnelStage()
     {
-        PlayerManager.Instance.SetPlayerStage(Stage.City);
+        PlayerManager.Instance.SetCurrentStage(Stage.City);
     }
 
 

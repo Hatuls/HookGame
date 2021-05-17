@@ -1517,7 +1517,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh57888
+  m_Name: pb_Mesh82128
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9164,8 +9164,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168673459}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.031, y: -0.23481482, z: -1}
-  m_LocalScale: {x: 0.9140721, y: 1.5382293, z: 0.28444645}
+  m_LocalPosition: {x: -0.5318, y: -0.23481, z: -1}
+  m_LocalScale: {x: 1.4148922, y: 1.5382293, z: 0.28444645}
   m_Children: []
   m_Father: {fileID: 1115895842}
   m_RootOrder: 0
@@ -17095,8 +17095,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].startingPos.x
+      value: -19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].startingPos.y
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].startingPos.z
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[0].toBeAffectedByBeat
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].distanceBetweenBoxes
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5198911777875191093, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
@@ -17161,7 +17181,7 @@ PrefabInstance:
     - target: {fileID: 6628590212359745283, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: toGoByBeat
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7004462041271282377, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}

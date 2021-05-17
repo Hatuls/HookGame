@@ -362,14 +362,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private IEnumerator DisableInputCoru(InputInfluenceState state, float stateDuration)
     {
         inputEnabled = false;
-        Debug.Log("CoruCheck!");
+      // Debug.Log("CoruCheck!");
         switch (state)
         {
             case InputInfluenceState.QTE:
                 yield return new WaitForSeconds(stateDuration);
                 break;
             case InputInfluenceState.Beat:
-                yield return new WaitUntil(() => SoundManager.IsValidInputByBeat);
+               yield return new WaitUntil(() => SoundManager.IsValidInputByBeat == true);
 
                 break;
             default:
@@ -380,9 +380,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void TunnelMovement(Movement movement)
     {
-        Debug.Log("yo");
+      //  Debug.Log("yo");
         Vector3 Dir= TunnelManager.Instance.MovePlayerOnGrid(movement);
-        LeanTween.move(gameObject, Dir, SoundManager.GetTimeBetweenBeat());
+        LeanTween.move(gameObject, Dir, SoundManager.GetBeatAmountInSeconds());
     }
     private void CameraCommands()
     {

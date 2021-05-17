@@ -27,14 +27,6 @@ public class NoteIcon : MonoBehaviour
          clr = img.color;
 
     }
-    private void OnEnable()
-    {
-        SubscribeHandler(true);
-    }
-    private void OnDisable()
-    {
-        SubscribeHandler(false);
-    }
     private void Update()
     {
         if (ToStart)
@@ -67,13 +59,7 @@ public class NoteIcon : MonoBehaviour
 
         img.color = Color.white;
     }
-    private void PlayerAction(bool Successed)
-    {
-        //if (Successed)
-        //    NoteDestination.OnCorrectBeatSynced();
-        //else
-        //    NoteDestination.OnWrongBeatSynced();
-    }
+
 
     public void ScaleUp()
     {
@@ -89,24 +75,8 @@ public class NoteIcon : MonoBehaviour
         LeanTween.alpha(rt, 0, SoundManager.Instance.BeatSpeed / 2);
             ToStart = false;
         }
-
-
-       
-        
-
-
     }
-    private void SubscribeHandler(bool toSubscribeOrToUn) {
-        if (toSubscribeOrToUn)
-        {
-            SoundManager.OnBeatPressed += PlayerAction;
-        }
-        else
-        {
-            SoundManager.OnBeatPressed -= PlayerAction;
-        }
-    
-    }
+
 
   
 }

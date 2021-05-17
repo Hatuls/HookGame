@@ -117,8 +117,10 @@ public class GrapplingGun : MonoBehaviour
     IEnumerator PullCoru()
     {
         float currentSpeed = grappleSetting.startPullSpeed;
+        _lineRenderer.material = _lineRenderer.materials[1];
         while (pulling && currentSpeed < grappleSetting.maxPullSpeed && grappleJoint != null)
         {
+            
             grappleJoint.maxDistance -= currentSpeed;
             grappleJoint.minDistance -= currentSpeed;
          //   Debug.Log(grappleJoint.maxDistance);
@@ -127,6 +129,7 @@ public class GrapplingGun : MonoBehaviour
         }
         while (pulling && grappleJoint != null)
         {
+       
          //   Debug.Log(grappleJoint.maxDistance);
             if (grappleJoint.maxDistance > 0.01)
                 grappleJoint.maxDistance -= currentSpeed;
@@ -136,6 +139,8 @@ public class GrapplingGun : MonoBehaviour
             yield return new WaitForFixedUpdate();
 
         }
+        _lineRenderer.material = _lineRenderer.materials[0];
+        
 
         
 
@@ -161,6 +166,7 @@ public class GrapplingGun : MonoBehaviour
             }
             yield return null;
         }
+        _lineRenderer.material = _lineRenderer.materials[0];
         _lineRenderer.enabled = false;
     //    _backArm.transform.rotation= _backArm.startRot;
 

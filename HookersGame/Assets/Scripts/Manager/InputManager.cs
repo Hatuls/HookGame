@@ -33,7 +33,8 @@ public class InputManager : MonoBehaviour
         {
             case Stage.City:
                 _inputForm.cityInputs.grapple = Input.GetButton("Fire1");
-                _inputForm.cityInputs.pullGrapple = Input.GetButton("Fire2");
+                _inputForm.cityInputs.pullGrapple = Input.GetButtonDown("Fire2");
+                _inputForm.cityInputs.releasePullGrapple = Input.GetButtonUp("Fire2");
                // _inputForm.cityInputs.releaseGrapple = Input.GetButtonUp("Fire1");
                 _inputForm.cityInputs.pulse = Input.GetButtonDown("Fire3");
                 break;
@@ -64,7 +65,7 @@ public class InputForm
     public Vector3 movementVector;
     public Vector2 mouseVector;
     //CityInputs
-    public class City { public bool releaseGrapple, dash, pulse, release, pullGrapple, grapple; }
+    public class City { public bool releaseGrapple, dash, pulse, release, pullGrapple, grapple, releasePullGrapple; }
     public City cityInputs=new City();
     //TunnelInputs
      public class TunnelInputs { public bool Shoot, up, down, left, right; }

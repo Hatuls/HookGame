@@ -133,6 +133,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public void UpdateUi()
     {
         SpeedEffect();
+        SetFieldOfView();
     }
     private void GetStartPos()
     {
@@ -175,6 +176,25 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
     //will be transfered to another script!
     #region GFX
+    public void SetFieldOfView()
+    {
+        float speed = rb.velocity.magnitude;
+        //        if (_grapplingGun.pulling) { }
+        if (_grapplingGun.pulling)//&& (_playerPhysicsManager.physicsState == PlayerPhysicsManager.PhysicsStates.leap))
+        {
+            _cameraController.FpsCam.fieldOfView -= playerEffectMenu.FieldPerView;
+        }
+        else
+        {
+
+            if (_cameraController.FpsCam.fieldOfView < playerEffectMenu.baseFieldOfView)
+                _cameraController.FpsCam.fieldOfView += playerEffectMenu.FieldPerView*0.9f;
+            if (_cameraController.FpsCam.fieldOfView > playerEffectMenu.baseFieldOfView)
+                _cameraController.FpsCam.fieldOfView=Mathf.Lerp(_cameraController.FpsCam.fieldOfView, playerEffectMenu.baseFieldOfView, 0.5f);
+        }
+
+        
+    }
     private void SpeedEffect()
     {
         float speed = rb.velocity.magnitude;
@@ -282,12 +302,19 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                     {
                         _grapplingGun.PullGrapple();
                     }
+                   
 
                 }
-                else if (_grapplingGun.grappled && _grapplingGun.pulling)
+                if ((_inputForm.cityInputs.releasePullGrapple && _grapplingGun.grappled)||!_grapplingGun.grappled)
                 {
-                    _grapplingGun.pulling = false;
+                    if (_grapplingGun.pulling)
+                        _grapplingGun.pulling = false;
+                        
+                   
+
+
                 }
+
 
                 break;
 
@@ -513,6 +540,11 @@ public class PlayerEffectMenu
     public float SpeedPs_particleEmissionPerKmh;
     public float SpeedPs_particleSpeedperKmh;
     public float SpeedPs_startParticlesSpeed;
+
+
+    public float FieldOfViewStartSpeed;
+    public float FieldPerView;
+    public float baseFieldOfView=60;
 
 }
 

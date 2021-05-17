@@ -94,15 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelsSO:
   - {fileID: 11400000, guid: bb8f7f9020d42cf4c9243a057c38e5c7, type: 2}
-  AmountOfBoxes: 12
-  distanceBetweenBoxes: 6.6
-  distanceBetweenLeftAndRight: 126
-  distanceBetweenPlayerAndBoxes: 400
-  prefab: {fileID: 2716587804905048916, guid: ddc9e53b522a31b4283df2596d51f955, type: 3}
-  startingPos: {x: 0, y: 0, z: 0}
-  directionOfTowersSpawner: {x: 0, y: 0, z: 1}
-  buildingHolder: {fileID: 4325510853889102016}
-  toInvert: 1
   platformsArr: []
   grabableLayer:
     serializedVersion: 2
@@ -136,9 +127,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tunnelGridPoint:
   - {fileID: 3850705261302391313}
-  hideGridGizmoInScene: 1
+  hideGridGizmoInScene: 0
   distanceBetweenPoints: 3
   distancebetweenDroneAndPlayer: 10
+  TunnelCollider: {fileID: 0}
 --- !u!1001 &2802905603993399333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,6 +197,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BuildingSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297909246581500105, guid: 287df8976007eaa419d6bb2e3918c265,
+        type: 3}
+      propertyPath: toDrawGizomos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297909246581500105, guid: 287df8976007eaa419d6bb2e3918c265,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297909246581500105, guid: 287df8976007eaa419d6bb2e3918c265,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 2716587804905048916, guid: ddc9e53b522a31b4283df2596d51f955,
+        type: 3}
+    - target: {fileID: 7297909246581500105, guid: 287df8976007eaa419d6bb2e3918c265,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].direction.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297909246581500105, guid: 287df8976007eaa419d6bb2e3918c265,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].AmountOfBoxes
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297909246581500105, guid: 287df8976007eaa419d6bb2e3918c265,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].distanceBetweenPlayerAndBoxes
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287df8976007eaa419d6bb2e3918c265, type: 3}

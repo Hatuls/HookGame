@@ -354,12 +354,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                         StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                     return;
                 }
-
-
                 break;
 
-
-                     
         }
 
     }

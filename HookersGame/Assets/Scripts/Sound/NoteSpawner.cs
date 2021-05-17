@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class NoteSpawner : MonoSingleton<NoteSpawner>
 {
-    [SerializeField] GameObject Note;
+
     [SerializeField] Vector2 startPosition;
     [SerializeField] float beat;
 
     [Range(1,4)]
     [SerializeField] int HowManySquares=1;
-    NoteIcon[] NotePooling;
+    [SerializeField] NoteIcon[] NotePooling;
     float timer;
     public static int GetTimerForNote => Instance.HowManySquares;
     int index;
@@ -28,7 +28,7 @@ public class NoteSpawner : MonoSingleton<NoteSpawner>
         index = 0;
 
 
-        NotePooling = FindObjectsOfType<NoteIcon>();
+   
 
         if (NotePooling == null)
             Debug.LogError("Didnt Find notes On scene");
@@ -41,11 +41,19 @@ public class NoteSpawner : MonoSingleton<NoteSpawner>
     int previousSquares;
     void ShowNote()
     {
+
+        if (NotePooling == null || NotePooling.Length == 0)
+            return;
+
         if (previousSquares != HowManySquares)
         {
+  
             for (int i = 0; i < NotePooling.Length; i++)
                 if (NotePooling[i].gameObject.activeInHierarchy)
-                NotePooling[i].gameObject.SetActive(false);
+                {
+                    NotePooling[i].ResetScale();
+                    NotePooling[i].gameObject.SetActive(false);
+                }
 
             previousSquares = HowManySquares;
         }

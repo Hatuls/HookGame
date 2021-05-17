@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fc2a7e9853fdf43b17ff7c3315c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  travelSpeed: 11000
+  travelSpeed: 20000
   travelDist: 90
   destroyDistOffset: 0
 --- !u!64 &4733105856263742521

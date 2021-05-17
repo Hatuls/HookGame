@@ -11,11 +11,10 @@ public class NoteIcon : MonoBehaviour
     RectTransform rt;
 
     [SerializeField]float alphaSpeed;
-    [SerializeField] int id;
 
   [SerializeField]  Image img;
     Color clr;
-    public int GetNoteIconID => id;
+
 
   
 
@@ -26,14 +25,6 @@ public class NoteIcon : MonoBehaviour
         rt = GetComponent<RectTransform>();
          clr = img.color;
 
-    }
-    private void OnEnable()
-    {
-        SubscribeHandler(true);
-    }
-    private void OnDisable()
-    {
-        SubscribeHandler(false);
     }
     private void Update()
     {
@@ -48,7 +39,7 @@ public class NoteIcon : MonoBehaviour
             {
                 if (rt.localScale.x >= maxScale.x)
                 {
-                    LeanTween.cancel(rt);
+
                     gameObject.SetActive(false);
                 }
             }
@@ -60,25 +51,22 @@ public class NoteIcon : MonoBehaviour
     public void ResetScale()
     {
         if (rt != null)
+        {
             rt.localScale = Vector3.zero;
-        else
-            rt = GetComponent<RectTransform>();
-
-
         img.color = Color.white;
+        }
+        else
+        {
+            rt = GetComponent<RectTransform>();
+            ResetScale();
+        }
+
+
     }
-    private void PlayerAction(bool Successed)
-    {
-        //if (Successed)
-        //    NoteDestination.OnCorrectBeatSynced();
-        //else
-        //    NoteDestination.OnWrongBeatSynced();
-    }
+
 
     public void ScaleUp()
     {
-       
-       LeanTween.cancel(this.rt); 
        LeanTween.scale(this.rt, Vector3.one*2, SoundManager.Instance.BeatSpeed*2);
     }
 
@@ -86,27 +74,11 @@ public class NoteIcon : MonoBehaviour
     void SetAlpha() {
         if(ToStart)
         {
-        LeanTween.alpha(rt, 0, SoundManager.Instance.BeatSpeed / 2);
+        LeanTween.alpha(rt, 0, SoundManager.Instance.BeatSpeed /2);
             ToStart = false;
         }
-
-
-       
-        
-
-
     }
-    private void SubscribeHandler(bool toSubscribeOrToUn) {
-        if (toSubscribeOrToUn)
-        {
-            SoundManager.OnBeatPressed += PlayerAction;
-        }
-        else
-        {
-            SoundManager.OnBeatPressed -= PlayerAction;
-        }
-    
-    }
+
 
   
 }

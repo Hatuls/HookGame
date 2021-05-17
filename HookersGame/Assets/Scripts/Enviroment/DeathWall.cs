@@ -17,7 +17,7 @@ public class DeathWall : MonoBehaviour
                 for (int i = 0; i < _particleSystems.Length; i++)
                     _particleSystems[i].Play();
             }
-            LeanTween.scale(this.gameObject, new Vector3(100, 100, 1), 3f).setEaseInBack();
+            LeanTween.scale(this.gameObject, new Vector3(206, 206, 1), 3f).setEaseInBack();
             isFirstCall = false;
         }
         transform.Translate(0, 0, speed * Time.deltaTime);

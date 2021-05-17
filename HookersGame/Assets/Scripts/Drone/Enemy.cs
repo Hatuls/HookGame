@@ -15,10 +15,7 @@ public class Enemy : MonoBehaviour
     Dictionary<Type, StateAbst> statesDict;
 
     public Transform GetDroneBody => _body;
-    public void Start()
-    {
-        Init();
-    }
+  
     public void Init()
     {    
         _body = transform.GetChild(0).transform;
@@ -32,7 +29,7 @@ public class Enemy : MonoBehaviour
     public void EveryTickCheck()
     {
         RotateTowardThePlayer();
-        KeepZAxisDistance();
+    
     }
 
     void AssignStates()
@@ -52,17 +49,21 @@ public class Enemy : MonoBehaviour
             SM = GetComponent<StateMachine>();
 
         SM.SetState(statesDict);
+        SM.StartDrone();
     }
 
-
+    private void Update()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+                Init();
+          //  EveryTickCheck();
+        }
+    }
     void RotateTowardThePlayer()
-    => _body.localRotation = Quaternion.Lerp(_body.localRotation, ToolClass.RotateToLookTowards(_body,_target), Time.deltaTime * EnemyManager.GetRotationSpeed);
+    => _body.localRotation = Quaternion.Lerp(_body.localRotation, ToolClass.RotateToLookTowards(_body,_target), Time.deltaTime * 1);
     
 
-     void KeepZAxisDistance() {
 
-        if (Mathf.Abs(transform.position.z - _target.position.z) < EnemyManager.GetDistanceFromPlayer|| transform.position.z< _target.position.z)
-            transform.position = Vector3.Lerp(transform.position, transform.position + Vector3.forward * EnemyManager.GetDistanceFromPlayer, Time.deltaTime);
-     
-    }
 }

@@ -15,9 +15,10 @@ public class TunnelManager : MonoSingleton<TunnelManager>
     [SerializeField] TunnelEntranceTrigger TunnelCollider;
 
   
-    int currentTunnel = 0;
+ 
     int[] directionGridIndex;
-    static int[] playerPos = new int[2] { 1, 1 };
+    static int[] playerPos = new int[3] {0, 1, 1 };
+    static int[] enemyPos = new int[3] {1, 1, 1 };
     Vector3[,,] tunnelPoint = new Vector3[2, 3, 3];
     // 0 -> Player
     // 1 -> Drone
@@ -56,43 +57,85 @@ public class TunnelManager : MonoSingleton<TunnelManager>
                         tunnelPoint[k, i, j] = tunnelGridPoint[t].transform.position + new Vector3(i * distanceBetweenPoints, j * distanceBetweenPoints, k * distancebetweenDroneAndPlayer);
         }
 
-        directionGridIndex = new int[2];
+
         ResetTunnel();
     }
 
     void ResetTunnel() {
-
-        currentTunnel = 0;
-        playerPos[0] = 1;
-        playerPos[1] = 1;
+        for (int i = 1; i < playerPos.Length; i++)
+        {
+           playerPos[i] = i/i;
+            enemyPos[i] = i/i;
+        }
+     
+      
     }
 
 
 
 
     // ask ron if he prefer bool or vector
-    public Vector3 MovePlayerOnGrid(Movement direction)
+    public Vector3 MoveOnGrid(bool isPlayer,Movement direction)
     {
+        int[] posOnGrid = isPlayer ? playerPos : enemyPos;
         if (direction != Movement.Stay)
         {
             int[] dir = MovementEnumToIntArr(direction);
-
+            if (dir == null)
+                return Vector3.zero;
             // dir[0] -> x
             // dir[1] -> y
 
             // if it out of index array
-            if (((dir[0] + playerPos[0]) >= 0 && (dir[0] + playerPos[0]) < tunnelPoint.GetLength(2))
-             && (dir[1] + playerPos[1]) >= 0 && (dir[1] + playerPos[1]) < tunnelPoint.GetLength(1))
+            if (((dir[0] + posOnGrid[1]) >= 0 && (dir[0] + posOnGrid[1]) < tunnelPoint.GetLength(2))
+             && (dir[1] + posOnGrid[2]) >= 0 && (dir[1] + posOnGrid[2]) < tunnelPoint.GetLength(1))
             {
-                playerPos[0] += dir[0];
-                playerPos[1] += dir[1];
+                posOnGrid[1] += dir[0];
+                posOnGrid[2] += dir[1];
             }
         }
 
-        return tunnelPoint[currentTunnel, playerPos[0], playerPos[1]];
+        return tunnelPoint[posOnGrid[0], posOnGrid[1], posOnGrid[2]];
     }
+    public Movement GetRandomMovement()
+    {
+        int randomInt = UnityEngine.Random.Range(0,9);
+
+        switch (randomInt)
+        {
+            
+            case 1:
+                return Movement.DownLeft;
+            case 2:
+                return Movement.DownRight;
+            case 3:
+                return Movement.Left;
+            case 4:
+                return Movement.Right;
+            case 5:
+                return Movement.Up;
+            case 6:
+                return Movement.Down;
+            case 7:
+                return Movement.UpLeft;
+            case 8:
+                return Movement.UpRight;
+             case 0:
+             default:   
+                return Movement.Stay;
+        }
+
+    }
+
     int[] MovementEnumToIntArr(Movement direction)
     {
+        if (directionGridIndex == null)
+            directionGridIndex = new int[2];
+
+
+        if (directionGridIndex == null)
+            return null;
+
         switch (direction)
         {
             case Movement.Up:

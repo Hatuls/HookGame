@@ -54,7 +54,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Hue_Shift_Speed: 0.4
-    - Is_RGB: 1
+    - Is_RGB: 0
     - OffSet_Tilling: 1
     - Tilling_Scale: 1
     - _AlphaClip: 0
@@ -79,7 +79,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_49C218FA: {r: 0, g: 2.0235295, b: 2.9960785, a: 0}
+    - Color_49C218FA: {r: 2.9960785, g: 1.6244369, b: 0, a: 0}
     - Vector2_F1D0D5E7: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.65199995, g: 0.65199995, b: 0.65199995, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

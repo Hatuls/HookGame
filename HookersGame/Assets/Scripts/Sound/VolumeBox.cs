@@ -150,14 +150,17 @@ public partial class VolumeBox {
 
     private void CheckBeat()
     {
-
-        _beatCountFull = SoundManager._beatCountFull % _beatSteps;
-
-
-        for (int i = 0; i < _onBeatD8.Length; i++)
+        if (_beatSteps != 0)
         {
-            if (_beatCountFull == _onFullBeat && SoundManager._beatCountD8 % 8 == _onBeatD8[i])
-                Grow();
+
+            _beatCountFull = SoundManager._beatCountFull % _beatSteps;
+
+
+            for (int i = 0; i < _onBeatD8.Length; i++)
+            {
+                if (_beatCountFull == _onFullBeat && SoundManager._beatCountD8 % 8 == _onBeatD8[i])
+                    Grow();
+            }
         }
     }
 

@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 3540537006253420704}
   - component: {fileID: 4424291980998317425}
   - component: {fileID: 4733105856263742521}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GraplingHand
   m_TagString: FrontArm
   m_Icon: {fileID: 0}
@@ -64,8 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fc2a7e9853fdf43b17ff7c3315c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  travelSpeed: 22000
-  travelDist: 90
+  travelSpeed: 25000
+  travelDist: 120
   destroyDistOffset: 0
 --- !u!64 &4733105856263742521
 MeshCollider:
@@ -88,6 +88,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3540537006253420704}
     m_Modifications:
+    - target: {fileID: -8772685471158210457, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
         type: 3}
       propertyPath: m_RootOrder
@@ -143,10 +148,100 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8225692524857909730, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -8208684798215938264, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -7459418478771804671, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -7390771957406403452, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -6691818118230080656, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -3262197904958947120, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -3236861820391710959, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -1128201866948207166, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -902776863650151144, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -169010288153376172, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 897927301562008757, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
         type: 3}
       propertyPath: m_Name
       value: HAND_SHALOM
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054016910208219106, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925644059881484844, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044182735597797501, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941591682341111020, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364269098125900153, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474149435837620523, guid: ccefa9a40da69804fbf93fe8a8ae79b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccefa9a40da69804fbf93fe8a8ae79b7, type: 3}

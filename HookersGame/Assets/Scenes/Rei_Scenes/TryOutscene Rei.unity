@@ -3438,6 +3438,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1006173191}
     m_Modifications:
+    - target: {fileID: 1043366696, guid: 28470ba3761ee684d8bdff739b0f377d, type: 3}
+      propertyPath: typeChances.idleChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043366696, guid: 28470ba3761ee684d8bdff739b0f377d, type: 3}
+      propertyPath: typeChances.shootingChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043366696, guid: 28470ba3761ee684d8bdff739b0f377d, type: 3}
+      propertyPath: typeChances.changePositionChance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7600717322620160700, guid: 28470ba3761ee684d8bdff739b0f377d,
         type: 3}
       propertyPath: m_Name

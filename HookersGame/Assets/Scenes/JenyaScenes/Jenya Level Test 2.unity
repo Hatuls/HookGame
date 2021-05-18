@@ -16816,6 +16816,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
+      propertyPath: _playerPhysicsManager.speeds.fallSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
       propertyPath: _playerPhysicsManager.dragValues.DefaultAir
       value: 0
       objectReference: {fileID: 0}

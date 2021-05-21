@@ -13417,6 +13417,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
+      propertyPath: _playerPhysicsManager.speeds.StartswingSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
       propertyPath: _playerPhysicsManager.speeds.fallSpeedGrouth
       value: 0.9
       objectReference: {fileID: 0}

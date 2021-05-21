@@ -13352,18 +13352,28 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
+      propertyPath: grappleSetting.spring
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
       propertyPath: grappleSetting.maxPullSpeed
-      value: 4
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: grappleSetting.GrapplingRange
-      value: 80
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: grappleSetting.maxGrappleDist
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: grappleSetting.minGrappleDist
-      value: 0.4
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}

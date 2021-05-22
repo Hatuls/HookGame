@@ -234,6 +234,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         float Timeloop = Time.time;
 
         rb.velocity = Vector3.zero;
+        _playerPhysicsManager.PhysicsRequest(PlayerPhysicsManager.PhysicsStates.DefaultAir);
         switch (influenceType)
         {
             case PlayerInfluenceType.Impulse:
@@ -255,7 +256,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
             case PlayerInfluenceType.explosion:
                 while (Timeloop + influenceTime > Time.time)
                 {
-                    rb.AddExplosionForce(force, Dir, 5);
+                    rb.AddExplosionForce(force, Dir, 10);
                     yield return new WaitForFixedUpdate();
                 }
                 break;

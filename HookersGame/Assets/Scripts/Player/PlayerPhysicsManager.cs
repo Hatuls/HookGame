@@ -197,7 +197,7 @@ public class PlayerPhysicsManager
 
        
     }
-     void PhysicsRequest(PhysicsStates stateRequested)
+    public void PhysicsRequest(PhysicsStates stateRequested)
     {
         foreach(StateValues found in StatesSettings)
         {

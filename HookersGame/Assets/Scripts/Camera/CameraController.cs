@@ -36,24 +36,38 @@ public class CameraController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitPoint, float.MaxValue))
         {
-            if (hitPoint.collider.TryGetComponent <Platform>(out Platform platform))
-            {
-                Debug.Log("a");
-            }
-
-            if (hitPoint.distance > FappDistance&&!FappLock)
+            if (hitPoint.collider.TryGetComponent<Platform>(out Platform platform))
             {
                 gameObject.transform.LookAt(hitPoint.point);
+                Debug.Log("a");
+
+                
+                    if(FappLock)              
+                    FappLock = false;
+                
             }
             else
             {
-                FappLock = true;
+                if (hitPoint.distance > FappDistance && !FappLock)
+                {
+                    gameObject.transform.LookAt(hitPoint.point);
+
+                }
+                else
+                {
+                    FappLock = true;
+                }
+
+                if (hitPoint.distance > FappDistance)
+                {
+                    FappLock = false;
+                }
+
             }
 
-            if(hitPoint.distance > FappDistance)
-            {
-                FappLock= false;
-            }
+        
+
+          
 
           
         }

@@ -79,22 +79,19 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 }
                 break;
         }
-        #region hackInputs
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            SetCurrentStage(Stage.Tunnel);
+            SetPlayerStage(Stage.Tunnel);
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            SetCurrentStage(Stage.City);
+            SetPlayerStage(Stage.City);
         }
-        #endregion
-
 
     }
 
-    public void SetCurrentStage(Stage stage)
+    public void SetPlayerStage(Stage stage)
     {
         if (stage != currentStage)
         {
@@ -133,14 +130,36 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public void UpdateUi()
     {
         SpeedEffect();
-        SetFieldOfView();
     }
     private void GetStartPos()
     {
         StartPoint = LevelManager.Instance.GetStartPointTransform;
     }
 
+    private void SpeedEffect()
+    {
+        float speed = rb.velocity.magnitude;
+        if (speed > playerEffectMenu.SpeedPs_startParticlesSpeed)
+        {
+          
+        ParticleSystem.EmissionModule em=_speedPs.emission;
+        ParticleSystem.VelocityOverLifetimeModule ep = _speedPs.velocityOverLifetime;
+            if (!_speedPs.isPlaying)
+            {
+                _speedPs.Play();
+                em.enabled = false;
+                em.enabled = true;
+                ep.enabled = false;
+                ep.enabled = true;
+            }
+            
+     
+        ep.speedModifier = (speed - playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleSpeedperKmh;
+        em.rateOverTime = (speed-playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleEmissionPerKmh;
 
+        }
+        else { if(!_speedPs.isStopped)_speedPs.Stop(); }
+    }
     public void ResetValues()
     {
         if(StartPoint!= LevelManager.Instance.GetStartPointTransform)
@@ -159,9 +178,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         transform.rotation = StartPoint.rotation;
         transform.position = StartPoint.position;
     }
-
-
-
     public void DisableInput(InputInfluenceState state,float Duration)
     {
         StartCoroutine(DisableInputCoru(state, Duration));
@@ -174,73 +190,22 @@ public class PlayerManager : MonoSingleton<PlayerManager>
             rb.AddRelativeForce(_inputForm.movementVector.normalized * movementSpeed);
         }
     }
-    //will be transfered to another script!
-    #region GFX
-    public void SetFieldOfView()
-    {
-        float speed = rb.velocity.magnitude;
-        //        if (_grapplingGun.pulling) { }
-        if (_grapplingGun.pulling)//&& (_playerPhysicsManager.physicsState == PlayerPhysicsManager.PhysicsStates.leap))
-        {
-            _cameraController.FpsCam.fieldOfView -= playerEffectMenu.FieldPerView;
-        }
-        else
-        {
-
-            if (_cameraController.FpsCam.fieldOfView < playerEffectMenu.baseFieldOfView)
-                _cameraController.FpsCam.fieldOfView += playerEffectMenu.FieldPerView*0.9f;
-            if (_cameraController.FpsCam.fieldOfView > playerEffectMenu.baseFieldOfView)
-                _cameraController.FpsCam.fieldOfView=Mathf.Lerp(_cameraController.FpsCam.fieldOfView, playerEffectMenu.baseFieldOfView, 0.5f);
-        }
-
-        
-    }
-    private void SpeedEffect()
-    {
-        float speed = rb.velocity.magnitude;
-        if (speed > playerEffectMenu.SpeedPs_startParticlesSpeed)
-        {
-
-            ParticleSystem.EmissionModule em = _speedPs.emission;
-            ParticleSystem.VelocityOverLifetimeModule ep = _speedPs.velocityOverLifetime;
-            if (!_speedPs.isPlaying)
-            {
-                _speedPs.Play();
-                em.enabled = false;
-                em.enabled = true;
-                ep.enabled = false;
-                ep.enabled = true;
-            }
-
-
-            ep.speedModifier = (speed - playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleSpeedperKmh;
-            em.rateOverTime = (speed - playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleEmissionPerKmh;
-
-        }
-        else { if (!_speedPs.isStopped) _speedPs.Stop(); }
-    }
-
-    #endregion
-
-    #region Physics
-
     internal void ApplyForceToPlayer(InfluenceSettings influenceSettings)
     {
         Influenced = true;
         StartCoroutine(PlayerForceInfluence(influenceSettings.playerInfluence, influenceSettings.InfluenceTime, influenceSettings.Force, influenceSettings.Dir));
     }
-    IEnumerator PlayerForceInfluence(PlayerInfluenceType influenceType, float influenceTime, float force, Vector3 Dir)
+    IEnumerator PlayerForceInfluence(PlayerInfluenceType influenceType,float influenceTime,float force,Vector3 Dir)
     {
         float Timeloop = Time.time;
 
         rb.velocity = Vector3.zero;
-        _playerPhysicsManager.PhysicsRequest(PlayerPhysicsManager.PhysicsStates.DefaultAir);
-        switch (influenceType)
+        switch (influenceType) 
         {
             case PlayerInfluenceType.Impulse:
                 while (Timeloop + influenceTime > Time.time)
                 {
-                    rb.AddForce(Dir * force, ForceMode.Impulse);
+                rb.AddForce(Dir * force,ForceMode.Impulse);
                     yield return new WaitForFixedUpdate();
                 }
                 break;
@@ -248,7 +213,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
             case PlayerInfluenceType.linear:
                 while (Timeloop + influenceTime > Time.time)
                 {
-                    rb.AddForce(Dir * force, ForceMode.Acceleration);
+                rb.AddForce(Dir * force, ForceMode.Acceleration);
                     yield return new WaitForFixedUpdate();
                 }
                 break;
@@ -256,9 +221,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
             case PlayerInfluenceType.explosion:
                 while (Timeloop + influenceTime > Time.time)
                 {
-                    rb.AddExplosionForce(force, Dir, 10);
+                rb.AddExplosionForce(force, Dir, 5);
                     yield return new WaitForFixedUpdate();
-                }
+                } 
                 break;
         }
 
@@ -266,7 +231,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         yield return null;
         Influenced = false;
     }
-    #endregion
+
+  
     private void GetComponents()
     {
         rb = GetComponent<Rigidbody>();
@@ -274,11 +240,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _inputManager = GetComponent<InputManager>();
         _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
      
-    }
-    #region Inputs
+    } 
+    
     public void ApplyInputs()
     {
-        switch (currentStage)
+        switch (currentStage) 
         {
 
             case Stage.City:
@@ -287,15 +253,13 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 {
                     ShootArm();
                 }
-                if (!_grapplingGun.frontConnected && !_inputForm.cityInputs.grapple && _grapplingGun._frontArm)
+                if (!_grapplingGun.frontConnected && !_inputForm.cityInputs.grapple&& _grapplingGun._frontArm)
                 {
                     ReleaseGrapple();
                 }
                 if (_inputForm.cityInputs.pulse)
                 {
-                    Debug.Log("Pulse CurrentlyDown");
-                    //CurrentlyUnUsed
-                    //UseCompressor();
+                    UseCompressor();
                 }
                 if (_inputForm.cityInputs.pullGrapple && _grapplingGun.grappled)
                 {
@@ -303,19 +267,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                     {
                         _grapplingGun.PullGrapple();
                     }
-                   
 
                 }
-                if ((_inputForm.cityInputs.releasePullGrapple && _grapplingGun.grappled)||!_grapplingGun.grappled)
+                else if (_grapplingGun.grappled && _grapplingGun.pulling)
                 {
-                    if (_grapplingGun.pulling)
-                        _grapplingGun.pulling = false;
-                        
-                   
-
-
+                    _grapplingGun.pulling = false;
                 }
-
 
                 break;
 
@@ -325,13 +282,13 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 if (Input.GetKeyDown(KeyCode.I))
                 {
 
-                    StartCoroutine(DisableInputCoru(InputInfluenceState.QTE, 8));
+                    StartCoroutine(DisableInputCoru(InputInfluenceState.QTE,8)); 
                 }
 
                 if (_inputForm.tunnelInputs.Shoot)
                 {
                     ShootArm();
-                    StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
+                    StartCoroutine(DisableInputCoru(InputInfluenceState.Beat,0)); 
                     return;
                 }
 
@@ -348,13 +305,13 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                     {
                         TunnelMovement(Movement.UpRight);
                         StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
-
-                        return;
+                        
+                    return;
                     }
 
 
-                    TunnelMovement(Movement.Up);
-                    StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
+                        TunnelMovement(Movement.Up);
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                     return;
 
                 }
@@ -378,7 +335,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
 
                     TunnelMovement(Movement.Down);
-                    StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                     return;
 
                 }
@@ -387,7 +344,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 {
 
                     TunnelMovement(Movement.Left);
-                    StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                     return;
                 }
 
@@ -395,7 +352,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
                 {
 
                     TunnelMovement(Movement.Right);
-                    StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
+                        StartCoroutine(DisableInputCoru(InputInfluenceState.Beat, 0));
                     return;
                 }
                 break;
@@ -403,8 +360,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         }
 
     }
-    #endregion
-
     private IEnumerator DisableInputCoru(InputInfluenceState state, float stateDuration)
     {
         inputEnabled = false;
@@ -422,16 +377,13 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         }
         inputEnabled = true;
     }
-    #region Movement
+
     public void TunnelMovement(Movement movement)
     {
-        Vector3 Dir = TunnelManager.Instance.MovePlayerOnGrid(movement);
+      //  Debug.Log("yo");
+        Vector3 Dir= TunnelManager.Instance.MoveOnGrid(true,movement);
         LeanTween.move(gameObject, Dir, SoundManager.GetBeatAmountInSeconds());
     }
-
-
-    #endregion
-
     private void CameraCommands()
     {
         _cameraController.MoveCamera(_inputForm.mouseVector);
@@ -446,10 +398,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _grapplingGun = GrapplingGunObj.GetComponent<GrapplingGun>();
         _compressor = CompressorObj.GetComponent<Compressor>();
     }
-    #region Abilities
+
     public void ShootArm()
     {
-        _grapplingGun.LaunchFrontArm();
+            _grapplingGun.LaunchFrontArm();
     }
 
     public void ReleaseGrapple()
@@ -457,28 +409,21 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _grapplingGun.StopGrapple();
     }
 
-
     public void UseCompressor()
     {
-        _compressor.Pulse();
+        _compressor.Pulse();   
     }
-    #endregion
+   
 
-
-    #region Checks
     public bool GroundCheck()
     {
         return Physics.Raycast(transform.position, Vector3.down, 1, GroundLayer);
-    }
+    }  
     public bool WallCheck()
     {
         return true;
     }
 
-    #endregion
-
-
-    #region Events
     private void OnDestroy()
     {
         LevelManager.ResetLevelParams -= ResetValues;
@@ -489,10 +434,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         LevelManager.ResetLevelParams -= ResetValues;
 
     }
-    #endregion
-
-
-
     //Saved Comments We Might Use
     #region CommentedSaves
 
@@ -541,11 +482,6 @@ public class PlayerEffectMenu
     public float SpeedPs_particleEmissionPerKmh;
     public float SpeedPs_particleSpeedperKmh;
     public float SpeedPs_startParticlesSpeed;
-
-
-    public float FieldOfViewStartSpeed;
-    public float FieldPerView;
-    public float baseFieldOfView=60;
 
 }
 

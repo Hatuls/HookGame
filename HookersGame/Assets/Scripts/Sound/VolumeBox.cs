@@ -15,8 +15,16 @@ public partial class VolumeBox : MonoBehaviour
     [Tooltip("What band to be affected by (0-8)")]
     [Range(0, 8)]
     [SerializeField] int band;
+    [SerializeField] float startScale, scaleBuffer, maxScale;
 
-    [SerializeField] float startScale,emissiomMaxValue, emissionBuffer, emissionStarter,scaleBuffer, maxScale;
+    [Header("Emission")]
+    [SerializeField] float emissiomMaxValue;
+    [SerializeField] float emissionBuffer, emissionStarter;
+
+
+    public bool PlayByBeat { get; set; }
+
+
 
     [HideInInspector]
     [SerializeField] MeshRenderer mr;
@@ -62,9 +70,9 @@ public partial class VolumeBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SoundManager.IsByBeat)
-        {
             Shrink();
+        if (PlayByBeat)
+        {
             if (toAffectEmission)
             Emission(_currentSize);
         }
@@ -145,9 +153,6 @@ public partial class VolumeBox {
 
   
 
-    // Update is called once per frame
-   
-
     private void CheckBeat()
     {
         if (_beatSteps != 0)
@@ -167,11 +172,6 @@ public partial class VolumeBox {
     void Grow()
     {
         _currentSize = _growSize;
-        //if (_onBeatD8[0] == 6)
-        //    Debug.Log(true);
-        //else if (_onBeatD8[0] == 2)
-        //    Debug.Log(false);
-
     }
     void Shrink()
     {
@@ -185,7 +185,6 @@ public partial class VolumeBox {
     void UnSubscribeEvents()
     {
         SoundManager.D8BeatEvent -= CheckBeat;
-
     }
     private void OnDestroy()
     {

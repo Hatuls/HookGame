@@ -51,9 +51,8 @@ MonoBehaviour:
   startScale: 1
   emissiomMaxValue: 1
   emissionBuffer: 0.5
-  scaleBuffer: 25
   emissionStarter: 0.5
-  scaleBuffer: 25
+  scaleBuffer: 20
   maxScale: 4
   mr: {fileID: 73510179341392953}
   _growSize: 5

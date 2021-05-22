@@ -144,7 +144,7 @@ public class PlayerPhysicsManager
      void ChangeState(PhysicsStates newActiveState)
     {
         physicsState = newActiveState;
-        //Debug.Log("Current Physics State -"+newActiveState);
+        Debug.Log("Current Physics State -"+newActiveState);
         switch (newActiveState) 
         {
             
@@ -197,7 +197,7 @@ public class PlayerPhysicsManager
 
        
     }
-     void PhysicsRequest(PhysicsStates stateRequested)
+    public void PhysicsRequest(PhysicsStates stateRequested)
     {
         foreach(StateValues found in StatesSettings)
         {

@@ -113,7 +113,7 @@ public class Platform : MonoBehaviour
             }
             if (Distructable)
             {
-               // gameObject.SetActive(false);
+               gameObject.SetActive(false);
             }
 
             if (DeathPlatform)
@@ -135,7 +135,7 @@ public class Platform : MonoBehaviour
             }
             if (Distructable)
             {
-                //gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
 
 

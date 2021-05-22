@@ -14032,8 +14032,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].distanceBetweenPlayerAndBoxes
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[1].distanceBetweenPlayerAndBoxes
-      value: 400
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 5198911777875191093, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}

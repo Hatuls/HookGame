@@ -427,6 +427,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         Vector3 Dir = TunnelManager.Instance.MoveOnGrid(true,movement);
         LeanTween.move(gameObject, Dir, SoundManager.GetBeatAmountInSeconds());
+        //a
     }
 
 

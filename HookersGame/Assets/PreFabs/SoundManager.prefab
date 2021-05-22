@@ -140,17 +140,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e058030800c298c4ca62f8996ae0ed3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bufferDecreaserValue: 0.05
+  bufferDecreaserValue: 0.005
   BufferAdderValuer: 1.15
   audioProfile: 5
   _timer: 0.005
-  toGoByBeat: 0
+  toGoByBeat: 1
   timerToSucessBeforePress: 0.2
   timerToSucessAfterPress: 0.2
-  minTime: 0
-  maxTime: 0
-  currentTime: 0
-  ISVALID: 0
   songs:
   - {fileID: 11400000, guid: 45abc0cb137a84543a962686a65e5558, type: 2}
   gameStarted: 1

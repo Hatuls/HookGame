@@ -19,7 +19,7 @@ public class Shooting : StateAbst
     }
     public override Type Tick()
     {
-        enemy.EveryTickCheck();
+      
 
         if (IsAnimationDurationOver())
         {

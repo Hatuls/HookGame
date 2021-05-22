@@ -203,9 +203,6 @@ public partial class SoundManager {
     public static bool IsValidInputByBeat {
 
         get {
-            Debug.Log("***************** " + InputBlocked);
-            Debug.Log("!!!!!!!!!!!!!!!! " + Instance.isValid);
-
 
             if (InputBlocked == true)
                 return false;

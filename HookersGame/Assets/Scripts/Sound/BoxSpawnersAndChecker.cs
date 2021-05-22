@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System;
+
 [System.Serializable]
 public class BoxSpawnersAndChecker
 {
@@ -136,12 +138,16 @@ public class BoxSpawnersAndChecker
 
              building = BoxSpawnerManager.Instance.InstantiatePrefab(ref prefab).transform;
             building.SetParent(BoxSpawnerManager.Instance.GetContainer);
-            if (toBeAffectedByBeat)
-            {
+            
                 VolumeBox Cache = building.GetComponent<VolumeBox>();
 
+            Cache.PlayByBeat = toBeAffectedByBeat;
+
+            if (toBeAffectedByBeat)
                 SetByBeat(ref Cache, ref i);
-            }
+            else
+                SetByBand(ref Cache, ref i);
+            
 
             if (i == AmountOfBoxes - 1)
                 lastZIndex = i;
@@ -149,6 +155,12 @@ public class BoxSpawnersAndChecker
             line.Enqueue(building);
         }
     }
+
+    private void SetByBand(ref VolumeBox cache, ref int i)
+    {
+        cache.GetSetBand = ((i-1) % 7);
+    }
+
     public void ResetDistanceChecker()
     {
 

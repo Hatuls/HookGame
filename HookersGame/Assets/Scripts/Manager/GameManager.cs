@@ -9,10 +9,10 @@ public class GameManager : MonoSingleton<GameManager>
         {
             SoundManager.Instance,
             NoteSpawner.Instance,
-            EnemyManager.Instance,
             PlayerManager.Instance,
             LevelManager.Instance,
             TunnelManager.Instance,
+            EnemyManager.Instance,
             BoxSpawnerManager.Instance
         };
 

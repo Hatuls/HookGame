@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour
                 _inputForm.cityInputs.grapple = Input.GetButton("Fire1");
                 _inputForm.cityInputs.pullGrapple = Input.GetButton("Fire2");
                // _inputForm.cityInputs.releaseGrapple = Input.GetButtonUp("Fire1");
-                _inputForm.cityInputs.pulse = Input.GetButtonDown("Fire3");
+                //_inputForm.cityInputs.pulse = Input.GetButtonDown("Fire3");
                 break;
 
 

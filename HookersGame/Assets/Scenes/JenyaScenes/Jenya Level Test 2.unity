@@ -973,7 +973,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19442
+  m_Name: pb_Mesh35952
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13949,10 +13949,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 342468863743500245, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 124.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 342468863743500245, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8184
+      objectReference: {fileID: 0}
     - target: {fileID: 2619642496852298539, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: hideGridGizmoInScene
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619642496852298539, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: distanceBetweenPoints
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619642496852298539, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: distancebetweenDroneAndPlayer
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
@@ -14013,7 +14033,7 @@ PrefabInstance:
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[0].toBeAffectedByBeat
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
@@ -14098,7 +14118,7 @@ PrefabInstance:
     - target: {fileID: 6203947515420613763, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: m_Volume
-      value: 0
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: 6628590212359745283, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}

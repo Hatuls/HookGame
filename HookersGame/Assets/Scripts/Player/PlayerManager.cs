@@ -425,7 +425,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     #region Movement
     public void TunnelMovement(Movement movement)
     {
-        Vector3 Dir = TunnelManager.Instance.MovePlayerOnGrid(movement);
+        Vector3 Dir = TunnelManager.Instance.MoveOnGrid(true,movement);
         LeanTween.move(gameObject, Dir, SoundManager.GetBeatAmountInSeconds());
     }
 

@@ -55,12 +55,12 @@ MonoBehaviour:
     startingPos: {x: 0, y: 0, z: 0}
     toInvert: 0
     toBeAffectedByBeat: 0
-  - distanceBetweenPlayerAndBoxes: 20
+  - distanceBetweenPlayerAndBoxes: 400
     distanceBetweenBoxes: 0
-    AmountOfBoxes: 0
-    direction: {x: 0, y: 0, z: 0}
+    AmountOfBoxes: 20
+    direction: {x: 0, y: 0, z: 1}
     prefab: {fileID: 2716587804905048916, guid: ddc9e53b522a31b4283df2596d51f955,
       type: 3}
-    startingPos: {x: 5, y: 0, z: 0}
+    startingPos: {x: 100, y: 0, z: 0}
     toInvert: 0
-    toBeAffectedByBeat: 0
+    toBeAffectedByBeat: 1

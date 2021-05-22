@@ -63,11 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1b10cc027af884ab3ce7df1e5fcd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinPoint: {x: 0, y: 0}
-  MaxPoint: {x: 0, y: 0}
-  DistanceFromPlayer: 0
-  RotationSpeed: 0
-  DroneSpeed: 0
 --- !u!114 &6665852315881502874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,11 +200,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7297909246581500105, guid: 287df8976007eaa419d6bb2e3918c265,
         type: 3}
-      propertyPath: _volumeBoxesHandler.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7297909246581500105, guid: 287df8976007eaa419d6bb2e3918c265,
-        type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[0].prefab
       value: 
       objectReference: {fileID: 2716587804905048916, guid: ddc9e53b522a31b4283df2596d51f955,
@@ -248,21 +238,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
-        type: 3}
-      propertyPath: toGoByBeat
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
-        type: 3}
-      propertyPath: timerToSucessAfterPress
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
-        type: 3}
-      propertyPath: timerToSucessBeforePress
-      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8576585623732089811, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
         type: 3}

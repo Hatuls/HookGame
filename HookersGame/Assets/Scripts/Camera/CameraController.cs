@@ -8,9 +8,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] float mouseSensetivity;
     [SerializeField] Vector2 upDownViewRange;
     [SerializeField] float FappDistance;
+
     Vector2 currentRotation;
     bool FappLock;
-    
+    public bool hitConfirmed;
     
 
     private void Start()
@@ -33,13 +34,16 @@ public class CameraController : MonoBehaviour
         //Vector3 lookAt = ray.direction * 500f + gameObject.transform.position;
         //gameObject.transform.LookAt(lookAt);
 
-
+        Debug.Log(hitConfirmed);
         if (Physics.Raycast(ray, out hitPoint, float.MaxValue))
         {
             if (hitPoint.collider.TryGetComponent<Platform>(out Platform platform))
             {
                 gameObject.transform.LookAt(hitPoint.point);
-                Debug.Log("a");
+                if (Vector3.Distance(gameObject.transform.position, platform.transform.position) <= distance && platform.IsHookAble())
+                {
+                hitConfirmed = true;
+                }
 
                 
                     if(FappLock)              
@@ -48,6 +52,7 @@ public class CameraController : MonoBehaviour
             }
             else
             {
+                hitConfirmed = false;
                 if (hitPoint.distance > FappDistance && !FappLock)
                 {
                     gameObject.transform.LookAt(hitPoint.point);

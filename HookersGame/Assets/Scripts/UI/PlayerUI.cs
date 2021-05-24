@@ -10,6 +10,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI SpeedText;
     [SerializeField] private GameObject WinImage;
     [SerializeField] private Slider HpSlider;
+    [SerializeField] private Image InnerCourser;
 
 
  
@@ -22,6 +23,19 @@ public class PlayerUI : MonoBehaviour
         
         string String = number + "Km/h";
         SpeedText.text = String;
+    }
+
+    public void SetCourserColor(bool turnOn)
+    {
+        if (turnOn)
+        {
+            InnerCourser.color = Color.green;
+        }
+        else
+        {
+            InnerCourser.color = Color.red;
+
+        }
     }
 
     public void UpdateHp(int Hp,int MaxHp)

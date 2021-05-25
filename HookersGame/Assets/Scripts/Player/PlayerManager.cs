@@ -25,6 +25,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     GrapplingGun _grapplingGun;
     Compressor _compressor;
     ParticleSystem _speedPs;
+    PlayerUI _playerUi;
 
     
 
@@ -273,6 +274,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _cameraController = GetComponentInChildren<CameraController>();
         _inputManager = GetComponent<InputManager>();
         _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
+        _playerUi = GetComponent<PlayerUI>();
      
     }
     #region Inputs
@@ -437,7 +439,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         _cameraController.MoveCamera(_inputForm.mouseVector);
         _cameraController.GetLookPos(GrapplingGunObj,_grapplingGun.grappleSetting.GrapplingRange);
-        _cameraController.GetLookPos(CompressorObj,_grapplingGun.grappleSetting.GrapplingRange);
+     //   _cameraController.GetLookPos(CompressorObj,_grapplingGun.grappleSetting.GrapplingRange);
+
+        _playerUi.SetCourserColor(_cameraController.hitConfirmed);
     }
    
 

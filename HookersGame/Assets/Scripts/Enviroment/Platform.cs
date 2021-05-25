@@ -4,7 +4,8 @@ using UnityEngine;
 public enum PlatFromType { Grabable, NotGrabable ,DeathPlatform,TriggerPlatform,ForceInfluence,Distructable};
 public class Platform : MonoBehaviour
 {
-   
+    public bool IsTrigger() => isTrigger;
+    public bool IsHookAble() => isHookable;
 
     [SerializeField] private bool isTrigger,isHookable,DeathPlatform,movingPlatform,ForceInfluence,Distructable;
     [Tooltip("Activate movingPlatforms for use")]

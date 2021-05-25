@@ -1272,6 +1272,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
+      objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}
       propertyPath: m_RootOrder
@@ -1990,6 +1995,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 78
       objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
+      objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}
       propertyPath: m_RootOrder
@@ -2558,6 +2568,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
       objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}
@@ -3348,6 +3363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
       objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}
@@ -5225,6 +5245,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 48
       objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
+      objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}
       propertyPath: m_RootOrder
@@ -5372,6 +5397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
       objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}
@@ -6741,6 +6771,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
       objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}
@@ -9202,6 +9237,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
+      objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}
       propertyPath: m_RootOrder
@@ -11121,6 +11161,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
+      objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}
       propertyPath: m_RootOrder
@@ -11807,6 +11852,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489196186460835080, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrappleAble
       objectReference: {fileID: 0}
     - target: {fileID: 4262601923398801330, guid: d504c04cb9a52ee4f8ed18a8db2dd3fd,
         type: 3}

@@ -12793,7 +12793,7 @@ PrefabInstance:
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2549.99
+      value: 1689.5724
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -12808,7 +12808,7 @@ PrefabInstance:
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1155
+      value: 746
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -12848,7 +12848,7 @@ PrefabInstance:
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: Density
-      value: 0.078
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144866, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -12950,6 +12950,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FogVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 975124917768144869, guid: bc79fcd138e569a48952970afcf9fb0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 975124917768144871, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_Enabled
@@ -13008,7 +13013,7 @@ PrefabInstance:
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.z
-      value: 1155
+      value: 746
       objectReference: {fileID: 0}
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -13023,7 +13028,7 @@ PrefabInstance:
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.z
-      value: 2549.99
+      value: 1689.5724
       objectReference: {fileID: 0}
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -13144,6 +13149,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263753851194345028, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: far clip plane
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: grappleSetting.damper

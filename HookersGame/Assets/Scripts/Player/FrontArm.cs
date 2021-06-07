@@ -11,6 +11,7 @@ public class FrontArm : MonoBehaviour
     [SerializeField] float travelSpeed;
     [SerializeField] float travelDist;
     [SerializeField] float destroyDistOffset;
+    [SerializeField] ParticleSystem ConnectionParticle;
     
     
     bool attached=false;
@@ -62,7 +63,7 @@ public class FrontArm : MonoBehaviour
         anim.SetTrigger("Grapple");
         attached=true;
         SetGrapple(attachedPoint,attachedObj);
-
+        PlayConnectionParticle();
     }
      void SetGrapple(Vector3 attachedPoint, GameObject attachedObj)
     {
@@ -80,13 +81,8 @@ public class FrontArm : MonoBehaviour
             {
                 
                 AttachToSurface(transform.position, collision.gameObject);
+
                 Debug.Log("Platform Connection Try");
-            }
-            else if (collision.gameObject.CompareTag("ChargeObject"))
-            {
-                AttachToSurface(transform.position, collision.gameObject);
-                Debug.Log("Platform Connection Try(Charge)");
-                //LaunchBase.RecieveCharge(collision.gameObject.GetComponent<CellCharger>().TakeCharge());
             }
             else
             {
@@ -95,6 +91,11 @@ public class FrontArm : MonoBehaviour
             }
         }
 
+    }
+
+    void PlayConnectionParticle()
+    {
+        ConnectionParticle.Play();
     }
 
 

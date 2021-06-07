@@ -16,6 +16,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] GameObject CompressorObj;
     [SerializeField] float movementSpeed;
     [SerializeField] LayerMask GroundLayer;
+    [SerializeField]PlayerUI _playerUi;
 
 
     CameraController _cameraController;
@@ -25,7 +26,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     GrapplingGun _grapplingGun;
     Compressor _compressor;
     ParticleSystem _speedPs;
-    PlayerUI _playerUi;
 
     
 
@@ -274,7 +274,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _cameraController = GetComponentInChildren<CameraController>();
         _inputManager = GetComponent<InputManager>();
         _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
-        _playerUi = GetComponent<PlayerUI>();
+       // _playerUi = GetComponent<PlayerUI>();
      
     }
     #region Inputs

@@ -13152,7 +13152,7 @@ PrefabInstance:
     - target: {fileID: 1263753851194345028, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: far clip plane
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
@@ -13727,7 +13727,7 @@ PrefabInstance:
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[0].AmountOfBoxes
-      value: 10
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
@@ -13747,7 +13747,7 @@ PrefabInstance:
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[1].AmountOfBoxes
-      value: 10
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}

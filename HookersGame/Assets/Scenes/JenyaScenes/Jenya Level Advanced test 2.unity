@@ -8664,7 +8664,7 @@ PrefabInstance:
     - target: {fileID: 7963166331254519866, guid: 2c92862ebd5480d45853bd3baef158c7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c92862ebd5480d45853bd3baef158c7, type: 3}
@@ -13577,7 +13577,7 @@ PrefabInstance:
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: grappleSetting.maxGrappleDist
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}

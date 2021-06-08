@@ -21501,7 +21501,7 @@ PrefabInstance:
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1689.5724
+      value: 2405.9512
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -21516,7 +21516,7 @@ PrefabInstance:
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 746
+      value: 1030
       objectReference: {fileID: 0}
     - target: {fileID: 975124917768144865, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -21721,7 +21721,7 @@ PrefabInstance:
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.z
-      value: 746
+      value: 1030
       objectReference: {fileID: 0}
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -21736,7 +21736,7 @@ PrefabInstance:
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.z
-      value: 1689.5724
+      value: 2405.9512
       objectReference: {fileID: 0}
     - target: {fileID: 975124918007988402, guid: bc79fcd138e569a48952970afcf9fb0e,
         type: 3}
@@ -21860,7 +21860,7 @@ PrefabInstance:
     - target: {fileID: 1263753851194345028, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: far clip plane
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
@@ -21891,6 +21891,11 @@ PrefabInstance:
         type: 3}
       propertyPath: grappleSetting.maxGrappleDist
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
+        type: 3}
+      propertyPath: grappleSetting.minGrappleDist
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
@@ -22440,7 +22445,7 @@ PrefabInstance:
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[0].AmountOfBoxes
-      value: 10
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
@@ -22460,7 +22465,7 @@ PrefabInstance:
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[1].AmountOfBoxes
-      value: 10
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}

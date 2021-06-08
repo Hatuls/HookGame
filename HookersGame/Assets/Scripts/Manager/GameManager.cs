@@ -1,7 +1,11 @@
-﻿
+﻿using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     ISingleton[] ISingletonsArr;
+    private void Awake()
+    {
+        Application.targetFrameRate = 200;
+    }
     private void Start()
     {
 

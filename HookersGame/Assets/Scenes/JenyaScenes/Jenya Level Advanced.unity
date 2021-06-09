@@ -39811,6 +39811,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].isAffectedByMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[1].isAffectedByMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[0].toBeAffectedByBeat
       value: 0
       objectReference: {fileID: 0}

@@ -39717,13 +39717,48 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
+      propertyPath: buildingHolder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].AmountOfBoxes
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[1].AmountOfBoxes
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[2].AmountOfBoxes
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: _volumeBoxesHandler.Array.data[3].AmountOfBoxes
-      value: 15
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[0].distanceBetweenPlayerAndBoxes
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[1].distanceBetweenPlayerAndBoxes
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[2].distanceBetweenPlayerAndBoxes
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873609482954676460, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: _volumeBoxesHandler.Array.data[3].distanceBetweenPlayerAndBoxes
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 5198911777875191093, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}

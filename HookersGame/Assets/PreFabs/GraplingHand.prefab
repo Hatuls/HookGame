@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelSpeed: 20000
-  travelDist: 70
+  travelDist: 80
   destroyDistOffset: 0
 --- !u!64 &4733105856263742521
 MeshCollider:

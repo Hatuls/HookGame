@@ -39029,6 +39029,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3452314788488344838, guid: a09aff92f9830b94fad72786ab576b2a,
         type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[6].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452314788488344838, guid: a09aff92f9830b94fad72786ab576b2a,
+        type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key2.b
       value: 2.79544
       objectReference: {fileID: 0}
@@ -39105,12 +39110,12 @@ PrefabInstance:
     - target: {fileID: 3452314788488344840, guid: a09aff92f9830b94fad72786ab576b2a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3452314788488344841, guid: a09aff92f9830b94fad72786ab576b2a,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3452314788488344841, guid: a09aff92f9830b94fad72786ab576b2a,
         type: 3}

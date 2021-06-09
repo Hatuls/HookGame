@@ -17,6 +17,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] float movementSpeed;
     [SerializeField] LayerMask GroundLayer;
     [SerializeField]PlayerUI _playerUi;
+    [SerializeField]PlayerGfxManager _playerGfxManager;
+    [SerializeField] GameObject distanceCheck;
 
 
     CameraController _cameraController;
@@ -36,7 +38,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [Header("Menus")]
 
     [SerializeField] PlayerPhysicsManager _playerPhysicsManager;
-    public PlayerEffectMenu playerEffectMenu;
     // Start is called before the first frame update
     public override void Init()
     {
@@ -46,6 +47,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         Cursor.visible = false;    
         GetComponents();
         GetEquipment();
+        _playerGfxManager.Init();
         _playerPhysicsManager.InitPhysics(rb, this);
         _inputManager.SetStage(currentStage);
        
@@ -54,7 +56,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
   
 
-
+    
     void Update()
     {
        // Debug.Log(SoundManager.IsByBeat);
@@ -62,7 +64,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _inputForm = _inputManager.GetInput();
         UpdateUi();
         CameraCommands();
-
+       
         switch (currentStage)
         {
             case Stage.City:
@@ -174,51 +176,21 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         {
             rb.AddRelativeForce(_inputForm.movementVector.normalized * movementSpeed);
         }
+
+        _playerGfxManager.ModifyVolumeByDistance(Vector3.Distance(transform.position, distanceCheck.transform.position));
+
     }
     //will be transfered to another script!
     #region GFX
     public void SetFieldOfView()
     {
-        float speed = rb.velocity.magnitude;
-        //        if (_grapplingGun.pulling) { }
-        if (_grapplingGun.pulling)//&& (_playerPhysicsManager.physicsState == PlayerPhysicsManager.PhysicsStates.leap))
-        {
-            _cameraController.FpsCam.fieldOfView -= playerEffectMenu.FieldPerView;
-        }
-        else
-        {
-
-            if (_cameraController.FpsCam.fieldOfView < playerEffectMenu.baseFieldOfView)
-                _cameraController.FpsCam.fieldOfView += playerEffectMenu.FieldPerView*0.9f;
-            if (_cameraController.FpsCam.fieldOfView > playerEffectMenu.baseFieldOfView)
-                _cameraController.FpsCam.fieldOfView=Mathf.Lerp(_cameraController.FpsCam.fieldOfView, playerEffectMenu.baseFieldOfView, 0.5f);
-        }
-
+        _playerGfxManager.SetFieldOfView(_cameraController.FpsCam, rb, _grapplingGun.pulling,transform.position.z-distanceCheck.transform.position.z);
         
     }
     private void SpeedEffect()
     {
-        float speed = rb.velocity.magnitude;
-        if (speed > playerEffectMenu.SpeedPs_startParticlesSpeed)
-        {
-
-            ParticleSystem.EmissionModule em = _speedPs.emission;
-            ParticleSystem.VelocityOverLifetimeModule ep = _speedPs.velocityOverLifetime;
-            if (!_speedPs.isPlaying)
-            {
-                _speedPs.Play();
-                em.enabled = false;
-                em.enabled = true;
-                ep.enabled = false;
-                ep.enabled = true;
-            }
-
-
-            ep.speedModifier = (speed - playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleSpeedperKmh;
-            em.rateOverTime = (speed - playerEffectMenu.SpeedPs_startParticlesSpeed) / playerEffectMenu.SpeedPs_particleEmissionPerKmh;
-
-        }
-        else { if (!_speedPs.isStopped) _speedPs.Stop(); }
+        _playerGfxManager.ExecuteSpeedEffect(rb);
+        
     }
 
     #endregion
@@ -273,7 +245,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         rb = GetComponent<Rigidbody>();
         _cameraController = GetComponentInChildren<CameraController>();
         _inputManager = GetComponent<InputManager>();
-        _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
+       // _speedPs = playerEffectMenu.SpeedPS.GetComponent<ParticleSystem>();
        // _playerUi = GetComponent<PlayerUI>();
      
     }
@@ -539,18 +511,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     //}
     #endregion
 }
-[System.Serializable]
-public class PlayerEffectMenu 
-{
-    public GameObject SpeedPS;
-    public float SpeedPs_particleEmissionPerKmh;
-    public float SpeedPs_particleSpeedperKmh;
-    public float SpeedPs_startParticlesSpeed;
 
 
-    public float FieldOfViewStartSpeed;
-    public float FieldPerView;
-    public float baseFieldOfView=60;
-
-}
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections;
 using System;
-
 [System.Serializable]
 public class BoxSpawnersAndChecker
 {
@@ -12,8 +11,8 @@ public class BoxSpawnersAndChecker
     Queue<Transform> line;
     int lastZIndex;
 
-
-
+    [SerializeField] float RefreshRate;
+    [SerializeField] bool isAffectedByMusic;
     [SerializeField] float distanceBetweenPlayerAndBoxes, distanceBetweenBoxes;
     [SerializeField] int AmountOfBoxes;
     [SerializeField] Vector3 direction;
@@ -40,7 +39,8 @@ public class BoxSpawnersAndChecker
     public void StartCoroutineCheck()
      => distanceCheckerCorou = LevelManager.Instance.StartCoroutine(Checker());
 
-    public void StopCoroutineCheck() {
+    public void StopCoroutineCheck()
+    {
         if (distanceCheckerCorou != null)
             LevelManager.Instance.StopCoroutine(distanceCheckerCorou);
 
@@ -78,7 +78,7 @@ public class BoxSpawnersAndChecker
 
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(RefreshRate);
 
         }
     }
@@ -106,7 +106,7 @@ public class BoxSpawnersAndChecker
         distanceBetweenBoxes += prefab.transform.GetChild(0).localScale.x;
 
 
-          line = new Queue<Transform>();
+        line = new Queue<Transform>();
 
 
         SpawnBox(ref line);
@@ -132,22 +132,24 @@ public class BoxSpawnersAndChecker
     {
         indexCounter = 0;
         Transform building;
-    
+
         for (int i = 1; i <= AmountOfBoxes; i++)
         {
 
-             building = BoxSpawnerManager.Instance.InstantiatePrefab(ref prefab).transform;
+            building = BoxSpawnerManager.Instance.InstantiatePrefab(ref prefab).transform;
             building.SetParent(BoxSpawnerManager.Instance.GetContainer);
-            
+
+            if (isAffectedByMusic)
+            {
                 VolumeBox Cache = building.GetComponent<VolumeBox>();
 
-            Cache.PlayByBeat = toBeAffectedByBeat;
+                Cache.PlayByBeat = toBeAffectedByBeat;
 
-            if (toBeAffectedByBeat)
-                SetByBeat(ref Cache, ref i);
-            else
-                SetByBand(ref Cache, ref i);
-            
+                if (toBeAffectedByBeat)
+                    SetByBeat(ref Cache, ref i);
+                else
+                    SetByBand(ref Cache, ref i);
+            }
 
             if (i == AmountOfBoxes - 1)
                 lastZIndex = i;
@@ -158,7 +160,7 @@ public class BoxSpawnersAndChecker
 
     private void SetByBand(ref VolumeBox cache, ref int i)
     {
-        cache.GetSetBand = ((i-1) % 7);
+        cache.GetSetBand = ((i - 1) % 7);
     }
 
     public void ResetDistanceChecker()
@@ -183,5 +185,5 @@ public class BoxSpawnersAndChecker
         }
     }
 
-    
+
 }

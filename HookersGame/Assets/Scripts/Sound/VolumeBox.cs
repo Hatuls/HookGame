@@ -20,6 +20,7 @@ public partial class VolumeBox : MonoBehaviour
     [Header("Emission")]
     [SerializeField] float emissiomMaxValue;
     [SerializeField] float emissionBuffer, emissionStarter;
+    [SerializeField] float Intensety_Emission = 1;
 
 
     public bool PlayByBeat { get; set; }
@@ -117,7 +118,7 @@ public partial class VolumeBox : MonoBehaviour
         }
 
         mat.SetColor("Color_53031B36",
-            new Color(bandValue, bandValue, bandValue));
+            new Color(bandValue, bandValue, bandValue)* Intensety_Emission);
     }
 
     float GetBandValue(bool _useBuffer)

@@ -6293,12 +6293,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 297667571}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &300778478 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1263753851796680714, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-    type: 3}
-  m_PrefabInstance: {fileID: 1263753850889328425}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &314791566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11585,28 +11579,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 661182650}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &668134875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1263753851697889311, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-    type: 3}
-  m_PrefabInstance: {fileID: 1263753850889328425}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &668134876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668134875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd0c2d2efec2ee458248b58aa81a4e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpeedText: {fileID: 0}
-  WinImage: {fileID: 0}
-  HpSlider: {fileID: 0}
-  InnerCourser: {fileID: 1258568859}
 --- !u!1001 &670238810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39161,66 +39133,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1263753851194345028, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: far clip plane
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.damper
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.spring
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.massScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.maxPullSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.GrapplingRange
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.PullMultiplyer
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.maxGrappleDist
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.minGrappleDist
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.startPullSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851645696889, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: grappleSetting.timeForArmGrow
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889297, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: m_Mass
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 668134876, guid: 34e7683163f90d24e9e9cbc3d27cc807, type: 3}
+      propertyPath: InnerCourser
+      value: 
+      objectReference: {fileID: 1258568859}
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: _playerUi
@@ -39233,129 +39149,9 @@ PrefabInstance:
       objectReference: {fileID: 99264512}
     - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
-      propertyPath: movementSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerPhysicsManager.dragValues.leap
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerPhysicsManager.dragValues.Swing
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.playerEffectMenu.minFov
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.playerEffectMenu.SpeedPS
-      value: 
-      objectReference: {fileID: 300778478}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerPhysicsManager.dragValues.DefaultAir
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerPhysicsManager.dragValues.afterPulse
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerPhysicsManager.speeds.StartswingSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.playerEffectMenu.FieldPerView
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
       propertyPath: _playerGfxManager.RenderVolumeComponents.renderVol
       value: 
       objectReference: {fileID: 999220150}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.playerEffectMenu.inverseFieldPerView
-      value: 0.645
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.playerEffectMenu.inverseFovStartDist
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.playerEffectMenu.FieldOfViewStartSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.RenderVolumeComponents.VingnetteStartDis
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.playerEffectMenu.SpeedPs_particleSpeedperKmh
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.playerEffectMenu.SpeedPs_startParticlesSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.RenderVolumeComponents.VingnetteIntensityPerDis
-      value: 0.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.playerEffectMenu.SpeedPs_particleEmissionPerKmh
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.RenderVolumeComponents.VingnetteMaxIntensityValue
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.RenderVolumeComponents.ChromaticAberrationStartDis
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerPhysicsManager.StatesSettings.Array.data[4].TimeBetweenStates
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerPhysicsManager.StatesSettings.Array.data[6].TimeBetweenStates
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.RenderVolumeComponents.ChromaticAberrationIntensityPerDist
-      value: 0.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.RenderVolumeComponents.ChromaticAberrationMaxIntensityValue
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889298, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: _playerGfxManager.RenderVolumeComponents.ChromaticAberrationMinIntensityValue
-      value: 0.33
-      objectReference: {fileID: 0}
     - target: {fileID: 1263753851697889303, guid: 34e7683163f90d24e9e9cbc3d27cc807,
         type: 3}
       propertyPath: m_RootOrder
@@ -39415,21 +39211,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851697889311, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851796680712, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: m_Name
-      value: SpeedParticles
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263753851796680714, guid: 34e7683163f90d24e9e9cbc3d27cc807,
-        type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e7683163f90d24e9e9cbc3d27cc807, type: 3}

@@ -226,6 +226,7 @@ public class Platform : MonoBehaviour
         }
         transform.position = position;
         transform.localScale = scale;
+        gameObject.SetActive(true);
     }
 
     private void UnSubscribeEvents()
@@ -234,10 +235,6 @@ public class Platform : MonoBehaviour
         LevelManager.ResetPlatformEvent -= PlatfromReset;
     }
     private void OnDestroy()
-    {
-        UnSubscribeEvents();
-    }
-    private void OnDisable()
     {
         UnSubscribeEvents();
     }

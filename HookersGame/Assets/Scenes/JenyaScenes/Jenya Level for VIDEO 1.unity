@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 8d1738d3999c4a545943885cc14de220,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2153,8 +2153,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7158679, y: 4.149121, z: 0.113461226}
-  m_Center: {x: 0.90047544, y: 1.2924515, z: -0.44630343}
+  m_Size: {x: 1.7158679, y: 14.757246, z: 0.113461226}
+  m_Center: {x: 0.90047544, y: 6.596515, z: -0.44630343}
 --- !u!65 &1115895839
 BoxCollider:
   m_ObjectHideFlags: 0

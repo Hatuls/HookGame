@@ -11,7 +11,7 @@ public class BoxSpawnersAndChecker
     Queue<Transform> line;
     int lastZIndex;
 
-    [SerializeField] float RefreshRate;
+    [SerializeField] float RefreshRate = 0.001f;
     [SerializeField] bool isAffectedByMusic;
     [SerializeField] float distanceBetweenPlayerAndBoxes, distanceBetweenBoxes;
     [SerializeField] int AmountOfBoxes;

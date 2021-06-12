@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelSpeed: 20000
-  travelDist: 79
+  travelDist: 90
   destroyDistOffset: 0
   ConnectionParticle: {fileID: 8104299772808334563}
 --- !u!64 &4733105856263742521

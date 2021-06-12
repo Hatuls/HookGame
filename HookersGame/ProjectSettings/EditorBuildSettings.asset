@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Rei_Scenes/UI/MainMenu.unity
+    guid: bd58b7c6eab356b4babd874637e1f839
+  - enabled: 1
+    path: Assets/Scenes/JenyaScenes/Jenya Level for VIDEO 1.unity
+    guid: 363151f7c1a154a49a7722b08a657a0f
+  - enabled: 1
+    path: Assets/Scenes/JenyaScenes/Jenya Level for VIDEO 2.unity
+    guid: d3b7818374f526f4fba64ff09a59416f
   - enabled: 1
     path: Assets/Scenes/JenyaScenes/Jenya Level Advanced.unity
     guid: 0e9822f78d0473649add91aeb2282069

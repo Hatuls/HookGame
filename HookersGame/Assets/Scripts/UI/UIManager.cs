@@ -64,8 +64,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         Init();
-        //currentMenus = UIMenus.LevelMenu;
-        //ChangeMenus(currentMenus, currentMenus);
+        SceneHandlerSO.CurrentLevel= 0;
+        SceneHandlerSO.HighestLevel =1;
     }
     #endregion
 
@@ -134,7 +134,7 @@ public class UIManager : MonoBehaviour
         if (index < 0)
             return;
 
-        SceneHandlerSO.LoadScene((ScenesName)index);
+        SceneHandlerSO.LoadScene((ScenesName)(index+1));
     }
     public void ExitGame()
     {

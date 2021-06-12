@@ -8,6 +8,11 @@ public class WinAreaTrigger : MonoBehaviour
         if (other.gameObject.layer == 10 && !isFlag)
             Win();
     }
-    void Win() { isFlag = true;   LevelManager.Instance.LoadTheNextLevel(); }
+    void Win()
+    {
+        isFlag = true;
+        SceneHandlerSO.LevelCompleted();
+        SceneHandlerSO.LoadScene((ScenesName)SceneHandlerSO.CurrentLevel);
+    }
 
 }

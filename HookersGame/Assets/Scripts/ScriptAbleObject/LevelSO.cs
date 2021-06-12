@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Level", menuName = "ScriptableObjects/Levels", order = 1)]
 public class LevelSO : ScriptableObject
 {
-    public Scene sceneLevel;
+
     public int level;
     [Header("Speed of the death wall: ")]
     public float deathWallSpeed;

@@ -8,16 +8,17 @@ public class Platform : MonoBehaviour
     public bool IsHookAble() => isHookable;
 
     [SerializeField] private bool isTrigger,isHookable,DeathPlatform,movingPlatform,ForceInfluence,Distructable;
+
     [Tooltip("Activate movingPlatforms for use")]
     [SerializeField] PlatformMovementSetting MovementSetting;
     [SerializeField] InfluenceSettings influenceSettings;
     private Coroutine movementCoru;
     private int posCounter=0, movementIdTween;
-    
-    
-   
 
 
+
+
+    Quaternion rotation; 
     Vector3 position;
     Vector3 scale;
 
@@ -88,6 +89,7 @@ public class Platform : MonoBehaviour
     
     private void Start()
     {
+        rotation = transform.rotation;
         BuildPlatform();
     }
     
@@ -163,13 +165,14 @@ public class Platform : MonoBehaviour
         LevelManager.ResetPlatformEvent += SetTexture;
         LevelManager.ResetPlatformEvent += PlatfromReset;
     }
+    
     public void SuckTowards(in Transform targetPos)
     {
         MovementSetting.Move = false;
         LeanTween.cancel(movementIdTween);
-        LeanTween.move(gameObject, targetPos, 2f).setEase(LeanTweenType.easeInOutSine);
+         LeanTween.move(gameObject, targetPos, 2f).setEase(LeanTweenType.easeInOutSine);
         LeanTween.rotateAround(gameObject, ToolClass.GetDirection(), 360f, 2f);
-        LeanTween.scale(gameObject, Vector3.zero, 2f);
+         LeanTween.scale(gameObject, Vector3.zero, 2f);
     }
     public void MoveTowards(in Vector3 targetPos,float TimeBetweenStations)
     {
@@ -219,11 +222,15 @@ public class Platform : MonoBehaviour
 
     private void PlatfromReset()
     {
+        StopAllCoroutines();
+        LeanTween.cancelAll();
+
         if (movingPlatform)
         {
             posCounter = 0;
             MovementSetting.Move = true;
         }
+        transform.rotation = rotation;
         transform.position = position;
         transform.localScale = scale;
         gameObject.SetActive(true);

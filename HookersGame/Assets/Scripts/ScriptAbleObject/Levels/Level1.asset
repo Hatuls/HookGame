@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   level: 1
-  deathWallSpeed: 15
+  deathWallSpeed: 90
   droneSpawnPosition: []
   timeToFinish:
   - 0

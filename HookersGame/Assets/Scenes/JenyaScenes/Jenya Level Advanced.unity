@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 8d1738d3999c4a545943885cc14de220,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -39900,6 +39900,18 @@ PrefabInstance:
     - {fileID: 3354811989736208543, guid: c59adaca4e06bca4b9bcb6cb026a9366, type: 3}
     - {fileID: 3354811988950153528, guid: c59adaca4e06bca4b9bcb6cb026a9366, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c59adaca4e06bca4b9bcb6cb026a9366, type: 3}
+--- !u!114 &4933404833161473951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8613860287670899290, guid: c59adaca4e06bca4b9bcb6cb026a9366,
+    type: 3}
+  m_PrefabInstance: {fileID: 4933404833161473950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99264512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86b069e63ff2a204fbe8d0b5e5da099f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5187193134130895665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40206,6 +40218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Singleton
       objectReference: {fileID: 0}
+    - target: {fileID: 8617036908260154934, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: deathWall
+      value: 
+      objectReference: {fileID: 4933404833161473951}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40a5c3827aa9f643a0dd96a84849f0d, type: 3}
 --- !u!1001 &8576174356793181712

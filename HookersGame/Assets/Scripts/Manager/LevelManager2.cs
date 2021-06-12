@@ -8,7 +8,7 @@ public  partial class LevelManager
     public Platform[] platformsArr;
    public LayerMask grabableLayer;
     bool flag;
-    private DeathWall deathWall;
+    [SerializeField] DeathWall deathWall;
 
     
 

@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 8d1738d3999c4a545943885cc14de220,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -53387,12 +53387,12 @@ PrefabInstance:
     - target: {fileID: 2933358989742198409, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.2050655
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2933358989742198409, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_Size.y
-      value: 3.5650406
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2933358989742198409, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
@@ -53402,17 +53402,17 @@ PrefabInstance:
     - target: {fileID: 2933358989742198409, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_Center.x
-      value: -2.4657462
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2933358989742198409, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.015154649
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2933358989742198409, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_Center.z
-      value: 3.4092407
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
@@ -53422,7 +53422,7 @@ PrefabInstance:
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 82.3
+      value: 12.9
       objectReference: {fileID: 0}
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
@@ -53432,7 +53432,7 @@ PrefabInstance:
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3317.9
+      value: 3489
       objectReference: {fileID: 0}
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
@@ -53477,7 +53477,7 @@ PrefabInstance:
     - target: {fileID: 6762680157360102524, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e60094de29932314ab07bc82764c632e, type: 3}
@@ -53785,6 +53785,18 @@ PrefabInstance:
     - {fileID: 3354811989736208543, guid: c59adaca4e06bca4b9bcb6cb026a9366, type: 3}
     - {fileID: 3354811988950153528, guid: c59adaca4e06bca4b9bcb6cb026a9366, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c59adaca4e06bca4b9bcb6cb026a9366, type: 3}
+--- !u!114 &4933404833161473951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8613860287670899290, guid: c59adaca4e06bca4b9bcb6cb026a9366,
+    type: 3}
+  m_PrefabInstance: {fileID: 4933404833161473950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99264512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86b069e63ff2a204fbe8d0b5e5da099f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5187193134130895665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53845,12 +53857,12 @@ PrefabInstance:
     - target: {fileID: 6827618393659314227, guid: 6a4eaa6d0e353e749bf02d2c13016a4e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 71.8
+      value: 40.1
       objectReference: {fileID: 0}
     - target: {fileID: 6827618393659314227, guid: 6a4eaa6d0e353e749bf02d2c13016a4e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 58.9
+      value: 100.9
       objectReference: {fileID: 0}
     - target: {fileID: 6827618393659314227, guid: 6a4eaa6d0e353e749bf02d2c13016a4e,
         type: 3}
@@ -54206,6 +54218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Singleton
       objectReference: {fileID: 0}
+    - target: {fileID: 8617036908260154934, guid: b40a5c3827aa9f643a0dd96a84849f0d,
+        type: 3}
+      propertyPath: deathWall
+      value: 
+      objectReference: {fileID: 4933404833161473951}
     - target: {fileID: 8617036908260154934, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: AmountOfBoxes

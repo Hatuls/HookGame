@@ -73,7 +73,7 @@ public class PlayerGfxManager
         if (distFromVoid < playerEffectMenu.inverseFovStartDist)
         {
 
-
+          //  float fov2 =(playerEffectMenu.inverseFovStartDist-distFromVoid) * playerEffectMenu.
             float fov = (((playerEffectMenu.inverseFovStartDist - distFromVoid)/100) * (playerEffectMenu.minFov+distFromVoid));
             if(fov>playerEffectMenu.minFov &&fov<playerEffectMenu.baseFieldOfView)
             cam.fieldOfView = fov;

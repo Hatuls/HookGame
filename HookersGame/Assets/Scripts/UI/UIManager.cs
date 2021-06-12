@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
-
+using System;
 
 public enum UIMenus { MainMenu = 0 , SettingsMenu = 1, LevelMenu = 2,PauseMenu =3};
 public class UIManager : MonoBehaviour
@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] UIMenus currentMenus = UIMenus.MainMenu;
     [Space]
     [SerializeField] Image _backgroundImg;
+    [SerializeField] float _opacity;
     [Space]
     [SerializeField] UIPallett _uIPallett;
     [SerializeField] AllLevels _allLevel;
@@ -40,11 +41,19 @@ public class UIManager : MonoBehaviour
             {
                 ChangeMenus(currentMenus , value);
                  currentMenus = value;
-                _backgroundImg.sprite = GetBackGroundImage(currentMenus);
+                SetbackGround(currentMenus);
+              
             }
         }
     }
 
+    private void SetbackGround(UIMenus currentMenus)
+    {
+        _backgroundImg.sprite = GetBackGroundImage(currentMenus);
+        Color c = _backgroundImg.color;
+        c.a = _opacity/100;
+        _backgroundImg.color = c;
+    }
 
     public ref AllLevels GetAllLevels =>ref _allLevel;
     public ref UIPallett GetPallett => ref _uIPallett;

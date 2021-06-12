@@ -18,7 +18,7 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.9843138, a: 1}
   - {r: 0.30588236, g: 0.10196079, b: 0.5882353, a: 1}
   _getSprite:
-  - {fileID: 21300000, guid: e21b4c27e0083ce4c8b286b4eebf226e, type: 3}
+  - {fileID: 21300000, guid: edd969f977df580468add1ce02ec9527, type: 3}
   - {fileID: 21300000, guid: 2ac51ac98e5c24446a3460025effbc3f, type: 3}
   - {fileID: 21300000, guid: 4c15d72f8ac57c943b7ad32651ef9427, type: 3}
   - {fileID: 21300000, guid: b8f5479347281754bb510db54c505d29, type: 3}

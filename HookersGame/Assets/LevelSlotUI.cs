@@ -32,7 +32,7 @@ public class LevelSlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     ImageAndText _levelNumber;
 
     public void SetLevelNumberText(int index)
-        => _levelNumber.Text.text = index.ToString();
+        => _levelNumber.Text.text = (index+1).ToString();
     public LevelSlotState LevelSlotState
     {
         get => _levelSlotState;

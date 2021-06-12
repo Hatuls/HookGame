@@ -7,7 +7,7 @@ public class LevelSelectUIMenu : MonoBehaviour , IMenuHandler
     [SerializeField] float _startDelay;
     [SerializeField] float _timeDifferenceBetween;
     [SerializeField] LevelSlotUI[] _levels;
-    int currentMaxLevel;
+
 
     
 
@@ -16,7 +16,7 @@ public class LevelSelectUIMenu : MonoBehaviour , IMenuHandler
         gameObject.SetActive(true);
         
 
-        if (currentMaxLevel != UIManager.Instance.GetAllLevels.GetMaxLevelUnlocked)
+        if (SceneHandlerSO.CurrentLevel != UIManager.Instance.GetAllLevels.GetMaxLevelUnlocked)
             UpdateLevelsUI();
 
         TransitionEnter();
@@ -24,12 +24,13 @@ public class LevelSelectUIMenu : MonoBehaviour , IMenuHandler
 
     private void Start()
     {
-        currentMaxLevel = 0;
+        
         UpdateLevelsUI();
     }
     private void UpdateLevelsUI()
     {
         AllLevels levelso = UIManager.Instance.GetAllLevels;
+
         for (int i = 0; i < _levels.Length; i++)
         {
            

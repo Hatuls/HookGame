@@ -4,9 +4,9 @@ using System.Collections;
 public partial class LevelManager : MonoSingleton<LevelManager>
 {
     #region Level Handler
-    [SerializeField] LevelSO[] LevelsSO;
+    [SerializeField] AllLevels LevelsSO;
 
-    int currentLevel;
+   public int currentLevel { get; set; }
 
     Transform _playerStartPosition;
 
@@ -31,12 +31,11 @@ public partial class LevelManager : MonoSingleton<LevelManager>
     public override void Init()
     {
         ResetLevelValues();
-        currentLevel = 0;
-  
+        currentLevel = LevelsSO.CurrentLevelSelected;
        
     }
     internal float GetLevelDeathWallSpeed()
-        => LevelsSO[currentLevel].deathWallSpeed;
+         => LevelsSO.GetLevel(currentLevel).deathWallSpeed;
     public void ResetLevelValues()
     {
         // Player:

@@ -184,7 +184,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     #region GFX
     public void SetFieldOfView()
     {
-        _playerGfxManager.SetFieldOfView(_cameraController.FpsCam, rb, _grapplingGun.pulling,transform.position.z-distanceCheck.transform.position.z);
+
         
     }
     private void SpeedEffect()

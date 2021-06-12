@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Level", menuName = "ScriptableObjects/Levels", order = 1)]
-public class LevelSO : ScriptableObject {
+public class LevelSO : ScriptableObject
+{
+    public Scene sceneLevel;
     public int level;
     [Header("Speed of the death wall: ")]
     public float deathWallSpeed;
@@ -9,4 +11,10 @@ public class LevelSO : ScriptableObject {
     public Vector3[] droneSpawnPosition;
     [Header("Time Score: Bronze, Silver, Gold")]
     public float[] timeToFinish = new float[3];
+
+
+
+    public Sprite LevelImage;
+    public string timeFinished;
+
 }

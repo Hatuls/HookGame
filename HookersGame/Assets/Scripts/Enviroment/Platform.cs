@@ -230,7 +230,11 @@ public class Platform : MonoBehaviour
             posCounter = 0;
             MovementSetting.Move = true;
         }
+
+        if (platFromType != PlatFromType.ForceInfluence)
         transform.rotation = rotation;
+
+
         transform.position = position;
         transform.localScale = scale;
         gameObject.SetActive(true);

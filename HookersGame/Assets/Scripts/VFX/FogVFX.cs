@@ -10,7 +10,7 @@ public class FogVFX : MonoBehaviour
     public enum VolumeShapes { Cube,Triangle}
     [SerializeField] VolumeShapes Shape;
     [SerializeField] float ParicleScale;
-    [Range(0.01f, 1f)]
+    [Range(0.001f, 1f)]
     [SerializeField] float Density;
     [SerializeField] float distance;
     private Vector3 startPos;

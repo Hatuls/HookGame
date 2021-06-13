@@ -53,12 +53,12 @@ public  partial class LevelManager
         float timer = 0.3f;
         float distanceFromStarting = 50f;
         Transform deathWallCache = deathWall.transform;
-        byte[] platformIndex = new byte[platforms.Length];
+        int[] platformIndex = new int[platforms.Length];
         flag = true;
         
         while (flag)
         {
-            for (byte i = 1; i <= platforms.Length; i++)
+            for (int i = 1; i <= platforms.Length; i++)
             {
                 if (!flag)
                    yield break;

@@ -18,7 +18,7 @@ public class Platform : MonoBehaviour
 
 
 
-    Quaternion rotation; 
+    Vector3 rotation; 
     Vector3 position;
     Vector3 scale;
 
@@ -89,7 +89,7 @@ public class Platform : MonoBehaviour
     
     private void Start()
     {
-        rotation = transform.rotation;
+       
         BuildPlatform();
     }
     
@@ -185,6 +185,8 @@ public class Platform : MonoBehaviour
 
     private void Awake()
     {
+        rotation = transform.rotation.eulerAngles;
+        
         position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
@@ -231,12 +233,10 @@ public class Platform : MonoBehaviour
             MovementSetting.Move = true;
         }
 
-        if (platFromType != PlatFromType.ForceInfluence)
-        transform.rotation = rotation;
-
-
+        transform.rotation = Quaternion.Euler(rotation);
         transform.position = position;
         transform.localScale = scale;
+
         gameObject.SetActive(true);
     }
 

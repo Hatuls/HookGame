@@ -10,6 +10,7 @@ public  class SceneHandlerSO : ScriptableObject
     public static void LoadScene(ScenesName scenes)
     {
         int sceneIndex = (int)scenes;
+
         if (sceneIndex > HighestLevel)
             return;
 

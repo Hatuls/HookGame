@@ -23,7 +23,7 @@ public class PlayerUI : MonoBehaviour
 
         string String = (int)number +" ";
 
-        if(speedText.text != null)
+        if(speedText != null)
         { 
         speedText.text = String;
 

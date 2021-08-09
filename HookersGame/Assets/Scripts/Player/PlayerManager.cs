@@ -20,7 +20,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] PlayerGfxManager _playerGfxManager;
     [SerializeField] GameObject distanceCheck;
 
-    public PauseMenu Pause;
+
 
         CameraController _cameraController;
     InputManager _inputManager;

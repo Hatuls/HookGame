@@ -50,14 +50,12 @@ public class PauseMenu : MonoBehaviour, IMenuHandler
 
     public void ReturnToMainMenu()
     {
-<<<<<<< HEAD
 
+        Time.timeScale = 1;
         SceneHandlerSO.LoadScene(ScenesName.MainMenuScene);
         UIManager.Instance.ResetMenu();
-=======
-      SceneHandlerSO.LoadScene(ScenesName.MainMenuScene);
-        Time.timeScale = 1;
->>>>>>> Semi_Main
+
+
     }
 
 

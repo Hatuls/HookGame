@@ -12,6 +12,7 @@ public class Platform : MonoBehaviour
     [Tooltip("Activate movingPlatforms for use")]
     [SerializeField] PlatformMovementSetting MovementSetting;
     [SerializeField] InfluenceSettings influenceSettings;
+    [SerializeField] AudioSource soundSource;
     private Coroutine movementCoru;
     private int posCounter=0, movementIdTween;
 
@@ -112,7 +113,10 @@ public class Platform : MonoBehaviour
             
             if (ForceInfluence)
             {
+
+               
                 other.gameObject.GetComponent<PlayerManager>().ApplyForceToPlayer(influenceSettings);
+
             }
             if (Distructable)
             {
@@ -133,7 +137,7 @@ public class Platform : MonoBehaviour
             Debug.Log("yo");
             if (ForceInfluence)
             {
-
+                soundSource.Play();
                 collision.gameObject.GetComponent<PlayerManager>().ApplyForceToPlayer(influenceSettings);
             }
             if (Distructable)

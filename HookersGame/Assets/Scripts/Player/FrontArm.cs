@@ -12,6 +12,7 @@ public class FrontArm : MonoBehaviour
     [SerializeField] float travelDist;
     [SerializeField] float destroyDistOffset;
     [SerializeField] ParticleSystem ConnectionParticle;
+    [SerializeField] AudioSource audioSource;
     
     
     bool attached=false;
@@ -63,7 +64,7 @@ public class FrontArm : MonoBehaviour
         anim.SetTrigger("Grapple");
         attached=true;
         SetGrapple(attachedPoint,attachedObj);
-        PlayConnectionParticle();
+        PlayConnectionEffects();
     }
      void SetGrapple(Vector3 attachedPoint, GameObject attachedObj)
     {
@@ -93,9 +94,10 @@ public class FrontArm : MonoBehaviour
 
     }
 
-    void PlayConnectionParticle()
+    void PlayConnectionEffects()
     {
         ConnectionParticle.Play();
+        audioSource.Play();
     }
 
 

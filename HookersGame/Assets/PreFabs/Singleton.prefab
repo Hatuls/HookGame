@@ -442,16 +442,6 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8919498892951882436, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919498892951882436, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6a7b83e9de6fa6f4e8e30ec6f1b11be7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0bdb2ec44753d1439cef4b81fa5bf25, type: 3}
 --- !u!4 &6545580419976717716 stripped

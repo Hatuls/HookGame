@@ -1,6 +1,8 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public enum UIMenus { MainMenu = 0 , SettingsMenu = 1, LevelMenu = 2,PauseMenu =3};
 public class UIManager : MonoBehaviour
@@ -20,7 +22,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] SettingsMenu _settingsMenuGO;
     [SerializeField] LevelSelectUIMenu _levelSelectMenu;
     [SerializeField] MainMenuUI _mainMenu;
-   
+
+
+    //Ron
+    private List<IMenuHandler> menuList;
 
     #endregion
 
@@ -68,13 +73,13 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-
+       
     }
 
     private void Start()
     {
         Init();
-        SceneHandlerSO.CurrentLevel= 0;
+
         SceneHandlerSO.HighestLevel =1;
     }
     #endregion
@@ -83,9 +88,14 @@ public class UIManager : MonoBehaviour
     public void MoveToMenu(int index) => SetMenu = (UIMenus)index;
     public void Init()
     {
-        SetMenu = UIMenus.MainMenu;
+        //SetMenu = UIMenus.MainMenu;
+        MenuByScene(SceneHandlerSO.CurrentLevel);
         _backgroundImg.sprite = GetBackGroundImage(currentMenus);
-        SetMenu = UIMenus.MainMenu;
+       // SetMenu = UIMenus.MainMenu;
+
+        //Ron
+        //InitMenuList();
+
     }
     private void ChangeMenus(UIMenus currentMenus, UIMenus newMenu)
     {
@@ -146,10 +156,36 @@ public class UIManager : MonoBehaviour
 
         SceneHandlerSO.LoadScene((ScenesName)(index+1));
     }
+
+    //Ron
+    //private void InitMenuList()
+    //{
+    //    menuList.Add(_mainMenu);
+    //    menuList.Add(_pauseMenu);
+    //    menuList.Add(_levelSelectMenu);
+    //    menuList.Add(_settingsMenuGO);
+    //}
+     
+    public void MenuByScene(int index)
+    {
+        if (index == 0)
+        {
+            //foreach(IMenuHandler found in menuList)
+            //{
+            //    found.GetGameObject().SetActive(false);
+            //}
+
+            SetMenu = UIMenus.MainMenu;
+
+        }
+        else { SetMenu = UIMenus.PauseMenu; }
+
+
+    }
+
     public void ExitGame()
     {
         Application.Quit();
-        
     }
     #endregion
 }
@@ -158,4 +194,6 @@ public interface IMenuHandler
 {
     void Init(ref UIPallett uIPallett);
   void OnEnd();
+
+    //GameObject GetGameObject();
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public partial class LevelManager : MonoSingleton<LevelManager>
 {
@@ -11,6 +12,19 @@ public partial class LevelManager : MonoSingleton<LevelManager>
     Transform _playerStartPosition;
 
     Coroutine CheckPlatformVoidDistance;
+
+  public float LevelTimer { get; set; }
+    internal void FinishLevel()
+    {
+
+        if (SceneHandlerSO.LevelCompleted())
+        {
+            LevelsSO.RegisterTime(LevelTimer);
+        LevelsSO.RaiseLevel();
+        }
+
+        SceneHandlerSO.LoadScene((ScenesName)SceneHandlerSO.CurrentLevel+1);// here is what move the player to the next level when he finished
+    }
 
     public delegate void LevelEvents();
     public static event LevelEvents ResetLevelParams;
@@ -32,17 +46,14 @@ public partial class LevelManager : MonoSingleton<LevelManager>
     {
         ResetLevelValues();
         currentLevel = LevelsSO.CurrentLevelSelected;
-       
+        LevelTimer = 0;
     }
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-
-        }
+        
+        LevelTimer += Time.deltaTime;
     }
     internal float GetLevelDeathWallSpeed()
          => LevelsSO.GetLevel(currentLevel).deathWallSpeed;
@@ -62,6 +73,7 @@ public partial class LevelManager : MonoSingleton<LevelManager>
 
         // UI 
         // Reset Ui Elements
+        LevelTimer = 0;
         Time.timeScale = 1f;
         AssignLevelObject();
         StopVoidPlatformCoroutine();

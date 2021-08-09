@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00264627, g: 0.002524529, b: 0.0021037136, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11845,7 +11845,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 117ab0507b832104386f2f3676be2bf4, type: 2}
+  sharedProfile: {fileID: 0}
 --- !u!4 &673132763
 Transform:
   m_ObjectHideFlags: 0
@@ -17018,7 +17018,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 117ab0507b832104386f2f3676be2bf4, type: 2}
+  sharedProfile: {fileID: 0}
 --- !u!1 &1005188066
 GameObject:
   m_ObjectHideFlags: 0
@@ -39624,7 +39624,7 @@ PrefabInstance:
     - target: {fileID: 3451724655177475423, guid: c59adaca4e06bca4b9bcb6cb026a9366,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 80
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 3451724655177475423, guid: c59adaca4e06bca4b9bcb6cb026a9366,
         type: 3}
@@ -39674,7 +39674,7 @@ PrefabInstance:
     - target: {fileID: 8613860287670899290, guid: c59adaca4e06bca4b9bcb6cb026a9366,
         type: 3}
       propertyPath: startDeathWall
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8613860287670899290, guid: c59adaca4e06bca4b9bcb6cb026a9366,
         type: 3}

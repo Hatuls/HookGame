@@ -34,6 +34,16 @@ public partial class LevelManager : MonoSingleton<LevelManager>
         currentLevel = LevelsSO.CurrentLevelSelected;
        
     }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+
+        }
+    }
     internal float GetLevelDeathWallSpeed()
          => LevelsSO.GetLevel(currentLevel).deathWallSpeed;
     public void ResetLevelValues()

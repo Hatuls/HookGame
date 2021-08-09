@@ -14,8 +14,9 @@ public class UIManager : MonoBehaviour
     [Space]
     [SerializeField] UIPallett _uIPallett;
     [SerializeField] AllLevels _allLevel;
-        
+
     [Space]
+    [SerializeField] PauseMenu pauseMenu;
     [SerializeField] SettingsMenu _settingsMenuGO;
     [SerializeField] LevelSelectUIMenu _levelSelectMenu;
     [SerializeField] MainMenuUI _mainMenu;
@@ -103,8 +104,8 @@ public class UIManager : MonoBehaviour
             case UIMenus.LevelMenu:
                 return _levelSelectMenu;
 
-            //case UIMenus.PauseMenu:
-            //    return _PauseMenu;
+            case UIMenus.PauseMenu:
+                return _PauseMenu;
 
             default:
             case UIMenus.MainMenu:

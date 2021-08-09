@@ -64,7 +64,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         _inputForm = _inputManager.GetInput();
         UpdateUi();
         CameraCommands();
-       
+
+        if (_inputForm.generalKeys.mainMenu) { SceneHandlerSO.LoadScene(ScenesName.MainMenuScene); Cursor.visible = true; Cursor.lockState = CursorLockMode.None; }
         switch (currentStage)
         {
             case Stage.City:
@@ -94,7 +95,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         }
         #endregion
 
-
+        
     }
 
     public void SetCurrentStage(Stage stage)

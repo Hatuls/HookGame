@@ -27,6 +27,7 @@ public class InputManager : MonoBehaviour
 
         _inputForm.movementVector = new Vector3(horizontal, 0, vertical);
         _inputForm.mouseVector = new Vector2(mouseX, -mouseY);
+        _inputForm.generalKeys.mainMenu = Input.GetKeyDown(KeyCode.Escape);
 
 
         switch (currentStage) 
@@ -70,7 +71,10 @@ public class InputForm
     //TunnelInputs
      public class TunnelInputs { public bool Shoot, up, down, left, right; }
     public TunnelInputs tunnelInputs = new TunnelInputs();
-    
+
+   
+    public class GeneralKeys { public bool mainMenu; }
+    public GeneralKeys generalKeys = new GeneralKeys();
 
 }
 

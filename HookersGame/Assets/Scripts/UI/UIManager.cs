@@ -45,6 +45,8 @@ public class UIManager : MonoBehaviour
         {
             if (currentMenus != value)
             {
+
+        
                 ChangeMenus(currentMenus , value);
                  currentMenus = value;
                 SetbackGround(currentMenus);
@@ -52,7 +54,12 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
+    public void ResetMenu()
+    {
+        gameObject.SetActive(true);
+        SetMenu = UIMenus.MainMenu;
+    
+    }
     private void SetbackGround(UIMenus currentMenus)
     {
         _backgroundImg.sprite = GetBackGroundImage(currentMenus);
@@ -72,8 +79,13 @@ public class UIManager : MonoBehaviour
     #region Monobehaiviour Callbacks
     private void Awake()
     {
+        if (_instance == null)
         _instance = this;
-       
+        else if (_instance!= this)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this);
     }
 
     private void Start()
@@ -85,7 +97,18 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Methods
-    public void MoveToMenu(int index) => SetMenu = (UIMenus)index;
+    public void MoveToMenu(int index)
+    { 
+        SetMenu = (UIMenus)index; 
+
+    
+    }
+    IEnumerator check()
+    {
+        yield return new WaitForSeconds(0.1f);
+        EnumToGameObject(UIMenus.LevelMenu).OnEnd();
+        gameObject.SetActive(true);
+    }
     public void Init()
     {
 
@@ -152,23 +175,11 @@ public class UIManager : MonoBehaviour
             return;
 
         SceneHandlerSO.LoadScene((ScenesName)(index+1));
+        gameObject.SetActive(false);
     }
 
-    //Ron
-    //private void InitMenuList()
-    //{
-    //    menuList.Add(_mainMenu);
-    //    menuList.Add(_pauseMenu);
-    //    menuList.Add(_levelSelectMenu);
-    //    menuList.Add(_settingsMenuGO);
-    //}
-     
 
 
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
     #endregion
 }
 

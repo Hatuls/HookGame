@@ -49,7 +49,11 @@ public class PauseMenu : MonoBehaviour, IMenuHandler
         => Application.Quit();
 
     public void ReturnToMainMenu()
-        => SceneHandlerSO.LoadScene(ScenesName.MainMenuScene);
+    {
+
+        SceneHandlerSO.LoadScene(ScenesName.MainMenuScene);
+        UIManager.Instance.ResetMenu();
+    }
 
 
     public void Resume()

@@ -180,10 +180,19 @@ public class LevelSlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
 
     bool isOverObject = false;
+    public void Entrance(float time, LeanTweenType _transition)
+    {
+       transform.localScale = Vector3.zero;
 
+        gameObject.SetActive(true);
+
+        LeanTween.scale(gameObject, Vector3.one * 1.3f, time).setEase(_transition).setOnComplete(
+       () => LeanTween.scale(gameObject, Vector3.one, time).setEase(_transition));
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+
         UIManager.Instance.LevelSelected(_levelSlotState == LevelSlotState.Locked ? -1 :index);
     }
 
@@ -204,6 +213,8 @@ public class LevelSlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     public void ResetScale()
     {
             LeanTween.scale(gameObject, Vector3.one, 0.08f);
+
+
             isOverObject = false;
     }
     #region classes

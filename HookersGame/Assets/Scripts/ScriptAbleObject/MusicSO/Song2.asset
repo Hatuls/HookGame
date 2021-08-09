@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Song2
   m_EditorClassIdentifier: 
   _song: {fileID: 8300000, guid: f6606642fea4f874abe3cf9c4227412a, type: 3}
-  beatPerMinute: 130
+  beatPerMinute: 125

@@ -18,8 +18,10 @@ public  class SceneHandlerSO : ScriptableObject
 
         MouseShower(scenes == ScenesName.MainMenuScene);
         
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);  
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+
     }
+
 
     public static bool LevelCompleted()
     {

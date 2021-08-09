@@ -136,7 +136,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void UpdateUi()
     {
+        _playerUi.TriggerUi(rb.velocity.magnitude);
+
         SpeedEffect();
+
         SetFieldOfView();
     }
     private void GetStartPos()

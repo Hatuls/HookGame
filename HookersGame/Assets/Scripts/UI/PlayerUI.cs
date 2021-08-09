@@ -25,7 +25,7 @@ public class PlayerUI : MonoBehaviour
 
         speedText.text = String;
 
-        SpeedoMeter.fillAmount = number/250;
+        SpeedoMeter.fillAmount = number/300;
     }
 
     public void SetCourserColor(bool turnOn)

@@ -50,9 +50,14 @@ public class PauseMenu : MonoBehaviour, IMenuHandler
 
     public void ReturnToMainMenu()
     {
+<<<<<<< HEAD
 
         SceneHandlerSO.LoadScene(ScenesName.MainMenuScene);
         UIManager.Instance.ResetMenu();
+=======
+      SceneHandlerSO.LoadScene(ScenesName.MainMenuScene);
+        Time.timeScale = 1;
+>>>>>>> Semi_Main
     }
 
 
@@ -85,8 +90,4 @@ public class PauseMenu : MonoBehaviour, IMenuHandler
         gameObject.SetActive(false);
         // tunr on Settings Menu
     }
-
-
-
-
 }

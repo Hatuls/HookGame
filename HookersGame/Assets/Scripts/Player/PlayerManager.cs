@@ -19,7 +19,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField]PlayerUI _playerUi;
     [SerializeField]PlayerGfxManager _playerGfxManager;
     [SerializeField] GameObject distanceCheck;
-
+    [SerializeField] PauseMenu _pause;
 
     CameraController _cameraController;
     InputManager _inputManager;
@@ -64,7 +64,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         UpdateUi();
         CameraCommands();
 
-        if (_inputForm.generalKeys.mainMenu) { SceneHandlerSO.LoadScene(ScenesName.MainMenuScene); Cursor.visible = true; Cursor.lockState = CursorLockMode.None; }
+        if (_inputForm.generalKeys.mainMenu)
+        {
+            if (_pause.gameObject.activeSelf==false)
+                 _pause?.OpenPause();
+            return;
+        }
         switch (currentStage)
         {
             case Stage.City:

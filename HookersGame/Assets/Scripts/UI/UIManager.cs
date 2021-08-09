@@ -16,11 +16,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] AllLevels _allLevel;
 
     [Space]
-    [SerializeField] PauseMenu pauseMenu;
+    [SerializeField] PauseMenu _pauseMenu;
     [SerializeField] SettingsMenu _settingsMenuGO;
     [SerializeField] LevelSelectUIMenu _levelSelectMenu;
     [SerializeField] MainMenuUI _mainMenu;
-    [SerializeField] GameObject _PauseMenu;
+   
 
     #endregion
 
@@ -105,7 +105,7 @@ public class UIManager : MonoBehaviour
                 return _levelSelectMenu;
 
             case UIMenus.PauseMenu:
-                return _PauseMenu;
+                return _pauseMenu;
 
             default:
             case UIMenus.MainMenu:

@@ -6,8 +6,8 @@ using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
-    
-    [SerializeField] private TextMeshProUGUI SpeedText;
+    [SerializeField] private TextMeshPro speedText;
+    [SerializeField] private Image SpeedoMeter;
     [SerializeField] private GameObject WinImage;
     [SerializeField] private Slider HpSlider;
     [SerializeField] private Image InnerCourser;
@@ -18,11 +18,14 @@ public class PlayerUI : MonoBehaviour
     {
         
     }
-    public void TriggerUi(int number)
+    public void TriggerUi(float number)
     {
-        
-        string String = number + "Km/h";
-        SpeedText.text = String;
+
+        string String = (int)number +" ";
+
+        speedText.text = String;
+
+        SpeedoMeter.fillAmount = number/300;
     }
 
     public void SetCourserColor(bool turnOn)
@@ -49,7 +52,7 @@ public class PlayerUI : MonoBehaviour
 
     public void ResetUi()
     {
-        SpeedText.text = "0";
+        speedText.text = "0";
         WinImage.SetActive(false);
 
 

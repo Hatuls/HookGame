@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levels:
   - {fileID: 11400000, guid: bb8f7f9020d42cf4c9243a057c38e5c7, type: 2}
+  - {fileID: 11400000, guid: c7a4224b53001924cbf158ad04fcf0d0, type: 2}
+  - {fileID: 11400000, guid: 41a6e65ca59b02747ad4ab25474cada3, type: 2}
   maxLevelUnlocked: 0
   levelSelected: 0

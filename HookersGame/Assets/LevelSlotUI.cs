@@ -167,7 +167,7 @@ public class LevelSlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         _bottomPart.StatusText.Text.gameObject.SetActive(true);
         _bottomPart.TimeScore.Text.gameObject.SetActive(true);
 
-        _bottomPart.TimeScore.Text.text = _level.timeFinished;
+        _bottomPart.TimeScore.Text.text = _level.timeFinished.ToString();
         _bottomPart.StatusText.Text.text = "";
 
         _bottomPart.TimeScore.Image.sprite = palleta.GetSprite(UISprite.UnlockBackgroundScore);

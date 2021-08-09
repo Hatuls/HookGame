@@ -2,6 +2,8 @@
 
 public class WinAreaTrigger : MonoBehaviour
 {
+    
+
     bool isFlag = false;
     private void OnTriggerEnter(Collider other)
     {
@@ -11,8 +13,7 @@ public class WinAreaTrigger : MonoBehaviour
     void Win()
     {
         isFlag = true;
-        SceneHandlerSO.LevelCompleted();
-        SceneHandlerSO.LoadScene((ScenesName)SceneHandlerSO.CurrentLevel);
+        LevelManager.Instance.FinishLevel();
     }
 
 }

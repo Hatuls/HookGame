@@ -13,7 +13,8 @@ public class WinAreaTrigger : MonoBehaviour
     void Win()
     {
         isFlag = true;
-        LevelManager.Instance.FinishLevel();
+        WinMenu.Instance.OpenMenu();
+
     }
 
 }

@@ -211,6 +211,9 @@ public class UIManager : MonoBehaviour
 
 
     #endregion
+
+    public void ExitGame()
+        => Application.Quit();
 }
 
 public interface IMenuHandler

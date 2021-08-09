@@ -539,6 +539,7 @@ MonoBehaviour:
       inverseFieldPerView: 0.645
       minFov: 50
   distanceCheck: {fileID: 0}
+  Pause: {fileID: 0}
   _playerPhysicsManager:
     dragValues:
       DefaultFloor: 0.1
@@ -662,7 +663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263753851796680712}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: 0.36, z: 17.9}
+  m_LocalPosition: {x: -0, y: 0.36, z: 1.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1263753851697889303}
@@ -1236,7 +1237,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0.5
-    maxNumParticles: 500
+    maxNumParticles: 1000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -10446,7 +10447,7 @@ PrefabInstance:
     - target: {fileID: 4888412182507060903, guid: 4d48a51190803ce4182d5381b9406bae,
         type: 3}
       propertyPath: grappleSetting.GrapplingRange
-      value: 30
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4888412182507060903, guid: 4d48a51190803ce4182d5381b9406bae,
         type: 3}

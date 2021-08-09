@@ -5,7 +5,8 @@ public class PauseMenu : MonoBehaviour, IMenuHandler
 {
     [SerializeField] RectTransform[] btns;
 
-    
+   
+
     IEnumerator GetIntoMenu(System.Action afterAction = null)
     {
 

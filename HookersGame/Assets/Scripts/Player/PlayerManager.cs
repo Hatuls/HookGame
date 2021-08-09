@@ -5,23 +5,24 @@ using UnityEngine;
     public enum Stage {City,Tunnel }
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
-    public enum InputInfluenceState { QTE , Beat}
-    internal enum PlayerInfluenceType {linear,Impulse,explosion}
+    public enum InputInfluenceState { QTE, Beat }
+    internal enum PlayerInfluenceType { linear, Impulse, explosion }
     [SerializeField] Stage currentStage;
 
     internal Rigidbody rb;
-    bool Influenced=false;
+    bool Influenced = false;
 
     [SerializeField] GameObject GrapplingGunObj;
     [SerializeField] GameObject CompressorObj;
     [SerializeField] float movementSpeed;
     [SerializeField] LayerMask GroundLayer;
-    [SerializeField]PlayerUI _playerUi;
-    [SerializeField]PlayerGfxManager _playerGfxManager;
+    [SerializeField] PlayerUI _playerUi;
+    [SerializeField] PlayerGfxManager _playerGfxManager;
     [SerializeField] GameObject distanceCheck;
-    [SerializeField] PauseMenu _pause;
 
-    CameraController _cameraController;
+    public PauseMenu Pause;
+
+        CameraController _cameraController;
     InputManager _inputManager;
     InputForm _inputForm;
     Transform StartPoint;
@@ -41,7 +42,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     // Start is called before the first frame update
     public override void Init()
     {
-       
+
         LevelManager.ResetLevelParams += ResetValues;
 
         GetComponents();
@@ -66,8 +67,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
         if (_inputForm.generalKeys.mainMenu)
         {
-            if (_pause.gameObject.activeSelf==false)
-                 _pause?.OpenPause();
+            if (Pause.gameObject.activeSelf==false)
+                 Pause?.OpenPause();
             return;
         }
         switch (currentStage)

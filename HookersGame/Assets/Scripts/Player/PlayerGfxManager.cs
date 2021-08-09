@@ -48,7 +48,7 @@ public class PlayerGfxManager
         if (newValue < RenderVolumeComponents.ChromaticAberrationMaxIntensityValue && newValue > RenderVolumeComponents.ChromaticAberrationMinIntensityValue)
         {
             RenderVolumeComponents.ChromaticAberration.intensity.Override(newValue); // = new ClampedFloatParameter(newValue, newValue, newValue,true);
-           Debug.Log("Chromaticaberration changed to" + RenderVolumeComponents.ChromaticAberration.intensity.value);
+          // Debug.Log("Chromaticaberration changed to" + RenderVolumeComponents.ChromaticAberration.intensity.value);
 
         }
     }
@@ -61,7 +61,7 @@ public class PlayerGfxManager
 
          
             RenderVolumeComponents.Vignette.intensity.Override(newValue);// = new ClampedFloatParameter(newValue, newValue, newValue,true);
-            Debug.Log("Vinniet changed to"+ RenderVolumeComponents.Vignette.intensity.value);
+            //Debug.Log("Vinniet changed to"+ RenderVolumeComponents.Vignette.intensity.value);
             
 
         }

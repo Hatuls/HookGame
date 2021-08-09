@@ -43,8 +43,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
        
         LevelManager.ResetLevelParams += ResetValues;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;    
+
         GetComponents();
         GetEquipment();
         _playerGfxManager.Init();

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PauseMenu : MonoBehaviour, IMenuHandler
 {
@@ -12,5 +10,24 @@ public class PauseMenu : MonoBehaviour, IMenuHandler
     public void OnEnd()
     {
         gameObject.SetActive(false);
+    }
+
+    public void ExitGame()
+        => Application.Quit();
+
+    public void ReturnToMainMenu()
+        => SceneHandlerSO.LoadScene(ScenesName.MainMenuScene);
+
+
+    public void Resume()
+    {
+       SceneHandlerSO.MouseShower(false);
+        gameObject.SetActive(false);
+    }
+
+    public void SettingsMenu()
+    {
+        gameObject.SetActive(false);
+        // tunr on Settings Menu
     }
 }

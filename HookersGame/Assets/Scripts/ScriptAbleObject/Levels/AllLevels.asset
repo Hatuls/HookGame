@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0341602902ec4e945b49084b90ddd2cf, type: 2}
   - {fileID: 11400000, guid: ddf265c0dcba0264ea7bd82faa47e6cd, type: 2}
   - {fileID: 11400000, guid: 2f8a2ec9040f0034e93bb02bbdb7eae6, type: 2}
-  maxLevelUnlocked: 6
+  maxLevelUnlocked: 0
   levelSelected: 0

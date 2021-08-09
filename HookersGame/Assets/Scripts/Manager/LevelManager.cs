@@ -20,7 +20,7 @@ public partial class LevelManager : MonoSingleton<LevelManager>
         if (SceneHandlerSO.LevelCompleted())
         {
             LevelsSO.RegisterTime(LevelTimer);
-        LevelsSO.RaiseLevel();
+            LevelsSO.RaiseLevel();
         }
 
         SceneHandlerSO.LoadScene((ScenesName)SceneHandlerSO.CurrentLevel+1);// here is what move the player to the next level when he finished

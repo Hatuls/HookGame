@@ -11,18 +11,25 @@ public class UIManager : MonoBehaviour
     private static UIManager _instance;
     [SerializeField] UIMenus currentMenus = UIMenus.MainMenu;
     [Space]
+    [SerializeField] CanvasScaler _canvas;
     [SerializeField] Image _backgroundImg;
     [SerializeField] float _opacity;
     [Space]
+    [SerializeField] GameObject _innerGameMenu;
+    [SerializeField] GameObject _mainMenuContainer;
     [SerializeField] UIPallett _uIPallett;
     [SerializeField] AllLevels _allLevel;
 
     [Space]
+    [SerializeField] WinMenu _winMenu;
     [SerializeField] PauseMenu _pauseMenu;
     [SerializeField] SettingsMenu _settingsMenuGO;
     [SerializeField] LevelSelectUIMenu _levelSelectMenu;
     [SerializeField] MainMenuUI _mainMenu;
 
+
+    //Vector2 mainMenuResulution = new Vector2(1920, 1080);
+    //Vector2 inGameMenuResulution = new Vector2(800, 1080);
 
     //Ron
     private List<IMenuHandler> menuList;
@@ -56,9 +63,13 @@ public class UIManager : MonoBehaviour
     }
     public void ResetMenu()
     {
-        gameObject.SetActive(true);
+        _pauseMenu.gameObject.SetActive(false);
+        _winMenu.gameObject.SetActive(false);
+        ClosePauseMenu();
+
+        _mainMenuContainer.gameObject.SetActive(true);
         SetMenu = UIMenus.MainMenu;
-    
+        EnumToGameObject(UIMenus.LevelMenu).OnEnd();
     }
     private void SetbackGround(UIMenus currentMenus)
     {
@@ -66,6 +77,30 @@ public class UIManager : MonoBehaviour
         Color c = _backgroundImg.color;
         c.a = _opacity/100;
         _backgroundImg.color = c;
+    }
+
+    internal void OpenPauseMenu()
+    {
+  //      _canvas.referenceResolution = inGameMenuResulution;
+        InnerContainer(true);
+        _pauseMenu.OpenPauseMenu();
+    }
+
+    public void ClosePauseMenu()
+    {
+   //     _canvas.referenceResolution = mainMenuResulution;
+        InnerContainer(false);
+        Time.timeScale = 1;
+    }
+
+    public void OpenWinMenu()
+    {
+        InnerContainer(true);
+       _winMenu.OpenMenu();
+    }
+    internal void InnerContainer(bool value)
+    {
+      _innerGameMenu.SetActive(value);
     }
 
     public ref AllLevels GetAllLevels =>ref _allLevel;
@@ -103,12 +138,7 @@ public class UIManager : MonoBehaviour
 
     
     }
-    IEnumerator check()
-    {
-        yield return new WaitForSeconds(0.1f);
-        EnumToGameObject(UIMenus.LevelMenu).OnEnd();
-        gameObject.SetActive(true);
-    }
+
     public void Init()
     {
 
@@ -175,7 +205,7 @@ public class UIManager : MonoBehaviour
             return;
 
         SceneHandlerSO.LoadScene((ScenesName)(index+1));
-        gameObject.SetActive(false);
+        _mainMenuContainer.gameObject.SetActive(false);
     }
 
 

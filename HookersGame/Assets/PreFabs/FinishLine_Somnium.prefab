@@ -584,6 +584,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TunnelEntranceCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 4887527823645233934, guid: 55702f63a903ec4429384b668a611fca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55702f63a903ec4429384b668a611fca, type: 3}
 --- !u!4 &6292552927723490758 stripped

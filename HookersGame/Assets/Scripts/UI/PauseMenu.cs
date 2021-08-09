@@ -7,19 +7,6 @@ public class PauseMenu : MonoBehaviour, IMenuHandler
 
    
 
-    IEnumerator GetIntoMenu(System.Action afterAction = null)
-    {
-
-        for (int i = 0; i < btns.Length; i++)
-        {
-            btns[i].gameObject.SetActive(true);
-
-
-            yield return null;
-        }
-
-        afterAction?.Invoke();
-    }
     IEnumerator GetOutMenu(System.Action afterAction = null)
     {
         for (int i = 0; i < btns.Length; i++)
@@ -73,15 +60,16 @@ public class PauseMenu : MonoBehaviour, IMenuHandler
     public void OpenPauseMenu()
     {
 
-        gameObject.SetActive(true);     
-      
-        StartCoroutine(GetIntoMenu(
-            () =>
-            { 
-                Time.timeScale = 0;
+       this.gameObject.SetActive(true);
+
+        for (int i = 0; i < btns.Length; i++)
+        {
+
+        btns[i].gameObject.SetActive(true);
+        }
+        Time.timeScale = 0;
                  SceneHandlerSO.MouseShower(true);
-            }
-            ));
+       
     }
     public void SettingsMenu()
     {

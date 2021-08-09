@@ -167,9 +167,10 @@ public class LevelSlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         _bottomPart.StatusText.Text.gameObject.SetActive(true);
         _bottomPart.TimeScore.Text.gameObject.SetActive(true);
 
-        _bottomPart.TimeScore.Text.text = _level.timeFinished.ToString();
+        _bottomPart.TimeScore.Text.text = string.Format("{0:0.00}", _level.timeFinished);
+        _bottomPart.TimeScore.Text.fontSize = 10f;
         _bottomPart.StatusText.Text.fontSize = 15f;
-        _bottomPart.StatusText.Text.text = "Completed!";
+        _bottomPart.StatusText.Text.text = AssessmentHander.GetAssessment(_level.timeFinished);
 
         _bottomPart.TimeScore.Image.sprite = palleta.GetSprite(UISprite.UnlockBackgroundScore);
         _bottomPart.StatusText.Image.sprite = palleta.GetSprite(UISprite.UnlockBackgroundFeedback);
@@ -186,8 +187,7 @@ public class LevelSlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
         gameObject.SetActive(true);
 
-        LeanTween.scale(gameObject, Vector3.one * 1.3f, time).setEase(_transition).setOnComplete(
-       () => LeanTween.scale(gameObject, Vector3.one, time).setEase(_transition));
+       LeanTween.scale(gameObject, Vector3.one, time).setEase(_transition);
     }
 
     public void OnPointerClick(PointerEventData eventData)

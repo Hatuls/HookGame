@@ -20,14 +20,18 @@ public class AllLevels : ScriptableObject
     {
         LevelSO s = GetCurrentLevel();
 
-        if (s.timeFinished == 0 || s.timeFinished > levelTimer)
+        if (s.timeFinished <= 1f || s.timeFinished > levelTimer)
             GetCurrentLevel().timeFinished = levelTimer;
 
 
 
     }
 
-    public void RaiseLevel() => maxLevelUnlocked++;
+    public void RaiseLevel() { 
+        maxLevelUnlocked++;
+        if (SceneHandlerSO.HighestLevel < maxLevelUnlocked)
+        SceneHandlerSO.HighestLevel = maxLevelUnlocked-1;    
+    }
 
     public LevelSO GetCurrentLevel() => GetLevel(levelSelected);
 }

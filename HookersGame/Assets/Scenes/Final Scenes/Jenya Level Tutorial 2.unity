@@ -791,11 +791,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1587082691572798161, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: InnerCourser
-      value: 
-      objectReference: {fileID: 1258568859}
     - target: {fileID: 1587082691572798165, guid: e277951ea3d68224195ec92b66f12294,
         type: 3}
       propertyPath: m_Camera
@@ -905,71 +900,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082691601242097, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082691601242098, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082691601242098, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082691601242098, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082692008010008, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082692008010009, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082692008010009, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082692008010009, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082692187003980, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_Name
-      value: Crosshair
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082692187003980, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082692187003981, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.164429
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082692187003981, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.164429
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587082692187003981, guid: e277951ea3d68224195ec92b66f12294,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.164429
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e277951ea3d68224195ec92b66f12294, type: 3}

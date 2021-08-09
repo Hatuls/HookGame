@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     //Ron
     private List<IMenuHandler> menuList;
-
+    public PauseMenu PauseMenu => _pauseMenu;
     #endregion
 
 

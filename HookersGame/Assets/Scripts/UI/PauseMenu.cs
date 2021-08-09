@@ -67,7 +67,7 @@ public class PauseMenu : MonoBehaviour, IMenuHandler
         }
         ));
     }
-    public void OpenPause()
+    public void OpenPauseMenu()
     {
 
         gameObject.SetActive(true);     

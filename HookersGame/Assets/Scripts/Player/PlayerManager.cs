@@ -67,8 +67,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
         if (_inputForm.generalKeys.mainMenu)
         {
-            if (Pause.gameObject.activeSelf==false)
-                 Pause?.OpenPause();
+            if (UIManager.Instance.PauseMenu.gameObject.activeSelf==false)
+                UIManager.Instance.PauseMenu?.OpenPauseMenu();
             return;
         }
         switch (currentStage)

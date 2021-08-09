@@ -19,5 +19,5 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  LevelImage: {fileID: 21300000, guid: 4b3d3df495ee0d7498117dcf2c217905, type: 3}
-  timeFinished: 
+  LevelImage: {fileID: 21300000, guid: 2743ab9d1caca0e469d8c93ce346c214, type: 3}
+  timeFinished: 0

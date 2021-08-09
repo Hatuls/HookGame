@@ -5,23 +5,24 @@ using UnityEngine;
     public enum Stage {City,Tunnel }
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
-    public enum InputInfluenceState { QTE , Beat}
-    internal enum PlayerInfluenceType {linear,Impulse,explosion}
+    public enum InputInfluenceState { QTE, Beat }
+    internal enum PlayerInfluenceType { linear, Impulse, explosion }
     [SerializeField] Stage currentStage;
 
     internal Rigidbody rb;
-    bool Influenced=false;
+    bool Influenced = false;
 
     [SerializeField] GameObject GrapplingGunObj;
     [SerializeField] GameObject CompressorObj;
     [SerializeField] float movementSpeed;
     [SerializeField] LayerMask GroundLayer;
-    [SerializeField]PlayerUI _playerUi;
-    [SerializeField]PlayerGfxManager _playerGfxManager;
+    [SerializeField] PlayerUI _playerUi;
+    [SerializeField] PlayerGfxManager _playerGfxManager;
     [SerializeField] GameObject distanceCheck;
 
+    public PauseMenu Pause;
 
-    CameraController _cameraController;
+        CameraController _cameraController;
     InputManager _inputManager;
     InputForm _inputForm;
     Transform StartPoint;
@@ -41,10 +42,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     // Start is called before the first frame update
     public override void Init()
     {
-       
+
         LevelManager.ResetLevelParams += ResetValues;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;    
+
         GetComponents();
         GetEquipment();
         _playerGfxManager.Init();
@@ -65,7 +65,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         UpdateUi();
         CameraCommands();
 
-        if (_inputForm.generalKeys.mainMenu) { SceneHandlerSO.LoadScene(ScenesName.MainMenuScene); Cursor.visible = true; Cursor.lockState = CursorLockMode.None; }
+        if (_inputForm.generalKeys.mainMenu)
+        {
+            if (Pause.gameObject.activeSelf==false)
+                 Pause?.OpenPause();
+            return;
+        }
         switch (currentStage)
         {
             case Stage.City:

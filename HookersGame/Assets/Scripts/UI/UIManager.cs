@@ -88,13 +88,10 @@ public class UIManager : MonoBehaviour
     public void MoveToMenu(int index) => SetMenu = (UIMenus)index;
     public void Init()
     {
-        //SetMenu = UIMenus.MainMenu;
-        MenuByScene(SceneHandlerSO.CurrentLevel);
-        _backgroundImg.sprite = GetBackGroundImage(currentMenus);
-       // SetMenu = UIMenus.MainMenu;
 
-        //Ron
-        //InitMenuList();
+        _backgroundImg.sprite = GetBackGroundImage(currentMenus);
+        // SetMenu = UIMenus.MainMenu;
+        SetMenu = UIMenus.MainMenu;
 
     }
     private void ChangeMenus(UIMenus currentMenus, UIMenus newMenu)
@@ -166,22 +163,7 @@ public class UIManager : MonoBehaviour
     //    menuList.Add(_settingsMenuGO);
     //}
      
-    public void MenuByScene(int index)
-    {
-        if (index == 0)
-        {
-            //foreach(IMenuHandler found in menuList)
-            //{
-            //    found.GetGameObject().SetActive(false);
-            //}
 
-            SetMenu = UIMenus.MainMenu;
-
-        }
-        else { SetMenu = UIMenus.PauseMenu; }
-
-
-    }
 
     public void ExitGame()
     {

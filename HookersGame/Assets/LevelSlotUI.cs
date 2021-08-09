@@ -98,7 +98,7 @@ public class LevelSlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         //bottom Part
         _bottomPart.StatusText.Text.gameObject.SetActive(true);
         _bottomPart.TimeScore.Text.gameObject.SetActive(false);
-
+        _bottomPart.StatusText.Text.fontSize = 22f;
         _bottomPart.StatusText.Text.text = "Lets GO!";
 
         _bottomPart.TimeScore.Image.sprite = palleta.GetSprite(UISprite.UnlockBackgroundScore);
@@ -168,7 +168,8 @@ public class LevelSlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         _bottomPart.TimeScore.Text.gameObject.SetActive(true);
 
         _bottomPart.TimeScore.Text.text = _level.timeFinished.ToString();
-        _bottomPart.StatusText.Text.text = "";
+        _bottomPart.StatusText.Text.fontSize = 15f;
+        _bottomPart.StatusText.Text.text = "Completed!";
 
         _bottomPart.TimeScore.Image.sprite = palleta.GetSprite(UISprite.UnlockBackgroundScore);
         _bottomPart.StatusText.Image.sprite = palleta.GetSprite(UISprite.UnlockBackgroundFeedback);

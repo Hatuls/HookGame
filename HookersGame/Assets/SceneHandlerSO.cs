@@ -16,6 +16,8 @@ public  class SceneHandlerSO : ScriptableObject
         if (sceneIndex > HighestLevel)
             return;
 
+        MouseShower(scenes == ScenesName.MainMenuScene);
+        
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);  
     }
 
@@ -27,5 +29,20 @@ public  class SceneHandlerSO : ScriptableObject
             return true;
         }
         return false;
+    }
+
+
+    public static void MouseShower(bool toUnLockAndRevealMouse)
+    {
+        if (toUnLockAndRevealMouse)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

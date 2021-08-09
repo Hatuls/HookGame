@@ -15,6 +15,6 @@ public class LevelSO : ScriptableObject
 
 
     public Sprite LevelImage;
-    public string timeFinished;
+    public float timeFinished;
 
 }

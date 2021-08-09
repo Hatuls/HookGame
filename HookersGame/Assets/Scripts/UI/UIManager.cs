@@ -68,13 +68,13 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-
+       
     }
 
     private void Start()
     {
         Init();
-        SceneHandlerSO.CurrentLevel= 0;
+
         SceneHandlerSO.HighestLevel =1;
     }
     #endregion

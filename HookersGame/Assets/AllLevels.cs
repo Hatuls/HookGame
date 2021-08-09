@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "AllLevels", menuName = "ScriptableObjects/Level/AllLevels")] 
 public class AllLevels : ScriptableObject
@@ -14,6 +15,18 @@ public class AllLevels : ScriptableObject
             return null;
         return _levels[index];
     }
+
+    internal void RegisterTime(float levelTimer)
+    {
+        LevelSO s = GetCurrentLevel();
+
+        if (s.timeFinished == 0 || s.timeFinished > levelTimer)
+            GetCurrentLevel().timeFinished = levelTimer;
+
+
+
+    }
+
     public void RaiseLevel() => maxLevelUnlocked++;
 
     public LevelSO GetCurrentLevel() => GetLevel(levelSelected);

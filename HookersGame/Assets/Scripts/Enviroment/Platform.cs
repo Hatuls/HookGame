@@ -116,7 +116,7 @@ public class Platform : MonoBehaviour
 
                
                 other.gameObject.GetComponent<PlayerManager>().ApplyForceToPlayer(influenceSettings);
-
+                soundSource.Play();
             }
             if (Distructable)
             {
@@ -128,6 +128,10 @@ public class Platform : MonoBehaviour
                 LevelManager.Instance.ResetLevelValues();
             }
         }
+    }
+    void InvokedSoundDeactivate()
+    {
+        gameObject.SetActive(false);
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -142,7 +146,8 @@ public class Platform : MonoBehaviour
             }
             if (Distructable)
             {
-                gameObject.SetActive(false);
+              //  Invoke("InvokedSoundDeactivate", 0.2f);
+               gameObject.SetActive(false);
             }
 
 
@@ -229,6 +234,7 @@ public class Platform : MonoBehaviour
     private void PlatfromReset()
     {
         StopAllCoroutines();
+        movementCoru = null;
         LeanTween.cancelAll();
 
         if (movingPlatform)

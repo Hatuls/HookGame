@@ -28,8 +28,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] MainMenuUI _mainMenu;
 
 
-    //Vector2 mainMenuResulution = new Vector2(1920, 1080);
-    //Vector2 inGameMenuResulution = new Vector2(800, 1080);
+    [SerializeField] Texture2D _normalMouse;
+    [SerializeField] Texture2D _hoverMouse;
 
     //Ron
     private List<IMenuHandler> menuList;
@@ -46,6 +46,23 @@ public class UIManager : MonoBehaviour
             return _instance;
         }
     }
+
+
+
+    private void Update()
+    {
+        if (Cursor.visible)
+        {
+            if (Input.GetMouseButtonDown(0))
+                Cursor.SetCursor(_hoverMouse, Vector2.zero, CursorMode.ForceSoftware);
+            else if(Input.GetMouseButtonUp(0))
+                Cursor.SetCursor(_normalMouse, Vector2.zero, CursorMode.ForceSoftware);
+        }
+    }
+
+
+
+
     private UIMenus SetMenu
     {
         set

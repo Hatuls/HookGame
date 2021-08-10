@@ -377,11 +377,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8515689196590364996, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
-        type: 3}
-      propertyPath: bufferDecreaserValue
-      value: 0.001
-      objectReference: {fileID: 0}
     - target: {fileID: 8576585623732089811, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
         type: 3}
       propertyPath: m_RootOrder
@@ -436,11 +431,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919498892951882436, guid: f0bdb2ec44753d1439cef4b81fa5bf25,
-        type: 3}
-      propertyPath: Loop
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0bdb2ec44753d1439cef4b81fa5bf25, type: 3}

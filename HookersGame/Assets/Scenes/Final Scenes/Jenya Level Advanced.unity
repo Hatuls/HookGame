@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 8d1738d3999c4a545943885cc14de220,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3355,6 +3355,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 233505750}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &233601755 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -4369402571921402242, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1195074267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &235205922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3794,6 +3800,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -4112,6 +4123,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -5961,6 +5977,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -6099,6 +6120,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -7025,6 +7051,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -9804,6 +9835,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -10067,6 +10103,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -11979,6 +12020,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -12431,6 +12477,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -18721,6 +18772,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -18859,6 +18915,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -20546,6 +20607,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -22930,6 +22996,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -24730,6 +24801,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -26913,6 +26989,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -27404,6 +27485,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -27542,6 +27628,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -28017,6 +28108,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -29162,6 +29258,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -30929,6 +31030,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -35349,6 +35455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -35582,6 +35693,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -36728,6 +36844,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
       propertyPath: Distructable
       value: 1
       objectReference: {fileID: 0}
@@ -37282,6 +37403,11 @@ PrefabInstance:
       propertyPath: isHookable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
+        type: 3}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 233601755}
     - target: {fileID: 8871434284885498117, guid: 49dddd11ccbb93c41ae0596bc76e15b8,
         type: 3}
       propertyPath: Distructable
@@ -39005,11 +39131,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6203947515420613763, guid: b40a5c3827aa9f643a0dd96a84849f0d,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6a7b83e9de6fa6f4e8e30ec6f1b11be7, type: 3}
     - target: {fileID: 7004462041271282377, guid: b40a5c3827aa9f643a0dd96a84849f0d,
         type: 3}
       propertyPath: m_Name

@@ -16,6 +16,7 @@ public class GrapplingGun : MonoBehaviour
    [SerializeField] Transform frontHandSlot;
    [SerializeField] GameObject frontArmObj;
    [SerializeField] GameObject backArmObj;
+   [SerializeField] AudioSource audioSource;
 
     private GameObject currentFrontArm;
     internal FrontArm _frontArm;
@@ -57,6 +58,7 @@ public class GrapplingGun : MonoBehaviour
         frontConnected = false;
         if (_frontArm != null)
         {
+            audioSource.Play();
             _frontArm.Launch(this);
        StartCoroutine(DrawProceduralRope(_frontArm.gameObject));
         }

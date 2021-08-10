@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 8989733879512089848}
   - component: {fileID: 5435326606314031965}
   - component: {fileID: 7821309486102167447}
+  - component: {fileID: 8707807884115520923}
   m_Layer: 0
   m_Name: FinishLine_Somnium
   m_TagString: Untagged
@@ -104,9 +105,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8613736793598893634}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000000104308114}
+  m_LocalRotation: {x: -0, y: -1, z: 0, w: -0.0000001872535}
   m_LocalPosition: {x: 67.94166, y: 173, z: 3598.801}
-  m_LocalScale: {x: 6.8895, y: 6.8895, z: 6.8895}
+  m_LocalScale: {x: 8.3092375, y: 8.3092375, z: 8.3092375}
   m_Children:
   - {fileID: 4678782673342364317}
   - {fileID: 8884276227278846033}
@@ -163,6 +164,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8707807884115520923
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613736793598893634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3861478300804232965, guid: a0ee3ba8a16848a4f9fa3b89e5475752, type: 3}
 --- !u!1 &8884276226665802258
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,8 +27,12 @@ public class AllLevels : ScriptableObject
 
     }
 
-    public void RaiseLevel() { 
+    public void RaiseLevel() {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex-1 == maxLevelUnlocked)
+        {
         maxLevelUnlocked++;
+        }
+
         if (SceneHandlerSO.HighestLevel < maxLevelUnlocked)
         SceneHandlerSO.HighestLevel = maxLevelUnlocked-1;    
     }

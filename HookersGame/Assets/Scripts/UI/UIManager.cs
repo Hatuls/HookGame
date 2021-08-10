@@ -54,9 +54,12 @@ public class UIManager : MonoBehaviour
         if (Cursor.visible)
         {
             if (Input.GetMouseButtonDown(0))
-                Cursor.SetCursor(_hoverMouse, Vector2.zero, CursorMode.ForceSoftware);
+            {
+                Cursor.SetCursor(_hoverMouse, Vector2.zero, CursorMode.Auto);
+              
+            }
             else if(Input.GetMouseButtonUp(0))
-                Cursor.SetCursor(_normalMouse, Vector2.zero, CursorMode.ForceSoftware);
+                Cursor.SetCursor(_normalMouse, Vector2.zero, CursorMode.Auto);
         }
     }
 
@@ -220,7 +223,7 @@ public class UIManager : MonoBehaviour
     {
         if (index < 0)
             return;
-
+        _allLevel.CurrentLevelSelected = index ;
         SceneHandlerSO.LoadScene((ScenesName)(index+1));
         _mainMenuContainer.gameObject.SetActive(false);
     }

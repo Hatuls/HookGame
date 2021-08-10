@@ -877,6 +877,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4345201625543203672, guid: 3937f44660b53a841ac8bc9ead829e4f,
+        type: 3}
+      propertyPath: _hoverMouse
+      value: 
+      objectReference: {fileID: 2800000, guid: 77961112c0fd0d248914923d15d3bbc7, type: 3}
     - target: {fileID: 4345201625543203679, guid: 3937f44660b53a841ac8bc9ead829e4f,
         type: 3}
       propertyPath: m_Pivot.x

@@ -208,9 +208,17 @@ public class GrapplingGun : MonoBehaviour
         _frontArm = currentFrontArm.GetComponent<FrontArm>();
         frontConnected = true;
     }
+
+
     private void OnDestroy()
     {
+
+        if (_lineRenderer!= null)
+        {
+
         _lineRenderer.enabled = false;
+        }
+        
     }
 }
 [System.Serializable]

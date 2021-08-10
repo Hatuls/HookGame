@@ -15,7 +15,7 @@ public class WinMenu : MonoBehaviour
 
    
         gameObject.SetActive(true);
-        time.text = string.Format("{0:0.00}", LevelManager.Instance.LevelTimer);
+        time.text = string.Format("{0:0.00} sec", LevelManager.Instance.LevelTimer);
         //string.Concat((t / 60) + " : " + (Mathf.Round(LevelManager.Instance.LevelTimer % 60));
         mark.text = AssessmentHander.GetAssessment(LevelManager.Instance.LevelTimer);
         Time.timeScale = 0;
@@ -27,6 +27,8 @@ public class WinMenu : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1;
+        this.gameObject.SetActive(false);
+        LevelManager.Instance.FinishLevel();
         SceneHandlerSO.LoadScene(ScenesName.MainMenuScene);
         UIManager.Instance.ResetMenu();
     }

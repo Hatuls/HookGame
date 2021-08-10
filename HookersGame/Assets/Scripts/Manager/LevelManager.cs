@@ -19,10 +19,10 @@ public partial class LevelManager : MonoSingleton<LevelManager>
 
         if (SceneHandlerSO.LevelCompleted())
         {
-            LevelsSO.RegisterTime(LevelTimer);
+       
             LevelsSO.RaiseLevel();
         }
-
+        LevelsSO.RegisterTime(LevelTimer);
         SceneHandlerSO.LoadScene((ScenesName)SceneHandlerSO.CurrentLevel+1);// here is what move the player to the next level when he finished
     }
 
@@ -44,6 +44,8 @@ public partial class LevelManager : MonoSingleton<LevelManager>
     }
     public override void Init()
     {
+
+        LevelsSO.CurrentLevelSelected = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex - 1;
         ResetLevelValues();
         currentLevel = LevelsSO.CurrentLevelSelected;
         LevelTimer = 0;

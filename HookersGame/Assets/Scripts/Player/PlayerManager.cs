@@ -67,7 +67,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
         if (_inputForm.generalKeys.mainMenu)
         {
-            if (UIManager.Instance.PauseMenu.gameObject.activeInHierarchy == false)
+            if (UIManager.Instance.PauseMenu?.gameObject.activeInHierarchy == false)
                 UIManager.Instance.OpenPauseMenu();
             else
                 UIManager.Instance.ClosePauseMenu();

@@ -2,8 +2,8 @@
 
 public class WinAreaTrigger : MonoBehaviour
 {
-    
 
+    [SerializeField] tutorialToggle _t;
     bool isFlag = false;
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +14,7 @@ public class WinAreaTrigger : MonoBehaviour
     {
         isFlag = true;
         UIManager.Instance.OpenWinMenu();
-
+        _t?.gameObject.SetActive(false);
     }
 
 }

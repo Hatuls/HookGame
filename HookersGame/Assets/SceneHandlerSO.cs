@@ -5,7 +5,7 @@ public enum ScenesName {MainMenuScene=0,Level1Scene=1,Level2Scene=2,Level3Scene=
 [CreateAssetMenu(fileName ="SceneHandlerSO", menuName ="ScriptableObjects/Scenes/SceneHandlerSO")]
 public  class SceneHandlerSO : ScriptableObject
 {
-
+    
     public static int CurrentLevel => UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
     public static int HighestLevel;
 

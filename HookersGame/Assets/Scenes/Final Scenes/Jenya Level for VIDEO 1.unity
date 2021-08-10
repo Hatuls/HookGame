@@ -2459,6 +2459,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinArea
       objectReference: {fileID: 0}
+    - target: {fileID: 6762680157360102524, guid: e60094de29932314ab07bc82764c632e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e60094de29932314ab07bc82764c632e, type: 3}
 --- !u!1001 &1263753850889328425

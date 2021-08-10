@@ -107,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 8613736793598893634}
   m_LocalRotation: {x: -0, y: -1, z: 0, w: -0.0000001872535}
   m_LocalPosition: {x: 67.94166, y: 173, z: 3598.801}
-  m_LocalScale: {x: 8.3092375, y: 8.3092375, z: 8.3092375}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 4678782673342364317}
   - {fileID: 8884276227278846033}
@@ -221,8 +221,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 4278
-  m_Range: 39.778633
+  m_Intensity: 7000
+  m_Range: 69.07
   m_SpotAngle: 116.88801
   m_InnerSpotAngle: 45.652718
   m_CookieSize: 10
@@ -313,8 +313,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 4278
-  m_Range: 39.778633
+  m_Intensity: 7000
+  m_Range: 106
   m_SpotAngle: 135.33693
   m_InnerSpotAngle: 0
   m_CookieSize: 10
@@ -407,12 +407,12 @@ PrefabInstance:
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 36.18218
+      value: 47.52398
       objectReference: {fileID: 0}
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 18.09109
+      value: 19.058964
       objectReference: {fileID: 0}
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
@@ -422,7 +422,7 @@ PrefabInstance:
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -89.39816
+      value: -117.9
       objectReference: {fileID: 0}
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
@@ -432,7 +432,7 @@ PrefabInstance:
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.849654
+      value: 13.4
       objectReference: {fileID: 0}
     - target: {fileID: 4068912518224944628, guid: e60094de29932314ab07bc82764c632e,
         type: 3}
